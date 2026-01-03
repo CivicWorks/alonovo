@@ -1,0 +1,187 @@
+{
+  "generated": "2025-01-03",
+  "criterion": "lobbying",
+  "grading_method": "Lower lobbying spend = better grade. Grades based on percentile ranking.",
+  "companies": [
+    {
+      "name": "Costco",
+      "ticker": "COST",
+      "sector": "Retail",
+      "lobbying_spend_2024": 1200000,
+      "lobbying_grade": "A",
+      "lobbying_score": 0.85,
+      "grade_reason": "Lowest lobbying spend among major retailers"
+    },
+    {
+      "name": "McDonald's",
+      "ticker": "MCD",
+      "sector": "Restaurant",
+      "lobbying_spend_2024": 1800000,
+      "lobbying_grade": "A-",
+      "lobbying_score": 0.75,
+      "grade_reason": "Low lobbying spend for company size"
+    },
+    {
+      "name": "Starbucks",
+      "ticker": "SBUX",
+      "sector": "Restaurant",
+      "lobbying_spend_2024": 2400000,
+      "lobbying_grade": "B+",
+      "lobbying_score": 0.65,
+      "grade_reason": "Moderate lobbying spend"
+    },
+    {
+      "name": "Target",
+      "ticker": "TGT",
+      "sector": "Retail",
+      "lobbying_spend_2024": 2800000,
+      "lobbying_grade": "B+",
+      "lobbying_score": 0.62,
+      "grade_reason": "Below average for major retailers"
+    },
+    {
+      "name": "Home Depot",
+      "ticker": "HD",
+      "sector": "Retail",
+      "lobbying_spend_2024": 3100000,
+      "lobbying_grade": "B",
+      "lobbying_score": 0.55,
+      "grade_reason": "Moderate lobbying spend"
+    },
+    {
+      "name": "Bank of America",
+      "ticker": "BAC",
+      "sector": "Banking",
+      "lobbying_spend_2024": 3200000,
+      "lobbying_grade": "B",
+      "lobbying_score": 0.53,
+      "grade_reason": "Lower than peer JPMorgan"
+    },
+    {
+      "name": "JPMorgan Chase",
+      "ticker": "JPM",
+      "sector": "Banking",
+      "lobbying_spend_2024": 3600000,
+      "lobbying_grade": "B",
+      "lobbying_score": 0.50,
+      "grade_reason": "Average for major banks"
+    },
+    {
+      "name": "Disney",
+      "ticker": "DIS",
+      "sector": "Entertainment",
+      "lobbying_spend_2024": 4200000,
+      "lobbying_grade": "B-",
+      "lobbying_score": 0.45,
+      "grade_reason": "Above average lobbying"
+    },
+    {
+      "name": "Microsoft",
+      "ticker": "MSFT",
+      "sector": "Technology",
+      "lobbying_spend_2024": 5140000,
+      "lobbying_grade": "C+",
+      "lobbying_score": 0.38,
+      "grade_reason": "High lobbying for tech sector"
+    },
+    {
+      "name": "AT&T",
+      "ticker": "T",
+      "sector": "Telecommunications",
+      "lobbying_spend_2024": 6000000,
+      "lobbying_grade": "C",
+      "lobbying_score": 0.32,
+      "grade_reason": "Significant telecom lobbying"
+    },
+    {
+      "name": "Walmart",
+      "ticker": "WMT",
+      "sector": "Retail",
+      "lobbying_spend_2024": 7240000,
+      "lobbying_grade": "C",
+      "lobbying_score": 0.28,
+      "grade_reason": "Highest among major retailers"
+    },
+    {
+      "name": "Chevron",
+      "ticker": "CVX",
+      "sector": "Oil & Gas",
+      "lobbying_spend_2024": 7500000,
+      "lobbying_grade": "C-",
+      "lobbying_score": 0.25,
+      "grade_reason": "High oil & gas lobbying"
+    },
+    {
+      "name": "ExxonMobil",
+      "ticker": "XOM",
+      "sector": "Oil & Gas",
+      "lobbying_spend_2024": 8700000,
+      "lobbying_grade": "C-",
+      "lobbying_score": 0.22,
+      "grade_reason": "Significant fossil fuel lobbying"
+    },
+    {
+      "name": "Apple",
+      "ticker": "AAPL",
+      "sector": "Technology",
+      "lobbying_spend_2024": 9500000,
+      "lobbying_grade": "D+",
+      "lobbying_score": 0.18,
+      "grade_reason": "High tech lobbying spend"
+    },
+    {
+      "name": "Comcast",
+      "ticker": "CMCSA",
+      "sector": "Telecommunications/Media",
+      "lobbying_spend_2024": 10520000,
+      "lobbying_grade": "D",
+      "lobbying_score": 0.12,
+      "grade_reason": "Very high telecom/media lobbying"
+    },
+    {
+      "name": "General Motors",
+      "ticker": "GM",
+      "sector": "Automotive",
+      "lobbying_spend_2024": 10540000,
+      "lobbying_grade": "D",
+      "lobbying_score": 0.11,
+      "grade_reason": "Highest among automakers"
+    },
+    {
+      "name": "Alphabet (Google)",
+      "ticker": "GOOGL",
+      "sector": "Technology",
+      "lobbying_spend_2024": 11060000,
+      "lobbying_grade": "D",
+      "lobbying_score": 0.08,
+      "grade_reason": "Significant tech lobbying"
+    },
+    {
+      "name": "Verizon Communications",
+      "ticker": "VZ",
+      "sector": "Telecommunications",
+      "lobbying_spend_2024": 11380000,
+      "lobbying_grade": "D-",
+      "lobbying_score": 0.05,
+      "grade_reason": "Highest telecom lobbying"
+    },
+    {
+      "name": "Amazon",
+      "ticker": "AMZN",
+      "sector": "Retail/Technology",
+      "lobbying_spend_2024": 14200000,
+      "lobbying_grade": "F",
+      "lobbying_score": -0.1,
+      "grade_reason": "Second highest overall lobbying"
+    },
+    {
+      "name": "Meta Platforms",
+      "ticker": "META",
+      "sector": "Technology",
+      "lobbying_spend_2024": 18850000,
+      "lobbying_grade": "F",
+      "lobbying_score": -0.25,
+      "grade_reason": "Highest lobbying among consumer companies"
+    }
+  ]
+}
