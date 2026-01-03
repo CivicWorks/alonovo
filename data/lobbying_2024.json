@@ -1,0 +1,147 @@
+{
+  "source": "OpenSecrets/Statista 2024 data",
+  "last_updated": "2025-01-03",
+  "criterion": "lobbying",
+  "companies": [
+    {
+      "name": "Meta Platforms",
+      "ticker": "META",
+      "sector": "Technology",
+      "lobbying_spend_2024": 18850000,
+      "consumer_facing": true
+    },
+    {
+      "name": "Amazon",
+      "ticker": "AMZN",
+      "sector": "Retail/Technology",
+      "lobbying_spend_2024": 14200000,
+      "consumer_facing": true
+    },
+    {
+      "name": "Verizon Communications",
+      "ticker": "VZ",
+      "sector": "Telecommunications",
+      "lobbying_spend_2024": 11380000,
+      "consumer_facing": true
+    },
+    {
+      "name": "Alphabet (Google)",
+      "ticker": "GOOGL",
+      "sector": "Technology",
+      "lobbying_spend_2024": 11060000,
+      "consumer_facing": true
+    },
+    {
+      "name": "General Motors",
+      "ticker": "GM",
+      "sector": "Automotive",
+      "lobbying_spend_2024": 10540000,
+      "consumer_facing": true
+    },
+    {
+      "name": "Comcast",
+      "ticker": "CMCSA",
+      "sector": "Telecommunications/Media",
+      "lobbying_spend_2024": 10520000,
+      "consumer_facing": true
+    },
+    {
+      "name": "Walmart",
+      "ticker": "WMT",
+      "sector": "Retail",
+      "lobbying_spend_2024": 7240000,
+      "consumer_facing": true
+    },
+    {
+      "name": "AT&T",
+      "ticker": "T",
+      "sector": "Telecommunications",
+      "lobbying_spend_2024": 6000000,
+      "consumer_facing": true
+    },
+    {
+      "name": "Microsoft",
+      "ticker": "MSFT",
+      "sector": "Technology",
+      "lobbying_spend_2024": 5140000,
+      "consumer_facing": true
+    },
+    {
+      "name": "JPMorgan Chase",
+      "ticker": "JPM",
+      "sector": "Banking",
+      "lobbying_spend_2024": 3600000,
+      "consumer_facing": true
+    },
+    {
+      "name": "Bank of America",
+      "ticker": "BAC",
+      "sector": "Banking",
+      "lobbying_spend_2024": 3200000,
+      "consumer_facing": true
+    },
+    {
+      "name": "ExxonMobil",
+      "ticker": "XOM",
+      "sector": "Oil & Gas",
+      "lobbying_spend_2024": 8700000,
+      "consumer_facing": true
+    },
+    {
+      "name": "Chevron",
+      "ticker": "CVX",
+      "sector": "Oil & Gas",
+      "lobbying_spend_2024": 7500000,
+      "consumer_facing": true
+    },
+    {
+      "name": "Apple",
+      "ticker": "AAPL",
+      "sector": "Technology",
+      "lobbying_spend_2024": 9500000,
+      "consumer_facing": true
+    },
+    {
+      "name": "Target",
+      "ticker": "TGT",
+      "sector": "Retail",
+      "lobbying_spend_2024": 2800000,
+      "consumer_facing": true
+    },
+    {
+      "name": "Costco",
+      "ticker": "COST",
+      "sector": "Retail",
+      "lobbying_spend_2024": 1200000,
+      "consumer_facing": true
+    },
+    {
+      "name": "Home Depot",
+      "ticker": "HD",
+      "sector": "Retail",
+      "lobbying_spend_2024": 3100000,
+      "consumer_facing": true
+    },
+    {
+      "name": "Starbucks",
+      "ticker": "SBUX",
+      "sector": "Restaurant",
+      "lobbying_spend_2024": 2400000,
+      "consumer_facing": true
+    },
+    {
+      "name": "McDonald's",
+      "ticker": "MCD",
+      "sector": "Restaurant",
+      "lobbying_spend_2024": 1800000,
+      "consumer_facing": true
+    },
+    {
+      "name": "Disney",
+      "ticker": "DIS",
+      "sector": "Entertainment",
+      "lobbying_spend_2024": 4200000,
+      "consumer_facing": true
+    }
+  ]
+}
