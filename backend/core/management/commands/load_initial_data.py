@@ -1,5 +1,6 @@
 import json
 import uuid
+from decimal import Decimal
 from pathlib import Path
 from django.core.management.base import BaseCommand
 from core.models import Claim, Company, CompanyScore
@@ -14,15 +15,15 @@ class Command(BaseCommand):
         with open(data_path) as f:
             data = json.load(f)
 
-        companies_created = 0
-        claims_created = 0
-        scores_created = 0
+        companies_loaded = 0
+        claims_loaded = 0
+        scores_loaded = 0
 
         for company_data in data['companies']:
             ticker = company_data['ticker']
             company_uri = f"urn:alonovo:company:{ticker.lower()}"
 
-            company, created = Company.objects.update_or_create(
+            company, _ = Company.objects.update_or_create(
                 ticker=ticker,
                 defaults={
                     'uri': company_uri,
@@ -30,37 +31,37 @@ class Command(BaseCommand):
                     'sector': company_data['sector'],
                 }
             )
-            if created:
-                companies_created += 1
+            companies_loaded += 1
 
             claim_uri = f"urn:alonovo:claim:lobbying:{ticker.lower()}:2024:{uuid.uuid4().hex[:8]}"
-            claim, created = Claim.objects.update_or_create(
-                subject=company_uri,
-                claim='LOBBYING_SPEND',
-                effective_date='2024-01-01',
+            if not Claim.objects.filter(subject=company_uri, claim_type='LOBBYING_SPEND').exists():
+                Claim.objects.create(
+                    uri=claim_uri,
+                    subject=company_uri,
+                    claim_type='LOBBYING_SPEND',
+                    effective_date='2024-01-01',
+                    amt=Decimal(str(company_data['lobbying_spend_2024'])),
+                    unit='USD',
+                    source_uri='https://www.opensecrets.org/',
+                    how_known='WEB_DOCUMENT',
+                    statement=f"{company_data['name']} lobbying spend for 2024",
+                )
+                claims_loaded += 1
+
+            claim = Claim.objects.filter(subject=company_uri, claim_type='LOBBYING_SPEND').first()
+
+            CompanyScore.objects.update_or_create(
+                company=company,
                 defaults={
-                    'uri': claim_uri,
-                    'amt': company_data['lobbying_spend_2024'],
-                    'unit': 'USD',
-                    'source_uri': 'https://www.opensecrets.org/',
-                    'how_known': 'WEB_DOCUMENT',
-                    'statement': f"{company_data['name']} lobbying spend for 2024",
+                    'score': company_data['lobbying_score'],
+                    'grade': company_data['lobbying_grade'],
+                    'raw_value': company_data['lobbying_spend_2024'],
+                    'reason': company_data['grade_reason'],
+                    'source_claim_uris': [claim.uri] if claim else [],
                 }
             )
-            if created:
-                claims_created += 1
-
-            CompanyScore.objects.filter(company=company).delete()
-            CompanyScore.objects.create(
-                company=company,
-                score=company_data['lobbying_score'],
-                grade=company_data['lobbying_grade'],
-                raw_value=company_data['lobbying_spend_2024'],
-                reason=company_data['grade_reason'],
-                source_claim_uris=[claim.uri],
-            )
-            scores_created += 1
+            scores_loaded += 1
 
         self.stdout.write(self.style.SUCCESS(
-            f'Loaded {companies_created} companies, {claims_created} claims, {scores_created} scores'
+            f'Loaded {companies_loaded} companies, {claims_loaded} claims, {scores_loaded} scores'
         ))

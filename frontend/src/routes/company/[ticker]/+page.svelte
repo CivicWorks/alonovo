@@ -1,50 +1,289 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import { page } from '$app/stores';
-    import { fetchCompany } from '$lib/api';
-    import { formatMoney } from '$lib/utils';
-    import type { Company } from '$lib/types';
+    import { fetchCompany, fetchCompanyClaims, fetchValues } from '$lib/api';
+    import { getGradeClass, computeOverallGrade } from '$lib/utils';
+    import type { Company, ClaimData, ValueDef } from '$lib/types';
 
     let company: Company | null = $state(null);
+    let claims: ClaimData[] = $state([]);
+    let values: ValueDef[] = $state([]);
     let loading = $state(true);
     let error = $state('');
 
     onMount(async () => {
         try {
             const ticker = $page.params.ticker;
-            company = await fetchCompany(ticker);
+            [company, claims, values] = await Promise.all([
+                fetchCompany(ticker),
+                fetchCompanyClaims(ticker),
+                fetchValues(),
+            ]);
         } catch (e) {
             error = 'Failed to load company';
         } finally {
             loading = false;
         }
     });
+
+    function claimsForSnapshot(claimUris: string[]): ClaimData[] {
+        return claims.filter(c => claimUris.includes(c.uri));
+    }
+
+    function formatSource(uri: string): string {
+        try {
+            const url = new URL(uri);
+            return url.hostname.replace('www.', '');
+        } catch {
+            return uri;
+        }
+    }
+
+    function formatClaimType(type: string): string {
+        return type.replace(/_/g, ' ').toLowerCase()
+            .replace(/\b\w/g, c => c.toUpperCase());
+    }
+
+    function formatAmount(claim: ClaimData): string {
+        if (!claim.amt) return '';
+        const amt = parseFloat(claim.amt);
+        if (claim.unit === 'USD') {
+            if (amt >= 1000000) return `$${(amt / 1000000).toFixed(1)}M`;
+            if (amt >= 1000) return `$${(amt / 1000).toFixed(0)}K`;
+            return `$${amt.toFixed(0)}`;
+        }
+        if (claim.unit === 'million_usd') return `$${amt}M`;
+        if (claim.unit === 'percent') return `${amt}%`;
+        return `${amt} ${claim.unit || ''}`.trim();
+    }
 </script>
 
-<a href="/" class="back-btn">← Back</a>
+<div class="container">
+    <a href="/" class="back-btn">&larr; Back to all companies</a>
 
-{#if loading}
-    <div class="loading">Loading...</div>
-{:else if error}
-    <div class="error">{error}</div>
-{:else if company}
-    {@const score = company.scores[0]}
-    <div class="company-detail">
-        <h2>{company.name} ({company.ticker})</h2>
-        <p><strong>Sector:</strong> {company.sector}</p>
-        {#if score}
-            <p><strong>Lobbying spend (2024):</strong> {formatMoney(score.raw_value)}</p>
-            <p><strong>Grade:</strong> {score.grade}</p>
-            <p><strong>Reason:</strong> {score.reason}</p>
-        {/if}
-        <section>
-            <h3>How the grade is calculated</h3>
-            <p>The grade is based solely on lobbying activities. Lower spending = better grade.</p>
-            <ul>
-                <li>Total lobbying expenditures</li>
-                <li>Frequency and type of lobbying</li>
-                <li>Organizations involved</li>
-            </ul>
-        </section>
-    </div>
-{/if}
+    {#if loading}
+        <div class="loading">Loading...</div>
+    {:else if error}
+        <div class="error">{error}</div>
+    {:else if company}
+        <div class="company-detail">
+            <div class="detail-header">
+                <div>
+                    <h2>{company.name}</h2>
+                    <div class="detail-meta">
+                        {#if company.ticker}
+                            <span class="ticker">{company.ticker}</span>
+                        {/if}
+                        {#if company.sector}
+                            <span class="sector-tag">{company.sector}</span>
+                        {/if}
+                    </div>
+                </div>
+                {#if true}
+                    {@const overall = computeOverallGrade(company, values)}
+                    {#if overall}
+                        <div class="grade-badge {getGradeClass(overall)}">
+                            {overall}
+                        </div>
+                    {/if}
+                {/if}
+            </div>
+
+            {#if company.badges && company.badges.length > 0}
+                <div class="badges">
+                    {#each company.badges as badge}
+                        <span class="badge badge-{badge.type}">{badge.label}</span>
+                    {/each}
+                </div>
+            {/if}
+
+            {#if company.value_snapshots && company.value_snapshots.length > 0}
+                <section class="claims-section">
+                    <h3>Value Ratings</h3>
+                    <div class="claim-cards">
+                        {#each company.value_snapshots as snap}
+                            {@const snapClaims = claimsForSnapshot(snap.claim_uris || [])}
+                            <div class="claim-card">
+                                <div class="claim-card-header">
+                                    <div class="claim-value-name">{snap.value_name}</div>
+                                    <div class="claim-grade {getGradeClass(snap.grade)}">{snap.grade}</div>
+                                </div>
+                                <div class="claim-display">{snap.display_text}</div>
+                                {#if snapClaims.length > 0}
+                                    <div class="claim-sources">
+                                        {#each snapClaims as claim}
+                                            <div class="source-row">
+                                                <div class="source-detail">
+                                                    <span class="source-type">{formatClaimType(claim.claim_type)}</span>
+                                                    {#if claim.amt}
+                                                        <span class="source-amount">{formatAmount(claim)}</span>
+                                                    {/if}
+                                                    {#if claim.label}
+                                                        <span class="source-label">{claim.label}</span>
+                                                    {/if}
+                                                    {#if claim.effective_date}
+                                                        <span class="source-date">{claim.effective_date}</span>
+                                                    {/if}
+                                                </div>
+                                                {#if claim.source_uri}
+                                                    <a href={claim.source_uri} target="_blank" rel="noreferrer" class="source-link">
+                                                        {formatSource(claim.source_uri)}
+                                                    </a>
+                                                {/if}
+                                                {#if claim.how_known}
+                                                    <span class="how-known">{claim.how_known.replace(/_/g, ' ')}</span>
+                                                {/if}
+                                            </div>
+                                        {/each}
+                                    </div>
+                                {/if}
+                            </div>
+                        {/each}
+                    </div>
+                </section>
+            {/if}
+
+        </div>
+    {/if}
+</div>
+
+<style>
+    .detail-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+    }
+
+    .detail-meta {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 0.25rem;
+    }
+
+    .ticker {
+        color: #888;
+        font-size: 0.9rem;
+    }
+
+    .sector-tag {
+        background: #f3f4f6;
+        color: #4b5563;
+        padding: 0.15rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+    }
+
+    .claims-section h3 {
+        margin-bottom: 1rem;
+    }
+
+    .claim-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .claim-card {
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        padding: 1rem;
+        background: #fafafa;
+    }
+
+    .claim-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.5rem;
+    }
+
+    .claim-value-name {
+        font-weight: 600;
+        color: #1a5f2a;
+    }
+
+    .claim-grade {
+        font-weight: 700;
+        font-size: 1.1rem;
+        padding: 0.15rem 0.5rem;
+        border-radius: 6px;
+        min-width: 36px;
+        text-align: center;
+    }
+
+    .claim-grade.grade-A { background: #22c55e; color: white; }
+    .claim-grade.grade-B { background: #84cc16; color: white; }
+    .claim-grade.grade-C { background: #eab308; color: #1a1a1a; }
+    .claim-grade.grade-D { background: #f97316; color: white; }
+    .claim-grade.grade-F { background: #ef4444; color: white; }
+
+    .claim-display {
+        font-size: 0.95rem;
+        color: #444;
+        margin-bottom: 0.75rem;
+    }
+
+    .claim-sources {
+        border-top: 1px solid #e5e7eb;
+        padding-top: 0.5rem;
+    }
+
+    .source-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.35rem 0;
+        font-size: 0.8rem;
+    }
+
+    .source-row + .source-row {
+        border-top: 1px solid #f0f0f0;
+    }
+
+    .source-detail {
+        display: flex;
+        gap: 0.4rem;
+        align-items: center;
+        flex: 1;
+    }
+
+    .source-type {
+        font-weight: 500;
+        color: #555;
+    }
+
+    .source-amount {
+        font-weight: 600;
+        color: #1a1a1a;
+    }
+
+    .source-label {
+        color: #666;
+        font-style: italic;
+    }
+
+    .source-date {
+        color: #999;
+    }
+
+    .source-link {
+        color: #1a5f2a;
+        text-decoration: none;
+        font-size: 0.75rem;
+        padding: 0.15rem 0.4rem;
+        background: #dcfce7;
+        border-radius: 3px;
+    }
+
+    .source-link:hover {
+        background: #bbf7d0;
+    }
+
+    .how-known {
+        color: #999;
+        font-size: 0.7rem;
+        text-transform: capitalize;
+    }
+</style>

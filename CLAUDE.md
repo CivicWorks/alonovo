@@ -2,135 +2,165 @@
 
 Consumer-facing app for ethical company ratings. Know before you buy, know before you invest.
 
+**Live site:** https://alonovo.cooperation.org
+
+---
+
+## DO NOT (read this first)
+
+1. **DO NOT drop, reset, or truncate the database.** The data is real, sourced from OpenSecrets, BBFAW, EggTrack, USASpending, S&P Global, and Yahoo Finance. There are 280+ companies and 300+ claims. If you need to undo something, restore from backup (see below).
+2. **DO NOT run `python manage.py flush` or `migrate --run-syncdb` or delete migration files.**
+3. **DO NOT edit `backend/alonovo/settings.py`** unless you fully understand the OAuth, CSRF, and template configuration. Incorrect changes will break Google login for all users.
+4. **DO NOT change the frontend API URL** in `frontend/.env.development`. It must be `https://alonovo.cooperation.org/api` — not localhost. The browser makes API calls, not the server.
+5. **DO NOT rebuild the frontend** (`npm run build`). The Vite dev server runs live on port 5173 with hot reload. Nginx proxies to it.
+6. **DO NOT kill the Vite dev server or gunicorn** unless you know how to restart them (see Operations below).
+7. **DO NOT modify Claims** — they are immutable by design. The model raises `ValidationError` on update. Create new claims instead.
+8. **DO NOT remove the `{#if true}` wrapper around `{@const}` in Svelte templates** — Svelte 5 requires `@const` inside block tags.
+
+---
+
+## How to Work (important)
+
+1. **Make one small change at a time.** Edit one file, check the browser, confirm it works, then move on. Do not batch multiple changes across files and hope they all work.
+2. **Check the browser after every change.** The frontend hot-reloads — just save and look. If something breaks, undo the last change immediately.
+3. **If you break something, stop and undo.** Don't try to fix forward through a cascade of errors. Revert the file (`git checkout -- path/to/file`) and try again with a smaller change.
+4. **Back up before risky operations.** Any management command that writes data, any model change, any settings change — back up first (see Backups below).
+5. **Test the API separately.** Use `curl https://alonovo.cooperation.org/api/companies/` to verify backend changes work before touching the frontend.
+6. **Read files before editing them.** Understand what's there before you change it.
+
+---
+
+## Backups
+
+Database backups live in `/home/ec2-user/alonovo2/backups/`.
+
+**To create a backup:**
+```bash
+# Django JSON backup (preferred — portable, includes all apps)
+cd /home/ec2-user/alonovo2/backend
+source venv/bin/activate
+python manage.py dumpdata --natural-primary --natural-foreign -o ../backups/alonovo_full_$(date +%Y%m%d_%H%M%S).json
+
+# Postgres SQL backup
+sudo -u postgres pg_dump alonovo > ../backups/alonovo_pgdump_$(date +%Y%m%d_%H%M%S).sql
+```
+
+**To restore from Django backup:**
+```bash
+python manage.py loaddata ../backups/alonovo_full_YYYYMMDD_HHMMSS.json
+```
+
+**Back up before:** schema changes, data imports, any management command that writes data.
+
+---
+
 ## Architecture
 
-- **Frontend**: SvelteKit
-- **Backend**: Django + Django REST Framework
-- **Database**: Postgres (local install, no Docker)
-- **Auth**: OAuth (dj-rest-auth or django-oauth-toolkit)
-- **Deployment**: Ansible → Ubuntu (NixOS later)
+- **Frontend**: SvelteKit (Svelte 5 runes mode — uses `$state()`, `$derived`, not `let` reactivity)
+- **Backend**: Django 4.2 + Django REST Framework
+- **Database**: Postgres (local, no Docker)
+- **Auth**: Google OAuth via django-allauth + dj-rest-auth
+- **Serving**: nginx → Vite dev server (frontend, port 5173) + gunicorn (backend, port 8000)
 
-## Stack Rationale
-
-- **Django** chosen because we need Django Admin for data management
-- **DRF** for pagination, OAuth, standard API patterns
-- **Keep serializers simple** — basic ModelSerializer, no complex nesting
-- **Lightweight** — should run on any Ubuntu server, future NixOS deployment
-
-## Development Setup
-
-**No Docker.** Local development only:
+## Operations
 
 ```bash
-# Backend
-cd backend
-python -m venv venv
+# All commands run from /home/ec2-user/alonovo2/backend
+cd /home/ec2-user/alonovo2/backend
 source venv/bin/activate
-pip install -r requirements.txt
-python manage.py migrate
-python manage.py runserver
 
-# Frontend
-cd frontend
-npm install
-npm run dev
+# Restart gunicorn (Django backend)
+sudo pkill -f gunicorn
+sleep 2
+gunicorn alonovo.wsgi:application --bind 127.0.0.1:8000 --workers 3 --daemon
+
+# Restart Vite dev server (frontend)
+# Check if running first:
+ps aux | grep vite | grep -v grep
+# If not running:
+cd /home/ec2-user/alonovo2/frontend
+nohup npx vite dev --host 0.0.0.0 --port 5173 > /tmp/vite-dev.log 2>&1 &
+
+# Run Django management command
+python manage.py <command>
+
+# Django shell
+python manage.py shell
 ```
 
-## Deployment (Ansible)
-
-See `ansible/` directory.
-
-### Ansible Principles
-
-1. **One role = one concern** — `roles/nodejs`, `roles/postgres`, `roles/nginx`, not one big `roles/app`
-2. **Document packages explicitly** — list actual packages needed, not just `build-essential`
-3. **Env vars in one place** — `vars/env.yml` for non-sensitive config
-4. **Secrets separate** — use `ansible-vault` or CI secrets for passwords/keys, never plaintext in repo
-5. **Avoid Ansible magic** — no complex Jinja2, no dynamic inventory wizardry
-6. **Minimal templating** — service files can have 2-3 variables (`deploy_path`, `app_user`), not 50
-7. **Systemd service files in repo** — actual files in `ansible/files/`, minimal templating
-
-### CI/CD
-
-GitHub Actions runs Ansible on push to main:
-```bash
-ansible-playbook -i ansible/inventory/prod.yml ansible/playbook.yml
-```
-
-## Data Philosophy
-
-**Claims are the source of truth.**
-
-We ingest LinkedClaims (signed, URI-addressable statements with provenance). Django models are digested, queryable views of claim data — fully populated for app display, but always pointing back to source claims.
+## Data Model
 
 ```
-[external claims] → ingest/digest → [Django models] → serve → [app]
-                                           ↓
-                                   source_claim_uris (provenance)
+Value (slug PK)              — ethical criterion (e.g., "esg_score", "ice_contracts")
+  ├── ScoringRule            — thresholds/mappings for grading
+  ├── CompanyValueSnapshot   — computed grade per company per value
+  └── CompanyBadge           — display badges on cards
+
+Company (uri unique)         — company with ticker, name, sector
+Claim (uri unique)           — immutable source fact with provenance
 ```
 
-When we compute scores, we emit our own LinkedClaims. Alonovo is both a consumer and producer in the web of trust.
+**Key flags on Value:**
+- `is_disqualifying`: F on this value = F overall (ice_detention, ice_collaborator)
+- `is_fixed`: user cannot set weight to zero (ice_contracts, ice_detention, ice_collaborator)
 
-## LinkedClaims Spec
+**Overall grade** is computed client-side in `frontend/src/lib/utils.ts:computeOverallGrade()`:
+- If any disqualifying value has grade F → overall F
+- Otherwise average all value scores: A >= 0.8, B >= 0.3, C >= -0.1, D >= -0.5, F < -0.5
 
-**Authoritative specification:** https://identity.foundation/labs-linkedclaims/
+**Current values (7):** corporate_lobbying, cage_free_eggs, farm_animal_welfare, ice_contracts, ice_detention, ice_collaborator, esg_score, stood_up
 
-A LinkedClaim:
-- **MUST** have a `subject` that is a valid URI
-- **MUST** have an `id` that is a well-formed URI
-- **MUST** be cryptographically signed
-- **SHOULD** include a date in signed data
-- **SHOULD** contain evidence/source, optionally hashlinked
-- **MAY** have an `object` (for "A rated B" style claims)
-- **MAY** have a narrative statement
+## Adding New Data
 
-## Key Documentation
+Use management commands in `backend/core/management/commands/`. See existing examples:
+- `import_initial_data.py` — lobbying, BBFAW, EggTrack, ICE data
+- `import_esg_data.py` — ESG scores from CSV and S&P Global
 
-- `FIRST_MIGRATION.md` — Phase 1 tasks, getting from current state to working Django+SvelteKit
-- `data_models.md` — Complete model definitions and scoring logic
-- `ansible/README.md` — Deployment documentation
+Pattern for adding data:
+1. Create/update a `Value` and `ScoringRule`
+2. Create `Company` entries (dedup by ticker using `get_or_create_company()`)
+3. Create `Claim` entries (check URI doesn't exist first — claims are immutable)
+4. Compute `CompanyValueSnapshot` from claims using scoring rules
+5. Create `CompanyBadge` entries from snapshots
+6. Restart gunicorn: `sudo pkill -f gunicorn; sleep 2; gunicorn ...`
 
-## Project Structure
+## Key Files
 
-```
-alonovo/
-├── ansible/
-│   ├── inventory/
-│   │   ├── dev.yml
-│   │   └── prod.yml
-│   ├── roles/
-│   │   ├── common/
-│   │   ├── postgres/
-│   │   ├── backend/
-│   │   ├── frontend/
-│   │   └── nginx/
-│   ├── vars/
-│   │   └── env.yml
-│   ├── files/
-│   │   ├── alonovo-backend.service
-│   │   └── alonovo-frontend.service
-│   ├── playbook.yml
-│   └── README.md
-├── backend/
-│   ├── alonovo/          # Django settings, urls
-│   └── core/             # Main app - models, views, serializers
-├── frontend/             # SvelteKit app
-├── data/                 # Legacy static JSON (reference only)
-├── data_models.md
-├── FIRST_MIGRATION.md
-└── CLAUDE.md
-```
+| What | Where |
+|------|-------|
+| Django settings | `backend/alonovo/settings.py` |
+| Models | `backend/core/models.py` |
+| API views | `backend/core/views.py` |
+| Serializers | `backend/core/serializers.py` |
+| API URLs | `backend/core/urls.py` |
+| Frontend types | `frontend/src/lib/types.ts` |
+| API client | `frontend/src/lib/api.ts` |
+| Grade logic | `frontend/src/lib/utils.ts` |
+| Main page | `frontend/src/routes/+page.svelte` |
+| Company detail | `frontend/src/routes/company/[ticker]/+page.svelte` |
+| Profile page | `frontend/src/routes/profile/+page.svelte` |
+| Global styles | `frontend/src/app.css` |
+| Nginx config | `/etc/nginx/conf.d/alonovo.conf` |
+| Vite config | `frontend/vite.config.ts` |
+| DB backups | `backups/` |
 
 ## Coding Standards
 
-- 4-space indentation always, never 3 spaces or tabs
+- 4-space indentation, never tabs
 - Never write manual migration files — use `python manage.py makemigrations`
 - Keep serializers simple — basic ModelSerializer
-- Concise code, minimal comments
+- Svelte 5 runes: use `$state()`, `$derived`, not legacy `let` reactivity
+- `{@const}` must be inside a block tag (`{#if}`, `{#each}`, etc.)
+- Frontend API URL is always `https://alonovo.cooperation.org/api` — never localhost
+
+## Data Philosophy
+
+**Claims are the source of truth.** We ingest LinkedClaims (signed, URI-addressable statements with provenance). Django models are digested views of claim data, always pointing back to source claims via `claim_uris`.
+
+**Authoritative spec:** https://identity.foundation/labs-linkedclaims/
 
 ## References
 
-- **LinkedClaims spec (authoritative):** https://identity.foundation/labs-linkedclaims/
 - LinkedClaims SDK: `~/parent/linked-trust/LinkedClaims/sdk/`
-- trust_claim_backend (reference implementation): `~/parent/linked-trust/trust_claim_backend/`
+- trust_claim_backend: `~/parent/linked-trust/trust_claim_backend/`
 - live.linkedtrust.us for working example

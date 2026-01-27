@@ -1,0 +1,144 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block head_title %}Alonovo{% endblock %}</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            color: #1a1a1a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .auth-header {
+            width: 100%;
+            background: linear-gradient(135deg, #1a5f2a 0%, #2d8a3e 100%);
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .auth-header a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .auth-container {
+            max-width: 420px;
+            width: 100%;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .auth-container h1 {
+            font-size: 1.5rem;
+            color: #1a5f2a;
+            margin-bottom: 0.75rem;
+        }
+        .auth-container p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        .auth-container form {
+            margin-top: 1rem;
+        }
+        .auth-container button,
+        .auth-container input[type="submit"] {
+            display: inline-block;
+            background: linear-gradient(135deg, #1a5f2a 0%, #2d8a3e 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        .auth-container button:hover,
+        .auth-container input[type="submit"]:hover {
+            opacity: 0.9;
+        }
+        .auth-container input[type="text"],
+        .auth-container input[type="email"],
+        .auth-container input[type="password"] {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        .auth-container label {
+            display: block;
+            font-size: 0.85rem;
+            color: #555;
+            margin-bottom: 0.25rem;
+        }
+        .auth-container a {
+            color: #1a5f2a;
+        }
+        .auth-container ul {
+            list-style: none;
+            padding: 0;
+        }
+        .auth-container li {
+            padding: 0.25rem 0;
+        }
+        .auth-back {
+            display: block;
+            text-align: center;
+            margin-top: 1.5rem;
+            color: #888;
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+        .auth-back:hover { color: #1a5f2a; }
+        .messages {
+            margin-bottom: 1rem;
+        }
+        .messages li {
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            background: #dcfce7;
+            color: #166534;
+            margin-bottom: 0.5rem;
+        }
+        .errorlist {
+            list-style: none;
+            padding: 0;
+        }
+        .errorlist li {
+            color: #ef4444;
+            font-size: 0.85rem;
+            padding: 0.25rem 0;
+        }
+    </style>
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <div class="auth-header">
+        <a href="/">Alonovo</a>
+    </div>
+    <div class="auth-container">
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}<li>{{ message }}</li>{% endfor %}
+            </ul>
+        {% endif %}
+        {% block content %}{% endblock %}
+        <a href="/" class="auth-back">&larr; Back to Alonovo</a>
+    </div>
+    {% block extra_body %}{% endblock %}
+</body>
+</html>
