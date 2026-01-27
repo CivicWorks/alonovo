@@ -144,6 +144,10 @@ Pattern for adding data:
 | Vite config | `frontend/vite.config.ts` |
 | DB backups | `backups/` |
 
+## Team & Git Attribution
+
+See `.claude/team.md` for contributor info and commit attribution rules. That file is not checked in.
+
 ## Coding Standards
 
 - 4-space indentation, never tabs
