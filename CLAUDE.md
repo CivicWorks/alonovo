@@ -144,6 +144,13 @@ Pattern for adding data:
 | Vite config | `frontend/vite.config.ts` |
 | DB backups | `backups/` |
 
+## Tickets
+
+- **Local tickets:** `tickets/` directory in this repo (Claude Code can read these)
+- **Taiga board:** https://marten.linkedtrust.us/board (additional tickets, requires login — ask team lead for access)
+
+Check both places before picking up work.
+
 ## Team & Git Attribution
 
 See `.claude/team.md` for contributor info and commit attribution rules. That file is not checked in.
