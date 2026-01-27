@@ -70,6 +70,7 @@ cd /home/ec2-user/alonovo2/backend
 source venv/bin/activate
 
 # Restart gunicorn (Django backend)
+# NOTE: pkill exits 144 — this is normal. Run the start command separately after.
 sudo pkill -f gunicorn
 sleep 2
 gunicorn alonovo.wsgi:application --bind 127.0.0.1:8000 --workers 3 --daemon
@@ -162,7 +163,7 @@ See `.claude/team.md` for contributor info and commit attribution rules. That fi
 - Keep serializers simple — basic ModelSerializer
 - Svelte 5 runes: use `$state()`, `$derived`, not legacy `let` reactivity
 - `{@const}` must be inside a block tag (`{#if}`, `{#each}`, etc.)
-- Frontend API URL is always `https://alonovo.cooperation.org/api` — never localhost
+- Frontend API URL in `.env.development` must be a full URL (not relative like `/api`) — `getLoginUrl()` in `api.ts` uses `new URL()` which breaks on relative paths. The actual API calls use `window.location.origin` at runtime so both domains work.
 
 ## Data Philosophy
 
