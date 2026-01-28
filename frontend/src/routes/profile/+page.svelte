@@ -2,14 +2,20 @@
     import { onMount } from 'svelte';
     import { fetchCurrentUser, fetchValues } from '$lib/api';
     import type { User, ValueDef } from '$lib/types';
+    import { CATEGORIES } from '$lib/categories';
     import { PUBLIC_API_URL } from '$env/static/public';
 
     let user: User | null = $state(null);
     let values: ValueDef[] = $state([]);
     let weights: Record<string, number> = $state({});
+    let categoryWeights: Record<string, number> = $state({});
     let loading = $state(true);
     let saving = $state(false);
     let saved = $state(false);
+
+    const activeCategories = $derived(CATEGORIES.filter(c => c.valueSlugs.length > 0));
+    const fixedCategories = $derived(activeCategories.filter(c => c.isDisqualifying));
+    const adjustableCategories = $derived(activeCategories.filter(c => !c.isDisqualifying));
 
     onMount(async () => {
         try {
@@ -37,6 +43,13 @@
                     weights[v.slug] = 5;
                 }
             }
+
+            // Initialize category weights from per-value weights
+            for (const cat of CATEGORIES) {
+                if (cat.valueSlugs.length === 0) continue;
+                const catValues = cat.valueSlugs.map(s => weights[s] ?? 5);
+                categoryWeights[cat.slug] = Math.round(catValues.reduce((a, b) => a + b, 0) / catValues.length);
+            }
         } catch (e) {
             console.error(e);
         } finally {
@@ -53,6 +66,12 @@
         saving = true;
         saved = false;
         try {
+            // Map category weights to individual value weights
+            for (const cat of CATEGORIES) {
+                for (const slug of cat.valueSlugs) {
+                    weights[slug] = categoryWeights[cat.slug] ?? 5;
+                }
+            }
             const payload = Object.entries(weights).map(([slug, weight]) => ({
                 value_slug: slug,
                 weight,
@@ -109,37 +128,35 @@
                 </p>
 
                 <div class="weight-sliders">
-                    {#each values.filter(v => !v.is_fixed) as v}
+                    {#each adjustableCategories as cat}
                         <div class="weight-row">
                             <div class="weight-info">
-                                <span class="weight-name">{v.name}</span>
-                                <span class="weight-desc">{v.description}</span>
+                                <span class="weight-name">{cat.name}</span>
                             </div>
                             <div class="weight-control">
                                 <input
                                     type="range"
                                     min="0"
                                     max="10"
-                                    bind:value={weights[v.slug]}
+                                    bind:value={categoryWeights[cat.slug]}
                                     class="slider"
                                 />
                                 <div class="weight-value">
-                                    <span class="weight-number">{weights[v.slug]}</span>
-                                    <span class="weight-label">{getWeightLabel(weights[v.slug])}</span>
+                                    <span class="weight-number">{categoryWeights[cat.slug]}</span>
+                                    <span class="weight-label">{getWeightLabel(categoryWeights[cat.slug])}</span>
                                 </div>
                             </div>
                         </div>
                     {/each}
                 </div>
 
-                {#if values.some(v => v.is_fixed)}
+                {#if fixedCategories.length > 0}
                     <div class="fixed-values">
                         <h4>Always Counted</h4>
-                        <p class="weights-intro">These values are always included in scoring and cannot be adjusted.</p>
-                        {#each values.filter(v => v.is_fixed) as v}
+                        <p class="weights-intro">These categories are always included in scoring and cannot be adjusted.</p>
+                        {#each fixedCategories as cat}
                             <div class="fixed-row">
-                                <span class="weight-name">{v.name}</span>
-                                <span class="weight-desc">{v.description}</span>
+                                <span class="weight-name">{cat.name}</span>
                             </div>
                         {/each}
                     </div>

@@ -2,6 +2,7 @@
     import { onMount } from 'svelte';
     import { fetchCompanies, fetchValues, fetchSectors } from '$lib/api';
     import { getGradeClass, computeOverallGrade } from '$lib/utils';
+    import { CATEGORIES } from '$lib/categories';
     import type { Company, ValueDef } from '$lib/types';
     import UserMenu from '$lib/UserMenu.svelte';
 
@@ -14,7 +15,7 @@
     let search = $state('');
     let sectorFilter = $state('');
     let gradeFilter = $state('');
-    let valueFilter = $state('');
+    let categoryFilter = $state('');
     let sortDir: 'none' | 'asc' | 'desc' = $state('none');
 
     onMount(async () => {
@@ -56,10 +57,15 @@
                 matchGrade = !!(overall && overall.startsWith(gradeFilter));
             }
 
-            const matchValue = !valueFilter ||
-                c.value_snapshots?.some(s => s.value_slug === valueFilter);
+            let matchCategory = true;
+            if (categoryFilter) {
+                const cat = CATEGORIES.find(c => c.slug === categoryFilter);
+                if (cat) {
+                    matchCategory = !!c.value_snapshots?.some(s => cat.valueSlugs.includes(s.value_slug));
+                }
+            }
 
-            return matchSearch && matchSector && matchGrade && matchValue;
+            return matchSearch && matchSector && matchGrade && matchCategory;
         });
 
         if (sortDir !== 'none') {
@@ -92,7 +98,7 @@
         <div class="header-stats">
             {#if !loading && !error}
                 <span>{filtered.length} Companies</span>
-                <span>{values.length} Values</span>
+                <span>{CATEGORIES.filter(c => c.valueSlugs.length > 0).length} Categories</span>
                 <span>{sectors.length} Sectors</span>
             {/if}
         </div>
@@ -120,10 +126,10 @@
                     <option value={sector}>{sector}</option>
                 {/each}
             </select>
-            <select bind:value={valueFilter}>
-                <option value="">All Values</option>
-                {#each values as v}
-                    <option value={v.slug}>{v.name}</option>
+            <select bind:value={categoryFilter}>
+                <option value="">All Categories</option>
+                {#each CATEGORIES as cat}
+                    <option value={cat.slug}>{cat.name}</option>
                 {/each}
             </select>
             <select bind:value={gradeFilter}>
