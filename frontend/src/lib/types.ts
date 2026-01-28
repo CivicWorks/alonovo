@@ -18,6 +18,7 @@ export interface ValueSnapshot {
     highlight_priority: number;
     display_text: string;
     display_icon: string;
+    claim_uris: string[];
     computed_at: string;
 }
 
@@ -62,6 +63,15 @@ export interface ValueDef {
     min_weight: number;
     card_display_template: string;
     card_icon: string;
+}
+
+export interface CategorySnapshot {
+    categorySlug: string;
+    categoryName: string;
+    score: number;
+    grade: string;
+    isDisqualifying: boolean;
+    snapshots: ValueSnapshot[];
 }
 
 export interface User {

@@ -2,12 +2,13 @@
     import { onMount } from 'svelte';
     import { page } from '$app/stores';
     import { fetchCompany, fetchCompanyClaims, fetchValues } from '$lib/api';
-    import { getGradeClass, computeOverallGrade } from '$lib/utils';
-    import type { Company, ClaimData, ValueDef } from '$lib/types';
+    import { getGradeClass, computeOverallGrade, rollUpToCategories } from '$lib/utils';
+    import type { Company, ClaimData, ValueDef, CategorySnapshot } from '$lib/types';
 
     let company: Company | null = $state(null);
     let claims: ClaimData[] = $state([]);
     let values: ValueDef[] = $state([]);
+    let categories: CategorySnapshot[] = $state([]);
     let loading = $state(true);
     let error = $state('');
 
@@ -19,6 +20,9 @@
                 fetchCompanyClaims(ticker),
                 fetchValues(),
             ]);
+            if (company?.value_snapshots) {
+                categories = rollUpToCategories(company.value_snapshots);
+            }
         } catch (e) {
             error = 'Failed to load company';
         } finally {
@@ -26,8 +30,9 @@
         }
     });
 
-    function claimsForSnapshot(claimUris: string[]): ClaimData[] {
-        return claims.filter(c => claimUris.includes(c.uri));
+    function claimsForCategory(cat: CategorySnapshot): ClaimData[] {
+        const allUris = cat.snapshots.flatMap(s => s.claim_uris || []);
+        return claims.filter(c => allUris.includes(c.uri));
     }
 
     function formatSource(uri: string): string {
@@ -97,21 +102,23 @@
                 </div>
             {/if}
 
-            {#if company.value_snapshots && company.value_snapshots.length > 0}
+            {#if categories.length > 0}
                 <section class="claims-section">
-                    <h3>Value Ratings</h3>
+                    <h3>Category Ratings</h3>
                     <div class="claim-cards">
-                        {#each company.value_snapshots as snap}
-                            {@const snapClaims = claimsForSnapshot(snap.claim_uris || [])}
+                        {#each categories as cat}
+                            {@const catClaims = claimsForCategory(cat)}
                             <div class="claim-card">
                                 <div class="claim-card-header">
-                                    <div class="claim-value-name">{snap.value_name}</div>
-                                    <div class="claim-grade {getGradeClass(snap.grade)}">{snap.grade}</div>
+                                    <div class="claim-value-name">{cat.categoryName}</div>
+                                    <div class="claim-grade {getGradeClass(cat.grade)}">{cat.grade}</div>
                                 </div>
-                                <div class="claim-display">{snap.display_text}</div>
-                                {#if snapClaims.length > 0}
+                                {#each cat.snapshots as snap}
+                                    <div class="claim-display">{snap.display_text}</div>
+                                {/each}
+                                {#if catClaims.length > 0}
                                     <div class="claim-sources">
-                                        {#each snapClaims as claim}
+                                        {#each catClaims as claim}
                                             <div class="source-row">
                                                 <div class="source-detail">
                                                     <span class="source-type">{formatClaimType(claim.claim_type)}</span>
