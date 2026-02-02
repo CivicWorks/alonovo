@@ -1,0 +1,2537 @@
+[
+  {
+    "company_id": null,
+    "company_name": "ABC-Mart Inc.",
+    "overview": {
+      "company": "ABC-Mart Inc.",
+      "year_of_inclusion": 2020,
+      "country": "Japan",
+      "region": "Asia",
+      "market_cap_in_usd_bn": 3.557,
+      "ticker": "TYO:2670",
+      "isin": "JP3152740001",
+      "gics_subindustry": "Retail Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Adidas AG",
+    "overview": {
+      "company": "Adidas AG",
+      "year_of_inclusion": 2016,
+      "country": "Germany",
+      "region": "Europe",
+      "market_cap_in_usd_bn": 45.337,
+      "ticker": "ETR:ADS",
+      "isin": "DE000A1EWWW0",
+      "gics_subindustry": "Footwear"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated 07/12/2022\n",
+        "source": "Statement: https://www.adidas-group.com/media/filer_public/38/4d/384da540-e2fe-4bce-af17-adc29898a9c4/2021_adidas_modern_slavery_act_transparency_statement_uk.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company discloses a link on its US website which is labelled \"California Transparency in Supply Chains\". This links to the company's policy on modern slavery. [The policy itself does not make reference to the California legislation.]",
+        "source": "*Adidas, \"Modern slavery: a policy framework and implementation strategy,\" https://www.adidas-group.com/media/filer_public/64/c8/64c8d12f-d7b4-4547-a1f2-8d2945861140/adidas_policy_on_modern_slavery_2023.pdf\n*Adidas (Homepage: US website) https://www.adidas.com/us. Accessed 3 August 2023. "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated 2023",
+        "source": "Statement: https://www.adidas-group.com/media/filer_public/64/c8/64c8d12f-d7b4-4547-a1f2-8d2945861140/adidas_policy_on_modern_slavery_2023.pdf"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": "yes",
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Aditya Birla Fashion & Retail Ltd. ",
+    "overview": {
+      "company": "Aditya Birla Fashion & Retail Ltd. ",
+      "year_of_inclusion": 2022,
+      "country": "India",
+      "region": "Asia",
+      "market_cap_in_usd_bn": 3.336,
+      "ticker": "BOM:535755",
+      "isin": "INE647O01011",
+      "gics_subindustry": "Luxury Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Amazon.com Inc.",
+    "overview": {
+      "company": "Amazon.com Inc.",
+      "year_of_inclusion": 2018,
+      "country": "United States",
+      "region": "North America",
+      "market_cap_in_usd_bn": 1562.793,
+      "ticker": "NAS:AMZN",
+      "isin": "US0231351067",
+      "gics_subindustry": "Online and Direct Marketing Retail"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Dated 06/10/2021\n",
+        "source": "Statement: https://sustainability.aboutamazon.com/modern-slavery-statement-2021.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Dated 06/10/2021",
+        "source": "Statement: https://sustainability.aboutamazon.com/modern-slavery-statement-2021.pdf"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Dated 06/10/2021",
+        "source": "Statement: https://sustainability.aboutamazon.com/modern-slavery-statement-2021.pdf"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "American Eagle Outfitters Inc.",
+    "overview": {
+      "company": "American Eagle Outfitters Inc.",
+      "year_of_inclusion": 2020,
+      "country": "United States",
+      "region": "North America",
+      "market_cap_in_usd_bn": 3.555,
+      "ticker": "NYS:AEO",
+      "isin": "US02553E1064",
+      "gics_subindustry": "Retail Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA and CTSCA. Dated 21/02/2019",
+        "source": "Statement: https://aeo-inc.com/wp-content/uploads/sites/4/2018/04/AEO-Joint-Statement.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA and CTSCA. Dated 21/02/2019",
+        "source": "Statement: https://aeo-inc.com/wp-content/uploads/sites/4/2018/04/AEO-Joint-Statement.pdf"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "ANTA Sports Products Ltd.",
+    "overview": {
+      "company": "ANTA Sports Products Ltd.",
+      "year_of_inclusion": 2018,
+      "country": "China",
+      "region": "Asia",
+      "market_cap_in_usd_bn": 41.133,
+      "ticker": "HKG:2020",
+      "isin": "KYG040111059",
+      "gics_subindustry": "Retail Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company may be required to report",
+        "source": "N/A "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Arezzo&Co",
+    "overview": {
+      "company": "Arezzo&Co",
+      "year_of_inclusion": 2022,
+      "country": "Brazil",
+      "region": "Latin America",
+      "market_cap_in_usd_bn": 1.726,
+      "ticker": "BSP:ARZZ3",
+      "isin": "BRARZZACNOR3",
+      "gics_subindustry": "Footwear"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Aritzia, Inc.",
+    "overview": {
+      "company": "Aritzia, Inc.",
+      "year_of_inclusion": 2022,
+      "country": "Canada",
+      "region": "North America",
+      "market_cap_in_usd_bn": 4.179,
+      "ticker": "TSE:ATZ",
+      "isin": "CA04045U1021",
+      "gics_subindustry": "Retail Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement. Undated.",
+        "source": "Statement: https://www.aritzia.com/intl/en/aritzia/california-transparency-act/california-transparency-act.html"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A ",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": "yes",
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Asics Corp.",
+    "overview": {
+      "company": "Asics Corp.",
+      "year_of_inclusion": 2018,
+      "country": "Japan",
+      "region": "Asia",
+      "market_cap_in_usd_bn": 3.6219947,
+      "ticker": "TKS:7936",
+      "isin": "JP3118000003",
+      "gics_subindustry": "Footwear"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. ",
+        "source": "Statement: https://www.asics.com/on/demandware.static/-/Library-Sites-shared-eu-library/default/dwf394b24c/1_asics/FY2021_Statement_Modern_Slavery_V2021_4_15062022.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Dated 29/05/2019.",
+        "source": "Statement: https://www.asics.com/on/demandware.static/-/Library-Sites-shared-eu-library/default/dwf394b24c/1_asics/FY2021_Statement_Modern_Slavery_V2021_4_15062022.pdf"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Dated 29/05/2019.",
+        "source": "Statement: https://www.asics.com/on/demandware.static/-/Library-Sites-shared-eu-library/default/dwf394b24c/1_asics/FY2021_Statement_Modern_Slavery_V2021_4_15062022.pdf"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "ASOS Plc",
+    "overview": {
+      "company": "ASOS Plc",
+      "year_of_inclusion": 2022,
+      "country": "United Kingdom",
+      "region": "Europe",
+      "market_cap_in_usd_bn": 2.6094876,
+      "ticker": "LON:ASC",
+      "isin": "GB0030927254",
+      "gics_subindustry": "Online and Direct Marketing Retail"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated 01/08/2022.",
+        "source": "Statement: https://asos-12954-s3.s3.eu-west-2.amazonaws.com/files/2916/6783/8803/ASOS_7th_Modern_Slavery_Statement_21-22.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Not determined ",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation, but a statement could not be identified. [the company or a subsidiary carries out business in Australia, but revenue breakdown could not be identified]",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "boohoo group Plc",
+    "overview": {
+      "company": "boohoo group Plc",
+      "year_of_inclusion": 2022,
+      "country": "United Kingdom",
+      "region": "Europe",
+      "market_cap_in_usd_bn": 1.5154641,
+      "ticker": "LON:BOO",
+      "isin": "JE00BG6L7297",
+      "gics_subindustry": "Online and Direct Marketing Retail"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated 01/08/2022.",
+        "source": "Statement: https://www.boohooplc.com/sites/boohoo-corp/files/2022-boohoo-group-modern-slavery-statement-26-08-48.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated July 2020.",
+        "source": "Statement:https://us.boohoo.com/page/California-Transparency-Statement.html"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Not determined ",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation, but a statement could not be identified. [the company or a subsidiary carries out business in Australia, but revenue breakdown could not be identified]",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Burberry Group plc",
+    "overview": {
+      "company": "Burberry Group plc",
+      "year_of_inclusion": 2018,
+      "country": "United Kingdom",
+      "region": "Europe",
+      "market_cap_in_usd_bn": 10.34,
+      "ticker": "LON:BRBY",
+      "isin": "GB0031743007",
+      "gics_subindustry": "Luxury Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK and CTSCA. Dated 27/05/2022.",
+        "source": "Statement: https://www.burberryplc.com/content/dam/burberry/corporate/oar-site-updates/documents/Modern-Slavery-Statement-BURBERRY-GROUP-PLC-STATEMENT-2021-22.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK and CTSCA. Dated 27/05/2022.",
+        "source": "Statement: https://www.burberryplc.com/content/dam/burberry/corporate/oar-site-updates/documents/Modern-Slavery-Statement-BURBERRY-GROUP-PLC-STATEMENT-2021-22.pdf"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Not determined ",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation, but a statement could not be identified. [the company or a subsidiary carries out business in Australia, but revenue breakdown could not be identified]",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": "yes",
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Canada Goose Holdings Inc.",
+    "overview": {
+      "company": "Canada Goose Holdings Inc.",
+      "year_of_inclusion": 2020,
+      "country": "Canada",
+      "region": "North America",
+      "market_cap_in_usd_bn": 2.778,
+      "ticker": "NYS:GOOS",
+      "isin": "CA1350861060",
+      "gics_subindustry": "Luxury Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "No",
+        "comment": "Not disclosed. \n",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company may be required to report",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": "yes",
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Capri Holdings Ltd. ",
+    "overview": {
+      "company": "Capri Holdings Ltd. ",
+      "year_of_inclusion": 2020,
+      "country": "United Kingdom",
+      "region": "Europe",
+      "market_cap_in_usd_bn": 9.999,
+      "ticker": "NYS:CPRI",
+      "isin": "VGG1890L1076",
+      "gics_subindustry": "Luxury Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA and CTSCA. Dated 02/04/2022.",
+        "source": "Statement: https://www.capriholdings.com/RESPONSIBILITY/supply-chain-disclosure/default.aspx"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA and CTSCA. Dated 02/04/2022.",
+        "source": "Statement: https://www.capriholdings.com/RESPONSIBILITY/supply-chain-disclosure/default.aspx"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Not determined ",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation, but a statement could not be identified. [the company or a subsidiary carries out business in Australia, but revenue breakdown could not be identified]",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": "yes",
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Carter's Inc.",
+    "overview": {
+      "company": "Carter's Inc.",
+      "year_of_inclusion": 2018,
+      "country": "United States",
+      "region": "North America",
+      "market_cap_in_usd_bn": 3.93,
+      "ticker": "NYS:CRI",
+      "isin": "US1462291097",
+      "gics_subindustry": "Retail Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA and CTSCA. Undated ",
+        "source": "Statement: https://www.cartersoshkosh.ca/en_CA/california-supply-chain.html?id=carters\n"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA and CTSCA. Undated",
+        "source": "Statement: https://www.carters.com/california-supply-chain.html"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A ",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Columbia Sportswear Co.",
+    "overview": {
+      "company": "Columbia Sportswear Co.",
+      "year_of_inclusion": 2018,
+      "country": "United States",
+      "region": "North America",
+      "market_cap_in_usd_bn": 5.982,
+      "ticker": "NAS:COLM",
+      "isin": "US1985161066",
+      "gics_subindustry": "Retail Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA and CTSCA. Undated.",
+        "source": "Statement: https://www.columbiasportswear.co.uk/l/columbia-slavery-act-policy\n"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA and CTSCA. Undated.",
+        "source": "Statement: https://cscworkday.blob.core.windows.net/hrforms/Recruiting/Career_Site/Supply_Chain/Transparency_in_Supply_Chain_Statement.pdf\n"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Deckers Outdoor Corp.",
+    "overview": {
+      "company": "Deckers Outdoor Corp.",
+      "year_of_inclusion": 2020,
+      "country": "United States",
+      "region": "North America",
+      "market_cap_in_usd_bn": 7.347,
+      "ticker": "NYS:DECK",
+      "isin": "US2435371073",
+      "gics_subindustry": "Footwear"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated 01/02/2017.\n",
+        "source": "Statement: https://deckers.com/sites/default/files/pdf/UK%20Slavery%20Act%20Statement.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement. Undated",
+        "source": "Statement: https://www.deckers.com/sites/default/files/pdf/CA%20Supply%20Chains%20Act%20Statement.pdf\n"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Not determined ",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation, but a statement could not be identified. [the company or a subsidiary carries out business in Australia, but revenue breakdown could not be identified]",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": "yes",
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Dick's Sporting Goods Inc.",
+    "overview": {
+      "company": "Dick's Sporting Goods Inc.",
+      "year_of_inclusion": 2020,
+      "country": "United States",
+      "region": "North America",
+      "market_cap_in_usd_bn": 9.094,
+      "ticker": "NYS:DKS",
+      "isin": "US2533931026",
+      "gics_subindustry": "Specialty Retail"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement. Undated",
+        "source": "Statement: https://www.dickssportinggoods.com/s/california-disclosures"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A ",
+        "source": "N/A "
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Eclat Textile Corp. Ltd.",
+    "overview": {
+      "company": "Eclat Textile Corp. Ltd.",
+      "year_of_inclusion": 2018,
+      "country": "Taiwan",
+      "region": "Asia",
+      "market_cap_in_usd_bn": 5.665,
+      "ticker": "TAI:1476",
+      "isin": "TW0001476000",
+      "gics_subindustry": "Textiles"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company may be required to report",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Fast Retailing Co. Ltd.",
+    "overview": {
+      "company": "Fast Retailing Co. Ltd.",
+      "year_of_inclusion": 2016,
+      "country": "Japan",
+      "region": "Asia",
+      "market_cap_in_usd_bn": 54.6445092,
+      "ticker": "TKS:9983",
+      "isin": "JP3802300008",
+      "gics_subindustry": "Retail Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA and CTSCA. Dated 16/05/2023.",
+        "source": "Statement: https://www.fastretailing.com/eng/sustainability/labor/statement.html"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA and CTSCA. Dated 16/05/2023",
+        "source": "Statement: https://www.fastretailing.com/eng/sustainability/labor/statement.html"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes (Subsidiary)",
+        "comment": "The company has published a statement",
+        "source": "Statement: https://modernslaveryregister.gov.au/statements/file/a8ea1923-9fb4-48be-9a17-0f90a6167746/\nSubsidiary in Australia: https://www.fastretailing.com/eng/ir/news/1209181700.html"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": "yes",
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Feng Tay Enterprises Co. Ltd.",
+    "overview": {
+      "company": "Feng Tay Enterprises Co. Ltd.",
+      "year_of_inclusion": 2020,
+      "country": "Taiwan",
+      "region": "Asia",
+      "market_cap_in_usd_bn": 6.5088433000000006,
+      "ticker": "TAI:9910",
+      "isin": "TW0009910000",
+      "gics_subindustry": "Footwear"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": null
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Foot Locker Inc.",
+    "overview": {
+      "company": "Foot Locker Inc.",
+      "year_of_inclusion": 2018,
+      "country": "United States",
+      "region": "North America",
+      "market_cap_in_usd_bn": 3.0692847000000003,
+      "ticker": "NYS:FL",
+      "isin": "US3448491049",
+      "gics_subindustry": "Retail Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated 19/07/2022. ",
+        "source": "Statement: https://www.footlocker-emea.com/content/dam/footlocker-corp-eu/our-way-of-working-/2022%20Modern%20Slavery%20Report.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement. Undated.",
+        "source": "Statement : https://www.footlocker-inc.com/content/flinc-aem-site/en/california-transparency-in-supply-chain.html\n"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated 2022",
+        "source": "Statement:https://www.footlocker-emea.com/content/dam/footlocker-corp-eu/our-way-of-working-/2022%20Modern%20Slavery%20Report.pdf"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Gap Inc.",
+    "overview": {
+      "company": "Gap Inc.",
+      "year_of_inclusion": 2016,
+      "country": "United States",
+      "region": "North America",
+      "market_cap_in_usd_bn": 5.4330172,
+      "ticker": "NYS:GPS",
+      "isin": "US3647601083",
+      "gics_subindustry": "Retail Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA and CTSCA. Dated 2021.",
+        "source": "Statement: https://www.gapinc.com/en-us/policy/uk-modern-slavery-act\n"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA and CTSCA. Dated 2021.",
+        "source": "Statement: https://www.gapinc.com/en-us/policy/uk-modern-slavery-act"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": "yes",
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Gildan Activewear Inc.",
+    "overview": {
+      "company": "Gildan Activewear Inc.",
+      "year_of_inclusion": 2016,
+      "country": "Canada",
+      "region": "North America",
+      "market_cap_in_usd_bn": 7.402569499999999,
+      "ticker": "TSE:GIL",
+      "isin": "CA3759161035",
+      "gics_subindustry": "Luxury Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA and CTSCA. Dated 03/08/2022.",
+        "source": "Statement: https://gildancorp.com/en/responsibility/respect-for-transparency/modern-slavery-act-transparency-statement/"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA and CTSCA. Dated 03/08/2022.",
+        "source": "Statement: https://gildancorp.com/en/responsibility/respect-for-transparency/modern-slavery-act-transparency-statement/"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated 2022",
+        "source": "Statement: https://gildancorp.com/en/responsibility/respect-for-transparency/modern-slavery-act-transparency-statement/"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Hanesbrands Inc.",
+    "overview": {
+      "company": "Hanesbrands Inc.",
+      "year_of_inclusion": 2016,
+      "country": "United States",
+      "region": "North America",
+      "market_cap_in_usd_bn": 5.41,
+      "ticker": "NYS:HBI",
+      "isin": "US4103451021",
+      "gics_subindustry": "Luxury Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA and CTSCA.",
+        "source": "Statement: https://www.hanes.com/ca-transparency-act"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA and CTSCA.",
+        "source": "Statement: https://hbisustains.com/california-transparency-act/"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company has published a statement 28/06/2022",
+        "source": "Statement:https://modernslaveryregister.gov.au/statements/file/007c2648-0f37-419a-8296-88594e209a62/"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Hennes & Mauritz AB (H&M)",
+    "overview": {
+      "company": "Hennes & Mauritz AB (H&M)",
+      "year_of_inclusion": 2016,
+      "country": "Sweden",
+      "region": "Europe",
+      "market_cap_in_usd_bn": 27.833,
+      "ticker": "OME:HM.B",
+      "isin": "SE0000106270",
+      "gics_subindustry": "Retail Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Dated 29/03/2022.",
+        "source": "Statement: https://hmgroup.com/wp-content/uploads/2023/03/HM-Group-Modern-Slavery-Statement-2022.pdf\n"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Dated 29/03/2022.",
+        "source": "Statement: https://hmgroup.com/wp-content/uploads/2023/03/HM-Group-Modern-Slavery-Statement-2022.pdf"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Dated 29/03/2022.",
+        "source": "Statement: https://hmgroup.com/wp-content/uploads/2023/03/HM-Group-Modern-Slavery-Statement-2022.pdf"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": "yes",
+      "cashmere*": "yes",
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Hermès International SCA",
+    "overview": {
+      "company": "Hermès International SCA",
+      "year_of_inclusion": 2018,
+      "country": "France",
+      "region": "Europe",
+      "market_cap_in_usd_bn": 145.2902167,
+      "ticker": "PAR:RMS",
+      "isin": "FR0000052292",
+      "gics_subindustry": "Luxury Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated 26/03/2022.",
+        "source": "Statement: https://www.hermes.com/uk/en/legal-uk/"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement. Undated.",
+        "source": "Statement: https://www.hermes.com/us/en/california-transparency-supply-chains-act/\n"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company has published a statement 06/03/2022",
+        "source": "Statement:https://modernslaveryregister.gov.au/statements/8584/"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": "yes",
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Hugo Boss AG",
+    "overview": {
+      "company": "Hugo Boss AG",
+      "year_of_inclusion": 2016,
+      "country": "Germany",
+      "region": "Europe",
+      "market_cap_in_usd_bn": 4.227956,
+      "ticker": "ETR:BOSS",
+      "isin": "DE000A1PHFF7",
+      "gics_subindustry": "Luxury Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated 30/04/2022.",
+        "source": "Statement: https://group.hugoboss.com/fileadmin/media/pdf/corporate/UK_Modern_Slavery_Act/2022_HB_UK_MSA_Statement_final.pdf\nStatement Website: https://group.hugoboss.com/de/rechtliche-informationen/uk-modern-slavery-act-ca-supply-chain-disclosure"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement. Undated.",
+        "source": "Statement:https://group.hugoboss.com/en/legal-information/uk-modern-slavery-act-ca-supply-chain-disclosure\n"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Not determined ",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation, but a statement could not be identified. [the company or a subsidiary carries out business in Australia, but revenue breakdown could not be identified]",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": "yes",
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Industria de Diseño Textil SA (Inditex)",
+    "overview": {
+      "company": "Industria de Diseño Textil SA (Inditex)",
+      "year_of_inclusion": 2016,
+      "country": "Spain",
+      "region": "Europe",
+      "market_cap_in_usd_bn": 82.1786048,
+      "ticker": "MCE:ITX",
+      "isin": "ES0148396007",
+      "gics_subindustry": "Retail Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Dated 08/06/2021.",
+        "source": "Statement: https://www.inditex.com/itxcomweb/api/media/4a1f3f45-8d83-4d77-95d9-69025f230d99/inditex_modern_slavery_statement.pdf?t=1655306502012"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Dated 08/06/2021.",
+        "source": "Statement: https://www.inditex.com/itxcomweb/api/media/4a1f3f45-8d83-4d77-95d9-69025f230d99/inditex_modern_slavery_statement.pdf?t=1655306502012"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Dated 08/06/2021",
+        "source": "Statement: https://www.inditex.com/itxcomweb/api/media/4a1f3f45-8d83-4d77-95d9-69025f230d99/inditex_modern_slavery_statement.pdf?t=1655306502012"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": "yes",
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "JD Sports Fashion plc",
+    "overview": {
+      "company": "JD Sports Fashion plc",
+      "year_of_inclusion": 2020,
+      "country": "United Kingdom",
+      "region": "Europe",
+      "market_cap_in_usd_bn": 10.4104899,
+      "ticker": "LON:JD",
+      "isin": "GB00BM8Q5M07",
+      "gics_subindustry": "Specialty Retail"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated 15/07/2021.",
+        "source": "Statement: https://www.jdplc.com/sites/jd-sportsfashion-plc/files/2023-01/jd-group-modern-slavery-statement-2022.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company may be required to report",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company has published a statement dated 30/08/2022",
+        "source": "Statement:https://modernslaveryregister.gov.au/statements/9954/"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": "yes",
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Kering SA",
+    "overview": {
+      "company": "Kering SA",
+      "year_of_inclusion": 2016,
+      "country": "France",
+      "region": "Europe",
+      "market_cap_in_usd_bn": 88.3621549,
+      "ticker": "PAR:KER",
+      "isin": "FR0000121485",
+      "gics_subindustry": "Luxury Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Dated 28/04/2022.",
+        "source": "Statement: https://keringcorporate.dam.kering.com/m/96d824d54c589e7/original/Kering-2021-Modern-Slavery-Statement-Apr-5-2022.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Dated 28/04/2022.",
+        "source": "Statement: https://keringcorporate.dam.kering.com/m/96d824d54c589e7/original/Kering-2021-Modern-Slavery-Statement-Apr-5-2022.pdf"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Dated 28/04/2022.",
+        "source": "Statement: https://keringcorporate.dam.kering.com/m/96d824d54c589e7/original/Kering-2021-Modern-Slavery-Statement-Apr-5-2022.pdf"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": "yes",
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Kohl's Corp.",
+    "overview": {
+      "company": "Kohl's Corp.",
+      "year_of_inclusion": 2020,
+      "country": "United States",
+      "region": "North America",
+      "market_cap_in_usd_bn": 7.739971499999999,
+      "ticker": "NYS:KSS",
+      "isin": "US5002551043",
+      "gics_subindustry": "Department Stores"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated 19/11/2015",
+        "source": "Statement: https://www.kohls.com/feature/socially-responsible.jsp"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": "yes",
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Levi Strauss & Co.",
+    "overview": {
+      "company": "Levi Strauss & Co.",
+      "year_of_inclusion": 2020,
+      "country": "United States",
+      "region": "North America",
+      "market_cap_in_usd_bn": 9.0151726,
+      "ticker": "NYS:LEVI",
+      "isin": "US52736R1023",
+      "gics_subindustry": "Luxury Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated 31/05/2021.",
+        "source": "Statement: https://www.levistrauss.com/wp-content/uploads/2021/06/2021_UK_Slavery_Act.pdf\n"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement. Undated.",
+        "source": "Statement: https://www.levi.com/US/en_US/legal/ca-supply-chain"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company has published a statement dated  17/05/2022",
+        "source": "Statement:https://modernslaveryregister.gov.au/statements/8374/"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Li Ning Co. Ltd.",
+    "overview": {
+      "company": "Li Ning Co. Ltd.",
+      "year_of_inclusion": 2020,
+      "country": "China",
+      "region": "Asia",
+      "market_cap_in_usd_bn": 26.000415,
+      "ticker": "HKG:2331",
+      "isin": "KYG5496K1242",
+      "gics_subindustry": "Luxury Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Lojas Renner SA",
+    "overview": {
+      "company": "Lojas Renner SA",
+      "year_of_inclusion": 2020,
+      "country": "Brazil",
+      "region": "Latin America",
+      "market_cap_in_usd_bn": 4.8310805,
+      "ticker": "BSP:LREN3",
+      "isin": "BRLRENACNOR1",
+      "gics_subindustry": "Department Stores"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "LPP Spolka Akcyjna",
+    "overview": {
+      "company": "LPP Spolka Akcyjna",
+      "year_of_inclusion": 2018,
+      "country": "Poland",
+      "region": "Europe",
+      "market_cap_in_usd_bn": 3.8082523,
+      "ticker": "WAR:LPP",
+      "isin": "PLLPP0000011",
+      "gics_subindustry": "Retail Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated 25/07/2022",
+        "source": "Statement: https://www.lpp.com/wp-content/uploads/2018/02/Modern-Slavery-Statement-LPP-2021_2022.pdf\n"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": "yes",
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Lululemon Athletica Inc.",
+    "overview": {
+      "company": "Lululemon Athletica Inc.",
+      "year_of_inclusion": 2016,
+      "country": "Canada",
+      "region": "North America",
+      "market_cap_in_usd_bn": 41.3662952,
+      "ticker": "NAS:LULU",
+      "isin": "US5500211090",
+      "gics_subindustry": "Retail Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Dated 01/05/2022.",
+        "source": "Statement: https://info.lululemon.com/about/modern-slavery-statement"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Dated 01/05/2022",
+        "source": "Statement: https://info.lululemon.com/about/modern-slavery-statement"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Dated 01/05/2022.",
+        "source": "Statement: https://info.lululemon.com/about/modern-slavery-statement"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "LVMH Moet Hennessy Louis Vuitton SE",
+    "overview": {
+      "company": "LVMH Moet Hennessy Louis Vuitton SE",
+      "year_of_inclusion": 2018,
+      "country": "France",
+      "region": "Europe",
+      "market_cap_in_usd_bn": 371.2459095,
+      "ticker": "PAR:MC",
+      "isin": "FR0000121014",
+      "gics_subindustry": "Luxury Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company has published a statement for subsidiary. ",
+        "source": "Statement: https://uk.louisvuitton.com/content/dam/lv/online/other/allcountry/legalnotice/UK_MSA_STATEMENT_2021.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes (Subsidiary)",
+        "comment": "The company has published a statement. Undated.",
+        "source": "Statement: https://us.louisvuitton.com/eng-us/california-transparency"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company has published a statement dated 07/11/2022",
+        "source": "Statement:https://modernslaveryregister.gov.au/statements/10464/"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": "yes",
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Macy's Inc.",
+    "overview": {
+      "company": "Macy's Inc.",
+      "year_of_inclusion": 2020,
+      "country": "United States",
+      "region": "North America",
+      "market_cap_in_usd_bn": 7.579008,
+      "ticker": "NYS:M",
+      "isin": "US55616P1049",
+      "gics_subindustry": "Department Stores"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement. Undated.",
+        "source": "Statement: https://s202.q4cdn.com/285121676/files/doc_downloads/policies/Human_Trafficking_Statement.pdf"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": "yes",
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Moncler SpA",
+    "overview": {
+      "company": "Moncler SpA",
+      "year_of_inclusion": 2020,
+      "country": "Italy",
+      "region": "Europe",
+      "market_cap_in_usd_bn": 16.3274917,
+      "ticker": "MIL:MONC",
+      "isin": "IT0004965148",
+      "gics_subindustry": "Luxury Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated 29/05/2022.",
+        "source": "Statement: https://d2jb2t40p81ydg.cloudfront.net/wp-content/uploads/2016/07/Moncler-MSA-2021-ENG.pdf\n"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "No ",
+        "comment": "The company may be required to report",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Not determined ",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation, but a statement could not be identified. [the company or a subsidiary carries out business in Australia, but revenue breakdown could not be identified]",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": "yes",
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Mr Price Group Ltd.",
+    "overview": {
+      "company": "Mr Price Group Ltd.",
+      "year_of_inclusion": 2018,
+      "country": "South Africa",
+      "region": "Africa",
+      "market_cap_in_usd_bn": 3.5824227,
+      "ticker": "JSE:MRP",
+      "isin": "ZAE000200457",
+      "gics_subindustry": "Retail Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Next plc",
+    "overview": {
+      "company": "Next plc",
+      "year_of_inclusion": 2020,
+      "country": "United Kingdom",
+      "region": "Europe",
+      "market_cap_in_usd_bn": 12.1312482,
+      "ticker": "LON:NXT",
+      "isin": "GB0032089863",
+      "gics_subindustry": "Department Stores"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated 16/03/2023.",
+        "source": "Statement: https://www.nextplc.co.uk/~/media/Files/N/Next-PLC-V2/documents/2023/modernslaverytransparency-2023.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": "yes",
+      "cashmere*": "yes",
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Nike Inc.",
+    "overview": {
+      "company": "Nike Inc.",
+      "year_of_inclusion": 2016,
+      "country": "United States",
+      "region": "North America",
+      "market_cap_in_usd_bn": 215.9258695,
+      "ticker": "NYS:NKE",
+      "isin": "US6541061031",
+      "gics_subindustry": "Footwear"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Dated 29/11/2023.",
+        "source": "Statement: https://admin.about.nike.com/media/files/709d93f5-36d7-49a7-8e48-31587f8e8630/NIKE_Inc_Statement_Forced_Labor_Human_Trafficking_Modern_Slavery_FY22_11.30.2022.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Dated 29/11/2023.",
+        "source": "Statement: https://admin.about.nike.com/media/files/709d93f5-36d7-49a7-8e48-31587f8e8630/NIKE_Inc_Statement_Forced_Labor_Human_Trafficking_Modern_Slavery_FY22_11.30.2022.pdf"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Dated 29/11/2023.",
+        "source": "Statement: https://admin.about.nike.com/media/files/709d93f5-36d7-49a7-8e48-31587f8e8630/NIKE_Inc_Statement_Forced_Labor_Human_Trafficking_Modern_Slavery_FY22_11.30.2022.pdf"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Page Industries Ltd.",
+    "overview": {
+      "company": "Page Industries Ltd.",
+      "year_of_inclusion": 2018,
+      "country": "India",
+      "region": "Asia",
+      "market_cap_in_usd_bn": 6.2433143,
+      "ticker": "BOM:532827",
+      "isin": "INE761H01022",
+      "gics_subindustry": "Retail Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Pou Chen Corp.",
+    "overview": {
+      "company": "Pou Chen Corp.",
+      "year_of_inclusion": 2018,
+      "country": "Taiwan",
+      "region": "Asia",
+      "market_cap_in_usd_bn": 3.3734616,
+      "ticker": "TAI:9904",
+      "isin": "TW0009904003",
+      "gics_subindustry": "Footwear"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Prada SpA",
+    "overview": {
+      "company": "Prada SpA",
+      "year_of_inclusion": 2016,
+      "country": "Italy",
+      "region": "Europe",
+      "market_cap_in_usd_bn": 15.963404200000001,
+      "ticker": "HKG:1913",
+      "isin": "IT0003874101",
+      "gics_subindustry": "Luxury Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated 16/04/2021\n",
+        "source": "Statement: https://www.pradagroup.com/content/dam/pradagroup/documents/Responsabilita_sociale/2021/Modern%20Slavery%20Statement%202020.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company may be required to report",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Not determined ",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation, but a statement could not be identified. [the company or a subsidiary carries out business in Australia, but revenue breakdown could not be identified]",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": "yes",
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Primark",
+    "overview": {
+      "company": "Primark",
+      "year_of_inclusion": 2016,
+      "country": "United Kingdom",
+      "region": "Europe",
+      "market_cap_in_usd_bn": 20.640142100000002,
+      "ticker": "LON:ABF",
+      "isin": "GB0006731235",
+      "gics_subindustry": "Retail Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated 01/03/2021.",
+        "source": "Statement: https://primark.a.bigcontent.io/v1/static/primark-modern-slavery-statement-2022"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A ",
+        "source": "N/A "
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": "yes",
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Puma SE",
+    "overview": {
+      "company": "Puma SE",
+      "year_of_inclusion": 2018,
+      "country": "Germany",
+      "region": "Europe",
+      "market_cap_in_usd_bn": 13.683789800000001,
+      "ticker": "ETR:PUM",
+      "isin": "DE0006969603",
+      "gics_subindustry": "Footwear"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Dated 01/05/2022.",
+        "source": "Statement: https://prodcm.about.puma.com/-/media/files/pdf/sustainability/codes-and-handbooks/2022/puma_modern_slavery_and_human_trafficking_statement_2021.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Dated 01/05/2022.",
+        "source": "Statement: https://prodcm.about.puma.com/-/media/files/pdf/sustainability/codes-and-handbooks/2022/puma_modern_slavery_and_human_trafficking_statement_2021.pdf"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Dated 01/05/2022",
+        "source": "Statement: https://prodcm.about.puma.com/-/media/files/pdf/sustainability/codes-and-handbooks/2022/puma_modern_slavery_and_human_trafficking_statement_2021.pdf"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "PVH Corp.",
+    "overview": {
+      "company": "PVH Corp.",
+      "year_of_inclusion": 2016,
+      "country": "United States",
+      "region": "North America",
+      "market_cap_in_usd_bn": 6.8501107,
+      "ticker": "NYS:PVH",
+      "isin": "US6936561009",
+      "gics_subindustry": "Luxury Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Dated 07/07/2022.",
+        "source": "Statement: https://www.pvh.com/ca-transparency-disclosure"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Dated 07/07/2022.",
+        "source": "Statement: https://www.pvh.com/ca-transparency-disclosure"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Dated 07/07/2022.",
+        "source": "Statement: https://www.pvh.com/ca-transparency-disclosure"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": "yes",
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Ralph Lauren Corp.",
+    "overview": {
+      "company": "Ralph Lauren Corp.",
+      "year_of_inclusion": 2016,
+      "country": "United States",
+      "region": "North America",
+      "market_cap_in_usd_bn": 9.396,
+      "ticker": "NYS:RL",
+      "isin": "US7512121010",
+      "gics_subindustry": "Luxury Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Undated ",
+        "source": "Statement: https://corporate.ralphlauren.com/transparency-acts"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Undated ",
+        "source": "Statement: https://corporate.ralphlauren.com/transparency-acts"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA, and Aus MSA. Undated",
+        "source": "Statement: https://corporate.ralphlauren.com/transparency-acts"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": "yes",
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Ryohin Keikaku Co. Ltd.",
+    "overview": {
+      "company": "Ryohin Keikaku Co. Ltd.",
+      "year_of_inclusion": 2020,
+      "country": "Japan",
+      "region": "Asia",
+      "market_cap_in_usd_bn": 3.843,
+      "ticker": "TKS:7453",
+      "isin": "JP3976300008",
+      "gics_subindustry": "Department Stores"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated 24/02/2022.",
+        "source": "Statement: https://www.ryohin-keikaku.jp/sustainability/supply-chain/code-of-conduct/pdf/mss_2022_en.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Not determined ",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation, but a statement could not be identified. [the company or a subsidiary carries out business in Australia, but revenue breakdown could not be identified]",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Salvatore Ferragamo SpA",
+    "overview": {
+      "company": "Salvatore Ferragamo SpA",
+      "year_of_inclusion": 2018,
+      "country": "Italy",
+      "region": "Europe",
+      "market_cap_in_usd_bn": 3.628,
+      "ticker": "MIL:SFER",
+      "isin": "IT0004712375",
+      "gics_subindustry": "Luxury Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA and Aus MSA. Dated 12/06/2022.",
+        "source": "Statement: https://group.ferragamo.com/wps/wcm/connect/6a277445-caed-46ac-836e-183669694570/ENG+Modern+Slavery+statement.pdf?MOD=AJPERES&projectid=67ff66d0-2bb3-4aad-bf9b-2269937f9273&projectid=67ff66d0-2bb3-4aad-bf9b-2269937f9273&projectid=67ff66d0-2bb3-4aad-bf9b-2269937f9273&projectid=67ff66d0-2bb3-4aad-bf9b-2269937f9273&projectid=67ff66d0-2bb3-4aad-bf9b-2269937f9273&projectid=67ff66d0-2bb3-4aad-bf9b-2269937f9273\n"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA and Aus MSA. Dated 12/06/2022.",
+        "source": "Statement: https://group.ferragamo.com/wps/wcm/connect/6a277445-caed-46ac-836e-183669694570/ENG+Modern+Slavery+statement.pdf?MOD=AJPERES&projectid=67ff66d0-2bb3-4aad-bf9b-2269937f9273&projectid=67ff66d0-2bb3-4aad-bf9b-2269937f9273&projectid=67ff66d0-2bb3-4aad-bf9b-2269937f9273&projectid=67ff66d0-2bb3-4aad-bf9b-2269937f9273&projectid=67ff66d0-2bb3-4aad-bf9b-2269937f9273&projectid=67ff66d0-2bb3-4aad-bf9b-2269937f9273"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA and Aus MSA. Dated 12/06/2022.",
+        "source": "Statement: https://group.ferragamo.com/wps/wcm/connect/6a277445-caed-46ac-836e-183669694570/ENG+Modern+Slavery+statement.pdf?MOD=AJPERES&projectid=67ff66d0-2bb3-4aad-bf9b-2269937f9273&projectid=67ff66d0-2bb3-4aad-bf9b-2269937f9273&projectid=67ff66d0-2bb3-4aad-bf9b-2269937f9273&projectid=67ff66d0-2bb3-4aad-bf9b-2269937f9273&projectid=67ff66d0-2bb3-4aad-bf9b-2269937f9273&projectid=67ff66d0-2bb3-4aad-bf9b-2269937f9273"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": "yes",
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Shenzhou International Group Holdings Ltd.",
+    "overview": {
+      "company": "Shenzhou International Group Holdings Ltd.",
+      "year_of_inclusion": 2016,
+      "country": "China",
+      "region": "Asia",
+      "market_cap_in_usd_bn": 25.257,
+      "ticker": "HKG:2313",
+      "isin": "KYG8087W1015",
+      "gics_subindustry": "Textiles"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Shimamura Co. Ltd.",
+    "overview": {
+      "company": "Shimamura Co. Ltd.",
+      "year_of_inclusion": 2018,
+      "country": "Japan",
+      "region": "Asia",
+      "market_cap_in_usd_bn": 3.3037573,
+      "ticker": "TKS:8227",
+      "isin": "JP3358200008",
+      "gics_subindustry": "Retail Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Skechers U.S.A. Inc.",
+    "overview": {
+      "company": "Skechers U.S.A. Inc.",
+      "year_of_inclusion": 2018,
+      "country": "United States",
+      "region": "North America",
+      "market_cap_in_usd_bn": 7.1749875,
+      "ticker": "NYS:SKX",
+      "isin": "US8305661055",
+      "gics_subindustry": "Footwear"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company haspublished a statement dated 31/12/2018.",
+        "source": "Statement: https://sh.skechers.com/skechers/new-site/UK-Modern-Slavery-Act-4-22-19.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated June 2020.",
+        "source": "Statement: https://about.skechers.com/wp-content/uploads/2020/09/California-Transparency-in-Supply-Chains-Act-Disclosure-June-2020.pdf"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Tapestry Inc.",
+    "overview": {
+      "company": "Tapestry Inc.",
+      "year_of_inclusion": 2020,
+      "country": "United States",
+      "region": "North America",
+      "market_cap_in_usd_bn": 10.7971795,
+      "ticker": "NYS:TPR",
+      "isin": "US8760301072",
+      "gics_subindustry": "Luxury Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, and CTSCA . Dated 11/08/2022.",
+        "source": "Statement: https://www.tapestry.com/california-transparency-act-uk-modern-slavery-act-statement/"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, and CTSCA . Dated 11/08/2022.",
+        "source": "Statement: https://www.tapestry.com/california-transparency-act-uk-modern-slavery-act-statement/"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Not determined ",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation, but a statement could not be identified. [the company or a subsidiary carries out business in Australia, but revenue breakdown could not be identified]",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": "yes",
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "The Foschini Group Ltd.",
+    "overview": {
+      "company": "The Foschini Group Ltd.",
+      "year_of_inclusion": 2022,
+      "country": "South Africa",
+      "region": "Africa ",
+      "market_cap_in_usd_bn": 2.6030338,
+      "ticker": "JSE:TFG",
+      "isin": "ZAE000148466",
+      "gics_subindustry": "Retail Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated 2021.",
+        "source": "Statement:https://tfglondon.com/pdf/TFGBrandsLondonLimited-ModernSlaveryAct2015TransparencyStatement2020-2021.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company may be required to report",
+        "source": "N/A "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated December 2020 ",
+        "source": "Statement: http://www.rag.net.au/wp-content/uploads/2020/12/MODERN-SLAVERY-STATEMENT-FINAL-2.pdf"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "The TJX Companies Inc.",
+    "overview": {
+      "company": "The TJX Companies Inc.",
+      "year_of_inclusion": 2020,
+      "country": "United States",
+      "region": "North America",
+      "market_cap_in_usd_bn": 78.8492618,
+      "ticker": "NYS:TJX",
+      "isin": "US8725401090",
+      "gics_subindustry": "Retail Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA and CTSCA. Dated 20/07/2022.",
+        "source": "Statement: https://www.tjx.com/responsibility/responsible-business/responsible-sourcing#labor"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA and Aus MSA. Dated 20/07/2022.",
+        "source": "Statement: https://www.tjx.com/responsibility/responsible-business/responsible-sourcing#labor"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company has published a statement for 2020-2021",
+        "source": "Statement:https://modernslaveryregister.gov.au/statements/file/e28140d0-d0de-41cd-b21a-fa80a673097e/\n"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Trent Ltd.",
+    "overview": {
+      "company": "Trent Ltd.",
+      "year_of_inclusion": 2022,
+      "country": "India",
+      "region": "Asia",
+      "market_cap_in_usd_bn": 5.219424200000001,
+      "ticker": "BOM:500251",
+      "isin": "INE849A01020",
+      "gics_subindustry": "Department Stores"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Under Armour Inc.",
+    "overview": {
+      "company": "Under Armour Inc.",
+      "year_of_inclusion": 2016,
+      "country": "United States",
+      "region": "North America",
+      "market_cap_in_usd_bn": 7.9493833,
+      "ticker": "NYS:UAA",
+      "isin": "US9043111072",
+      "gics_subindustry": "Retail Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA and Aus MSA. Dated 31/12/2022.",
+        "source": "Statement: https://about.underarmour.com/content/dam/ua/investor-relations/MSA_2022_FINAL_6.27_2.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA and Aus MSA. Dated 31/12/2022.",
+        "source": "Statement: https://about.underarmour.com/content/dam/ua/investor-relations/MSA_2022_FINAL_6.27_2.pdf"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA and Aus MSA. Dated 31/12/2022.",
+        "source": "Statement: https://about.underarmour.com/content/dam/ua/investor-relations/MSA_2022_FINAL_6.27_2.pdf"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "VF Corp.",
+    "overview": {
+      "company": "VF Corp.",
+      "year_of_inclusion": 2016,
+      "country": "United States",
+      "region": "North America",
+      "market_cap_in_usd_bn": 22.564074700000003,
+      "ticker": "NYS:VFC",
+      "isin": "US9182041080",
+      "gics_subindustry": "Luxury Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA and Norway Supply Chain Transparency Act. 02/04/2022.",
+        "source": "Statement: https://d1io3yog0oux5.cloudfront.net/_dbf15a85f40141d7ca2f138f53c2a217/vfc/files/pages/modern-slavery-statement/Modern_Slavery_and_Human_Rights_Disclosure.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "Joint statement made for UK MSA, CTSCA and Aus MSA. 02/04/2022.",
+        "source": "Statement: https://www.vfc.com/modern-slavery-statement"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Not determined ",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation, but a statement could not be identified. [the company or a subsidiary carries out business in Australia, but revenue breakdown could not be identified]",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Walmart Inc.",
+    "overview": {
+      "company": "Walmart Inc.",
+      "year_of_inclusion": 2018,
+      "country": "United States",
+      "region": "North America",
+      "market_cap_in_usd_bn": 374.9174124,
+      "ticker": "NYS:WMT",
+      "isin": "US9311421039",
+      "gics_subindustry": "Retail Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated February 2022.",
+        "source": "Statement: https://corporate.walmart.com/california-transparency"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Woolworths Holdings Ltd.",
+    "overview": {
+      "company": "Woolworths Holdings Ltd.",
+      "year_of_inclusion": 2022,
+      "country": "South Africa",
+      "region": "Africa",
+      "market_cap_in_usd_bn": 3.168,
+      "ticker": "JSE:WHL",
+      "isin": "ZAE000063863",
+      "gics_subindustry": "Department Stores"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated 2022 ",
+        "source": "Statement: https://www.woolworthsgroup.com.au/content/dam/wwg/investors/reports/2022/full-year/WOW%20MSS%202022%20FINAL.pdf"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": "yes",
+      "cashmere*": "yes",
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Youngor Group Co. Ltd.",
+    "overview": {
+      "company": "Youngor Group Co. Ltd.",
+      "year_of_inclusion": 2018,
+      "country": "China",
+      "region": "Asia",
+      "market_cap_in_usd_bn": 4.9679539,
+      "ticker": "SHG:600177",
+      "isin": "CNE000000XR2",
+      "gics_subindustry": "Luxury Apparel"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": "yes",
+      "cashmere*": "yes",
+      "cotton": "yes"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Zalando",
+    "overview": {
+      "company": "Zalando",
+      "year_of_inclusion": 2020,
+      "country": "Germany",
+      "region": "Europe",
+      "market_cap_in_usd_bn": 17.174091400000002,
+      "ticker": "ETR:ZAL",
+      "isin": "DE000ZAL1111",
+      "gics_subindustry": "Online and Direct Marketing Retail"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated 27/06/2022.",
+        "source": "Statement: https://corporate.zalando.com/sites/default/files/media-download/Modern%20Slavery%20Statement%202022.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "bamboo": null,
+      "cashmere*": null,
+      "cotton": "yes"
+    }
+  }
+]

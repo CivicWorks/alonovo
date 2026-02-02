@@ -1,0 +1,1757 @@
+[
+  {
+    "company_id": null,
+    "company_name": "Advanced Micro Devices Inc",
+    "overview": {
+      "company": "Advanced Micro Devices Inc",
+      "year_of_inclusion": 2022,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 235.74451322736,
+      "ticker": "AMD",
+      "isin": "US0079031078",
+      "subindustry": "Semiconductors"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement on the UK MSA and CTSCA.",
+        "source": "Advanced Micro Devices (June 2023), \"Statement on modern slavery and human trafficking,\" https://www.amd.com/content/dam/amd/en/documents/corporate/cr/statement-human-trafficking-forced-labor.pdf."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement on the UK MSA and CTSCA.",
+        "source": "Advanced Micro Devices (June 2023), \"Statement on modern slavery and human trafficking,\" https://www.amd.com/content/dam/amd/en/documents/corporate/cr/statement-human-trafficking-forced-labor.pdf."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Yes",
+      "malaysia": "Yes",
+      "source": "AMD, \"2022-23 corporate responsibility report,\" https://www.amd.com/content/dam/amd/en/documents/corporate/cr/2022-23-amd-cr-report.pdf, p. 39"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Amazon.com Inc.",
+    "overview": {
+      "company": "Amazon.com Inc.",
+      "year_of_inclusion": 2018,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 1393.87284726288,
+      "ticker": "AMZN",
+      "isin": "US0231351067",
+      "subindustry": "Broadline Retail"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA, CTSCA, and Australian MSA. ",
+        "source": "Amazon (2022), \"Modern slavery statement,\" https://sustainability.aboutamazon.com/modern-slavery-statement.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA, CTSCA, and Australian MSA. ",
+        "source": "Amazon (2022), \"Modern slavery statement,\" https://sustainability.aboutamazon.com/modern-slavery-statement.pdf"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA, CTSCA, and Australian MSA. ",
+        "source": "Amazon (2022), \"Modern slavery statement,\" https://sustainability.aboutamazon.com/modern-slavery-statement.pdf"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Yes",
+      "malaysia": "Yes",
+      "source": " *Amazon (April 2024), \"Supply chain transparency,\" https://sustainability.aboutamazon.com/human-rights/supply-chain#supply-chain-transparency. Accessed 6 August 2024. "
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Amphenol Corp.",
+    "overview": {
+      "company": "Amphenol Corp.",
+      "year_of_inclusion": 2018,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 62.18,
+      "ticker": "APH",
+      "isin": "US0320951017",
+      "subindustry": "Electronic Components"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA, CTSCA, and Australian MSA. ",
+        "source": "Amphenol (January 2024), \"Anti-human trafficking and slavery statement,\" https://amphenol.com/docs/anti-human-trafficking-and-slavery-statement. Accessed 13 May 2024."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA, CTSCA, and Australian MSA. ",
+        "source": "Amphenol (January 2024), \"Anti-human trafficking and slavery statement,\" https://amphenol.com/docs/anti-human-trafficking-and-slavery-statement. Accessed 13 May 2024."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA, CTSCA, and Australian MSA. ",
+        "source": "Amphenol (January 2024), \"Anti-human trafficking and slavery statement,\" https://amphenol.com/docs/anti-human-trafficking-and-slavery-statement. Accessed 13 May 2024."
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Not disclosed",
+      "malaysia": "Not disclosed",
+      "source": "N/A"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Analog Devices Inc.",
+    "overview": {
+      "company": "Analog Devices Inc.",
+      "year_of_inclusion": 2018,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 98.1750014408373,
+      "ticker": "ADI",
+      "isin": "US0326541051",
+      "subindustry": "Semiconductors"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement on the UK MSA and CTSCA.",
+        "source": "Analog Devices (June 2023), \"Anti-slavery and human trafficking statement,\" https://investor.analog.com/static-files/7f8f80c5-009c-4912-bfef-6798ae74e4d6. Accessed 13 May 2019."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement on the UK MSA and CTSCA.",
+        "source": "Analog Devices (June 2023), \"Anti-slavery and human trafficking statement,\" https://investor.analog.com/static-files/7f8f80c5-009c-4912-bfef-6798ae74e4d6. Accessed 13 May 2019."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "The company or a subsidiary may be required to report under the legislation",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation, but a statement could not be identified.",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Not disclosed",
+      "malaysia": "Not disclosed",
+      "source": "N/A"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Apple Inc.",
+    "overview": {
+      "company": "Apple Inc.",
+      "year_of_inclusion": 2016,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 2991.80544871088,
+      "ticker": "AAPL",
+      "isin": "US0378331005",
+      "subindustry": "Technology Hardware Storage & Peripherals"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement on the UK MSA and CTSCA.",
+        "source": "Apple (March 2024), \"2023 UK Statement on Efforts to Combat Modern Slavery in Our Business and Supply Chains,\" https://www.supplychainreports.apple/files/doc_downloads/ReportsandFilings/04/Apple-Combat-Human-Trafficking-and-Slavery-in-Supply-Chain-2023.pdf."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement on the UK MSA and CTSCA. The company's Australia MSA statement also makes specific reference to the California legislation.",
+        "source": "Apple (March 2024), \"2023 UK Statement on Efforts to Combat Modern Slavery in Our Business and Supply Chains,\" https://www.supplychainreports.apple/files/doc_downloads/ReportsandFilings/04/Apple-Combat-Human-Trafficking-and-Slavery-in-Supply-Chain-2023.pdf."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a statement for Apple Pty Ltd.",
+        "source": "Apple (February 2024), \"2022 Statement on efforts to combat modern slavery in our business and supply chains,\" https://modernslaveryregister.gov.au/statements/16518/. "
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Yes",
+      "malaysia": "Yes",
+      "source": " Apple (2024), \"Supplier list,\" https://www.supplychainreports.apple/files/doc_downloads/2024/04/Apple-Supplier-List.pdf."
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Best Buy Co. Inc.",
+    "overview": {
+      "company": "Best Buy Co. Inc.",
+      "year_of_inclusion": 2020,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 15.56003623746,
+      "ticker": "BBY",
+      "isin": "US0865161014",
+      "subindustry": "Computer & Electronics Retail"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a statement which is undated.",
+        "source": "Best Buy, \"California Supply Chain Transparency Act,\" https://www.bestbuy.com/site/help-topics/ca-transparency-act/pcmcat263000050003.c?id=pcmcat263000050003&intl=nosplash. Accessed 21 May 2024. "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Yes",
+      "malaysia": "Not disclosed",
+      "source": "*Best Buy, \"2024 Corporate Responsibility & Sustainability Report,\" https://corporate.bestbuy.com/wp-content/uploads/2024/07/BBY-CRS-Report-July2024.pdf, p. 51"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "BOE Technology Group Co. Ltd.",
+    "overview": {
+      "company": "BOE Technology Group Co. Ltd.",
+      "year_of_inclusion": 2016,
+      "country": "China",
+      "region": "Asia",
+      "market_cap": 13.9028183626138,
+      "ticker": "000725",
+      "isin": "CNE0000016L5",
+      "subindustry": "Electronic Components"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company appears to be required to report under the legislation but does not disclose a statement. ",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company appears to be required to report under the CTSCA but does not disclose a statement. ",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Not disclosed",
+      "malaysia": "Not disclosed",
+      "source": "N/A"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Broadcom Inc.",
+    "overview": {
+      "company": "Broadcom Inc.",
+      "year_of_inclusion": 2016,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 451.7943291,
+      "ticker": "AVGO",
+      "isin": "US11135F1012",
+      "subindustry": "Semiconductors"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA, CTSCA, and Australian MSA. ",
+        "source": "Broadcom (March 2023), \"Statement against modern slavery and human trafficking,\" https://docs.broadcom.com/doc/broadcom-statement-against-modern-slavery-and-human-trafficking. "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA, CTSCA, and Australian MSA. ",
+        "source": "Broadcom (March 2023), \"Statement against modern slavery and human trafficking,\" https://docs.broadcom.com/doc/broadcom-statement-against-modern-slavery-and-human-trafficking. "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA, CTSCA, and Australian MSA. ",
+        "source": "Broadcom (March 2023), \"Statement against modern slavery and human trafficking,\" https://docs.broadcom.com/doc/broadcom-statement-against-modern-slavery-and-human-trafficking. "
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Not disclosed.",
+      "malaysia": "Not disclosed.",
+      "source": "N/A"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Canon Inc.",
+    "overview": {
+      "company": "Canon Inc.",
+      "year_of_inclusion": 2016,
+      "country": "Japan",
+      "region": "Asia",
+      "market_cap": 17.1200861380855,
+      "ticker": "7751",
+      "isin": "JP3242800005",
+      "subindustry": "Technology Hardware Storage & Peripherals"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's UK and European subsidiaries have published a statement dated June 2023. ",
+        "source": "Canon UK, Canon Europe and Canon Europa (June 2023), \"Modern slavery act statement,\" https://canon.a.bigcontent.io/v1/static/ms_statement-2022. "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A [The company provided evidence that it is not required to report under the legislation]",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes (subsidiary)*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiary publishes a statement.",
+        "source": "Canon Australia (July 2023), \"Modern slavery statement,\" https://modernslaveryregister.gov.au/statements/14106/. "
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Not disclosed",
+      "malaysia": "Not disclosed",
+      "source": "N/A"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Cisco Systems Inc.",
+    "overview": {
+      "company": "Cisco Systems Inc.",
+      "year_of_inclusion": 2016,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 204.95686230936,
+      "ticker": "CSCO",
+      "isin": "US17275R1023",
+      "subindustry": "Communications Equipment"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA and CTSCA dated January 2024.",
+        "source": "Cisco (January 2024), \"Statement on the prevention of modern slavery and human trafficking,\" https://www.cisco.com/c/dam/en_us/about/supply-chain/cisco-modern-slavery-statement.pdf. "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA and CTSCA dated January 2024.",
+        "source": "Cisco (January 2024), \"Statement on the prevention of modern slavery and human trafficking,\" https://www.cisco.com/c/dam/en_us/about/supply-chain/cisco-modern-slavery-statement.pdf. "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes (subsidiary)*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiary publishes a statement.",
+        "source": "Cisco Systems Australia Pty Ltd (2023), \"Cisco statement on the prevention of modern slavery and human trafficking,\" https://modernslaveryregister.gov.au/statements/12145/. "
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Yes",
+      "malaysia": "Yes",
+      "source": "Cisco, \"Supplier audit results,\" https://www.cisco.com/c/m/en_us/about/csr/esg-hub/supply-chain/audits.html. Accessed 2 July 2024. "
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Corning Inc.",
+    "overview": {
+      "company": "Corning Inc.",
+      "year_of_inclusion": 2018,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 22.550103156,
+      "ticker": "GLW",
+      "isin": "US2193501051",
+      "subindustry": "Electronic Components"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA and CTSCA dated April 2023. ",
+        "source": "Corning (April 2023), \"2023 statement on efforts to combat human trafficking and slavery in our supply chains,\" https://www.corning.com/media/worldwide/global/documents/Statement_on_Efforts_to_Combat_%20Human_Trafficking_and_Slavery_in_Our_Supply_Chains.pdf. "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA and CTSCA dated May 2022. ",
+        "source": "Corning (April 2023), \"2023 statement on efforts to combat human trafficking and slavery in our supply chains,\" https://www.corning.com/media/worldwide/global/documents/Statement_on_Efforts_to_Combat_%20Human_Trafficking_and_Slavery_in_Our_Supply_Chains.pdf. "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "The company confirmed in 2022 that it is not required to report under the legislation.",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Yes",
+      "malaysia": "Not disclosed",
+      "source": "KnowTheChain (2022) \"Additional Disclosure\", https://knowthechain.org/wp-content/uploads/KTC-2022-Additional-Disclosure_Corning.pdf, page 3. "
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Dell Technologies Inc.",
+    "overview": {
+      "company": "Dell Technologies Inc.",
+      "year_of_inclusion": 2020,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 9.39248900084,
+      "ticker": "DELL",
+      "isin": "US24703L2025",
+      "subindustry": "Technology Hardware Storage & Peripherals"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA, CTSCA, and Australian MSA. ",
+        "source": "Dell (June 2023), \"Statement against slavery and human trafficking,\" https://i.dell.com/sites/csdocuments/Legal_Docs/en/dell-modern-slavery-statement.pdf. "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA, CTSCA, and Australian MSA. ",
+        "source": "Dell (June 2023), \"Statement against slavery and human trafficking,\" https://i.dell.com/sites/csdocuments/Legal_Docs/en/dell-modern-slavery-statement.pdf. "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes (subsidiary)*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA, CTSCA, and Australian MSA. ",
+        "source": "Dell (June 2023), \"Statement against slavery and human trafficking,\" https://i.dell.com/sites/csdocuments/Legal_Docs/en/dell-modern-slavery-statement.pdf. "
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Yes",
+      "malaysia": "Yes",
+      "source": "*Dell Technologies Inc. (December 2023), “Public Supplier List,” https://i.dell.com/sites/doccontent/corporate/corp-comm/en/Documents/dell-suppliers.pdf."
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Fujifilm Holdings Corp.",
+    "overview": {
+      "company": "Fujifilm Holdings Corp.",
+      "year_of_inclusion": 2020,
+      "country": "Japan",
+      "region": "Asia",
+      "market_cap": 16.5513892283903,
+      "ticker": "4901",
+      "isin": "JP3814000000",
+      "subindustry": "Technology Hardware Storage & Peripherals"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company publishes statements made for Fujifilm UK Limited, Fujifilm Speciality Ink Systems, Fujfilm Europe GmbH, Fujifilm Europe B.V., Fujifilm Electronic Imaging Europe ",
+        "source": "Fujifilm UK Ltd (September 2023), \"Modern slavery and human trafficking statement,\" https://asset.fujifilm.com/master/emea/files/2023-09/3233f91d21a66e1c639b8b6595977236/FFUKModernSlaveryStatement2023.pdf. "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes (subsidiary)*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company publishes a statement on its US website which is undated.",
+        "source": "Fujifilm, \"Sustainability: California Transparency in Supply Chains,\" https://www.fujifilm.com/us/en/about/region/sustainability. Accessed 21 May 2024."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes (subsidiary)*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiary has published a statement.",
+        "source": "Fujifilm Data Management Solutions (August 2023), \"Modern Slavery Statement 2023,\" https://modernslaveryregister.gov.au/statements/14433/."
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Not disclosed",
+      "malaysia": "Not disclosed",
+      "source": "N/A"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Hewlett Packard Enterprise Co. (HPE)",
+    "overview": {
+      "company": "Hewlett Packard Enterprise Co. (HPE)",
+      "year_of_inclusion": 2018,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 21.71314338324,
+      "ticker": "HPE",
+      "isin": "US42824C1099",
+      "subindustry": "Technology Hardware Storage & Peripherals"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA, CTSCA, and Australian MSA. ",
+        "source": "HPE (April 2024), \"2023 Modern Slavery Act Transparency Statement,\" https://www.hpe.com/psnow/doc/a00005807enw?jumpid=in_pdfviewer-psnow. Accessed 14 May 2024. "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA, CTSCA, and Australian MSA. ",
+        "source": "HPE (April 2024), \"2023 Modern Slavery Act Transparency Statement,\" https://www.hpe.com/psnow/doc/a00005807enw?jumpid=in_pdfviewer-psnow. Accessed 14 May 2024. "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA, CTSCA, and Australian MSA. ",
+        "source": "HPE (April 2024), \"2023 Modern Slavery Act Transparency Statement,\" https://www.hpe.com/psnow/doc/a00005807enw?jumpid=in_pdfviewer-psnow. Accessed 14 May 2024. "
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Yes",
+      "malaysia": "Not disclosed",
+      "source": "China: HPE (2023), \"Hewlett Packard Enterprise Suppliers,\" https://www.hpe.com/psnow/doc/a00000377enw?jumpid=in_pdfviewer-psnow. Accessed 5 June 2024."
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Hon Hai Precision Industry Co. Ltd. (Foxconn)",
+    "overview": {
+      "company": "Hon Hai Precision Industry Co. Ltd. (Foxconn)",
+      "year_of_inclusion": 2016,
+      "country": "Taiwan",
+      "region": "Asia",
+      "market_cap": 39.3588913252693,
+      "ticker": "2317",
+      "isin": "TW0002317005",
+      "subindustry": "Electronic Manufacturing Services"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company appears to be required to report under the legislation but does not disclose a statement. \n[The company responded in 2020 stating that: \"the policies of our CoC and Supplier SER CoC  are based on RBA CoC, and we believe that RBA CoC is similar with the UK Modern Slavery Act /California Transparency in Supplier Chains, on  Anti-Trafficked &Forced Labor initiative. So, we believe that we have already produced a statement on Anti-Trafficked &Forced Labor initiative, under the UK Modern Slavery Act /California Transparency in Supplier Chains.\"]",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "The company or a subsidiary may be required to report under the legislation",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation, but a statement could not be identified.",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Not disclosed",
+      "malaysia": "Not disclosed",
+      "source": "N/A"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "HP Inc.",
+    "overview": {
+      "company": "HP Inc.",
+      "year_of_inclusion": 2016,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 29.7042534216,
+      "ticker": "HPQ",
+      "isin": "US40434L1052",
+      "subindustry": "Technology Hardware Storage & Peripherals"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA, CTSCA, and Australian MSA. ",
+        "source": "HP (April 2024), \"Modern slavery act transparency statement,\" https://h20195.www2.hp.com/V2/GetDocument.aspx?docname=c05388050."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA, CTSCA, and Australian MSA. ",
+        "source": "HP (April 2024), \"Modern slavery act transparency statement,\" https://h20195.www2.hp.com/V2/GetDocument.aspx?docname=c05388050."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA, CTSCA, and Australian MSA. ",
+        "source": "HP (April 2024), \"Modern slavery act transparency statement,\" https://h20195.www2.hp.com/V2/GetDocument.aspx?docname=c05388050."
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Yes",
+      "malaysia": "Yes",
+      "source": "HP Inc., 'Supplier List: January 2024',  https://h20195.www2.hp.com/v2/getpdf.aspx/c03728062.pdf. "
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Infineon Technologies AG",
+    "overview": {
+      "company": "Infineon Technologies AG",
+      "year_of_inclusion": 2018,
+      "country": "Germany",
+      "region": "Europe",
+      "market_cap": 43.0823334458352,
+      "ticker": "IFX",
+      "isin": "DE0006231004",
+      "subindustry": "Semiconductors"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA and CTSCA.",
+        "source": "Infineon Technologies (March 2024), \"Slavery and human trafficking statement,\" https://www.infineon.com/dgdl/Infineon%20Technologies%20Slavery%20and%20Human%20Trafficking%20Statement%202024.pdf?fileId=8ac78c8b8e7eaa81018e84664e3b0001."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA and CTSCA.",
+        "source": "Infineon Technologies (March 2024), \"Slavery and human trafficking statement,\" https://www.infineon.com/dgdl/Infineon%20Technologies%20Slavery%20and%20Human%20Trafficking%20Statement%202024.pdf?fileId=8ac78c8b8e7eaa81018e84664e3b0001."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "The company or a subsidiary may be required to report under the legislation",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation, but a statement could not be identified.",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Yes",
+      "malaysia": "Not disclosed",
+      "source": "Infineon Technologies, (May 2023) \"Infineon announces supplier agreement on wafers and boules with Chinese silicon carbide supplier TanKeBlue to diversify its supply base even further\" https://www.infineon.com/cms/en/about-infineon/press/press-releases/2023/INFXX202305-100.html. accessed 12 July 2024."
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Intel Corp.",
+    "overview": {
+      "company": "Intel Corp.",
+      "year_of_inclusion": 2016,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 212.346097446,
+      "ticker": "INTC",
+      "isin": "US4581401001",
+      "subindustry": "Semiconductors"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA and CTSCA.",
+        "source": "Intel (May 2023), \"2022 Intel Corporation statement on combating modern slavery and ensuring transparent supply chains,\" https://www.intel.com/content/www/us/en/corporate-responsibility/statement-combating-modern-slavery.html?wapkw=Slavery. Accessed 14 May 2024."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA and CTSCA.",
+        "source": "Intel (May 2023), \"2022 Intel Corporation statement on combating modern slavery and ensuring transparent supply chains,\" https://www.intel.com/content/www/us/en/corporate-responsibility/statement-combating-modern-slavery.html?wapkw=Slavery. Accessed 14 May 2024."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No*",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "Intel previously reported that its Australian business does not meet the requirements of a \"reporting entity\" under the Australian legislation",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Not disclosed",
+      "malaysia": "Not disclosed",
+      "source": "N/A"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Keyence Corp.",
+    "overview": {
+      "company": "Keyence Corp.",
+      "year_of_inclusion": 2016,
+      "country": "Japan",
+      "region": "Asia",
+      "market_cap": 82.7356949404301,
+      "ticker": "6861",
+      "isin": "JP3236200006",
+      "subindustry": "Electronic Equipment & Instruments"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a statement dated September 2023.",
+        "source": "Keyence (September 2023), \"Slavery & human trafficking statement (FY2022),\" https://www.keyence.co.uk/download/directDownload/?asrc=Auyxx6lMrF%2F96ATQQaR%2F2vSS3%2FFxQkn6. "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "The company or a subsidiary may be required to report under the legislation",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation, but a statement could not be identified.",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Not disclosed",
+      "malaysia": "Not disclosed",
+      "source": "N/A"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Kyocera Corp.",
+    "overview": {
+      "company": "Kyocera Corp.",
+      "year_of_inclusion": 2018,
+      "country": "Japan",
+      "region": "Asia",
+      "market_cap": 17.7289270024338,
+      "ticker": "6971",
+      "isin": "JP3249600002",
+      "subindustry": "Electronic Components"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's UK subsidiary publishes a statement dated July 2021. ",
+        "source": "Kyocera Document Solutions (April 2023), \"Compliance Statement for the Modern Slavery Act 2015,\" https://www.kyoceradocumentsolutions.co.uk/content/download-center/gb/non-product-related/modern-slavery/KDUK_COMPLIANCE_STATEMENT_FOR_THE_MODERN_SLAVERY_ACT_2022_23_for_website_pdf.download.pdf. "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiary publishes a statement.",
+        "source": "Kyocera AVX, \"Anti-slavery and human trafficking statement,\" https://www.kyocera-avx.com/docs/corporate/anti-slavery-human-trafficking-statement.pdf. "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes (subsidiary)*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiary publishes a statement.",
+        "source": "Kyocera Document Solutions Australia (September 2023), \"Modern slavery statement,\" https://modernslaveryregister.gov.au/statements/14754/."
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Not disclosed",
+      "malaysia": "Not disclosed",
+      "source": "N/A"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "LG Electronics Inc.",
+    "overview": {
+      "company": "LG Electronics Inc.",
+      "year_of_inclusion": 2020,
+      "country": "South Korea",
+      "region": "Asia",
+      "market_cap": 16.22,
+      "ticker": "066570",
+      "isin": "KR7066570003",
+      "subindustry": "Consumer Electronics"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's UK subsidiary publishes a statement covering LG's UK and European subsidiaries. ",
+        "source": "LG Electronics (July 2021), \"UK Modern Slavery Act Statement,\" https://www.lg.com/uk/support/slavery-act-statement/. Accessed 16 May 2024."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes (subsidiary)*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiary publishes a statement.",
+        "source": "LG Electronics Australia (June 2023), \"Modern slavery statement,\" https://modernslaveryregister.gov.au/statements/13922/. "
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Not disclosed",
+      "malaysia": "Not disclosed",
+      "source": "N/A"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Logitech International S.A.",
+    "overview": {
+      "company": "Logitech International S.A.",
+      "year_of_inclusion": 2022,
+      "country": "Switzerland",
+      "region": "Europe",
+      "market_cap": 8.72078627454003,
+      "ticker": "LOGN",
+      "isin": "CH0025751329",
+      "subindustry": "Technology Hardware Storage & Peripherals"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA, CTSCA, and Australian MSA. ",
+        "source": "Logitech (September 2023), \"Zero tolerance statement on slavery and human trafficking,\" https://www.logitech.com/content/dam/logitech/en/sustainability/pdf/resources/slavery-human-trafficking-statement-sept-2023.pdf."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA, CTSCA, and Australian MSA. ",
+        "source": "Logitech (September 2023), \"Zero tolerance statement on slavery and human trafficking,\" https://www.logitech.com/content/dam/logitech/en/sustainability/pdf/resources/slavery-human-trafficking-statement-sept-2023.pdf."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA, CTSCA, and Australian MSA. ",
+        "source": "Logitech (September 2023), \"Zero tolerance statement on slavery and human trafficking,\" https://www.logitech.com/content/dam/logitech/en/sustainability/pdf/resources/slavery-human-trafficking-statement-sept-2023.pdf."
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Yes",
+      "malaysia": "Yes",
+      "source": "*Logitech, “FY2024 Impact Report”, https://impactreport.logitech.com/, p. 7."
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Luxshare Precision Industry Co. Ltd.",
+    "overview": {
+      "company": "Luxshare Precision Industry Co. Ltd.",
+      "year_of_inclusion": 2022,
+      "country": "China",
+      "region": "Asia",
+      "market_cap": 19.3348316607479,
+      "ticker": "002475",
+      "isin": "CNE100000TP3",
+      "subindustry": "Electronic Components"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company appears to be required to report under the legislation but does not disclose a statement. ",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "The company may be required to report under the legislation",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company may be required to report under the legislation but a disclosure could not be identified.",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Yes",
+      "malaysia": "Not disclosed",
+      "source": "Luxshare Precision states that in 2022 it had a total of  10,680 suppliers, including 7857 Chinese suppliers and 1667 overseas suppliers. Luxshare Precision Industry, (2023) \"Sustainability Report\", https://www.luxshare-ict.com/Public/Uploads/uploadfile2/files/20240603/gongyingshangguanlishijianEn.pdf. pp 66. Accessed 18 June 2024."
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Microchip Technology Inc.",
+    "overview": {
+      "company": "Microchip Technology Inc.",
+      "year_of_inclusion": 2018,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 48.1859513108809,
+      "ticker": "MCHP",
+      "isin": "US5950171042",
+      "subindustry": "Semiconductors"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a statement which is dated 21 May 2024.",
+        "source": "Microchip (21 May 2024), \"Modern slavery statement and supply chain disclosure,\" https://ww1.microchip.com/downloads/aemDocuments/documents/corporate-responsibilty/ethics-and-conducts/Modern+Slavery+Statement+and+Supply+Chain+Disclosure.pdf. "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes ",
+        "comment": "The company publishes a statement dated 21 May 2024.",
+        "source": "Microchip (21 May 2024), \"Modern slavery statement and supply chain disclosure,\" https://ww1.microchip.com/downloads/aemDocuments/documents/corporate-responsibilty/ethics-and-conducts/Modern+Slavery+Statement+and+Supply+Chain+Disclosure.pdf "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Not disclosed",
+      "malaysia": "Not disclosed",
+      "source": "N/A"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Micron Technology Inc.",
+    "overview": {
+      "company": "Micron Technology Inc.",
+      "year_of_inclusion": 2018,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 93.22252826508,
+      "ticker": "MU",
+      "isin": "US5951121038",
+      "subindustry": "Semiconductors"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement under the UK MSA and CTSCA dated January 2024.",
+        "source": "Micron Technology (January 2024), \"Combating modern slavery and human trafficking,\" https://www.micron.com/content/dam/micron/global/public/documents/about/codeofconduct/2023-20240117-combating-modern-slavery-and-human-trafficking-statement-executed.pdf. "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes ",
+        "comment": "The company publishes a joint statement under the UK MSA and CTSCA dated January 2024.",
+        "source": "Micron Technology (January 2024), \"Combating modern slavery and human trafficking,\" https://www.micron.com/content/dam/micron/global/public/documents/about/codeofconduct/2023-20240117-combating-modern-slavery-and-human-trafficking-statement-executed.pdf. "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Not disclosed",
+      "malaysia": "Not disclosed",
+      "source": "N/A"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Motorola Solutions Inc.",
+    "overview": {
+      "company": "Motorola Solutions Inc.",
+      "year_of_inclusion": 2020,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 42.9929806360802,
+      "ticker": "MSI",
+      "isin": "US6200763075",
+      "subindustry": "Communications Equipment"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement under the UK MSA, CTSCA and Australia MSA dated May 2021.",
+        "source": "Motorola Solutions (May 2023), \"Anti-slavery/anti-human trafficking statement,\" https://www.motorolasolutions.com/content/dam/msi/docs/about/events/msi_amsht_statement_current.pdf. "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement under the UK MSA, CTSCA and Australia MSA dated May 2021.",
+        "source": "Motorola Solutions (May 2023), \"Anti-slavery/anti-human trafficking statement,\" https://www.motorolasolutions.com/content/dam/msi/docs/about/events/msi_amsht_statement_current.pdf. "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement under the UK MSA, CTSCA and Australia MSA dated May 2021.",
+        "source": "Motorola Solutions (May 2023), \"Anti-slavery/anti-human trafficking statement,\" https://www.motorolasolutions.com/content/dam/msi/docs/about/events/msi_amsht_statement_current.pdf. "
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Not disclosed",
+      "malaysia": "Not disclosed",
+      "source": "N/A"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Murata Manufacturing Co. Ltd.",
+    "overview": {
+      "company": "Murata Manufacturing Co. Ltd.",
+      "year_of_inclusion": 2016,
+      "country": "Japan",
+      "region": "Asia",
+      "market_cap": 29.5468443070153,
+      "ticker": "6981",
+      "isin": "JP3914400001",
+      "subindustry": "Electronic Components"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a statement dated January 2024.",
+        "source": "Murata Manufacturing (January 2024), \"Statement on the UK Modern Slavery Act,\" https://corporate.murata.com/-/media/corporate/about/csr/modernslavery/modernslavery-e.ashx?la=en-gb&cvid=20240202010000000000. "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes (subsidiary)*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company's subsidiary pSemi publishes a statement. ",
+        "source": "pSemi, \"California Transparency in Supply Chains Disclosure,\"https://www.psemi.com/wp-content/uploads/2020/12/California_Transparency_in_Supply_Chains_Act.pdf. "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Not disclosed",
+      "malaysia": "Not disclosed",
+      "source": "N/A"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Nokia Oyj",
+    "overview": {
+      "company": "Nokia Oyj",
+      "year_of_inclusion": 2018,
+      "country": "Finland",
+      "region": "Europe",
+      "market_cap": 20.14,
+      "ticker": "NOKIA",
+      "isin": "FI0009000681",
+      "subindustry": "Communications Equipment"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement under the UK MSA and Australian MSA dated June 2023.",
+        "source": "Nokia (June 2023), \"Modern Slavery Statement 2022,\" https://www.nokia.com/sites/default/files/2023-06/nokia-modern-slavery-statement-for-year-2022.pdf. "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "The company may be required to report under the legislation",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company may be required to report under the legislation but a disclosure could not be identified.",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement under the UK MSA and Australian MSA dated June 2021.",
+        "source": "Nokia (June 2023), \"Modern Slavery Statement 2022,\" https://www.nokia.com/sites/default/files/2023-06/nokia-modern-slavery-statement-for-year-2022.pdf. "
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Yes",
+      "malaysia": "Yes",
+      "source": "Nokia (November 2024) \"Additional Disclosure - 2024/2025 ICT Benchmark\", https://media.business-humanrights.org/media/documents/KTC-ICT-2024-Additional-Disclosure_Nokia.pdf, p. 12. "
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "NVIDIA Corp.",
+    "overview": {
+      "company": "NVIDIA Corp.",
+      "year_of_inclusion": 2018,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 345.43370730852,
+      "ticker": "NVDA",
+      "isin": "US67066G1040",
+      "subindustry": "Semiconductors"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a statement dated November 2023. [Note that the statement does not refer specifically to the UK Modern Slavery Act, but references business in the UK]",
+        "source": "NVIDIA (November 2023), \"2023 slavery and human trafficking statement,\" https://www.nvidia.com/content/dam/en-zz/Solutions/about-us/documents/2023-UK-Slavery-and-Human-Trafficking-Statement.pdf. "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A [The company provided evidence in September 2019 that confirmed it is not required to report under the legislation]",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "The company or a subsidiary may be required to report under the legislation",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation, but a statement could not be identified.",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Yes",
+      "malaysia": "Not disclosed",
+      "source": " NVIDIA (2024) \"Sustainability Report\", https://images.nvidia.com/aem-dam/Solutions/documents/FY2024-NVIDIA-Corporate-Sustainability-Report.pdf, page 19."
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "NXP Semiconductors NV",
+    "overview": {
+      "company": "NXP Semiconductors NV",
+      "year_of_inclusion": 2018,
+      "country": "Netherlands",
+      "region": "Europe",
+      "market_cap": 40.9338299735471,
+      "ticker": "NXPI",
+      "isin": "NL0009538784",
+      "subindustry": "Semiconductors"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA, CTSCA, and Australian MSA. ",
+        "source": "NXP Semiconductors (April 2024), \"2023 modern slavery report,\" https://www.nxp.com/docs/en/supporting-information/MODERN-SLAVERY-REPORT-2023.pdf. "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA, CTSCA, and Australian MSA. ",
+        "source": "NXP Semiconductors (April 2024), \"2023 modern slavery report,\" https://www.nxp.com/docs/en/supporting-information/MODERN-SLAVERY-REPORT-2023.pdf. "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA, CTSCA, and Australian MSA. ",
+        "source": "NXP Semiconductors (April 2024), \"2023 modern slavery report,\" https://www.nxp.com/docs/en/supporting-information/MODERN-SLAVERY-REPORT-2023.pdf. "
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Yes",
+      "malaysia": "Yes",
+      "source": "NXP Semiconductors NV (2024), \"2023 Modern Slavery Report\", https://www.nxp.com/docs/en/supporting-information/MODERN-SLAVERY-REPORT-2023.pdf, pages 64-69. "
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Panasonic Corp.",
+    "overview": {
+      "company": "Panasonic Corp.",
+      "year_of_inclusion": 2020,
+      "country": "Japan",
+      "region": "Asia",
+      "market_cap": 17.7676073659644,
+      "ticker": "6752",
+      "isin": "JP3866800000",
+      "subindustry": "Consumer Electronics"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's UK subsidiary publishes a statement for 2021. ",
+        "source": "Panasonic (2023), \"UK Modern Slavery Act Transparency Statement 2023,\" https://www.panasonic.com/content/dam/Panasonic/uk/en/static-page/2023-PUK-MSA_statement.pdf. "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes (subsidiary)*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's Avionics subsidiary publishes a statement for FY2019. ",
+        "source": "Panasonics Avionics (September 2023), \"Modern slavery statement (international),\" https://www.panasonic.aero/wp-content/uploads/2023/10/PAC-MSA-International-2023-Signed2.pdf."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes (subsidiary)*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiary publishes a statement.",
+        "source": "Panasonic Australia Pty Ltd (November 2023), \"Modern slavery statement 2023,\" https://modernslaveryregister.gov.au/statements/15160/. "
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Yes",
+      "malaysia": "Yes",
+      "source": "*Panasonic Holdings Corp., “Sustainability Data Book 2024”, https://holdings.panasonic/global/corporate/sustainability/pdf/sdb2024e.pdf."
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Qualcomm Inc.",
+    "overview": {
+      "company": "Qualcomm Inc.",
+      "year_of_inclusion": 2016,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 160.978786451726,
+      "ticker": "QCOM",
+      "isin": "US7475251036",
+      "subindustry": "Semiconductors"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a statement dated March 2024.",
+        "source": "Qualcomm (March 2024), \"Qualcomm anti-slavery and human trafficking statement,\" https://www.qualcomm.com/content/dam/qcomm-martech/dm-assets/documents/Qualcomm-Anti-Slavery-and-Human-Trafficking-Statement.pdf. "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "The company confirmed in 2022 that it is not required to report under the legislation.",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Yes",
+      "malaysia": "Not disclosed ",
+      "source": "Qualcomm Inc, (2023) \"Corporate Responsibility Report,\" https://www.qualcomm.com/content/dam/qcomm-martech/dm-assets/documents/2023-qualcomm-corporate-responsibility-report.pdf, page 6"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Samsung Electronics Co. Ltd.",
+    "overview": {
+      "company": "Samsung Electronics Co. Ltd.",
+      "year_of_inclusion": 2016,
+      "country": "South Korea",
+      "region": "Asia",
+      "market_cap": 377.05,
+      "ticker": "005930",
+      "isin": "KR7005930003",
+      "subindustry": "Technology Hardware Storage & Peripherals"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's UK subsidiary publishes a statement dated June 2023. ",
+        "source": "Samsung Electronics UK Ltd (June 2023), \"Modern slavery act statement 2022,\" https://images.samsung.com/is/content/samsung/assets/uk/home/SEUK_2022_Modern_Slavery_Statement_Final.pdf/"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A [The company confirmed in February 2020 that they are not required to report under the legislation.]",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiary publishes a statement.",
+        "source": "Samsung Electronics Australia (June 2023), \"Modern slavery act statement 2022,\" https://modernslaveryregister.gov.au/statements/14056/."
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Yes",
+      "malaysia": "Yes",
+      "source": "Samsung Electronics, \"Supplier List,\" https://www.samsung.com/global/sustainability/policy-file/AYVhOfYaBGoAIx95/Supplier_List.pdf. Accessed 11 July 2024."
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Seagate Technology PLC",
+    "overview": {
+      "company": "Seagate Technology PLC",
+      "year_of_inclusion": 2022,
+      "country": "Ireland",
+      "region": "Europe",
+      "market_cap": 18.32,
+      "ticker": "S1TX34",
+      "isin": "BRS1TXBDR005",
+      "subindustry": "Technology Hardware Storage & Peripherals"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement under the UK MSA and CTSCA dated May 2023.",
+        "source": "Seagate Technology (May 2023), \"Seagate Technology anti-slavery and human trafficking statement,\" https://www.seagate.com/content/dam/seagate/assets/esg/resources/files/anti-slavery-and-human-trafficking-statement-2023-only-for-en-gb.pdf."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement under the UK MSA and CTSCA dated May 2023.",
+        "source": "Seagate Technology (May 2023), \"Seagate Technology anti-slavery and human trafficking statement,\" https://www.seagate.com/content/dam/seagate/assets/esg/resources/files/anti-slavery-and-human-trafficking-statement-2023-only-for-en-gb.pdf."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "The company or a subsidiary may be required to report under the legislation",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation, but a statement could not be identified.",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Yes",
+      "malaysia": "Yes",
+      "source": "See risk assessment (4.2) and audit findings per country, Seagate Technologies (2023), \"ESG Performance Report\", https://www.seagate.com/content/dam/seagate/assets/esg/resources/files/seagate-fy2023-esg-performance-report.pdf,  p. 88. "
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Semiconductor Manufacturing International Corp",
+    "overview": {
+      "company": "Semiconductor Manufacturing International Corp",
+      "year_of_inclusion": 2022,
+      "country": "China",
+      "region": "Asia",
+      "market_cap": 23.02,
+      "ticker": "981",
+      "isin": "KYG8020E1017",
+      "subindustry": "Semiconductors"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": null
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Not disclosed",
+      "malaysia": "Not disclosed",
+      "source": "N/A"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "SK Hynix Inc.",
+    "overview": {
+      "company": "SK Hynix Inc.",
+      "year_of_inclusion": 2016,
+      "country": "South Korea",
+      "region": "Asia",
+      "market_cap": 69.83,
+      "ticker": "000660",
+      "isin": "KR7000660001",
+      "subindustry": "Semiconductors"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement under the UK MSA and CTSCA dated May 2024.",
+        "source": "SK Hynix (May 2024), \"SK Hynix modern slavery act statement 2024,\" https://mis-prod-koce-homepage-cdn-01-blob-ep.azureedge.net/web/attach/59722619207336060.pdf."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement under the UK MSA and CTSCA dated May 2024.",
+        "source": "SK Hynix (May 2024), \"SK Hynix modern slavery act statement 2024,\" https://mis-prod-koce-homepage-cdn-01-blob-ep.azureedge.net/web/attach/59722619207336060.pdf."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Not disclosed",
+      "malaysia": "Not disclosed",
+      "source": "N/A"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Skyworks Solutions Inc.",
+    "overview": {
+      "company": "Skyworks Solutions Inc.",
+      "year_of_inclusion": 2018,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 17.87439979556,
+      "ticker": "SWKS",
+      "isin": "US83088M1027",
+      "subindustry": "Semiconductors"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes ",
+        "comment": "The company publishes a joint statement under the UK MSA and CTSCA dated February 2024.",
+        "source": "Skyworks Solutions (February 2024), \"Statement on combatting modern slavery and human trafficking in supply chains,\" https://www.skyworksinc.com/-/media/SkyWorks/Documents/Sustainability/Transparency_in_Supply_Chains_Act_compliance_information.pdf. "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement under the UK MSA and CTSCA dated February 2024.",
+        "source": "Skyworks Solutions (February 2024), \"Statement on combatting modern slavery and human trafficking in supply chains,\" https://www.skyworksinc.com/-/media/SkyWorks/Documents/Sustainability/Transparency_in_Supply_Chains_Act_compliance_information.pdf. "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Not disclosed",
+      "malaysia": "Not disclosed",
+      "source": "N/A"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Sony Corp.",
+    "overview": {
+      "company": "Sony Corp.",
+      "year_of_inclusion": 2020,
+      "country": "Japan",
+      "region": "Asia",
+      "market_cap": 108.485947677934,
+      "ticker": "6758",
+      "isin": "JP3435000009",
+      "subindustry": "Consumer Electronics"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a statement dated September 2021 and includes a list of covered subsidaries.",
+        "source": "Sony (September 2023), \"Sony Group statement on UK Modern Slavery Act,\" https://www.sony.com/en/SonyInfo/csr/library/msa/sis4ug000000k11n-att/MSA_2023.pdf."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A [The company provided evidence in October 2019 that confirmed it is not required to report under the legislation]",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes (subsidiary)*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's Australian subsidiary has published a statement dated September 2023. ",
+        "source": "Sony Australia Limited, \"Sony Joint Modern Slavery Statement - Modern Slavery Act 2018,\" https://modernslaveryregister.gov.au/statements/14791/. "
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Not disclosed",
+      "malaysia": "Not disclosed",
+      "source": "N/A"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "STMicroelectronics NV",
+    "overview": {
+      "company": "STMicroelectronics NV",
+      "year_of_inclusion": 2020,
+      "country": "Switzerland",
+      "region": "Europe",
+      "market_cap": 32.1633999689443,
+      "ticker": "STM",
+      "isin": "NL0000226223",
+      "subindustry": "Semiconductors"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "The company has a UK subsidiary and the group company meets the turnover requirements of the legislation. However the company states that it has determined that it is not required to report under the legislation.",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "The company or a subsidiary may be required to report under the legislation",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation, but a statement could not be identified.",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Not disclosed",
+      "malaysia": "Not disclosed",
+      "source": "N/A"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Taiwan Semiconductor Manufacturing Co. Ltd.",
+    "overview": {
+      "company": "Taiwan Semiconductor Manufacturing Co. Ltd.",
+      "year_of_inclusion": 2016,
+      "country": "Taiwan",
+      "region": "Asia",
+      "market_cap": 531.43,
+      "ticker": "2330",
+      "isin": "TW0002330008",
+      "subindustry": "Semiconductors"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A [The company confirmed in September 2019 that they are not required to report under the legislation]",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Not disclosed",
+      "malaysia": "Not disclosed",
+      "source": "N/A"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Telefonaktiebolaget LM Ericsson (publ)",
+    "overview": {
+      "company": "Telefonaktiebolaget LM Ericsson (publ)",
+      "year_of_inclusion": 2016,
+      "country": "Sweden",
+      "region": "Europe",
+      "market_cap": 18.1264162228193,
+      "ticker": "ERIC.B",
+      "isin": "SE0000108656",
+      "subindustry": "Communications Equipment"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA and Australian MSA.",
+        "source": "Ericsson (March 2024), \"Modern slavery and human trafficking statement 2023,\" https://www.ericsson.com/4931d8/assets/local/about-ericsson/sustainability-and-corporate-responsibility/documents/2023/modern-slavery-and-human-trafficking-statement.pdf. "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA and Australian MSA.",
+        "source": "Ericsson (March 2024), \"Modern slavery and human trafficking statement 2023,\" https://www.ericsson.com/4931d8/assets/local/about-ericsson/sustainability-and-corporate-responsibility/documents/2023/modern-slavery-and-human-trafficking-statement.pdf. "
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Yes",
+      "malaysia": "Yes",
+      "source": " *Ericsson, “Sustainability and Corporate Responsibility Report 2023”, https://www.ericsson.com/en/about-us/sustainability-and-corporate-responsibility/sustainability-report, p. 41."
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Texas Instruments Inc.",
+    "overview": {
+      "company": "Texas Instruments Inc.",
+      "year_of_inclusion": 2016,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 154.732926110914,
+      "ticker": "TXN",
+      "isin": "US8825081040",
+      "subindustry": "Semiconductors"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA and CTSCA dated September 2023.",
+        "source": "Texas Instruments (September 2023), \"Anti-human trafficking statement,\" https://www.ti.com/lit/ml/sszo047f/sszo047f.pdf?ts=1714554796179."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement for the UK MSA and CTSCA dated September 2023.",
+        "source": "Texas Instruments (September 2023), \"Anti-human trafficking statement,\" https://www.ti.com/lit/ml/sszo047f/sszo047f.pdf?ts=1714554796179."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "The company or a subsidiary may be required to report under the legislation",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation, but a statement could not be identified.",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Not disclosed",
+      "malaysia": "Not disclosed",
+      "source": "N/A"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Walmart Inc.",
+    "overview": {
+      "company": "Walmart Inc.",
+      "year_of_inclusion": 2020,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 198.85449812613,
+      "ticker": "WMT",
+      "isin": "US9311421039",
+      "subindustry": "Consumer Staples Merchandise & Retail"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a statement dated February 2022.",
+        "source": "Walmart (February 2022), \"California Transparency in Supply Chains Act,\" https://corporate.walmart.com/california-transparency. "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Not disclosed",
+      "malaysia": "Not disclosed",
+      "source": "N/A"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Western Digital Corp.",
+    "overview": {
+      "company": "Western Digital Corp.",
+      "year_of_inclusion": 2018,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 16.46965549124,
+      "ticker": "WDC",
+      "isin": "US9581021055",
+      "subindustry": "Technology Hardware Storage & Peripherals"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement under the UK MSA and CTSCA dated November 2023.",
+        "source": "Western Digital (November 2023), \"Fiscal year 2023: Western Digital statement against modern slavery and human trafficking,\" https://documents.westerndigital.com/content/dam/doc-library/en_us/assets/public/western-digital/collateral/company/western-digital-statement-against-modern-slavery-and-human-trafficking.pdf."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company publishes a joint statement under the UK MSA and CTSCA dated November 2023.",
+        "source": "Western Digital (November 2023), \"Fiscal year 2023: Western Digital statement against modern slavery and human trafficking,\" https://documents.westerndigital.com/content/dam/doc-library/en_us/assets/public/western-digital/collateral/company/western-digital-statement-against-modern-slavery-and-human-trafficking.pdf."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Not disclosed",
+      "malaysia": "Not disclosed",
+      "source": "N/A"
+    }
+  },
+  {
+    "company_id": null,
+    "company_name": "Xiaomi Corp.",
+    "overview": {
+      "company": "Xiaomi Corp.",
+      "year_of_inclusion": 2020,
+      "country": "China",
+      "region": "Asia",
+      "market_cap": 22.2900259064862,
+      "ticker": "1810",
+      "isin": "KYG9830T1067",
+      "subindustry": "Technology Hardware Storage & Peripherals"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report": "Yes",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company appears to be required to report under the legislation but does not disclose a statement. ",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_is_required_to_report": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_is_required_to_report": "The company or a subsidiary may be required to report under the legislation",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation, but a statement could not be identified.",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {
+      "china": "Yes",
+      "malaysia": "Not disclosed",
+      "source": "Xiaomi Corp. (2023) \"2023 Environmental, Social and Governance Report\", https://cdn.cnbj1.fds.api.mi-img.com/staticsfile/svhc/2023%E5%B9%B4%E5%8F%AF%E6%8C%81%E7%BB%AD%E5%8F%91%E5%B1%95%E7%BD%91%E7%AB%99/Xiaomi%202023%20Environmental,%20Social,%20and%20Governance%20Report.pdf, page 90."
+    }
+  }
+]

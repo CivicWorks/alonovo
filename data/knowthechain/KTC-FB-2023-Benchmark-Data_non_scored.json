@@ -1,0 +1,2102 @@
+[
+  {
+    "company_id": null,
+    "company_name": "Aeon Co., Ltd.",
+    "overview": {
+      "company": "Aeon Co., Ltd.",
+      "year_of_inclusion": 2020,
+      "country": "Japan",
+      "region": "Asia",
+      "market_cap": 19.08502,
+      "ticker": "8267",
+      "isin": "JP3388200002",
+      "subindustry": "Food Retail"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "The company may be required to report under the legislation",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation but a statement could not be identified.",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Ahold Delhaize N.V.",
+    "overview": {
+      "company": "Ahold Delhaize N.V.",
+      "year_of_inclusion": 2018,
+      "country": "Netherlands",
+      "region": "Europe",
+      "market_cap": 32.44448,
+      "ticker": "AD",
+      "isin": "NL0011794037",
+      "subindustry": "Food Retail"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Ajinomoto Co., Inc.",
+    "overview": {
+      "company": "Ajinomoto Co., Inc.",
+      "year_of_inclusion": 2022,
+      "country": "Japan",
+      "region": "Asia",
+      "market_cap": 15.52,
+      "ticker": "2802",
+      "isin": "INE031B01049",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiary has published a statement.",
+        "source": "Ajinomoto Foods North America, \"Statement on compliance with the California Transparency in Supply Chains Act,\" https://www.ajinomotofoods.com/ca-tsca-notice/. Accessed 19 July 2023. "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Amazon",
+    "overview": {
+      "company": "Amazon",
+      "year_of_inclusion": 2020,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 1517.11689,
+      "ticker": "AMZN",
+      "isin": "US0231351067",
+      "subindustry": "Online and Direct Marketing Retail"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated June 2021. ",
+        "source": "Amazon (June 2021), \"Modern slavery statement,\" https://sustainability.aboutamazon.com/modern-slavery-statement-2020.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated June 2022.",
+        "source": "Amazon (June 2022), \"Modern slavery statement,\" https://modernslaveryregister.gov.au/statements/9252/"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated June 2022.",
+        "source": "Amazon (June 2022), \"Modern slavery statement,\" https://modernslaveryregister.gov.au/statements/9252/"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Arca Continental, S. A. B. de C. V.",
+    "overview": {
+      "company": "Arca Continental, S. A. B. de C. V.",
+      "year_of_inclusion": 2020,
+      "country": "Mexico",
+      "region": "Latin America",
+      "market_cap": 10.40571,
+      "ticker": "AC",
+      "isin": "MX01AC100006",
+      "subindustry": "Soft Drinks"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Archer Daniels Midland Company",
+    "overview": {
+      "company": "Archer Daniels Midland Company",
+      "year_of_inclusion": 2016,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 41.96637,
+      "ticker": "ADM",
+      "isin": "US0394831020",
+      "subindustry": "Agriculture"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated June 2022.",
+        "source": "ADM (June 2022), \"Statement on the California Transparency in Supply Chains Act and UK Modern Slavery Act,\" https://www.adm.com/globalassets/sustainability/sustainability-reports/pdfs/statement-on-the-california-transparency-in-supply-chains-act-and-uk-modern-slavery-act-2021-final-30-june-2021.pdf."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated June 2022.",
+        "source": "ADM (June 2022), \"Statement on the California Transparency in Supply Chains Act and UK Modern Slavery Act,\" https://www.adm.com/globalassets/sustainability/sustainability-reports/pdfs/statement-on-the-california-transparency-in-supply-chains-act-and-uk-modern-slavery-act-2021-final-30-june-2021.pdf."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "The company may be required to report under the legislation",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation but a statement could not be identified.",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Associated British Foods plc",
+    "overview": {
+      "company": "Associated British Foods plc",
+      "year_of_inclusion": 2016,
+      "country": "United Kingdom",
+      "region": "Europe",
+      "market_cap": 20.64014,
+      "ticker": "ABF",
+      "isin": "GB0006731235",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated November 2021.",
+        "source": "Associated British Foods (November 2021), \"Modern Slavery Statement 2021,\" https://www.abf.co.uk/content/dam/abf/corporate/Documents/About-us/governance/policies/abf_2021_modern_slavery_statement.pdf."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiary has published a statement.",
+        "source": "AB Mauri, \"California transparency in supply chains act disclosure,\" https://abmna.com/california-transparency-in-supply-chain-act-disclosure/."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated March 2022.",
+        "source": "Associated British Foods (March 2022), \"Modern Slavery Statement: Australia and New Zealand,\" https://modernslaveryregister.gov.au/statements/8097/."
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Barry Callebaut AG",
+    "overview": {
+      "company": "Barry Callebaut AG",
+      "year_of_inclusion": 2022,
+      "country": "Switzerland",
+      "region": "Europe",
+      "market_cap": 12.48119,
+      "ticker": "BARN",
+      "isin": "CA0679011084",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated March 2022. ",
+        "source": "Barry Callebaut (March 2022),  \"Global Statement: Safeguarding human rights, including the prevention of modern slavery and human trafficking, in our supply chain,\" https://www.barry-callebaut.com/sites/default/files/2022-02/Human%20Rights%20Statement%20-%20Barry%20Callebaut%202022.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated March 2022. ",
+        "source": "Barry Callebaut (March 2022),  \"Global Statement: Safeguarding human rights, including the prevention of modern slavery and human trafficking, in our supply chain,\" https://www.barry-callebaut.com/sites/default/files/2022-02/Human%20Rights%20Statement%20-%20Barry%20Callebaut%202022.pdf"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "The company may be required to report under the legislation",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation but a statement could not be identified.",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Campbell Soup Company",
+    "overview": {
+      "company": "Campbell Soup Company",
+      "year_of_inclusion": 2018,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 13.31268,
+      "ticker": "CPB",
+      "isin": "US1344291091",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement. The statement notes: \"Many of Campbell's companies are not strictly subject to these statutes or regulations. We have nonetheless undertaken an enterprise-wide approach to our efforts with respect to the anti-slavery and human rights concerns these statutes and regulations embody and make this statement on behalf of all of our companies.\"",
+        "source": "Campbell Soup Company (2018), \"Anti-Slavery and Human Trafficking Statement,\" https://www.campbellsoupcompany.com/wp-content/uploads/2021/02/Anti-Slavery-and-Human-Trafficking-Statement_-October_2018-Update-clean.pdf."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The statement notes: \"Many of Campbell's companies are not strictly subject to these statutes or regulations. We have nonetheless undertaken an enterprise-wide approach to our efforts with respect to the anti-slavery and human rights concerns these statutes and regulations embody and make this statement on behalf of all of our companies.\"",
+        "source": "Campbell Soup Company (2018), \"Anti-Slavery and Human Trafficking Statement,\" https://www.campbellsoupcompany.com/wp-content/uploads/2021/02/Anti-Slavery-and-Human-Trafficking-Statement_-October_2018-Update-clean.pdf."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiary has published a statement dated January 2022.",
+        "source": "Campbell Australasia Pty Ltd (January 2022), \"Modern Slavery Statement,\" https://modernslaveryregister.gov.au/statements/7813/"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Carrefour SA",
+    "overview": {
+      "company": "Carrefour SA",
+      "year_of_inclusion": 2018,
+      "country": "France",
+      "region": "Europe",
+      "market_cap": 15.787,
+      "ticker": "CA",
+      "isin": "FR0000120172",
+      "subindustry": "Food Retail"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "China Mengniu Dairy Co Ltd",
+    "overview": {
+      "company": "China Mengniu Dairy Co Ltd",
+      "year_of_inclusion": 2020,
+      "country": "Hong Kong",
+      "region": "Asia",
+      "market_cap": 23.33504,
+      "ticker": "2319",
+      "isin": "KYG210961051",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's wholly-owned subsidiary has published a statement.",
+        "source": "Bellamy's, \"Modern Slavery Statement,\" https://modernslaveryregister.gov.au/statements/file/fcd5c6ed-3cfe-4931-9dd0-54259a8b2103/"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Chocoladefabriken Lindt & Sprüngli AG",
+    "overview": {
+      "company": "Chocoladefabriken Lindt & Sprüngli AG",
+      "year_of_inclusion": 2018,
+      "country": "Switzerland",
+      "region": "Europe",
+      "market_cap": 27.73741,
+      "ticker": "LISN",
+      "isin": "CH0010570759",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes (subsidiary)*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement which is dated March 2021.",
+        "source": "Lindt & Spruengli UK Ltd (March 2021), \"Modern Slavery Act Statement,\" https://www.lindt-spruengli.com/amfile/file/download/id/3369/file/Lindt_UK_-_Modern_Slavery_Act_Statement_March_2021_signed.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement on its US website.",
+        "source": "Lindt USA, \"California Transparency in Supply Chains Act,\" https://www.lindtusa.com/california-transparency-in-supply-chains-act."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company has published a statement dated June 2022.",
+        "source": "Lindt & Spruengli Australia Pty Ltd, \"Modern Slavery Statement 2021,\" https://modernslaveryregister.gov.au/statements/9009/. "
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Coca-Cola Europacific Partners Plc",
+    "overview": {
+      "company": "Coca-Cola Europacific Partners Plc",
+      "year_of_inclusion": 2022,
+      "country": "United Kingdom",
+      "region": "Europe",
+      "market_cap": 25.91529,
+      "ticker": "CCEP",
+      "isin": "GB00BDCPN049",
+      "subindustry": "Soft Drinks"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a joint statement under the UK MSA and Australia MSA for FY2021.",
+        "source": "Coca-Cola European Partners, \"Modern Slavery Statement 2021,\" https://www.cocacolaep.com/assets/Sustainability/Documents/2021/2021-CCEP-Modern-Slavery-Statement-v4.pdf."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a joint statement under the UK MSA and Australia MSA for FY2021.",
+        "source": "Coca-Cola European Partners, \"Modern Slavery Statement 2021,\" https://www.cocacolaep.com/assets/Sustainability/Documents/2021/2021-CCEP-Modern-Slavery-Statement-v4.pdf."
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Coca-Cola HBC AG",
+    "overview": {
+      "company": "Coca-Cola HBC AG",
+      "year_of_inclusion": 2020,
+      "country": "Switzerland",
+      "region": "Europe",
+      "market_cap": 11.99698,
+      "ticker": "CCH",
+      "isin": "CH0198251305",
+      "subindustry": "Soft Drinks"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated May 2022.",
+        "source": " Coca-Cola HBC, \"2021 Slavery and human trafficking statement,\" https://ie.coca-colahellenic.com/content/dam/cch/ie/documents/about-us/landing-page/CCHBC%20NI_Modern%20Slavery%20Act%20Statement%202021%20signed%20(1).pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Coles",
+    "overview": {
+      "company": "Coles",
+      "year_of_inclusion": 2020,
+      "country": "Australia",
+      "region": "Asia-Pacific",
+      "market_cap": 16.6077,
+      "ticker": "COL",
+      "isin": "AU0000030678",
+      "subindustry": "Food Retail"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated June 2022.",
+        "source": "Coles, \"Modern Slavery Statement 2021,\" https://www.colesgroup.com.au/FormBuilder/_Resource/_module/ir5sKeTxxEOndzdh00hWJw/file/Modern_Slavery_Statement.pdf"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Conagra Brands, Inc.",
+    "overview": {
+      "company": "Conagra Brands, Inc.",
+      "year_of_inclusion": 2016,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 16.67429,
+      "ticker": "CAG",
+      "isin": "US2058871029",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement which is undated.",
+        "source": "Conagra, \"Conagra brands disclosure information,\" https://www.conagrabrands.com/supply-chain-disclosure. Accessed 6 January 2023. "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Costco Wholesale Corporation",
+    "overview": {
+      "company": "Costco Wholesale Corporation",
+      "year_of_inclusion": 2018,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 223.99105,
+      "ticker": "COST",
+      "isin": "US22160K1051",
+      "subindustry": "Food Retail"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiary has published a statement dated December 2021.",
+        "source": "Costco (December 2021), \"Modern Slavery Act Transparency Statement,\" https://www.costco.co.uk/modern-slavery-statement."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement",
+        "source": "Costco (2018), \"Costco Disclosure Regarding Human Trafficking and Anti-Slavery,\" https://www.costco.com/disclosure-regarding-human-trafficking-and-anti-slavery.html"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiary has published a statement dated March 2022.",
+        "source": "Costco Australia Pty Ltd (March 2022), \"Modern Slavery Statement,\" https://modernslaveryregister.gov.au/statements/7942/."
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Danone",
+    "overview": {
+      "company": "Danone",
+      "year_of_inclusion": 2016,
+      "country": "France",
+      "region": "Europe",
+      "market_cap": 39.38133,
+      "ticker": "BN",
+      "isin": "FR0000120644",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated June 2022.",
+        "source": "Danone (June 2022), \"Modern Slavery Statement 2021-22,\" https://www.danone.co.uk/content/dam/danone-corp/uk-irl/uk/DANONE-Modern-Slavery-Statement-2122.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiary has published a statement.",
+        "source": "Danone North America, \"California Transparency in Supply Chain Act Disclosure,\" https://www.danonenorthamerica.com/news/supply-chain-disclosure/"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiaries have published a statement dated March 2021.",
+        "source": "Danone Nutricia Australia and New Zealand (March 2021), \"Modern Slavery Statement,\" https://modernslaveryregister.gov.au/statements/2750/"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Empire Co. Ltd.",
+    "overview": {
+      "company": "Empire Co. Ltd.",
+      "year_of_inclusion": 2022,
+      "country": "Canada",
+      "region": "North America",
+      "market_cap": 8.16696,
+      "ticker": "EMP.A",
+      "isin": "CA2918434077",
+      "subindustry": "Food Retail"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Fomento Economico Mexicano, S.A.B de C.V (FEMSA)",
+    "overview": {
+      "company": "Fomento Economico Mexicano, S.A.B de C.V (FEMSA)",
+      "year_of_inclusion": 2016,
+      "country": "Mexico",
+      "region": "Latin America",
+      "market_cap": 75.50649,
+      "ticker": "FEMSAUBD",
+      "isin": "MXP320321310",
+      "subindustry": "Soft Drinks"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "No",
+        "comment": "Not disclosed.",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Foshan Haitian Flavouring and Food Co Ltd",
+    "overview": {
+      "company": "Foshan Haitian Flavouring and Food Co Ltd",
+      "year_of_inclusion": 2020,
+      "country": "China",
+      "region": "Asia",
+      "market_cap": 74.04249,
+      "ticker": "603288",
+      "isin": "CNE100001SL2",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "General Mills, Inc.",
+    "overview": {
+      "company": "General Mills, Inc.",
+      "year_of_inclusion": 2016,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 41.42824,
+      "ticker": "GIS",
+      "isin": "US3703341046",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated September 2021.",
+        "source": "General Mills (September 2021), \"Slavery and human trafficking statement,\" https://www.generalmills.com/slavery-and-human-trafficking-statement. "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a joint statement under the UK MSA, CTSCA and Australia MSA.",
+        "source": "General Mills (September 2021), \"Slavery and human trafficking statement,\" https://www.generalmills.com/slavery-and-human-trafficking-statement. "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a joint statement under the UK MSA, CTSCA, and Australia MSA.",
+        "source": "General Mills (September 2021), \"Slavery and human trafficking statement,\" https://www.generalmills.com/slavery-and-human-trafficking-statement. "
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Grupo Bimbo, S.A.B. de C.V.",
+    "overview": {
+      "company": "Grupo Bimbo, S.A.B. de C.V.",
+      "year_of_inclusion": 2022,
+      "country": "Mexico",
+      "region": "Latin America",
+      "market_cap": 13.93048,
+      "ticker": "BIMBOA",
+      "isin": "MXP495211262",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes (subsidiary)*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company's subsidiary has published a statement which is undated.",
+        "source": "Grupo Bimbo UK Ltd (undated), \"Anti slavery and human trafficking statement,\" https://grupobimbo.co.uk/policies."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": null,
+        "source": "Bimbo Bakeries USA, \"California Transparency in Supply Chains Act of 2010,\" https://www.bimbobakeriesusa.com/ca-supply-chain."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Hormel Foods Corporation",
+    "overview": {
+      "company": "Hormel Foods Corporation",
+      "year_of_inclusion": 2018,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 25.7558,
+      "ticker": "HRL",
+      "isin": "US4404521001",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement which is undated.",
+        "source": "Hormel Foods, \"California Transparency in Supply Chains Act,\" https://www.hormelfoods.com/suppliers/california-transparency-in-supply-chains-act-of-2010/. "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "The company may be required to report under the legislation",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation but a statement could not be identified.",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Inner Mongolia Yili Industrial Group Co., Ltd",
+    "overview": {
+      "company": "Inner Mongolia Yili Industrial Group Co., Ltd",
+      "year_of_inclusion": 2018,
+      "country": "China",
+      "region": "Asia",
+      "market_cap": 37.28775,
+      "ticker": "600887",
+      "isin": "CNE000000JP5",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "J Sainsbury plc",
+    "overview": {
+      "company": "J Sainsbury plc",
+      "year_of_inclusion": 2022,
+      "country": "United Kingdom",
+      "region": "Europe",
+      "market_cap": 8,
+      "ticker": "SBRY",
+      "isin": "JE00BYVQYS01",
+      "subindustry": "Food Retail"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated June 2021. ",
+        "source": "Sainsbury (June 2021), \"Sainsbury's Modern Slavery Statement 2020/2021,\" https://www.about.sainsburys.co.uk/~/media/Files/S/Sainsburys/CRS%20Policies%20and%20Reports/Modern%20Slavery%20Report%202020-2021.pdf?_ga=2.87189464.1569799608.1657623107-1084584701.1657623107."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "JBS S.A.",
+    "overview": {
+      "company": "JBS S.A.",
+      "year_of_inclusion": 2016,
+      "country": "Brazil",
+      "region": "Latin America",
+      "market_cap": 9.10904,
+      "ticker": "JBSS3",
+      "isin": "BRJBSSACNOR8",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's UK subsidiary has published a statement for FY2020.",
+        "source": "JSB Global UK, \"Modern Slavery Statement for financial year 2020,\" https://jbsglobal.co.uk/modern-slavery-statement.html."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "No",
+        "comment": "Not disclosed.",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statemetn dated June 2022.",
+        "source": "JBS Foods Group (June 2022), \"Modern Slavery Statement 2021,\" https://modernslaveryregister.gov.au/statements/9206/."
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Kellogg Company",
+    "overview": {
+      "company": "Kellogg Company",
+      "year_of_inclusion": 2016,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 21.49074,
+      "ticker": "K",
+      "isin": "US4878361082",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement for financial year 2020. [It is not clear that the document is intended as a statement under the UK Modern Slavery Act, but it is linked from the company's homepage as a modern slavery statement, is approved by the board and is signed by a director.]",
+        "source": "Kellogg, \"Human Rights Report 2020,\" https://www.kelloggs.co.uk/content/dam/europe/kelloggs_gb/pdf/Signed_human_rights_report_2020.pdf."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated 2016.",
+        "source": "Kellogg, \"Policy Statement Prohibiting Involuntary Labor,\" https://crreport.kelloggcompany.com/download/Kellogg+Company+Policy+Statement+Prohibiting+Involuntary+Labor+-+UKMSA-CATSCA+May2016.pdf."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiary has published a statement dated May 2022.",
+        "source": "Kellogg Australia Pty Ltd (May 2022), \"Modern Slavery Statement FY 2021,\" https://modernslaveryregister.gov.au/statements/8363/"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Kerry Group plc",
+    "overview": {
+      "company": "Kerry Group plc",
+      "year_of_inclusion": 2018,
+      "country": "Ireland",
+      "region": "Europe",
+      "market_cap": 22.12564,
+      "ticker": "KRZ",
+      "isin": "IE0004906560",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a joint statement under the UK MSA, CTSCA, and Australia MSA dated June 2022.",
+        "source": "Kerry (June 2022), \"Modern Slavery and Human Trafficking Statement 2021,\" https://www.kerry.com/content/dam/kerry/en/pdf/about/policies-and-statements/Kerry-Group-Modern-Slavery-and-Human-Trafficking-Statement-Jun2022.pdf. "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a joint statement under the UK MSA, CTSCA, and Australia MSA dated June 2022.",
+        "source": "Kerry (June 2022), \"Modern Slavery and Human Trafficking Statement 2021,\" https://www.kerry.com/content/dam/kerry/en/pdf/about/policies-and-statements/Kerry-Group-Modern-Slavery-and-Human-Trafficking-Statement-Jun2022.pdf. "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a joint statement under the UK MSA, CTSCA, and Australia MSA dated June 2022.",
+        "source": "Statement: Kerry (June 2022), \"Modern Slavery and Human Trafficking Statement 2021,\" https://www.kerry.com/content/dam/kerry/en/pdf/about/policies-and-statements/Kerry-Group-Modern-Slavery-and-Human-Trafficking-Statement-Jun2022.pdf. "
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Keurig Dr Pepper ",
+    "overview": {
+      "company": "Keurig Dr Pepper ",
+      "year_of_inclusion": 2020,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 53.81164,
+      "ticker": "KDP",
+      "isin": "US49271V1008",
+      "subindustry": "Soft Drinks"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated 2019.",
+        "source": "Keurig Dr Pepper, \"Modern slavery statement 2019,\" https://www.keurigdrpepper.com/content/dam/keurig-brand-sites/kdp/files/Modern_Slavery_Statement_2019.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement.",
+        "source": "Keurig Dr Pepper (2019), \"Modern Slavery Statement,\" https://www.keurigdrpepper.com/content/dam/keurig-brand-sites/kdp/files/Modern_Slavery_Statement_2019.pdf?a=b."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Kikkoman Corp.",
+    "overview": {
+      "company": "Kikkoman Corp.",
+      "year_of_inclusion": 2022,
+      "country": "Japan",
+      "region": "Asia",
+      "market_cap": 14.30764,
+      "ticker": 2801,
+      "isin": "NO0010743545",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's European subsidiary has published a statement.",
+        "source": "Kikkoman, \"Slavery and human trafficking statement,\" https://www.kikkoman.co.uk/legal-information/#item-10."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "The company may be required to report under the legislation",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company may be required to report under the legislation but a statement could not be identified. ",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiary has published a statement dated September 2022.",
+        "source": "JFC (September 2022), \"Modern slavery statement,\" https://modernslaveryregister.gov.au/statements/10073/"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Loblaw Companies Limited",
+    "overview": {
+      "company": "Loblaw Companies Limited",
+      "year_of_inclusion": 2018,
+      "country": "Canada",
+      "region": "North America",
+      "market_cap": 25.82895,
+      "ticker": "L",
+      "isin": "CA5394811015",
+      "subindustry": "Food Retail"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "McCormick & Co Inc",
+    "overview": {
+      "company": "McCormick & Co Inc",
+      "year_of_inclusion": 2020,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 26.82673,
+      "ticker": "MKC",
+      "isin": "US5797802064",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated November 2020.",
+        "source": "McCormick (2020), \"Slavery and human trafficking statement for the UK Modern Slavery Act of 2015,\" https://www.mccormickcorporation.com/en/responsibility/supplier-diversity/uk-slavery-human-trafficking."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement which is undated.",
+        "source": "McCormick, \"Transparency in Supply Chain,\" https://d1e3z2jco40k3v.cloudfront.net/-/media/corp18/files/2022/ca-transparency-in-supply-chains-act.pdf?rev=79e3aae88ebd47a984867993486c678b&vd=20220208T145347Z&extension=webp&hash=FE15E8FCF084D9E6F51FFAF4BE0592DB."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiary has published a statement dated September 2022.",
+        "source": "McCormick Foods Australia Pty Ltd (January 2022), \"Slavery and human trafficking statement for Australia Modern Slavery Act,\" https://modernslaveryregister.gov.au/statements/7749/."
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Meiji Holdings Co., Ltd.",
+    "overview": {
+      "company": "Meiji Holdings Co., Ltd.",
+      "year_of_inclusion": 2020,
+      "country": "Japan",
+      "region": "Asia",
+      "market_cap": 8.90193,
+      "ticker": "2269",
+      "isin": "JP3918000005",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated August 2021.",
+        "source": "Meiji (August 2021), \"Meiji Group Modern Slavery Act Transparency Statement,\" https://www.meiji.com/global/sustainability/policies/pdf/modern_slavery_act_statement/2020/FY2020_Modern_Slavery_Act_Statement.pdf."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiary has published a statement.",
+        "source": "Meiji America, \"California transparency in supply chains act statement,\" https://www.meiji.com/global/sustainability/policies/pdf/california_transparency/meiji_america_ca.pdf."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiary has published a statement dated September 2022.",
+        "source": "Meiji Dairy Australasia (September 2022), \"Modern Slavery Statement,\" https://modernslaveryregister.gov.au/statements/9898/."
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Metro Inc.",
+    "overview": {
+      "company": "Metro Inc.",
+      "year_of_inclusion": 2022,
+      "country": "Canada",
+      "region": "North America",
+      "market_cap": 12.87136,
+      "ticker": "MRU",
+      "isin": "CNE100003FG5",
+      "subindustry": "Food Retail"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Mondelez International, Inc.",
+    "overview": {
+      "company": "Mondelez International, Inc.",
+      "year_of_inclusion": 2016,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 93.50498,
+      "ticker": "MDLZ",
+      "isin": "US6092071058",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated May 2021. ",
+        "source": "Mondelez (May 2021), \"Human rights due diligence and modern slavery report 2020,\" https://www.mondelezinternational.com/-/media/Mondelez/About-Us/Human-Rights/MDLZ-HRDD-and-Modern-Slavery-Report-2020.pdf."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a joint statement under the UK MSA and CTSCA.",
+        "source": "Mondelez (May 2021), \"Human rights due diligence and modern slavery report 2020,\" https://www.mondelezinternational.com/-/media/Mondelez/About-Us/Human-Rights/MDLZ-HRDD-and-Modern-Slavery-Report-2020.pdf."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated June 2021.",
+        "source": "Mondelez (June 2021), \"Australia Modern Slavery Statement 2021,\" https://modernslaveryregister.gov.au/statements/4908/. "
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Monster Beverage Corporation",
+    "overview": {
+      "company": "Monster Beverage Corporation",
+      "year_of_inclusion": 2016,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 45.88694,
+      "ticker": "MNST",
+      "isin": "US61174X1090",
+      "subindustry": "Soft Drinks"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement for FY2020.",
+        "source": "Monster Beverage, \"Monster Beverage Corporation CA Transparency in Supply Chains Act & UK Modern Slavery Act Statement,\" https://www.monsterbevcorp.com/media/Monster_Beverage_Corporation_CA_Transparency_in_Supply_Chains_Act_and_UK_Modern_Slavery_Act_Statement_FY_2020_2021.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a joint statement under the UK MSA and CTSCA.",
+        "source": "Monster Beverage, \"Monster Beverage Corporation CA Transparency in Supply Chains Act & UK Modern Slavery Act Statement,\" https://www.monsterbevcorp.com/media/Monster_Beverage_Corporation_CA_Transparency_in_Supply_Chains_Act_and_UK_Modern_Slavery_Act_Statement_FY_2020_2021.pdf"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Mowi ASA",
+    "overview": {
+      "company": "Mowi ASA",
+      "year_of_inclusion": 2020,
+      "country": "Norway",
+      "region": "Europe",
+      "market_cap": 12.53572,
+      "ticker": "MOWI",
+      "isin": "NO0003054108",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes (subsidiary)*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company's UK subsidiaries have published a statement for FY2021.",
+        "source": "Mowi, \"Modern Slavery Act - Transparency Statement 2021,\" https://mowi.com/uk/wp-content/uploads/sites/15/2022/07/Modern-Slavery-Act-Transparency-Statement-2021.pdf."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "The company may be required to report under the legislation",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation but a statement could not be identified.",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Nestlé S.A.",
+    "overview": {
+      "company": "Nestlé S.A.",
+      "year_of_inclusion": 2016,
+      "country": "Switzerland",
+      "region": "Europe",
+      "market_cap": 351.47576,
+      "ticker": "NESN",
+      "isin": "CH0038863350",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated June 2021. ",
+        "source": "Nestle (June 2021), \"Modern slavery and human trafficking report 2020,\" https://www.nestle.co.uk/sites/g/files/pydnoa461/files/2022-01/Nestl%C3%A9%20Modern%20Slavery%20Statement%202020.pdf. "
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiary has published a statement.",
+        "source": "Nestle USA, \"California Transparency in Supply Chains Act,\" https://www.nestleusa.com/about-us/supply-chains-act."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated June 2021.",
+        "source": "Nestle (June 2021), \"Modern slavery and human trafficking report 2020,\" https://www.nestle.co.uk/sites/g/files/pydnoa461/files/2022-01/Nestl%C3%A9%20Modern%20Slavery%20Statement%202020.pdf. "
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "PepsiCo, Inc.",
+    "overview": {
+      "company": "PepsiCo, Inc.",
+      "year_of_inclusion": 2016,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 220.92029,
+      "ticker": "PEP",
+      "isin": "US7134481081",
+      "subindustry": "Soft Drinks"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement for FY2021.",
+        "source": "PepsiCo, \"Modern slavery & human trafficking statement 2021,\" https://www.pepsico.com/docs/default-source/sustainability-and-esg-topics/2021-pepsico-modern-slavery-and-human-trafficking-statement.pdf?sfvrsn=e21d9563_3"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement for FY2021.",
+        "source": "PepsiCo, \"Modern slavery & human trafficking statement 2021,\" https://www.pepsico.com/docs/default-source/sustainability-and-esg-topics/2021-pepsico-modern-slavery-and-human-trafficking-statement.pdf?sfvrsn=e21d9563_3"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement for FY2021.",
+        "source": "PepsiCo, \"Modern slavery & human trafficking statement 2021,\" https://www.pepsico.com/docs/default-source/sustainability-and-esg-topics/2021-pepsico-modern-slavery-and-human-trafficking-statement.pdf?sfvrsn=e21d9563_3"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "San Miguel Food and Beverage, Inc",
+    "overview": {
+      "company": "San Miguel Food and Beverage, Inc",
+      "year_of_inclusion": 2020,
+      "country": "Philippines",
+      "region": "Asia",
+      "market_cap": 8.12057,
+      "ticker": "FB",
+      "isin": "PHY7510J1668",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "The company may be required to report under the legislation",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation but a statement could not be identified.",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Saputo Inc.",
+    "overview": {
+      "company": "Saputo Inc.",
+      "year_of_inclusion": 2020,
+      "country": "Canada",
+      "region": "North America",
+      "market_cap": 9.29488,
+      "ticker": "SAP",
+      "isin": "CA8029121057",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes (subsidiary)*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company's UK subsidiary has published a statement dated September 2021.",
+        "source": "Saputo UK (September 2021), \"Sixth Modern Slavery Act Transparency Statement,\" https://uk.saputo.com/media/1997/modern-slavery-act-statement-fy-2020-2021-final.pdf."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiary has published a statement.",
+        "source": "Saputo USA, \"California Supply Chains Act,\" https://www.saputousafoodservice.com/California-Supply-Chains-Act"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiary has published a statement for 2021-22.",
+        "source": "Saputo Dairy Australia (2022), \"Modern Slavery Statement 2021-22,\" https://www.saputodairyaustralia.com.au/-/media/ecosystem/divisions/corporate-services/sites/sda/sda-documents/our-promise/sda_modern_slavery_statement_2022-final.ashx?revision=19df4cf2-a0ff-41f0-bf81-4f0833659132"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Seven & i Holdings Co Ltd",
+    "overview": {
+      "company": "Seven & i Holdings Co Ltd",
+      "year_of_inclusion": 2020,
+      "country": "Japan",
+      "region": "Asia",
+      "market_cap": 42.76441,
+      "ticker": "3382",
+      "isin": "JP3422950000",
+      "subindustry": "Food Retail"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiary has published a statement.",
+        "source": "7-Eleven, \"California Transparency in Supply Chains Act Disclosure,\" https://www.7-eleven.com/california-transparency-in-supply-chains-act-disclosure "
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiaries have published a joint statement for FY2020-21.",
+        "source": "7-Eleven, \"7-Eleven Joint Modern Slavery Statement,\" https://modernslaveryregister.gov.au/statements/7310/."
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Siam Makro Public Co. Ltd",
+    "overview": {
+      "company": "Siam Makro Public Co. Ltd",
+      "year_of_inclusion": 2022,
+      "country": "Thailand",
+      "region": "Asia",
+      "market_cap": 14.123,
+      "ticker": "MAKRO",
+      "isin": "TH0699010003",
+      "subindustry": "Food Retail"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Suntory Beverage & Food Limited",
+    "overview": {
+      "company": "Suntory Beverage & Food Limited",
+      "year_of_inclusion": 2018,
+      "country": "Japan",
+      "region": "Asia",
+      "market_cap": 11.80023,
+      "ticker": "2587",
+      "isin": "JP3336560002",
+      "subindustry": "Soft Drinks"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes (subsidiary)*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's UK and European subsidiaries have published a statement dated June 2021.",
+        "source": "Suntory (June 2021), \"Modern Slavery Statement,\" https://www.suntorybeverageandfood-europe.com/dyn/_assets/_pdfs/en-GB/gbi/modern-slavery-statement/modern_slavery_statement_e311220.pdf."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiary has published a statement.",
+        "source": "Beam Suntory, \"Supply Chain Transparency,\" https://www.beamsuntory.com/en/supply-chain-transparency"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiary, Beam Suntory, has published a statement dated June 2022.",
+        "source": "Beam Suntory (June 2022), \"2021 Disclosure Statement,\" https://modernslaveryregister.gov.au/statements/9511/"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Tesco PLC",
+    "overview": {
+      "company": "Tesco PLC",
+      "year_of_inclusion": 2018,
+      "country": "United Kingdom",
+      "region": "Europe",
+      "market_cap": 30.51612,
+      "ticker": "TSCO",
+      "isin": "GB00BLGZ9862",
+      "subindustry": "Food Retail"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated May 2021.",
+        "source": "*Tesco (May 2022), \"Modern Slavery Statement,\" https://www.tescoplc.com/media/759020/tesco_modern_slavery_statement_2022.pdf."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "The Coca-Cola Company",
+    "overview": {
+      "company": "The Coca-Cola Company",
+      "year_of_inclusion": 2016,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 263.52783,
+      "ticker": "KO",
+      "isin": "US1912161007",
+      "subindustry": "Soft Drinks"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement which is dated December 2021. The statement notes that it is made voluntarily.",
+        "source": "The Coca-Cola Company (December 2021), \"Modern Slavery Statement,\" https://www.coca-cola.co.uk/content/dam/one/gb/en/pdf-files/Coca-Cola-GB-Modern-Slavery-Statement-2021_v2_1.pdf."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated 2017. ",
+        "source": "The Coca-Cola Company, \"California Transparency in Supply Chains Act,\"  https://www.coca-colacompany.com/policies-and-practices/california-transparency-in-supply-chain-act."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "The company may be required to report under the legislation",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation but a statement could not be identified.",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "The Hershey Company",
+    "overview": {
+      "company": "The Hershey Company",
+      "year_of_inclusion": 2016,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 40.59715,
+      "ticker": "HSY",
+      "isin": "US4278661081",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated February 2022.",
+        "source": "Hershey (February 2022), \"The Hershey Company Statement against Slavery & Human Trafficking,\" https://www.thehersheycompany.com/content/dam/corporate-us/documents/pdf/HSY_Statement_Against_Human_Trafficking_and_Slavery.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated February 2022.",
+        "source": "Hershey (February 2022), \"The Hershey Company Statement against Slavery & Human Trafficking,\" https://www.thehersheycompany.com/content/dam/corporate-us/documents/pdf/HSY_Statement_Against_Human_Trafficking_and_Slavery.pdf"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "The company may be required to report under the legislation",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation but a statement could not be identified.",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "The J. M. Smucker Company",
+    "overview": {
+      "company": "The J. M. Smucker Company",
+      "year_of_inclusion": 2018,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 15.2337,
+      "ticker": "SJM",
+      "isin": "US8326964058",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement",
+        "source": " JM Smucker, \"California Transparency in Supply Chains Disclosure,\" https://s3.us-east-2.amazonaws.com/jms-s3-com-jms-p-pmc6/assets/impact/responsible-sourcing/california_supply_transparency_act_2022.pdf"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "The Kraft Heinz Company",
+    "overview": {
+      "company": "The Kraft Heinz Company",
+      "year_of_inclusion": 2016,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 43.82072,
+      "ticker": "KHC",
+      "isin": "US5007541064",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated June 2022.",
+        "source": "Heinz (June 2022), \"2021 modern slavery statement,\" https://www.heinz.eu/modern-slavery-statements."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated 2016.",
+        "source": "Kraft Heinz (2016), \"Supply chain transparency and labor practices (modern slavery statement),\" https://www.kraftheinzcompany.com/pdf/Supply_Chain_Transparency_and_Labor_Practices_Disclosures_FINALOct16.pdf."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiary has published a statement dated June 2022.",
+        "source": "Kraft Heinz Australia Pty Ltd (June 2022), \"Joint Modern Slavery Statement 2021,\" https://modernslaveryregister.gov.au/statements/9248/"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "The Kroger Co.",
+    "overview": {
+      "company": "The Kroger Co.",
+      "year_of_inclusion": 2018,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 32.04979,
+      "ticker": "KR",
+      "isin": "US5010441013",
+      "subindustry": "Food Retail"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement which is undated.",
+        "source": "Kroger, \"California Transparency in Supply Chains Act,\" https://www.thekrogerco.com/vendors-suppliers/california-transparency-in-supply-chains-act-of-2010/"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Tyson Foods Inc.",
+    "overview": {
+      "company": "Tyson Foods Inc.",
+      "year_of_inclusion": 2016,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 33.00046,
+      "ticker": "TSN",
+      "isin": "US9024941034",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes (subsidiary)*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company's subsidiary has published a statement dated March 2019.",
+        "source": "Cobb-Vantress (March 2019), \"Slavery, human trafficking and exploitation statement,\" https://www.cobb-vantress.com/assets/Uploads/daf053b2b1/UK-Modern-Slavery-Act-Statement-2019-Cobb-Version-06.24.19.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated 2017.",
+        "source": "Tyson (2017), \"California Transparency in Supply Chains Act Disclosure Statement,\" https://www.tysonfoods.com/sites/default/files/2018-03/California%20Transparency%20in%20Supply%20Chains%20Act%20Disclosure%20Statement.pdf"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "The company may be required to report under the legislation",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company or a subsidiary may be required to report under the legislation but a statement could not be identified.",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Unilever plc",
+    "overview": {
+      "company": "Unilever plc",
+      "year_of_inclusion": 2016,
+      "country": "United Kingdom",
+      "region": "Europe",
+      "market_cap": 130.55552,
+      "ticker": "ULVR",
+      "isin": "GB00B10RZP78",
+      "subindustry": "Personal Products"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated March 2021.",
+        "source": "Unilever (March 2021), \"Modern slavery & human trafficking statement,\" https://www.unilever.co.uk/files/92ui5egz/production/c07e49b25b27ece5253fa0cc6c406cbb851e4466.pdf."
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement on its US website.",
+        "source": "Unilever, \"California Transparency in Supply Chain Act,\" https://www.unileverusa.com/planet-and-society/california-transparency-in-supply-chain-act/."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's Australian subsidiary has published a statement for FY 2021.",
+        "source": "Unilever Australia Group Pty Ltd, \"Modern slavery statement for the financial year ending 30 June 2021,\" https://modernslaveryregister.gov.au/statements/6683/."
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Vietnam Dairy Products JSC",
+    "overview": {
+      "company": "Vietnam Dairy Products JSC",
+      "year_of_inclusion": 2020,
+      "country": "Vietnam",
+      "region": "Asia",
+      "market_cap": 7.6661,
+      "ticker": "VNM",
+      "isin": "VN000000VNM8",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "No",
+        "comment": "The company's subsidiary previously publshed a statement but the statement is no longer available.",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Walmart Inc.",
+    "overview": {
+      "company": "Walmart Inc.",
+      "year_of_inclusion": 2018,
+      "country": "United States",
+      "region": "North America",
+      "market_cap": 387.81595,
+      "ticker": "WMT",
+      "isin": "US9311421039",
+      "subindustry": "Food Retail"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated February 2022.",
+        "source": "Walmart (February 2022), \"California Transparency in Supply Chains Act,\" https://corporate.walmart.com/california-transparency"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Want Want China Holdings Limited",
+    "overview": {
+      "company": "Want Want China Holdings Limited",
+      "year_of_inclusion": 2020,
+      "country": "China",
+      "region": "Asia",
+      "market_cap": 11.63963,
+      "ticker": "151",
+      "isin": "KYG9431R1039",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "WH Group Limited",
+    "overview": {
+      "company": "WH Group Limited",
+      "year_of_inclusion": 2018,
+      "country": "Hong Kong",
+      "region": "Asia",
+      "market_cap": 8.58597,
+      "ticker": "288",
+      "isin": "KYG960071028",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes (subsidiary)*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company's subsidiary has published a statement dated May 2022.",
+        "source": "Smithfield (May 2022), \"Modern slavery statement,\" https://smithfieldfoods.co.uk/modern-slavery-statement/"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's subsidiary has published a statement.",
+        "source": "Smithfield, \"California Slavery and Human Trafficking,\" https://www.smithfieldfoods.com/California-Slavery-and-Human-Trafficking."
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Wilmar International Limited",
+    "overview": {
+      "company": "Wilmar International Limited",
+      "year_of_inclusion": 2016,
+      "country": "Singapore",
+      "region": "Asia",
+      "market_cap": 19.8416,
+      "ticker": "F34",
+      "isin": "SG1T56930848",
+      "subindustry": "Agriculture"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement which is dated January 2018.",
+        "source": "Wilmar (January 2018), \"UK Modern Slavery Act Transparency Statement,\" https://www.wilmar-international.com/docs/default-source/default-document-library/sustainability/policies/uk-modern-slavery-act-transparency-statement-wilmar-international.pdf?sfvrsn=fa4eb96e_2"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes (subsidiary)",
+        "comment": "The company's Australian subsidiary has published a statement for FY 2021.",
+        "source": "Wilmar Australia Holdings Pty Ltd, \"2021 Modern Slavery Statement,\" https://modernslaveryregister.gov.au/statements/8476/."
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Woolworths Group Limited",
+    "overview": {
+      "company": "Woolworths Group Limited",
+      "year_of_inclusion": 2018,
+      "country": "Australia",
+      "region": "Asia-Pacific",
+      "market_cap": 29.40492,
+      "ticker": "WOW",
+      "isin": "AU000000WOW2",
+      "subindustry": "Food Retail"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company has published a statement dated August 2022.",
+        "source": "Woolworths (August 2022), \"Modern Slavery Statement 2022,\" https://www.woolworthsgroup.com.au/content/dam/wwg/investors/reports/2022/full-year/Woolworths%20Group%20Modern%20Slavery%20Statement%202022%20print%20friendly.pdf."
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  },
+  {
+    "company_id": null,
+    "company_name": "Yakult Honsha Co.,Ltd.",
+    "overview": {
+      "company": "Yakult Honsha Co.,Ltd.",
+      "year_of_inclusion": 2020,
+      "country": "Japan",
+      "region": "Asia",
+      "market_cap": 8.08654,
+      "ticker": 2267,
+      "isin": "JP3931600005",
+      "subindustry": "Packaged Foods"
+    },
+    "compliance_with_regulatory_requirements": {
+      "uk_modern_slavery_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "Yes (subsidiary)*",
+        "the_company_has_published_a_statement": "Yes",
+        "comment": "The company's UK subsidiary has published a statement dated May 2022.",
+        "source": "Yakult (May 2022), \"Modern Slavery Act 2015 - Yakult UK ltd,\" https://cms.yakult.co.uk/wp-content/uploads/2022/05/Modern-Slavery-Act-May-2022.pdf"
+      },
+      "california_transparency_in_supply_chains_act": {
+        "the_company_(or_its_subsidiary)_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      },
+      "australia_modern_slavery_act": {
+        "the_company_or_a_subsidiary_is_required_to_report\n(*_indicates_research_on_whether_the_company_meets_the_criteria_for_being_required_to_report_was_not_undertaken)": "No",
+        "the_company_has_published_a_statement": "Not applicable",
+        "comment": "N/A",
+        "source": "N/A"
+      }
+    },
+    "sourcing_from_high_risk_countries": {}
+  }
+]
