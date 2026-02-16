@@ -3,8 +3,8 @@
     import { onMount } from 'svelte';
     import { page } from '$app/stores';
     import { fetchCompany, fetchCompanyClaims, fetchValues } from '$lib/api';
-    import { getGradeClass, computeOverallGrade } from '$lib/utils';
-    import type { Company, ClaimData, ValueDef } from '$lib/types';
+    import { getGradeClass, computeOverallGrade, groupValues } from '$lib/utils';
+    import type { Company, ClaimData, ValueDef, ValueGroup } from '$lib/types';
 
     let company: Company | null = $state(null);
     let claims: ClaimData[] = $state([]);
@@ -99,49 +99,62 @@
             {/if}
 
             {#if company.value_snapshots && company.value_snapshots.length > 0}
-                <section class="claims-section">
-                    <h3>Value Ratings</h3>
-                    <div class="claim-cards">
-                        {#each company.value_snapshots as snap}
-                            {@const snapClaims = claimsForSnapshot(snap.claim_uris || [])}
-                            <div class="claim-card">
-                                <div class="claim-card-header">
-                                    <div class="claim-value-name">{snap.value_name}</div>
-                                    <div class="claim-grade {getGradeClass(snap.grade)}">{snap.grade}</div>
-                                </div>
-                                <div class="claim-display">{snap.display_text}</div>
-                                {#if snapClaims.length > 0}
-                                    <div class="claim-sources">
-                                        {#each snapClaims as claim}
-                                            <div class="source-row">
-                                                <div class="source-detail">
-                                                    <span class="source-type">{formatClaimType(claim.claim_type)}</span>
-                                                    {#if claim.amt}
-                                                        <span class="source-amount">{formatAmount(claim)}</span>
-                                                    {/if}
-                                                    {#if claim.label}
-                                                        <span class="source-label">{claim.label}</span>
-                                                    {/if}
-                                                    {#if claim.effective_date}
-                                                        <span class="source-date">{claim.effective_date}</span>
-                                                    {/if}
-                                                </div>
-                                                {#if claim.source_uri}
-                                                    <a href={claim.source_uri} target="_blank" rel="noreferrer" class="source-link">
-                                                        {formatSource(claim.source_uri)}
-                                                    </a>
-                                                {/if}
-                                                {#if claim.how_known}
-                                                    <span class="how-known">{claim.how_known.replace(/_/g, ' ')}</span>
-                                                {/if}
-                                            </div>
-                                        {/each}
+                {#if true}
+                    {@const groups = groupValues(values, company.value_snapshots)}
+                    <section class="claims-section">
+                        <h3>Value Ratings</h3>
+                        {#each groups as group}
+                            <div class="value-group">
+                                {#if group.values.length > 1}
+                                    <div class="group-header">
+                                        <div class="group-name">{group.groupName}</div>
+                                        <div class="claim-grade {getGradeClass(group.grade)}">{group.grade}</div>
                                     </div>
                                 {/if}
+                                <div class="claim-cards" class:grouped={group.values.length > 1}>
+                                    {#each group.snapshots as snap}
+                                        {@const snapClaims = claimsForSnapshot(snap.claim_uris || [])}
+                                        <div class="claim-card">
+                                            <div class="claim-card-header">
+                                                <div class="claim-value-name">{snap.value_name}</div>
+                                                <div class="claim-grade {getGradeClass(snap.grade)}">{snap.grade}</div>
+                                            </div>
+                                            <div class="claim-display">{snap.display_text}</div>
+                                            {#if snapClaims.length > 0}
+                                                <div class="claim-sources">
+                                                    {#each snapClaims as claim}
+                                                        <div class="source-row">
+                                                            <div class="source-detail">
+                                                                <span class="source-type">{formatClaimType(claim.claim_type)}</span>
+                                                                {#if claim.amt}
+                                                                    <span class="source-amount">{formatAmount(claim)}</span>
+                                                                {/if}
+                                                                {#if claim.label}
+                                                                    <span class="source-label">{claim.label}</span>
+                                                                {/if}
+                                                                {#if claim.effective_date}
+                                                                    <span class="source-date">{claim.effective_date}</span>
+                                                                {/if}
+                                                            </div>
+                                                            {#if claim.source_uri}
+                                                                <a href={claim.source_uri} target="_blank" rel="noreferrer" class="source-link">
+                                                                    {formatSource(claim.source_uri)}
+                                                                </a>
+                                                            {/if}
+                                                            {#if claim.how_known}
+                                                                <span class="how-known">{claim.how_known.replace(/_/g, ' ')}</span>
+                                                            {/if}
+                                                        </div>
+                                                    {/each}
+                                                </div>
+                                            {/if}
+                                        </div>
+                                    {/each}
+                                </div>
                             </div>
                         {/each}
-                    </div>
-                </section>
+                    </section>
+                {/if}
             {/if}
 
         </div>
@@ -179,10 +192,37 @@
         margin-bottom: 1rem;
     }
 
+    .value-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .group-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.6rem 1rem;
+        background: #f0fdf4;
+        border: 1px solid #bbf7d0;
+        border-radius: 8px;
+        margin-bottom: 0.5rem;
+    }
+
+    .group-name {
+        font-weight: 700;
+        font-size: 1rem;
+        color: #15803d;
+    }
+
     .claim-cards {
         display: flex;
         flex-direction: column;
         gap: 1rem;
+    }
+
+    .claim-cards.grouped {
+        margin-left: 1rem;
+        border-left: 2px solid #bbf7d0;
+        padding-left: 1rem;
     }
 
     .claim-card {

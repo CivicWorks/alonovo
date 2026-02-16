@@ -2,8 +2,8 @@
     import { base } from '$app/paths';
     import { onMount } from 'svelte';
     import { fetchCompanies, fetchValues, fetchSectors } from '$lib/api';
-    import { getGradeClass, computeOverallGrade } from '$lib/utils';
-    import type { Company, ValueDef } from '$lib/types';
+    import { getGradeClass, computeOverallGrade, groupValues } from '$lib/utils';
+    import type { Company, ValueDef, ValueGroup } from '$lib/types';
     import UserMenu from '$lib/UserMenu.svelte';
 
     let companies: Company[] = $state([]);
@@ -32,10 +32,23 @@
         }
     });
 
-    function avgScore(c: Company): number {
-        const snaps = c.value_snapshots;
-        if (!snaps || snaps.length === 0) return 0;
-        return snaps.reduce((sum, s) => sum + s.score, 0) / snaps.length;
+    /** Build filter options: groups + ungrouped values */
+    const filterOptions = $derived.by(() => {
+        const seen = new Set<string>();
+        const opts: { key: string; label: string; order: number }[] = [];
+        for (const v of values) {
+            const key = v.display_group || v.slug;
+            const label = v.display_group || v.name;
+            if (!seen.has(key)) {
+                seen.add(key);
+                opts.push({ key, label, order: v.display_group_order });
+            }
+        }
+        return opts.sort((a, b) => a.order - b.order);
+    });
+
+    function getCompanyGroups(c: Company): ValueGroup[] {
+        return groupValues(values, c.value_snapshots || []);
     }
 
     function toggleSort() {
@@ -57,22 +70,30 @@
                 matchGrade = !!(overall && overall.startsWith(gradeFilter));
             }
 
-            const matchValue = !valueFilter ||
-                c.value_snapshots?.some(s => s.value_slug === valueFilter);
+            // Filter by group or ungrouped value slug
+            let matchValue = true;
+            if (valueFilter) {
+                const groups = getCompanyGroups(c);
+                matchValue = groups.some(g =>
+                    g.groupName === valueFilter ||
+                    g.values.some(v => v.slug === valueFilter)
+                );
+            }
 
             return matchSearch && matchSector && matchGrade && matchValue;
         });
 
         if (sortDir !== 'none') {
-            const disqualifying = new Set(values.filter(v => v.is_disqualifying).map(v => v.slug));
             result = [...result].sort((a, b) => {
-                const sa = avgScore(a);
-                const sb = avgScore(b);
-                // Disqualified companies sink to bottom (desc) or rise to top (asc)
-                const aDisq = a.value_snapshots?.some(s => disqualifying.has(s.value_slug) && s.grade.startsWith('F'));
-                const bDisq = b.value_snapshots?.some(s => disqualifying.has(s.value_slug) && s.grade.startsWith('F'));
-                if (aDisq && !bDisq) return sortDir === 'desc' ? 1 : -1;
-                if (!aDisq && bDisq) return sortDir === 'desc' ? -1 : 1;
+                const gradeA = computeOverallGrade(a, values);
+                const gradeB = computeOverallGrade(b, values);
+                // F grades sink to bottom (desc) or rise to top (asc)
+                if (gradeA === 'F' && gradeB !== 'F') return sortDir === 'desc' ? 1 : -1;
+                if (gradeA !== 'F' && gradeB === 'F') return sortDir === 'desc' ? -1 : 1;
+                const groupsA = getCompanyGroups(a);
+                const groupsB = getCompanyGroups(b);
+                const sa = groupsA.length ? groupsA.reduce((s, g) => s + g.score, 0) / groupsA.length : 0;
+                const sb = groupsB.length ? groupsB.reduce((s, g) => s + g.score, 0) / groupsB.length : 0;
                 return sortDir === 'desc' ? sb - sa : sa - sb;
             });
         }
@@ -80,12 +101,6 @@
         return result;
     });
 
-    function getCardHighlights(company: Company) {
-        if (!company.value_snapshots) return [];
-        return company.value_snapshots
-            .filter(s => s.highlight_on_card)
-            .sort((a, b) => a.highlight_priority - b.highlight_priority);
-    }
 </script>
 
 <header>
@@ -93,7 +108,7 @@
         <div class="header-stats">
             {#if !loading && !error}
                 <span>{filtered.length} Companies</span>
-                <span>{values.length} Values</span>
+                <span>{filterOptions.length} Values</span>
                 <span>{sectors.length} Sectors</span>
             {/if}
         </div>
@@ -123,8 +138,8 @@
             </select>
             <select bind:value={valueFilter}>
                 <option value="">All Values</option>
-                {#each values as v}
-                    <option value={v.slug}>{v.name}</option>
+                {#each filterOptions as opt}
+                    <option value={opt.key}>{opt.label}</option>
                 {/each}
             </select>
             <select bind:value={gradeFilter}>
@@ -148,41 +163,43 @@
 
         <div class="company-grid">
             {#each filtered as company}
-                {@const highlights = getCardHighlights(company)}
-                {@const overall = computeOverallGrade(company, values)}
-                <a href="{base}/company/{company.ticker}" class="company-card">
-                    <div class="card-header">
-                        <div>
-                            <h3 class="company-name">{company.name}</h3>
-                            {#if company.ticker}
-                                <span class="company-ticker">{company.ticker}</span>
+                {#if true}
+                    {@const groups = getCompanyGroups(company)}
+                    {@const overall = computeOverallGrade(company, values)}
+                    <a href="{base}/company/{company.ticker}" class="company-card">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="company-name">{company.name}</h3>
+                                {#if company.ticker}
+                                    <span class="company-ticker">{company.ticker}</span>
+                                {/if}
+                            </div>
+                            {#if overall}
+                                <div class="grade-badge {getGradeClass(overall)}">{overall}</div>
                             {/if}
                         </div>
-                        {#if overall}
-                            <div class="grade-badge {getGradeClass(overall)}">{overall}</div>
-                        {/if}
-                    </div>
-                    <div class="card-body">
-                        <div class="sector">{company.sector}</div>
-                        {#if highlights.length > 0}
-                            <div class="highlights">
-                                {#each highlights as snap}
-                                    <div class="highlight {getGradeClass(snap.grade)}">
-                                        <span class="highlight-text">{snap.display_text}</span>
-                                        <span class="highlight-grade">{snap.grade}</span>
-                                    </div>
-                                {/each}
-                            </div>
-                        {/if}
-                        {#if company.badges && company.badges.length > 0}
-                            <div class="badges">
-                                {#each company.badges as badge}
-                                    <span class="badge badge-{badge.type}">{badge.label}</span>
-                                {/each}
-                            </div>
-                        {/if}
-                    </div>
-                </a>
+                        <div class="card-body">
+                            <div class="sector">{company.sector}</div>
+                            {#if groups.length > 0}
+                                <div class="highlights">
+                                    {#each groups as group}
+                                        <div class="highlight {getGradeClass(group.grade)}">
+                                            <span class="highlight-text">{group.groupName}</span>
+                                            <span class="highlight-grade">{group.grade}</span>
+                                        </div>
+                                    {/each}
+                                </div>
+                            {/if}
+                            {#if company.badges && company.badges.length > 0}
+                                <div class="badges">
+                                    {#each company.badges as badge}
+                                        <span class="badge badge-{badge.type}">{badge.label}</span>
+                                    {/each}
+                                </div>
+                            {/if}
+                        </div>
+                    </a>
+                {/if}
             {/each}
         </div>
     {/if}
