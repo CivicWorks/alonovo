@@ -78,6 +78,12 @@ class Value(models.Model):
     is_disqualifying = models.BooleanField(default=False, help_text="F on this = F overall")
     min_weight = models.IntegerField(default=0, help_text="Floor that user cannot go below")
 
+    # Display grouping (frontend collapses values with same display_group)
+    display_group = models.CharField(max_length=100, blank=True, default='',
+        help_text='Group name for frontend collapse. Empty = show individually.')
+    display_group_order = models.IntegerField(default=0,
+        help_text='Sort order for groups and ungrouped values in UI')
+
     # Card display
     card_display_template = models.CharField(max_length=200, blank=True,
         help_text='Template like "${amt}M ({year})" for card display')

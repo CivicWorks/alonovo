@@ -50,6 +50,7 @@ class ValueSerializer(serializers.ModelSerializer):
         model = Value
         fields = ['slug', 'name', 'description', 'value_type',
                   'is_fixed', 'is_disqualifying', 'min_weight',
+                  'display_group', 'display_group_order',
                   'card_display_template', 'card_icon']
 
 
