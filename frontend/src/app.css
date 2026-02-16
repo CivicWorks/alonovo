@@ -158,6 +158,19 @@ header h1 {
 }
 
 /* Grade Badge */
+.grade-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+}
+
+.grade-overall-sub {
+    font-size: 0.7rem;
+    color: #888;
+    font-weight: 500;
+}
+
 .grade-badge {
     font-size: 1.5rem;
     font-weight: 700;
@@ -342,6 +355,20 @@ footer a {
 .highlight.grade-C .highlight-grade { color: #eab308; }
 .highlight.grade-D .highlight-grade { color: #f97316; }
 .highlight.grade-F .highlight-grade { color: #ef4444; }
+
+.highlight-active {
+    font-weight: 600;
+    border: 1px solid #1a5f2a;
+    background: #f0fdf4;
+}
+
+.highlight-active .highlight-text {
+    color: #1a1a1a;
+}
+
+.highlight-dim {
+    opacity: 0.45;
+}
 
 /* Loading */
 .loading {

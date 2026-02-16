@@ -51,6 +51,20 @@
         return groupValues(values, c.value_snapshots || []);
     }
 
+    function getFilteredGroup(groups: ValueGroup[]): ValueGroup | null {
+        if (!valueFilter) return null;
+        return groups.find(g =>
+            g.groupName === valueFilter ||
+            g.values.some(v => v.slug === valueFilter)
+        ) || null;
+    }
+
+    function isMatchingGroup(group: ValueGroup): boolean {
+        if (!valueFilter) return false;
+        return group.groupName === valueFilter ||
+            group.values.some(v => v.slug === valueFilter);
+    }
+
     function toggleSort() {
         if (sortDir === 'none') sortDir = 'desc';
         else if (sortDir === 'desc') sortDir = 'asc';
@@ -166,6 +180,7 @@
                 {#if true}
                     {@const groups = getCompanyGroups(company)}
                     {@const overall = computeOverallGrade(company, values)}
+                    {@const activeGroup = getFilteredGroup(groups)}
                     <a href="{base}/company/{company.ticker}" class="company-card">
                         <div class="card-header">
                             <div>
@@ -174,16 +189,23 @@
                                     <span class="company-ticker">{company.ticker}</span>
                                 {/if}
                             </div>
-                            {#if overall}
-                                <div class="grade-badge {getGradeClass(overall)}">{overall}</div>
-                            {/if}
+                            <div class="grade-stack">
+                                {#if activeGroup}
+                                    <div class="grade-badge {getGradeClass(activeGroup.grade)}">{activeGroup.grade}</div>
+                                    {#if overall}
+                                        <div class="grade-overall-sub">Overall: {overall}</div>
+                                    {/if}
+                                {:else if overall}
+                                    <div class="grade-badge {getGradeClass(overall)}">{overall}</div>
+                                {/if}
+                            </div>
                         </div>
                         <div class="card-body">
                             <div class="sector">{company.sector}</div>
                             {#if groups.length > 0}
                                 <div class="highlights">
                                     {#each groups as group}
-                                        <div class="highlight {getGradeClass(group.grade)}">
+                                        <div class="highlight {getGradeClass(group.grade)}" class:highlight-active={isMatchingGroup(group)} class:highlight-dim={valueFilter && !isMatchingGroup(group)}>
                                             <span class="highlight-text">{group.groupName}</span>
                                             <span class="highlight-grade">{group.grade}</span>
                                         </div>
