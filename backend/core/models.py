@@ -187,3 +187,57 @@ class CompanyScore(models.Model):
 
     def __str__(self):
         return f"{self.company.ticker}: {self.grade}"
+
+
+class BrandMapping(models.Model):
+    """Maps product brand names to parent companies.
+
+    Example: brand_name="Häagen-Dazs" -> company=Nestlé
+    Example: brand_name="Tide" -> company=Procter & Gamble
+    """
+    brand_name = models.CharField(max_length=200,
+        help_text="Brand name as it appears on products")
+    brand_name_normalized = models.CharField(max_length=200, db_index=True,
+        help_text="Lowercased, stripped version for matching")
+    company = models.ForeignKey(Company, on_delete=models.CASCADE,
+        related_name='brand_mappings')
+    source = models.CharField(max_length=100, blank=True,
+        help_text="Where this mapping came from: manual, wikipedia, open_food_facts")
+    confidence = models.FloatField(default=1.0,
+        help_text="0-1, how confident we are in this mapping")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        unique_together = ['brand_name_normalized', 'company']
+        ordering = ['-confidence', 'brand_name']
+
+    def save(self, *args, **kwargs):
+        self.brand_name_normalized = self.brand_name.lower().strip()
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.brand_name} -> {self.company.name}"
+
+
+class BarcodeCache(models.Model):
+    """Cache of barcode -> product data from external APIs."""
+    barcode = models.CharField(max_length=20, unique=True, db_index=True)
+    product_name = models.CharField(max_length=300, blank=True)
+    brands = models.CharField(max_length=500, blank=True,
+        help_text="Comma-separated brand names from product data")
+    owner = models.CharField(max_length=300, blank=True,
+        help_text="Owner/manufacturer field from product data")
+    categories = models.CharField(max_length=500, blank=True)
+    image_url = models.URLField(max_length=500, blank=True)
+    provider = models.CharField(max_length=50,
+        help_text="Which API provided this: open_food_facts, open_beauty_facts, etc.")
+    raw_response = models.JSONField(default=dict,
+        help_text="Full API response for debugging")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"{self.barcode}: {self.product_name}"
