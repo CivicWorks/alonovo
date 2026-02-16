@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { base } from '$app/paths';
     import { onMount } from 'svelte';
     import { page } from '$app/stores';
     import { fetchCompany, fetchCompanyClaims, fetchValues } from '$lib/api';
@@ -59,7 +60,7 @@
 </script>
 
 <div class="container">
-    <a href="/" class="back-btn">&larr; Back to all companies</a>
+    <a href="{base}/" class="back-btn">&larr; Back to all companies</a>
 
     {#if loading}
         <div class="loading">Loading...</div>

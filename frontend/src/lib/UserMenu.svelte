@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { base } from '$app/paths';
     import { onMount } from 'svelte';
     import { fetchCurrentUser, getLoginUrl, getLogoutUrl } from '$lib/api';
     import type { User } from '$lib/types';
@@ -37,9 +38,9 @@
             <!-- svelte-ignore a11y_no_static_element_interactions -->
             <div class="dropdown" on:click|stopPropagation>
                 <div class="dropdown-header">{user.email}</div>
-                <a href="/profile" class="dropdown-item">Profile</a>
+                <a href="{base}/profile" class="dropdown-item">Profile</a>
                 {#if user.is_staff}
-                    <a href="/admin/" class="dropdown-item">Admin</a>
+                    <a href="{base}/admin/" class="dropdown-item">Admin</a>
                 {/if}
                 <a href={getLogoutUrl()} class="dropdown-item">Logout</a>
             </div>

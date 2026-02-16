@@ -1,18 +1,12 @@
-import { PUBLIC_API_URL } from '$env/static/public';
+import { base } from '$app/paths';
 import type { ClaimData, Company, User, ValueDef } from './types';
 
 function apiBase(): string {
-    if (typeof window !== 'undefined') {
-        return `${window.location.origin}/api`;
-    }
-    return PUBLIC_API_URL;
+    return `${base}/api`;
 }
 
 function siteBase(): string {
-    if (typeof window !== 'undefined') {
-        return window.location.origin;
-    }
-    return new URL(PUBLIC_API_URL).origin;
+    return base;
 }
 
 export async function fetchCompanies(): Promise<Company[]> {
@@ -66,9 +60,9 @@ export async function fetchCurrentUser(): Promise<User | null> {
 }
 
 export function getLoginUrl(): string {
-    return `${siteBase()}/accounts/google/login/`;
+    return `${base}/accounts/google/login/`;
 }
 
 export function getLogoutUrl(): string {
-    return `${siteBase()}/accounts/logout/`;
+    return `${base}/accounts/logout/`;
 }

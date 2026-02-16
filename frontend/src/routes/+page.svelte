@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { base } from '$app/paths';
     import { onMount } from 'svelte';
     import { fetchCompanies, fetchValues, fetchSectors } from '$lib/api';
     import { getGradeClass, computeOverallGrade } from '$lib/utils';
@@ -149,7 +150,7 @@
             {#each filtered as company}
                 {@const highlights = getCardHighlights(company)}
                 {@const overall = computeOverallGrade(company, values)}
-                <a href="/company/{company.ticker}" class="company-card">
+                <a href="{base}/company/{company.ticker}" class="company-card">
                     <div class="card-header">
                         <div>
                             <h3 class="company-name">{company.name}</h3>
