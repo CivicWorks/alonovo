@@ -52,11 +52,17 @@ export async function fetchSectors(): Promise<string[]> {
 }
 
 export async function fetchCurrentUser(): Promise<User | null> {
-    const response = await fetch(`${apiBase()}/me/`, {
-        credentials: 'include',
-    });
-    if (!response.ok) return null;
-    return response.json();
+    try {
+        const response = await fetch(`${apiBase()}/me/`, {
+            credentials: 'include',
+        });
+        if (!response.ok) return null;
+        const text = await response.text();
+        if (!text) return null;
+        return JSON.parse(text);
+    } catch {
+        return null;
+    }
 }
 
 export async function fetchWeights(): Promise<{value_slug: string, weight: number}[]> {
