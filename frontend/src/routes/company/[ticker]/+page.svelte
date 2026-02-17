@@ -5,6 +5,9 @@
     import { fetchCompany, fetchCompanyClaims, fetchValues } from '$lib/api';
     import { getGradeClass, computeOverallGrade, groupValues } from '$lib/utils';
     import type { Company, ClaimData, ValueDef, ValueGroup } from '$lib/types';
+    import { loadUser, loadWeights, getWeights, isPersonalized } from '$lib/stores.svelte';
+    import UserMenu from '$lib/UserMenu.svelte';
+    import PersonalizationToggle from '$lib/PersonalizationToggle.svelte';
 
     let company: Company | null = $state(null);
     let claims: ClaimData[] = $state([]);
@@ -20,12 +23,16 @@
                 fetchCompanyClaims(ticker),
                 fetchValues(),
             ]);
+            const user = await loadUser();
+            if (user) await loadWeights();
         } catch (e) {
             error = 'Failed to load company';
         } finally {
             loading = false;
         }
     });
+
+    const activeWeights = $derived(isPersonalized() ? getWeights() : undefined);
 
     function claimsForSnapshot(claimUris: string[]): ClaimData[] {
         return claims.filter(c => claimUris.includes(c.uri));
@@ -59,8 +66,15 @@
     }
 </script>
 
+<header class="detail-banner">
+    <a href="{base}/" class="back-link">&larr; Alonovo</a>
+    <div class="banner-right">
+        <PersonalizationToggle />
+        <UserMenu />
+    </div>
+</header>
+
 <div class="container">
-    <a href="{base}/" class="back-btn">&larr; Back to all companies</a>
 
     {#if loading}
         <div class="loading">Loading...</div>
@@ -81,7 +95,7 @@
                     </div>
                 </div>
                 {#if true}
-                    {@const overall = computeOverallGrade(company, values)}
+                    {@const overall = computeOverallGrade(company, values, activeWeights)}
                     {#if overall}
                         <div class="grade-badge {getGradeClass(overall)}">
                             {overall}
@@ -100,7 +114,7 @@
 
             {#if company.value_snapshots && company.value_snapshots.length > 0}
                 {#if true}
-                    {@const groups = groupValues(values, company.value_snapshots)}
+                    {@const groups = groupValues(values, company.value_snapshots, activeWeights)}
                     <section class="claims-section">
                         <h3>Value Ratings</h3>
                         {#each groups as group}
@@ -162,6 +176,34 @@
 </div>
 
 <style>
+    .detail-banner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.6rem 1.5rem;
+        background: linear-gradient(135deg, #1a5f2a 0%, #2d8a3e 100%);
+        color: white;
+        border-radius: 12px 12px 0 0;
+        margin-bottom: 0;
+    }
+
+    .back-link {
+        color: rgba(255,255,255,0.85);
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+
+    .back-link:hover {
+        color: white;
+    }
+
+    .banner-right {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
     .detail-header {
         display: flex;
         justify-content: space-between;
@@ -249,7 +291,7 @@
         font-size: 1.1rem;
         padding: 0.15rem 0.5rem;
         border-radius: 6px;
-        min-width: 36px;
+        min-width: 42px;
         text-align: center;
     }
 

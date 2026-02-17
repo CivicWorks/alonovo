@@ -1,14 +1,15 @@
 <script lang="ts">
     import { base } from '$app/paths';
     import { onMount } from 'svelte';
-    import { fetchCurrentUser, getLoginUrl, getLogoutUrl } from '$lib/api';
+    import { getLoginUrl, getLogoutUrl } from '$lib/api';
+    import { loadUser, getUser } from '$lib/stores.svelte';
     import type { User } from '$lib/types';
 
-    let user: User | null = $state(null);
+    const user = $derived(getUser());
     let menuOpen = $state(false);
 
     onMount(async () => {
-        user = await fetchCurrentUser();
+        await loadUser();
     });
 
     function toggleMenu() {

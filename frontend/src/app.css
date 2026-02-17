@@ -25,7 +25,8 @@ body {
 header {
     text-align: center;
     padding: 2rem 1.5rem;
-    background: linear-gradient(135deg, #1a5f2a 0%, #2d8a3e 100%);
+    background: linear-gradient(135deg, rgba(26,95,42,0.85) 0%, rgba(45,138,62,0.85) 100%),
+                var(--banner-bg, none) center/cover no-repeat;
     color: white;
     border-radius: 12px;
     margin-bottom: 2rem;
@@ -40,6 +41,12 @@ header {
     top: 1rem;
     right: 1.5rem;
     left: 1.5rem;
+}
+
+.header-bottom-right {
+    position: absolute;
+    bottom: 0.75rem;
+    right: 1.5rem;
 }
 
 .header-stats {
@@ -174,9 +181,9 @@ header h1 {
 .grade-badge {
     font-size: 1.5rem;
     font-weight: 700;
-    padding: 0.25rem 0.75rem;
+    padding: 0.25rem 0.5rem;
     border-radius: 8px;
-    min-width: 50px;
+    min-width: 54px;
     text-align: center;
 }
 
@@ -273,6 +280,16 @@ footer {
 
 footer a {
     color: #1a5f2a;
+}
+
+.photo-credit {
+    font-size: 0.75rem;
+    color: #999;
+    margin-top: 0.5rem;
+}
+
+.photo-credit a {
+    color: #999;
 }
 
 /* Back Button */

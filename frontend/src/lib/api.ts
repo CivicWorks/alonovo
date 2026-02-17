@@ -59,6 +59,14 @@ export async function fetchCurrentUser(): Promise<User | null> {
     return response.json();
 }
 
+export async function fetchWeights(): Promise<{value_slug: string, weight: number}[]> {
+    const response = await fetch(`${apiBase()}/me/weights/`, {
+        credentials: 'include',
+    });
+    if (!response.ok) return [];
+    return response.json();
+}
+
 export function getLoginUrl(): string {
     return `${base}/accounts/google/login/`;
 }

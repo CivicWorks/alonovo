@@ -5,6 +5,8 @@
     import { getGradeClass, computeOverallGrade, groupValues } from '$lib/utils';
     import type { Company, ValueDef, ValueGroup } from '$lib/types';
     import UserMenu from '$lib/UserMenu.svelte';
+    import PersonalizationToggle from '$lib/PersonalizationToggle.svelte';
+    import { loadUser, loadWeights, getWeights, isPersonalized } from '$lib/stores.svelte';
 
     let companies: Company[] = $state([]);
     let values: ValueDef[] = $state([]);
@@ -25,12 +27,16 @@
                 fetchValues(),
                 fetchSectors(),
             ]);
+            const user = await loadUser();
+            if (user) await loadWeights();
         } catch (e) {
             error = 'Failed to load companies';
         } finally {
             loading = false;
         }
     });
+
+    const activeWeights = $derived(isPersonalized() ? getWeights() : undefined);
 
     /** Build filter options: groups + ungrouped values */
     const filterOptions = $derived.by(() => {
@@ -48,7 +54,7 @@
     });
 
     function getCompanyGroups(c: Company): ValueGroup[] {
-        return groupValues(values, c.value_snapshots || []);
+        return groupValues(values, c.value_snapshots || [], activeWeights);
     }
 
     function getFilteredGroup(groups: ValueGroup[]): ValueGroup | null {
@@ -80,7 +86,7 @@
 
             let matchGrade = true;
             if (gradeFilter) {
-                const overall = computeOverallGrade(c, values);
+                const overall = computeOverallGrade(c, values, activeWeights);
                 matchGrade = !!(overall && overall.startsWith(gradeFilter));
             }
 
@@ -99,8 +105,8 @@
 
         if (sortDir !== 'none') {
             result = [...result].sort((a, b) => {
-                const gradeA = computeOverallGrade(a, values);
-                const gradeB = computeOverallGrade(b, values);
+                const gradeA = computeOverallGrade(a, values, activeWeights);
+                const gradeB = computeOverallGrade(b, values, activeWeights);
                 // F grades sink to bottom (desc) or rise to top (asc)
                 if (gradeA === 'F' && gradeB !== 'F') return sortDir === 'desc' ? 1 : -1;
                 if (gradeA !== 'F' && gradeB === 'F') return sortDir === 'desc' ? -1 : 1;
@@ -117,7 +123,7 @@
 
 </script>
 
-<header>
+<header style="--banner-bg: url('{base}/banner-tree.jpg')">
     <div class="header-top">
         <div class="header-stats">
             {#if !loading && !error}
@@ -134,6 +140,9 @@
         Grades powered by
         <a href="https://linkedtrust.us" target="_blank" rel="noreferrer">LinkedTrust</a>
     </p>
+    <div class="header-bottom-right">
+        <PersonalizationToggle />
+    </div>
 </header>
 
 <main>
@@ -179,7 +188,7 @@
             {#each filtered as company}
                 {#if true}
                     {@const groups = getCompanyGroups(company)}
-                    {@const overall = computeOverallGrade(company, values)}
+                    {@const overall = computeOverallGrade(company, values, activeWeights)}
                     {@const activeGroup = getFilteredGroup(groups)}
                     <a href="{base}/company/{company.ticker}" class="company-card">
                         <div class="card-header">
@@ -233,4 +242,5 @@
     <a href="https://www.eggtrack.com" target="_blank">EggTrack</a>,
     <a href="https://www.usaspending.gov" target="_blank">USASpending</a>, and more</p>
     <p><strong>Alonovo</strong> - Guiding capital toward ethical companies</p>
+    <p class="photo-credit">Photo by <a href="https://unsplash.com/@georgeb2?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">George Berberich</a> on <a href="https://unsplash.com/photos/green-leafed-tree-AXcjq7E01EE?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
 </footer>
