@@ -1,8 +1,8 @@
 <script lang="ts">
+    import { base } from '$app/paths';
     import { onMount } from 'svelte';
     import { fetchCurrentUser, fetchValues } from '$lib/api';
     import type { User, ValueDef } from '$lib/types';
-    import { PUBLIC_API_URL } from '$env/static/public';
 
     let user: User | null = $state(null);
     let values: ValueDef[] = $state([]);
@@ -21,7 +21,7 @@
             values = await fetchValues();
 
             // Fetch existing weights
-            const res = await fetch(`${PUBLIC_API_URL}/me/weights/`, {
+            const res = await fetch(`${base}/api/me/weights/`, {
                 credentials: 'include',
             });
             if (res.ok) {
@@ -57,7 +57,7 @@
                 value_slug: slug,
                 weight,
             }));
-            const res = await fetch(`${PUBLIC_API_URL}/me/weights/`, {
+            const res = await fetch(`${base}/api/me/weights/`, {
                 method: 'POST',
                 credentials: 'include',
                 headers: {
@@ -88,7 +88,7 @@
 </script>
 
 <div class="container">
-    <a href="/" class="back-btn">&larr; Back</a>
+    <a href="{base}/" class="back-btn">&larr; Back</a>
 
     {#if loading}
         <div class="loading">Loading...</div>

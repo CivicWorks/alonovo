@@ -48,7 +48,7 @@ def current_user(request):
             'is_staff': request.user.is_staff,
             'is_superuser': request.user.is_superuser,
         })
-    return Response(None)
+    return Response(None, status=204)
 
 
 @api_view(['GET', 'POST'])

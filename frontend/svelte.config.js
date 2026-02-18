@@ -10,6 +10,9 @@ const config = {
 			precompress: false,
 			strict: false
 		}),
+		paths: {
+			base: process.env.PUBLIC_BASE_PATH || ''
+		},
 		prerender: {
 			handleUnseenRoutes: 'ignore'
 		}

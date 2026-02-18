@@ -1,1 +1,11 @@
 .claude/
+.env
+*.pyc
+__pycache__/
+.venv/
+staticfiles/
+node_modules/
+.svelte-kit/
+build/
+.kotlin/
+*.iml
