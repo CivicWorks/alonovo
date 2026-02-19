@@ -247,3 +247,31 @@ class BarcodeCache(models.Model):
 
     def __str__(self):
         return f"{self.barcode}: {self.product_name}"
+
+
+class Product(models.Model):
+    """A consumer product available on store shelves.
+
+    Maps a specific product (e.g., "Cheerios Original 18oz") to its parent
+    company via brand, with category for suggesting same-category swaps.
+    """
+    name = models.CharField(max_length=300, help_text="Product name as on shelf")
+    brand_name = models.CharField(max_length=200, db_index=True,
+        help_text="Brand name, e.g. Cheerios, Doritos, Tide")
+    company = models.ForeignKey(Company, on_delete=models.CASCADE,
+        related_name='products')
+    category = models.CharField(max_length=100, db_index=True,
+        help_text="Product category for swap suggestions, e.g. cereal, water, chicken")
+    typical_price = models.DecimalField(max_digits=8, decimal_places=2,
+        null=True, blank=True, help_text="Typical retail price in USD")
+    barcode = models.CharField(max_length=20, blank=True, db_index=True)
+    source = models.CharField(max_length=100, blank=True,
+        help_text="Where this product data came from")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['category', 'name']
+
+    def __str__(self):
+        return f"{self.name} ({self.company.name})"
