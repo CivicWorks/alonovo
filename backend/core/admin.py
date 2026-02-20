@@ -58,15 +58,46 @@ class CompanyBadgeAdmin(admin.ModelAdmin):
     search_fields = ['company__ticker', 'company__name', 'label']
 
 
+
+# ===========================
+# BRAND MAPPING ADMIN
+# ===========================
 @admin.register(BrandMapping)
 class BrandMappingAdmin(admin.ModelAdmin):
-    list_display = ['brand_name', 'company', 'source', 'confidence']
-    list_filter = ['source']
-    search_fields = ['brand_name', 'company__name', 'company__ticker']
+    """
+    Maps product brands to parent companies.
+    Workflow: Scan barcode -> Get brands -> Map to company -> Add claims
+    """
+    list_display = ['brand_name', 'get_company', 'confidence', 'source', 'created_at']
+    list_filter = ['source', 'confidence', 'created_at']
+    search_fields = ['brand_name', 'brand_name_normalized', 'company__name', 'company__ticker']
+
+    fieldsets = (
+        ('Brand Information', {
+            'fields': ('brand_name', 'company'),
+        }),
+        ('Metadata', {
+            'fields': ('source', 'confidence'),
+        }),
+    )
+
+    readonly_fields = ['brand_name_normalized', 'created_at', 'updated_at']
+
+    def get_company(self, obj):
+        return f"{obj.company.ticker} - {obj.company.name}" if obj.company else '-'
+    get_company.short_description = 'Company'
 
 
+# ===========================
+# BARCODE CACHE ADMIN
+# ===========================
 @admin.register(BarcodeCache)
 class BarcodeCacheAdmin(admin.ModelAdmin):
+    """
+    Cached barcode lookups from external APIs.
+    """
     list_display = ['barcode', 'product_name', 'brands', 'provider', 'created_at']
-    list_filter = ['provider']
-    search_fields = ['barcode', 'product_name', 'brands']
+    list_filter = ['provider', 'created_at']
+    search_fields = ['barcode', 'product_name', 'brands', 'owner']
+    readonly_fields = ['created_at', 'raw_response']
+    list_per_page = 50
