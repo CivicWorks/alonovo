@@ -10,6 +10,9 @@ const config = {
 			precompress: false,
 			strict: false
 		}),
+		paths: {
+			base: '/alonovo'
+		},
 		prerender: {
 			handleUnseenRoutes: 'ignore'
 		}

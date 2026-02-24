@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { base } from '$app/paths';
     import { onMount } from 'svelte';
     import { fetchCurrentUser, fetchValues } from '$lib/api';
     import type { User, ValueDef } from '$lib/types';
@@ -88,7 +89,7 @@
 </script>
 
 <div class="container">
-    <a href="/" class="back-btn">&larr; Back</a>
+    <a href="{base}/" class="back-btn">&larr; Back</a>
 
     {#if loading}
         <div class="loading">Loading...</div>

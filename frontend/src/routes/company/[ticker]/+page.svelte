@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { base } from '$app/paths';
     import { onMount } from 'svelte';
     import { page } from '$app/stores';
     import { fetchCompany, fetchCompanyClaims, fetchValues } from '$lib/api';
@@ -59,7 +60,7 @@
 </script>
 
 <div class="container">
-    <a href="/" class="back-btn">&larr; Back to all companies</a>
+    <a href="{base}/" class="back-btn">&larr; Back to all companies</a>
 
     {#if loading}
         <div class="loading">Loading...</div>
@@ -96,6 +97,13 @@
                     {/each}
                 </div>
             {/if}
+
+            <div class="community-attestations">
+                <a href="https://live.linkedtrust.us/?search={encodeURIComponent(company.name)}"
+                   target="_blank" rel="noreferrer">
+                    View community attestations on LinkedTrust &rarr;
+                </a>
+            </div>
 
             {#if company.value_snapshots && company.value_snapshots.length > 0}
                 <section class="claims-section">
@@ -285,5 +293,19 @@
         color: #999;
         font-size: 0.7rem;
         text-transform: capitalize;
+    }
+
+    .community-attestations {
+        margin: 1rem 0;
+        font-size: 0.9rem;
+    }
+
+    .community-attestations a {
+        color: #1a5f2a;
+        text-decoration: none;
+    }
+
+    .community-attestations a:hover {
+        text-decoration: underline;
     }
 </style>

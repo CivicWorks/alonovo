@@ -174,6 +174,23 @@ class CompanyBadge(models.Model):
         return f"{self.company.ticker}: {self.label}"
 
 
+class CompanyVote(models.Model):
+    """User vote requesting data collection for a company."""
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='votes')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='company_votes',
+                             null=True, blank=True)
+    session_key = models.CharField(max_length=40, blank=True,
+        help_text="For anonymous users, track by session")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ['company', 'user']
+
+    def __str__(self):
+        voter = self.user.email if self.user else f"anon-{self.session_key[:8]}"
+        return f"{voter} -> {self.company.name}"
+
+
 # Keep CompanyScore for backward compatibility during transition
 class CompanyScore(models.Model):
     """Simplified snapshot for Phase 1. Will migrate to CompanyValueSnapshot."""

@@ -2,7 +2,7 @@ from rest_framework import viewsets, status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
-from .models import Claim, Company, Value, UserValueWeight
+from .models import Claim, Company, CompanyVote, Value, UserValueWeight
 from .serializers import ClaimSerializer, CompanySerializer, ValueSerializer, UserValueWeightSerializer
 
 
@@ -92,3 +92,51 @@ def company_claims(request, ticker):
     claims = Claim.objects.filter(subject=company.uri).order_by('-effective_date')
     serializer = ClaimSerializer(claims, many=True)
     return Response(serializer.data)
+
+
+@api_view(['POST', 'DELETE'])
+@permission_classes([AllowAny])
+def vote_for_company(request, ticker):
+    """Vote/unvote for a company to prioritize data acquisition."""
+    company = Company.objects.filter(ticker=ticker).first()
+    if not company:
+        return Response({'error': 'Company not found'}, status=404)
+
+    if request.method == 'POST':
+        if request.user.is_authenticated:
+            vote, created = CompanyVote.objects.get_or_create(
+                company=company, user=request.user)
+            if not created:
+                return Response({'status': 'already_voted', 'vote_count': company.votes.count()})
+        else:
+            if not request.session.session_key:
+                request.session.create()
+            session_key = request.session.session_key
+            if CompanyVote.objects.filter(company=company, session_key=session_key).exists():
+                return Response({'status': 'already_voted', 'vote_count': company.votes.count()})
+            CompanyVote.objects.create(company=company, session_key=session_key)
+
+        return Response({'status': 'voted', 'vote_count': company.votes.count()})
+
+    elif request.method == 'DELETE':
+        if request.user.is_authenticated:
+            CompanyVote.objects.filter(company=company, user=request.user).delete()
+        elif request.session.session_key:
+            CompanyVote.objects.filter(
+                company=company, session_key=request.session.session_key).delete()
+        return Response({'status': 'unvoted', 'vote_count': company.votes.count()})
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def vote_leaderboard(request):
+    """Companies with no data, sorted by vote count."""
+    from django.db.models import Count
+    companies = (Company.objects
+        .filter(value_snapshots__isnull=True)
+        .annotate(vote_count=Count('votes'))
+        .filter(vote_count__gt=0)
+        .order_by('-vote_count')[:50])
+    result = [{'ticker': c.ticker, 'name': c.name, 'sector': c.sector,
+               'vote_count': c.vote_count} for c in companies]
+    return Response(result)

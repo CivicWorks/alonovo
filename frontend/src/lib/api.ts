@@ -1,16 +1,17 @@
+import { base } from '$app/paths';
 import { PUBLIC_API_URL } from '$env/static/public';
 import type { ClaimData, Company, User, ValueDef } from './types';
 
 function apiBase(): string {
     if (typeof window !== 'undefined') {
-        return `${window.location.origin}/api`;
+        return `${window.location.origin}${base}/api`;
     }
     return PUBLIC_API_URL;
 }
 
 function siteBase(): string {
     if (typeof window !== 'undefined') {
-        return window.location.origin;
+        return `${window.location.origin}${base}`;
     }
     return new URL(PUBLIC_API_URL).origin;
 }
@@ -71,4 +72,19 @@ export function getLoginUrl(): string {
 
 export function getLogoutUrl(): string {
     return `${siteBase()}/accounts/logout/`;
+}
+
+export async function voteForCompany(ticker: string): Promise<{status: string, vote_count: number}> {
+    const response = await fetch(`${apiBase()}/companies/${ticker}/vote/`, {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+    });
+    return response.json();
+}
+
+export async function fetchVoteLeaderboard(): Promise<{ticker: string, name: string, sector: string, vote_count: number}[]> {
+    const response = await fetch(`${apiBase()}/votes/leaderboard/`);
+    if (!response.ok) return [];
+    return response.json();
 }
