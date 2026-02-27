@@ -28,28 +28,28 @@ def test_ocr_extraction(image_path):
     print("=" * 60)
 
     # Read and encode image
-    print("\n📸 Reading image...")
+    print("\nReading image...")
     try:
         with open(image_path, 'rb') as f:
             image_bytes = f.read()
         image_base64 = base64.b64encode(image_bytes).decode('utf-8')
         print(f"   Image size: {len(image_bytes)} bytes")
     except Exception as e:
-        print(f"❌ Failed to read image: {e}")
+        print(f"Failed to read image: {e}")
         return False
 
     # Run OCR
-    print("\n🔍 Running EasyOCR...")
+    print("\n Running EasyOCR...")
     try:
         extracted_text = extract_text_from_image(image_base64)
-        print("✅ OCR successful!")
-        print(f"\n📄 Extracted Text ({len(extracted_text)} characters):")
+        print("OCR successful!")
+        print(f"\n Extracted Text ({len(extracted_text)} characters):")
         print("-" * 60)
         print(extracted_text)
         print("-" * 60)
         return True
     except Exception as e:
-        print(f"❌ OCR failed: {e}")
+        print(f"OCR failed: {e}")
         import traceback
         traceback.print_exc()
         return False
@@ -58,25 +58,25 @@ def test_ocr_extraction(image_path):
 if __name__ == '__main__':
     if len(sys.argv) < 2:
         print("Usage: python tests/test_ocr_extraction.py path/to/receipt.jpg")
-        print("\nExample:")
+        print("\n Example:")
         print("  python tests/test_ocr_extraction.py example-receipts/receipt.png")
         sys.exit(1)
 
     image_path = sys.argv[1]
 
     if not os.path.exists(image_path):
-        print(f"❌ Image not found: {image_path}")
+        print(f"Image not found: {image_path}")
         sys.exit(1)
 
-    print("\n🧪 EasyOCR Text Extraction Test\n")
+    print("\n EasyOCR Text Extraction Test\n")
 
     success = test_ocr_extraction(image_path)
 
     if success:
         print("\n" + "=" * 60)
-        print("✅ OCR EXTRACTION TEST PASSED!")
+        print("OCR EXTRACTION TEST PASSED!")
         print("=" * 60)
-        print("\nNext step: Add Claude AI parsing to understand this text")
+        print("\n Next step: Add Claude AI parsing to understand this text")
     else:
-        print("\n❌ OCR TEST FAILED")
+        print("\n OCR TEST FAILED")
         sys.exit(1)
