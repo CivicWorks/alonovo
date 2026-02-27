@@ -13,6 +13,7 @@ from .serializers_mobile import (
     compute_overall_grade_server,
 )
 from .receipt_ocr import extract_text_from_image
+from .receipt_parser import parse_receipt_with_claude, match_company_to_database
 
 
 @api_view(['POST'])
@@ -131,17 +132,15 @@ def brand_mappings_list(request):
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def receipt_analyze(request):
-    """Extract text from receipt image using OCR.
+    """Analyze receipt: OCR → Claude AI → Match companies → Return grades.
 
     POST /api/receipt/analyze
     Body: {"image": "base64_encoded_jpeg_or_png"}
 
     Returns:
-    - extracted_text: Raw text from OCR
-    - status: "ocr_complete"
-    - message: Next step info
-
-    Note: Parsing and company matching will be added in Phase 2 with Claude AI.
+    - receipt_metadata: store, date, total
+    - items: list of products with matched companies and grades
+    - summary: overall statistics
     """
     image_base64 = request.data.get('image', '').strip()
     if not image_base64:
@@ -150,7 +149,7 @@ def receipt_analyze(request):
             status=status.HTTP_400_BAD_REQUEST,
         )
 
-    # Extract text from image using EasyOCR
+    # Step 1: Extract text from image using EasyOCR
     try:
         extracted_text = extract_text_from_image(image_base64)
     except ValueError as e:
@@ -159,11 +158,78 @@ def receipt_analyze(request):
             status=status.HTTP_400_BAD_REQUEST,
         )
 
-    # Return raw extracted text (parsing will be added in Phase 2)
+    # Step 2: Parse receipt with Claude AI
+    try:
+        parsed_data = parse_receipt_with_claude(extracted_text)
+    except ValueError as e:
+        return Response(
+            {'error': f'Could not parse receipt: {str(e)}'},
+            status=status.HTTP_400_BAD_REQUEST,
+        )
+
+    # Step 3: Match each item to companies in database
+    matched_items = []
+    total_items = len(parsed_data.get('items', []))
+    matched_count = 0
+    total_spending = 0.0
+    matched_spending = 0.0
+
+    for item in parsed_data.get('items', []):
+        parent_company = item.get('parent_company', '')
+        brand = item.get('brand', '')
+        price = item.get('price')
+
+        # Match to database
+        company, confidence, method = match_company_to_database(parent_company, brand)
+
+        # Only include if confidence >= 80%
+        if company and confidence >= 0.8:
+            # Prefetch related data
+            company_full = Company.objects.prefetch_related(
+                'value_snapshots', 'value_snapshots__value', 'badges'
+            ).get(pk=company.pk)
+
+            matched_items.append({
+                'product_name': item.get('product_name', ''),
+                'brand': brand,
+                'price': price,
+                'company': MobileCompanySerializer(company_full).data,
+                'match_confidence': confidence,
+                'match_method': method,
+            })
+
+            matched_count += 1
+            if price:
+                matched_spending += price
+        else:
+            # Item not matched or low confidence
+            matched_items.append({
+                'product_name': item.get('product_name', ''),
+                'brand': brand,
+                'price': price,
+                'company': None,
+                'match_confidence': confidence,
+                'match_method': method,
+                'unmatched_reason': f'Could not match "{parent_company}" or "{brand}" to database',
+            })
+
+        if price:
+            total_spending += price
+
+    # Step 4: Return results
     return Response({
-        'status': 'ocr_complete',
-        'extracted_text': extracted_text,
-        'message': 'Text extracted successfully. Parsing with Claude AI coming in Phase 2.',
+        'receipt_metadata': {
+            'store_name': parsed_data.get('store_name', ''),
+            'date': parsed_data.get('date'),
+            'total': parsed_data.get('total'),
+        },
+        'items': matched_items,
+        'summary': {
+            'total_items': total_items,
+            'matched_items': matched_count,
+            'total_spending': total_spending,
+            'matched_spending': matched_spending,
+        }
     })
 
 
