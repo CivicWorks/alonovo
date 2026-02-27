@@ -3,16 +3,19 @@
 ## Test Files
 
 ### `test_ocr_extraction.py`
-Tests EasyOCR text extraction from receipt images (Phase 1).
+Tests text extraction from receipt images and PDFs (Phase 1).
 
 **Usage:**
 ```bash
 python tests/test_ocr_extraction.py example-receipts/receipt.png
+python tests/test_ocr_extraction.py example-receipts/receipt.pdf
 ```
 
 **What it tests:**
-- Image loading and base64 encoding
-- EasyOCR text extraction
+- File loading and base64 encoding
+- Automatic format detection (PDF vs image)
+- PDF text extraction (using pypdf)
+- Image OCR text extraction (using EasyOCR)
 - Returns raw extracted text
 
 ---

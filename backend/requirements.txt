@@ -39,6 +39,7 @@ pycparser==3.0
 pydantic==2.12.5
 pydantic_core==2.41.5
 PyJWT==2.11.0
+pypdf>=5.1.0
 python-bidi==0.6.7
 python-decouple==3.8
 PyYAML==6.0.3

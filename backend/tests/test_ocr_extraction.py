@@ -1,7 +1,11 @@
 #!/usr/bin/env python
-"""Test EasyOCR text extraction with a real image file.
+"""Test text extraction from receipt images and PDFs.
 
-Usage: python tests/test_ocr_extraction.py path/to/receipt.jpg
+Supports both image files (JPEG, PNG) via EasyOCR and PDF files via pypdf.
+
+Usage:
+    python tests/test_ocr_extraction.py path/to/receipt.jpg
+    python tests/test_ocr_extraction.py path/to/receipt.pdf
 """
 
 import sys
@@ -20,36 +24,41 @@ django.setup()
 from core.receipt_ocr import extract_text_from_image
 
 
-def test_ocr_extraction(image_path):
-    """Test OCR text extraction with a real receipt image."""
+def test_ocr_extraction(file_path):
+    """Test text extraction with a real receipt file (image or PDF)."""
     print("=" * 60)
-    print(f"Testing EasyOCR Text Extraction")
-    print(f"Image: {image_path}")
+    print(f"Testing Receipt Text Extraction")
+    print(f"File: {file_path}")
     print("=" * 60)
 
-    # Read and encode image
-    print("\nReading image...")
+    # Detect file type
+    file_ext = os.path.splitext(file_path)[1].lower()
+    file_type = "PDF" if file_ext == '.pdf' else "Image"
+    print(f"\nDetected file type: {file_type}")
+
+    # Read and encode file
+    print(f"Reading {file_type.lower()}...")
     try:
-        with open(image_path, 'rb') as f:
-            image_bytes = f.read()
-        image_base64 = base64.b64encode(image_bytes).decode('utf-8')
-        print(f"   Image size: {len(image_bytes)} bytes")
+        with open(file_path, 'rb') as f:
+            file_bytes = f.read()
+        file_base64 = base64.b64encode(file_bytes).decode('utf-8')
+        print(f"   File size: {len(file_bytes)} bytes")
     except Exception as e:
-        print(f"Failed to read image: {e}")
+        print(f"Failed to read file: {e}")
         return False
 
-    # Run OCR
-    print("\n Running EasyOCR...")
+    # Extract text
+    print(f"\n Extracting text ({file_type})...")
     try:
-        extracted_text = extract_text_from_image(image_base64)
-        print("OCR successful!")
+        extracted_text = extract_text_from_image(file_base64)
+        print("Text extraction successful!")
         print(f"\n Extracted Text ({len(extracted_text)} characters):")
         print("-" * 60)
         print(extracted_text)
         print("-" * 60)
         return True
     except Exception as e:
-        print(f"OCR failed: {e}")
+        print(f"Text extraction failed: {e}")
         import traceback
         traceback.print_exc()
         return False
@@ -57,26 +66,27 @@ def test_ocr_extraction(image_path):
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        print("Usage: python tests/test_ocr_extraction.py path/to/receipt.jpg")
-        print("\n Example:")
+        print("Usage: python tests/test_ocr_extraction.py path/to/receipt.[jpg|png|pdf]")
+        print("\n Examples:")
         print("  python tests/test_ocr_extraction.py example-receipts/receipt.png")
+        print("  python tests/test_ocr_extraction.py example-receipts/receipt.pdf")
         sys.exit(1)
 
-    image_path = sys.argv[1]
+    file_path = sys.argv[1]
 
-    if not os.path.exists(image_path):
-        print(f"Image not found: {image_path}")
+    if not os.path.exists(file_path):
+        print(f"File not found: {file_path}")
         sys.exit(1)
 
-    print("\n EasyOCR Text Extraction Test\n")
+    print("\n Receipt Text Extraction Test\n")
 
-    success = test_ocr_extraction(image_path)
+    success = test_ocr_extraction(file_path)
 
     if success:
         print("\n" + "=" * 60)
-        print("OCR EXTRACTION TEST PASSED!")
+        print("TEXT EXTRACTION TEST PASSED!")
         print("=" * 60)
         print("\n Next step: Add Claude AI parsing to understand this text")
     else:
-        print("\n OCR TEST FAILED")
+        print("\n TEXT EXTRACTION TEST FAILED")
         sys.exit(1)
