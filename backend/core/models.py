@@ -275,3 +275,39 @@ class Product(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.company.name})"
+
+
+class UnmatchedProduct(models.Model):
+    """Products discovered from receipt scans that need manual review.
+
+    When receipt scanner finds a product not in the Product table,
+    save it here with Claude's best guess for the company. Admin can
+    review and approve high-confidence matches to create real Products.
+    """
+    product_name = models.CharField(max_length=300, db_index=True,
+        help_text="Product name from receipt")
+    brand_name = models.CharField(max_length=200, db_index=True,
+        help_text="Brand name from Claude AI")
+    parent_company_guess = models.CharField(max_length=200,
+        help_text="Claude's guess for parent company")
+    category_guess = models.CharField(max_length=100, blank=True,
+        help_text="Category guess from Claude (optional)")
+    seen_count = models.IntegerField(default=1,
+        help_text="Number of times this product was scanned")
+    typical_price = models.DecimalField(max_digits=8, decimal_places=2,
+        null=True, blank=True, help_text="Most common price seen")
+    last_seen_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    # For tracking if admin reviewed this
+    reviewed = models.BooleanField(default=False)
+    approved_product = models.ForeignKey(Product, null=True, blank=True,
+        on_delete=models.SET_NULL, related_name='source_unmatched',
+        help_text="If approved, the Product that was created from this")
+
+    class Meta:
+        ordering = ['-seen_count', '-last_seen_at']
+        unique_together = [['product_name', 'brand_name']]
+
+    def __str__(self):
+        return f"{self.product_name} ({self.brand_name}) - seen {self.seen_count}x"

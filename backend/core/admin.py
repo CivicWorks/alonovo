@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import (Claim, Company, CompanyScore, CompanyBadge, Value, ScoringRule,
-                     CompanyValueSnapshot, UserValueWeight, BrandMapping, BarcodeCache)
+                     CompanyValueSnapshot, UserValueWeight, BrandMapping, BarcodeCache,
+                     Product, UnmatchedProduct)
 
 
 @admin.register(Claim)
@@ -70,3 +71,26 @@ class BarcodeCacheAdmin(admin.ModelAdmin):
     list_display = ['barcode', 'product_name', 'brands', 'provider', 'created_at']
     list_filter = ['provider']
     search_fields = ['barcode', 'product_name', 'brands']
+
+
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ['name', 'brand_name', 'company', 'category', 'typical_price', 'source']
+    list_filter = ['category', 'source', 'company']
+    search_fields = ['name', 'brand_name', 'company__name', 'barcode']
+    raw_id_fields = ['company']
+
+
+@admin.register(UnmatchedProduct)
+class UnmatchedProductAdmin(admin.ModelAdmin):
+    list_display = ['product_name', 'brand_name', 'parent_company_guess', 'seen_count', 'reviewed', 'last_seen_at']
+    list_filter = ['reviewed', 'category_guess']
+    search_fields = ['product_name', 'brand_name', 'parent_company_guess']
+    ordering = ['-seen_count', '-last_seen_at']
+    readonly_fields = ['created_at', 'last_seen_at']
+    actions = ['mark_as_reviewed']
+
+    def mark_as_reviewed(self, request, queryset):
+        """Mark selected items as reviewed."""
+        queryset.update(reviewed=True)
+    mark_as_reviewed.short_description = "Mark selected as reviewed"
