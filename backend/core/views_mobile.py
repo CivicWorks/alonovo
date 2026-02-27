@@ -12,6 +12,7 @@ from .serializers_mobile import (
     BrandMappingSerializer,
     compute_overall_grade_server,
 )
+from .receipt_ocr import extract_text_from_image
 
 
 @api_view(['POST'])
@@ -125,6 +126,45 @@ def brand_mappings_list(request):
     mappings = BrandMapping.objects.select_related('company').all()
     data = BrandMappingSerializer(mappings, many=True).data
     return Response(data)
+
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def receipt_analyze(request):
+    """Extract text from receipt image using OCR.
+
+    POST /api/receipt/analyze
+    Body: {"image": "base64_encoded_jpeg_or_png"}
+
+    Returns:
+    - extracted_text: Raw text from OCR
+    - status: "ocr_complete"
+    - message: Next step info
+
+    Note: Parsing and company matching will be added in Phase 2 with Claude AI.
+    """
+    image_base64 = request.data.get('image', '').strip()
+    if not image_base64:
+        return Response(
+            {'error': 'image is required (base64-encoded JPEG or PNG)'},
+            status=status.HTTP_400_BAD_REQUEST,
+        )
+
+    # Extract text from image using EasyOCR
+    try:
+        extracted_text = extract_text_from_image(image_base64)
+    except ValueError as e:
+        return Response(
+            {'error': f'Could not read receipt: {str(e)}'},
+            status=status.HTTP_400_BAD_REQUEST,
+        )
+
+    # Return raw extracted text (parsing will be added in Phase 2)
+    return Response({
+        'status': 'ocr_complete',
+        'extracted_text': extracted_text,
+        'message': 'Text extracted successfully. Parsing with Claude AI coming in Phase 2.',
+    })
 
 
 # --- helpers ---
