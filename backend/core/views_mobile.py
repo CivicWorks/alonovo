@@ -177,10 +177,13 @@ def receipt_analyze(request):
     for item in parsed_data.get('items', []):
         parent_company = item.get('parent_company', '')
         brand = item.get('brand', '')
+        product_name = item.get('product_name', '')
         price = item.get('price')
 
-        # Match to database
-        company, confidence, method = match_company_to_database(parent_company, brand)
+        # Match to database (tries Product model first, then Company/BrandMapping)
+        company, confidence, method = match_company_to_database(
+            parent_company, brand, product_name, price
+        )
 
         # Only include if confidence >= 80%
         if company and confidence >= 0.8:
