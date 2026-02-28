@@ -161,16 +161,33 @@ class CompanyBadgeAdmin(admin.ModelAdmin):
 
 @admin.register(BrandMapping)
 class BrandMappingAdmin(admin.ModelAdmin):
-    list_display = ['brand_name', 'company', 'source', 'confidence', 'created_at']
-    list_filter = ['source', 'confidence']
+    """
+    Maps product brands to parent companies.
+    Workflow: Scan barcode -> Get brand -> Map to company -> Add claims
+    """
+    list_display = ['brand_name', 'get_company', 'source', 'confidence', 'created_at']
+    list_filter = ['source', 'confidence', 'created_at']
     search_fields = ['brand_name', 'brand_name_normalized', 'company__name', 'company__ticker']
     list_select_related = ['company']
     raw_id_fields = ['company']
     readonly_fields = ['brand_name_normalized', 'created_at', 'updated_at']
+    fieldsets = (
+        ('Brand Information', {
+            'fields': ('brand_name', 'company'),
+        }),
+        ('Metadata', {
+            'fields': ('source', 'confidence'),
+        }),
+    )
+
+    @admin.display(description='Company')
+    def get_company(self, obj):
+        return f"{obj.company.ticker} - {obj.company.name}" if obj.company else '-'
 
 
 @admin.register(BarcodeCache)
 class BarcodeCacheAdmin(admin.ModelAdmin):
+    """Cached barcode lookups from external APIs."""
     list_display = ['barcode', 'product_name', 'brands', 'owner', 'provider', 'created_at']
     list_filter = ['provider']
     search_fields = ['barcode', 'product_name', 'brands', 'owner']
