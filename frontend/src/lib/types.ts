@@ -18,6 +18,7 @@ export interface ValueSnapshot {
     highlight_priority: number;
     display_text: string;
     display_icon: string;
+    claim_uris: string[];
     computed_at: string;
 }
 
