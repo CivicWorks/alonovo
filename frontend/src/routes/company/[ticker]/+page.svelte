@@ -112,6 +112,13 @@
                 </div>
             {/if}
 
+            <div class="community-attestations">
+                <a href="https://live.linkedtrust.us/?search={encodeURIComponent(company.name)}"
+                   target="_blank" rel="noreferrer">
+                    View community attestations on LinkedTrust &rarr;
+                </a>
+            </div>
+
             {#if company.value_snapshots && company.value_snapshots.length > 0}
                 {#if true}
                     {@const groups = groupValues(values, company.value_snapshots, activeWeights)}
@@ -368,5 +375,19 @@
         color: #999;
         font-size: 0.7rem;
         text-transform: capitalize;
+    }
+
+    .community-attestations {
+        margin: 1rem 0;
+        font-size: 0.9rem;
+    }
+
+    .community-attestations a {
+        color: #1a5f2a;
+        text-decoration: none;
+    }
+
+    .community-attestations a:hover {
+        text-decoration: underline;
     }
 </style>

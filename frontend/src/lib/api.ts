@@ -80,3 +80,18 @@ export function getLoginUrl(): string {
 export function getLogoutUrl(): string {
     return `${base}/accounts/logout/`;
 }
+
+export async function voteForCompany(ticker: string): Promise<{status: string, vote_count: number}> {
+    const response = await fetch(`${apiBase()}/companies/${ticker}/vote/`, {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+    });
+    return response.json();
+}
+
+export async function fetchVoteLeaderboard(): Promise<{ticker: string, name: string, sector: string, vote_count: number}[]> {
+    const response = await fetch(`${apiBase()}/votes/leaderboard/`);
+    if (!response.ok) return [];
+    return response.json();
+}

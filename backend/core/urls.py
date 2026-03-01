@@ -1,6 +1,8 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import CompanyViewSet, ValueViewSet, current_user, user_weights, sectors_list, company_claims, products_list, product_categories
+from .views import (CompanyViewSet, ValueViewSet, current_user, user_weights,
+                     sectors_list, company_claims, vote_for_company, vote_leaderboard,
+                     products_list, product_categories)
 from .views_mobile import barcode_scan, alternatives_for_company, brand_mappings_list
 
 router = DefaultRouter()
@@ -13,6 +15,8 @@ urlpatterns = [
     path('me/weights/', user_weights, name='user-weights'),
     path('sectors/', sectors_list, name='sectors-list'),
     path('companies/<str:ticker>/claims/', company_claims, name='company-claims'),
+    path('companies/<str:ticker>/vote/', vote_for_company, name='company-vote'),
+    path('votes/leaderboard/', vote_leaderboard, name='vote-leaderboard'),
     # Mobile app endpoints
     path('scan/', barcode_scan, name='barcode-scan'),
     path('alternatives/<str:ticker>/', alternatives_for_company, name='alternatives'),
