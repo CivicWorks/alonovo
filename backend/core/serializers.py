@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Claim, Company, CompanyScore, CompanyBadge, CompanyValueSnapshot, Value, ScoringRule, UserValueWeight
+from .models import Claim, Company, CompanyScore, CompanyBadge, CompanyValueSnapshot, Value, ScoringRule, UserValueWeight, Product
 
 
 class CompanyScoreSerializer(serializers.ModelSerializer):
@@ -50,6 +50,7 @@ class ValueSerializer(serializers.ModelSerializer):
         model = Value
         fields = ['slug', 'name', 'description', 'value_type',
                   'is_fixed', 'is_disqualifying', 'min_weight',
+                  'display_group', 'display_group_order',
                   'card_display_template', 'card_icon']
 
 
@@ -60,3 +61,13 @@ class UserValueWeightSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserValueWeight
         fields = ['id', 'value_slug', 'value_name', 'weight']
+
+
+class ProductSerializer(serializers.ModelSerializer):
+    company_name = serializers.CharField(source='company.name', read_only=True)
+    company_ticker = serializers.CharField(source='company.ticker', read_only=True)
+
+    class Meta:
+        model = Product
+        fields = ['id', 'name', 'brand_name', 'category', 'typical_price',
+                  'barcode', 'company_name', 'company_ticker']

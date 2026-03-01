@@ -11,7 +11,7 @@ const config = {
 			strict: false
 		}),
 		paths: {
-			base: '/alonovo'
+			base: process.env.PUBLIC_BASE_PATH || ''
 		},
 		prerender: {
 			handleUnseenRoutes: 'ignore'

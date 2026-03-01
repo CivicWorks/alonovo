@@ -1,9 +1,10 @@
+from django.db import models
 from rest_framework import viewsets, status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
-from .models import Claim, Company, CompanyVote, Value, UserValueWeight
-from .serializers import ClaimSerializer, CompanySerializer, ValueSerializer, UserValueWeightSerializer
+from .models import Claim, Company, CompanyVote, Value, UserValueWeight, Product
+from .serializers import ClaimSerializer, CompanySerializer, ValueSerializer, UserValueWeightSerializer, ProductSerializer
 
 
 @api_view(['GET'])
@@ -48,7 +49,7 @@ def current_user(request):
             'is_staff': request.user.is_staff,
             'is_superuser': request.user.is_superuser,
         })
-    return Response(None)
+    return Response(None, status=204)
 
 
 @api_view(['GET', 'POST'])
@@ -140,3 +141,40 @@ def vote_leaderboard(request):
     result = [{'ticker': c.ticker, 'name': c.name, 'sector': c.sector,
                'vote_count': c.vote_count} for c in companies]
     return Response(result)
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def products_list(request):
+    """Search products by name, brand, or category.
+
+    Query params:
+      ?q=cheerios       - search name or brand_name (case-insensitive)
+      ?category=cereal  - filter by category
+      ?brand=Tide       - exact brand match
+    """
+    qs = Product.objects.select_related('company').all()
+    q = request.query_params.get('q')
+    category = request.query_params.get('category')
+    brand = request.query_params.get('brand')
+    if q:
+        qs = qs.filter(
+            models.Q(name__icontains=q) |
+            models.Q(brand_name__icontains=q)
+        )
+    if category:
+        qs = qs.filter(category=category)
+    if brand:
+        qs = qs.filter(brand_name__iexact=brand)
+    serializer = ProductSerializer(qs[:100], many=True)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def product_categories(request):
+    """Return list of product categories with counts."""
+    from django.db.models import Count
+    cats = Product.objects.values('category').annotate(
+        count=Count('id')).order_by('-count')
+    return Response(list(cats))

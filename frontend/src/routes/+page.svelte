@@ -2,9 +2,11 @@
     import { base } from '$app/paths';
     import { onMount } from 'svelte';
     import { fetchCompanies, fetchValues, fetchSectors, voteForCompany, fetchVoteLeaderboard } from '$lib/api';
-    import { getGradeClass, computeOverallGrade } from '$lib/utils';
-    import type { Company, ValueDef } from '$lib/types';
+    import { getGradeClass, computeOverallGrade, groupValues } from '$lib/utils';
+    import type { Company, ValueDef, ValueGroup } from '$lib/types';
     import UserMenu from '$lib/UserMenu.svelte';
+    import PersonalizationToggle from '$lib/PersonalizationToggle.svelte';
+    import { loadUser, loadWeights, getWeights, isPersonalized } from '$lib/stores.svelte';
 
     let companies: Company[] = $state([]);
     let values: ValueDef[] = $state([]);
@@ -45,6 +47,8 @@
                 fetchValues(),
                 fetchSectors(),
             ]);
+            const user = await loadUser();
+            if (user) await loadWeights();
         } catch (e) {
             error = 'Failed to load companies';
         } finally {
@@ -52,10 +56,39 @@
         }
     });
 
-    function avgScore(c: Company): number {
-        const snaps = c.value_snapshots;
-        if (!snaps || snaps.length === 0) return 0;
-        return snaps.reduce((sum, s) => sum + s.score, 0) / snaps.length;
+    const activeWeights = $derived(isPersonalized() ? getWeights() : undefined);
+
+    /** Build filter options: groups + ungrouped values */
+    const filterOptions = $derived.by(() => {
+        const seen = new Set<string>();
+        const opts: { key: string; label: string; order: number }[] = [];
+        for (const v of values) {
+            const key = v.display_group || v.slug;
+            const label = v.display_group || v.name;
+            if (!seen.has(key)) {
+                seen.add(key);
+                opts.push({ key, label, order: v.display_group_order });
+            }
+        }
+        return opts.sort((a, b) => a.order - b.order);
+    });
+
+    function getCompanyGroups(c: Company): ValueGroup[] {
+        return groupValues(values, c.value_snapshots || [], activeWeights);
+    }
+
+    function getFilteredGroup(groups: ValueGroup[]): ValueGroup | null {
+        if (!valueFilter) return null;
+        return groups.find(g =>
+            g.groupName === valueFilter ||
+            g.values.some(v => v.slug === valueFilter)
+        ) || null;
+    }
+
+    function isMatchingGroup(group: ValueGroup): boolean {
+        if (!valueFilter) return false;
+        return group.groupName === valueFilter ||
+            group.values.some(v => v.slug === valueFilter);
     }
 
     function toggleSort() {
@@ -73,26 +106,34 @@
 
             let matchGrade = true;
             if (gradeFilter) {
-                const overall = computeOverallGrade(c, values);
+                const overall = computeOverallGrade(c, values, activeWeights);
                 matchGrade = !!(overall && overall.startsWith(gradeFilter));
             }
 
-            const matchValue = !valueFilter ||
-                c.value_snapshots?.some(s => s.value_slug === valueFilter);
+            // Filter by group or ungrouped value slug
+            let matchValue = true;
+            if (valueFilter) {
+                const groups = getCompanyGroups(c);
+                matchValue = groups.some(g =>
+                    g.groupName === valueFilter ||
+                    g.values.some(v => v.slug === valueFilter)
+                );
+            }
 
             return matchSearch && matchSector && matchGrade && matchValue;
         });
 
         if (sortDir !== 'none') {
-            const disqualifying = new Set(values.filter(v => v.is_disqualifying).map(v => v.slug));
             result = [...result].sort((a, b) => {
-                const sa = avgScore(a);
-                const sb = avgScore(b);
-                // Disqualified companies sink to bottom (desc) or rise to top (asc)
-                const aDisq = a.value_snapshots?.some(s => disqualifying.has(s.value_slug) && s.grade.startsWith('F'));
-                const bDisq = b.value_snapshots?.some(s => disqualifying.has(s.value_slug) && s.grade.startsWith('F'));
-                if (aDisq && !bDisq) return sortDir === 'desc' ? 1 : -1;
-                if (!aDisq && bDisq) return sortDir === 'desc' ? -1 : 1;
+                const gradeA = computeOverallGrade(a, values, activeWeights);
+                const gradeB = computeOverallGrade(b, values, activeWeights);
+                // F grades sink to bottom (desc) or rise to top (asc)
+                if (gradeA === 'F' && gradeB !== 'F') return sortDir === 'desc' ? 1 : -1;
+                if (gradeA !== 'F' && gradeB === 'F') return sortDir === 'desc' ? -1 : 1;
+                const groupsA = getCompanyGroups(a);
+                const groupsB = getCompanyGroups(b);
+                const sa = groupsA.length ? groupsA.reduce((s, g) => s + g.score, 0) / groupsA.length : 0;
+                const sb = groupsB.length ? groupsB.reduce((s, g) => s + g.score, 0) / groupsB.length : 0;
                 return sortDir === 'desc' ? sb - sa : sa - sb;
             });
         }
@@ -112,21 +153,14 @@
     }
 
     const hasActiveFilters = $derived(!!search || !!sectorFilter || !!gradeFilter || !!valueFilter);
-
-    function getCardHighlights(company: Company) {
-        if (!company.value_snapshots) return [];
-        return company.value_snapshots
-            .filter(s => s.highlight_on_card)
-            .sort((a, b) => a.highlight_priority - b.highlight_priority);
-    }
 </script>
 
-<header>
+<header style="--banner-bg: url('{base}/banner-tree.jpg')">
     <div class="header-top">
         <div class="header-stats">
             {#if !loading && !error}
                 <span>{filtered.length} Companies</span>
-                <span>{values.length} Values</span>
+                <span>{filterOptions.length} Values</span>
                 <span>{sectors.length} Sectors</span>
             {/if}
         </div>
@@ -140,6 +174,9 @@
         and
         <a href="https://civ.works" target="_blank" rel="noreferrer">Civic Works</a>
     </p>
+    <div class="header-bottom-right">
+        <PersonalizationToggle />
+    </div>
 </header>
 
 <main>
@@ -158,8 +195,8 @@
             </select>
             <select bind:value={valueFilter}>
                 <option value="">All Values</option>
-                {#each values as v}
-                    <option value={v.slug}>{v.name}</option>
+                {#each filterOptions as opt}
+                    <option value={opt.key}>{opt.label}</option>
                 {/each}
             </select>
             <select bind:value={gradeFilter}>
@@ -188,8 +225,83 @@
                 <h2 class="section-heading">Featured Companies</h2>
                 <div class="company-grid">
                     {#each featuredList as company}
-                        {@const highlights = getCardHighlights(company)}
-                        {@const overall = computeOverallGrade(company, values)}
+                        {#if true}
+                            {@const groups = getCompanyGroups(company)}
+                            {@const overall = computeOverallGrade(company, values, activeWeights)}
+                            {@const activeGroup = getFilteredGroup(groups)}
+                            <a href="{base}/company/{company.ticker}" class="company-card">
+                                <div class="card-header">
+                                    <div>
+                                        <h3 class="company-name">{company.name}</h3>
+                                        {#if company.ticker}
+                                            <span class="company-ticker">{company.ticker}</span>
+                                        {/if}
+                                    </div>
+                                    <div class="grade-stack">
+                                        {#if activeGroup}
+                                            <div class="grade-badge {getGradeClass(activeGroup.grade)}">{activeGroup.grade}</div>
+                                            {#if overall}
+                                                <div class="grade-overall-sub">Overall: {overall}</div>
+                                            {/if}
+                                        {:else if overall}
+                                            <div class="grade-badge {getGradeClass(overall)}">{overall}</div>
+                                        {/if}
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="sector">{company.sector}</div>
+                                    {#if groups.length > 0}
+                                        <div class="highlights">
+                                            {#each groups as group}
+                                                <div class="highlight {getGradeClass(group.grade)}" class:highlight-active={isMatchingGroup(group)} class:highlight-dim={valueFilter && !isMatchingGroup(group)}>
+                                                    <span class="highlight-text">{group.groupName}</span>
+                                                    <span class="highlight-grade">{group.grade}</span>
+                                                </div>
+                                            {/each}
+                                        </div>
+                                    {/if}
+                                    {#if company.badges && company.badges.length > 0}
+                                        <div class="badges">
+                                            {#each company.badges as badge}
+                                                <span class="badge badge-{badge.type}">{badge.label}</span>
+                                            {/each}
+                                        </div>
+                                    {/if}
+                                    {#if !overall && company.ticker}
+                                        <div class="no-data-notice">
+                                            {#if votedTickers.has(company.ticker)}
+                                                <span class="voted-msg">Thanks! Your vote has been recorded.</span>
+                                            {:else}
+                                                <span>No data yet</span>
+                                                <button class="vote-btn" onclick={(e) => { e.preventDefault(); e.stopPropagation(); handleVote(company.ticker); }}>
+                                                    Vote to prioritize
+                                                </button>
+                                            {/if}
+                                        </div>
+                                    {/if}
+                                    <div class="community-link">
+                                        <span class="community-link-text"
+                                           role="link"
+                                           tabindex="0"
+                                           onclick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(`https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`, '_blank'); }}
+                                           onkeydown={(e) => { if (e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); window.open(`https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`, '_blank'); } }}>
+                                            Community attestations &rarr;
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        {/if}
+                    {/each}
+                </div>
+
+                <h2 class="section-heading">All Companies</h2>
+            {/if}
+            <div class="company-grid">
+                {#each restList as company}
+                    {#if true}
+                        {@const groups = getCompanyGroups(company)}
+                        {@const overall = computeOverallGrade(company, values, activeWeights)}
+                        {@const activeGroup = getFilteredGroup(groups)}
                         <a href="{base}/company/{company.ticker}" class="company-card">
                             <div class="card-header">
                                 <div>
@@ -198,18 +310,25 @@
                                         <span class="company-ticker">{company.ticker}</span>
                                     {/if}
                                 </div>
-                                {#if overall}
-                                    <div class="grade-badge {getGradeClass(overall)}">{overall}</div>
-                                {/if}
+                                <div class="grade-stack">
+                                    {#if activeGroup}
+                                        <div class="grade-badge {getGradeClass(activeGroup.grade)}">{activeGroup.grade}</div>
+                                        {#if overall}
+                                            <div class="grade-overall-sub">Overall: {overall}</div>
+                                        {/if}
+                                    {:else if overall}
+                                        <div class="grade-badge {getGradeClass(overall)}">{overall}</div>
+                                    {/if}
+                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="sector">{company.sector}</div>
-                                {#if highlights.length > 0}
+                                {#if groups.length > 0}
                                     <div class="highlights">
-                                        {#each highlights as snap}
-                                            <div class="highlight {getGradeClass(snap.grade)}">
-                                                <span class="highlight-text">{snap.display_text}</span>
-                                                <span class="highlight-grade">{snap.grade}</span>
+                                        {#each groups as group}
+                                            <div class="highlight {getGradeClass(group.grade)}" class:highlight-active={isMatchingGroup(group)} class:highlight-dim={valueFilter && !isMatchingGroup(group)}>
+                                                <span class="highlight-text">{group.groupName}</span>
+                                                <span class="highlight-grade">{group.grade}</span>
                                             </div>
                                         {/each}
                                     </div>
@@ -244,106 +363,66 @@
                                 </div>
                             </div>
                         </a>
-                    {/each}
-                </div>
-
-                <h2 class="section-heading">All Companies</h2>
-            {/if}
-            <div class="company-grid">
-                {#each restList as company}
-                    {@const highlights = getCardHighlights(company)}
-                    {@const overall = computeOverallGrade(company, values)}
-                    <a href="{base}/company/{company.ticker}" class="company-card">
-                        <div class="card-header">
-                            <div>
-                                <h3 class="company-name">{company.name}</h3>
-                                {#if company.ticker}
-                                    <span class="company-ticker">{company.ticker}</span>
-                                {/if}
-                            </div>
-                            {#if overall}
-                                <div class="grade-badge {getGradeClass(overall)}">{overall}</div>
-                            {/if}
-                        </div>
-                        <div class="card-body">
-                            <div class="sector">{company.sector}</div>
-                            {#if highlights.length > 0}
-                                <div class="highlights">
-                                    {#each highlights as snap}
-                                        <div class="highlight {getGradeClass(snap.grade)}">
-                                            <span class="highlight-text">{snap.display_text}</span>
-                                            <span class="highlight-grade">{snap.grade}</span>
-                                        </div>
-                                    {/each}
-                                </div>
-                            {/if}
-                            {#if company.badges && company.badges.length > 0}
-                                <div class="badges">
-                                    {#each company.badges as badge}
-                                        <span class="badge badge-{badge.type}">{badge.label}</span>
-                                    {/each}
-                                </div>
-                            {/if}
-                            <div class="community-link">
-                                <span class="community-link-text"
-                                   role="link"
-                                   tabindex="0"
-                                   onclick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(`https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`, '_blank'); }}
-                                   onkeydown={(e) => { if (e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); window.open(`https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`, '_blank'); } }}>
-                                    Community attestations &rarr;
-                                </span>
-                            </div>
-                        </div>
-                    </a>
+                    {/if}
                 {/each}
             </div>
         {:else}
             <div class="company-grid">
                 {#each filtered as company}
-                    {@const highlights = getCardHighlights(company)}
-                    {@const overall = computeOverallGrade(company, values)}
-                    <a href="{base}/company/{company.ticker}" class="company-card">
-                        <div class="card-header">
-                            <div>
-                                <h3 class="company-name">{company.name}</h3>
-                                {#if company.ticker}
-                                    <span class="company-ticker">{company.ticker}</span>
+                    {#if true}
+                        {@const groups = getCompanyGroups(company)}
+                        {@const overall = computeOverallGrade(company, values, activeWeights)}
+                        {@const activeGroup = getFilteredGroup(groups)}
+                        <a href="{base}/company/{company.ticker}" class="company-card">
+                            <div class="card-header">
+                                <div>
+                                    <h3 class="company-name">{company.name}</h3>
+                                    {#if company.ticker}
+                                        <span class="company-ticker">{company.ticker}</span>
+                                    {/if}
+                                </div>
+                                <div class="grade-stack">
+                                    {#if activeGroup}
+                                        <div class="grade-badge {getGradeClass(activeGroup.grade)}">{activeGroup.grade}</div>
+                                        {#if overall}
+                                            <div class="grade-overall-sub">Overall: {overall}</div>
+                                        {/if}
+                                    {:else if overall}
+                                        <div class="grade-badge {getGradeClass(overall)}">{overall}</div>
+                                    {/if}
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="sector">{company.sector}</div>
+                                {#if groups.length > 0}
+                                    <div class="highlights">
+                                        {#each groups as group}
+                                            <div class="highlight {getGradeClass(group.grade)}" class:highlight-active={isMatchingGroup(group)} class:highlight-dim={valueFilter && !isMatchingGroup(group)}>
+                                                <span class="highlight-text">{group.groupName}</span>
+                                                <span class="highlight-grade">{group.grade}</span>
+                                            </div>
+                                        {/each}
+                                    </div>
                                 {/if}
-                            </div>
-                            {#if overall}
-                                <div class="grade-badge {getGradeClass(overall)}">{overall}</div>
-                            {/if}
-                        </div>
-                        <div class="card-body">
-                            <div class="sector">{company.sector}</div>
-                            {#if highlights.length > 0}
-                                <div class="highlights">
-                                    {#each highlights as snap}
-                                        <div class="highlight {getGradeClass(snap.grade)}">
-                                            <span class="highlight-text">{snap.display_text}</span>
-                                            <span class="highlight-grade">{snap.grade}</span>
-                                        </div>
-                                    {/each}
+                                {#if company.badges && company.badges.length > 0}
+                                    <div class="badges">
+                                        {#each company.badges as badge}
+                                            <span class="badge badge-{badge.type}">{badge.label}</span>
+                                        {/each}
+                                    </div>
+                                {/if}
+                                <div class="community-link">
+                                    <span class="community-link-text"
+                                       role="link"
+                                       tabindex="0"
+                                       onclick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(`https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`, '_blank'); }}
+                                       onkeydown={(e) => { if (e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); window.open(`https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`, '_blank'); } }}>
+                                        Community attestations &rarr;
+                                    </span>
                                 </div>
-                            {/if}
-                            {#if company.badges && company.badges.length > 0}
-                                <div class="badges">
-                                    {#each company.badges as badge}
-                                        <span class="badge badge-{badge.type}">{badge.label}</span>
-                                    {/each}
-                                </div>
-                            {/if}
-                            <div class="community-link">
-                                <span class="community-link-text"
-                                   role="link"
-                                   tabindex="0"
-                                   onclick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(`https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`, '_blank'); }}
-                                   onkeydown={(e) => { if (e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); window.open(`https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`, '_blank'); } }}>
-                                    Community attestations &rarr;
-                                </span>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    {/if}
                 {/each}
             </div>
         {/if}
@@ -395,4 +474,5 @@
     <a href="https://www.usaspending.gov" target="_blank">USASpending</a>, and more</p>
     <p><strong>Alonovo</strong> - Guiding capital toward ethical companies</p>
     <p><a href="{base}/about">About</a></p>
+    <p class="photo-credit">Photo by <a href="https://unsplash.com/@georgeb2?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">George Berberich</a> on <a href="https://unsplash.com/photos/green-leafed-tree-AXcjq7E01EE?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
 </footer>

@@ -1,19 +1,12 @@
 import { base } from '$app/paths';
-import { PUBLIC_API_URL } from '$env/static/public';
 import type { ClaimData, Company, User, ValueDef } from './types';
 
 function apiBase(): string {
-    if (typeof window !== 'undefined') {
-        return `${window.location.origin}${base}/api`;
-    }
-    return PUBLIC_API_URL;
+    return `${base}/api`;
 }
 
 function siteBase(): string {
-    if (typeof window !== 'undefined') {
-        return `${window.location.origin}${base}`;
-    }
-    return new URL(PUBLIC_API_URL).origin;
+    return base;
 }
 
 export async function fetchCompanies(): Promise<Company[]> {
@@ -59,19 +52,33 @@ export async function fetchSectors(): Promise<string[]> {
 }
 
 export async function fetchCurrentUser(): Promise<User | null> {
-    const response = await fetch(`${apiBase()}/me/`, {
+    try {
+        const response = await fetch(`${apiBase()}/me/`, {
+            credentials: 'include',
+        });
+        if (!response.ok) return null;
+        const text = await response.text();
+        if (!text) return null;
+        return JSON.parse(text);
+    } catch {
+        return null;
+    }
+}
+
+export async function fetchWeights(): Promise<{value_slug: string, weight: number}[]> {
+    const response = await fetch(`${apiBase()}/me/weights/`, {
         credentials: 'include',
     });
-    if (!response.ok) return null;
+    if (!response.ok) return [];
     return response.json();
 }
 
 export function getLoginUrl(): string {
-    return `${siteBase()}/accounts/google/login/`;
+    return `${base}/accounts/google/login/`;
 }
 
 export function getLogoutUrl(): string {
-    return `${siteBase()}/accounts/logout/`;
+    return `${base}/accounts/logout/`;
 }
 
 export async function voteForCompany(ticker: string): Promise<{status: string, vote_count: number}> {
