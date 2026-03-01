@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import (Claim, Company, CompanyScore, CompanyBadge, Value, ScoringRule,
+from .models import (Claim, Company, CompanyScore, CompanyBadge, CompanyVote, Value, ScoringRule,
                      CompanyValueSnapshot, UserValueWeight, BrandMapping, BarcodeCache)
 
 
@@ -157,6 +157,13 @@ class CompanyBadgeAdmin(admin.ModelAdmin):
     search_fields = ['company__ticker', 'company__name', 'label']
     list_select_related = ['company', 'value']
     raw_id_fields = ['company']
+
+
+@admin.register(CompanyVote)
+class CompanyVoteAdmin(admin.ModelAdmin):
+    list_display = ['company', 'user', 'session_key', 'created_at']
+    list_filter = ['created_at']
+    search_fields = ['company__ticker', 'company__name']
 
 
 @admin.register(BrandMapping)
