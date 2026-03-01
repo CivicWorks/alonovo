@@ -61,17 +61,20 @@ export interface ValueDef {
     is_fixed: boolean;
     is_disqualifying: boolean;
     min_weight: number;
+    display_group: string;
+    display_group_order: number;
     card_display_template: string;
     card_icon: string;
 }
 
-export interface CategorySnapshot {
-    categorySlug: string;
-    categoryName: string;
-    score: number;
+export interface ValueGroup {
+    groupName: string;
     grade: string;
+    score: number;
     isDisqualifying: boolean;
+    order: number;
     snapshots: ValueSnapshot[];
+    values: ValueDef[];
 }
 
 export interface User {
