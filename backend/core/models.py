@@ -43,6 +43,7 @@ class Company(models.Model):
     ticker = models.CharField(max_length=10, db_index=True, null=True, blank=True)
     name = models.CharField(max_length=200)
     sector = models.CharField(max_length=100, null=True, blank=True)
+    website = models.URLField(max_length=500, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

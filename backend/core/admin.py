@@ -57,7 +57,7 @@ class ClaimAdmin(admin.ModelAdmin):
 
 @admin.register(Company)
 class CompanyAdmin(admin.ModelAdmin):
-    list_display = ['ticker', 'name', 'sector', 'snapshot_count', 'badge_count', 'created_at']
+    list_display = ['ticker', 'name', 'sector', 'website', 'snapshot_count', 'badge_count', 'created_at']
     list_filter = ['sector']
     search_fields = ['ticker', 'name', 'uri']
     readonly_fields = ['created_at', 'updated_at']
@@ -198,13 +198,10 @@ class BarcodeCacheAdmin(admin.ModelAdmin):
     """Cached barcode lookups from external APIs."""
     list_display = ['barcode', 'product_name', 'brands', 'owner', 'provider', 'created_at']
     list_filter = ['provider']
-<<<<<<< HEAD
     search_fields = ['barcode', 'product_name', 'brands', 'owner']
     readonly_fields = ['raw_response', 'created_at']
     date_hierarchy = 'created_at'
     list_per_page = 50
-=======
-    search_fields = ['barcode', 'product_name', 'brands']
 
 
 @admin.register(Product)
@@ -228,4 +225,3 @@ class UnmatchedProductAdmin(admin.ModelAdmin):
         """Mark selected items as reviewed."""
         queryset.update(reviewed=True)
     mark_as_reviewed.short_description = "Mark selected as reviewed"
->>>>>>> 138adc4 (feat: Add model to save Unmatched products for review later)

@@ -283,8 +283,8 @@
                                         <span class="community-link-text"
                                            role="link"
                                            tabindex="0"
-                                           onclick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(`https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`, '_blank'); }}
-                                           onkeydown={(e) => { if (e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); window.open(`https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`, '_blank'); } }}>
+                                           onclick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(company.website ? `https://live.linkedtrust.us/wall?subject=${encodeURIComponent(company.website)}` : `https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`, '_blank'); }}
+                                           onkeydown={(e) => { if (e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); window.open(company.website ? `https://live.linkedtrust.us/wall?subject=${encodeURIComponent(company.website)}` : `https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`, '_blank'); } }}>
                                             Community attestations &rarr;
                                         </span>
                                     </div>
@@ -356,8 +356,8 @@
                                     <span class="community-link-text"
                                        role="link"
                                        tabindex="0"
-                                       onclick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(`https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`, '_blank'); }}
-                                       onkeydown={(e) => { if (e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); window.open(`https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`, '_blank'); } }}>
+                                       onclick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(company.website ? `https://live.linkedtrust.us/wall?subject=${encodeURIComponent(company.website)}` : `https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`, '_blank'); }}
+                                       onkeydown={(e) => { if (e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); window.open(company.website ? `https://live.linkedtrust.us/wall?subject=${encodeURIComponent(company.website)}` : `https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`, '_blank'); } }}>
                                         Community attestations &rarr;
                                     </span>
                                 </div>
@@ -415,8 +415,8 @@
                                     <span class="community-link-text"
                                        role="link"
                                        tabindex="0"
-                                       onclick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(`https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`, '_blank'); }}
-                                       onkeydown={(e) => { if (e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); window.open(`https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`, '_blank'); } }}>
+                                       onclick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(company.website ? `https://live.linkedtrust.us/wall?subject=${encodeURIComponent(company.website)}` : `https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`, '_blank'); }}
+                                       onkeydown={(e) => { if (e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); window.open(company.website ? `https://live.linkedtrust.us/wall?subject=${encodeURIComponent(company.website)}` : `https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`, '_blank'); } }}>
                                         Community attestations &rarr;
                                     </span>
                                 </div>
