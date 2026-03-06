@@ -34,6 +34,7 @@ export interface Company {
     ticker: string;
     name: string;
     sector: string;
+    website?: string;
     scores: CompanyScore[];
     badges?: Badge[];
     value_snapshots?: ValueSnapshot[];

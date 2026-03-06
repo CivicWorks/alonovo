@@ -113,7 +113,7 @@
             {/if}
 
             <div class="community-attestations">
-                <a href="https://live.linkedtrust.us/?search={encodeURIComponent(company.name)}"
+                <a href={company.website ? `https://live.linkedtrust.us/wall?subject=${encodeURIComponent(company.website)}` : `https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`}
                    target="_blank" rel="noreferrer">
                     View community attestations on LinkedTrust &rarr;
                 </a>
