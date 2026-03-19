@@ -43,6 +43,15 @@ export async function fetchCompanyClaims(ticker: string): Promise<ClaimData[]> {
     return response.json();
 }
 
+export async function fetchCompaniesBySector(sector: string): Promise<Company[]> {
+    const response = await fetch(`${apiBase()}/companies/?sector=${encodeURIComponent(sector)}`);
+    if (!response.ok) {
+        throw new Error('Failed to fetch companies by sector');
+    }
+    const data = await response.json();
+    return data.results || data;
+}
+
 export async function fetchSectors(): Promise<string[]> {
     const response = await fetch(`${apiBase()}/sectors/`);
     if (!response.ok) {

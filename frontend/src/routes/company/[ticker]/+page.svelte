@@ -143,6 +143,7 @@
                                             <div class="claim-display">{snap.display_text}</div>
                                             {#if snapClaims.length > 0}
                                                 <div class="claim-sources">
+                                                    <div class="sources-label">Sources</div>
                                                     {#each snapClaims as claim}
                                                         <div class="source-row">
                                                             <div class="source-detail">
@@ -316,16 +317,25 @@
 
     .claim-sources {
         border-top: 1px solid #e5e7eb;
-        padding-top: 0.5rem;
+        padding-top: 0.75rem;
+        margin-top: 0.25rem;
+    }
+
+    .sources-label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #888;
+        margin-bottom: 0.25rem;
     }
 
     .source-row {
         display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.35rem 0;
-        font-size: 0.8rem;
+        flex-direction: column;
+        gap: 0.4rem;
+        padding: 0.6rem 0;
+        font-size: 0.85rem;
     }
 
     .source-row + .source-row {
@@ -334,46 +344,59 @@
 
     .source-detail {
         display: flex;
-        gap: 0.4rem;
+        gap: 0.5rem;
         align-items: center;
-        flex: 1;
+        flex-wrap: wrap;
     }
 
     .source-type {
-        font-weight: 500;
-        color: #555;
+        font-weight: 600;
+        color: #444;
     }
 
     .source-amount {
-        font-weight: 600;
+        font-weight: 700;
         color: #1a1a1a;
     }
 
     .source-label {
-        color: #666;
+        color: #555;
         font-style: italic;
     }
 
     .source-date {
-        color: #999;
+        color: #888;
+        font-size: 0.8rem;
     }
 
     .source-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
         color: #1a5f2a;
         text-decoration: none;
-        font-size: 0.75rem;
-        padding: 0.15rem 0.4rem;
+        font-size: 0.88rem;
+        font-weight: 500;
+        padding: 0.35rem 0.75rem;
         background: #dcfce7;
-        border-radius: 3px;
+        border: 1px solid #bbf7d0;
+        border-radius: 6px;
+        transition: background 0.15s, border-color 0.15s;
+    }
+
+    .source-link::after {
+        content: '\2197';
+        font-size: 0.8rem;
     }
 
     .source-link:hover {
         background: #bbf7d0;
+        border-color: #86efac;
     }
 
     .how-known {
-        color: #999;
-        font-size: 0.7rem;
+        color: #888;
+        font-size: 0.75rem;
         text-transform: capitalize;
     }
 
