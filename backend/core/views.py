@@ -24,10 +24,13 @@ class CompanyViewSet(viewsets.ReadOnlyModelViewSet):
         qs = Company.objects.prefetch_related('scores', 'badges', 'value_snapshots', 'value_snapshots__value')
         sector = self.request.query_params.get('sector')
         value = self.request.query_params.get('value')
+        include_empty = self.request.query_params.get('include_empty', '').lower() == 'true'
         if sector:
             qs = qs.filter(sector=sector)
         if value:
             qs = qs.filter(value_snapshots__value__slug=value).distinct()
+        if not include_empty:
+            qs = qs.filter(value_snapshots__isnull=False).distinct()
         return qs
 
 
