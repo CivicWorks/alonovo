@@ -8,6 +8,7 @@
     import { loadUser, loadWeights, getWeights, isPersonalized } from '$lib/stores.svelte';
     import UserMenu from '$lib/UserMenu.svelte';
     import PersonalizationToggle from '$lib/PersonalizationToggle.svelte';
+    import ShareButtons from '$lib/ShareButtons.svelte';
 
     let company: Company | null = $state(null);
     let claims: ClaimData[] = $state([]);
@@ -112,6 +113,8 @@
                 </div>
             {/if}
 
+            <ShareButtons url={typeof window !== 'undefined' ? window.location.href : ''} title={`${company.name} on Alonovo`} />
+
             <div class="community-attestations">
                 <a href={company.website ? `https://live.linkedtrust.us/wall?subject=${encodeURIComponent(company.website)}` : `https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`}
                    target="_blank" rel="noreferrer">
@@ -177,6 +180,10 @@
                         {/each}
                     </section>
                 {/if}
+            {:else}
+                <div class="no-data">
+                    <p>No data yet for this company. Vote to prioritize it, or check community attestations on LinkedTrust above.</p>
+                </div>
             {/if}
 
         </div>
@@ -412,5 +419,15 @@
 
     .community-attestations a:hover {
         text-decoration: underline;
+    }
+
+    .no-data {
+        padding: 2rem;
+        text-align: center;
+        color: #666;
+        background: #f9fafb;
+        border: 1px dashed #d1d5db;
+        border-radius: 10px;
+        margin-top: 1rem;
     }
 </style>

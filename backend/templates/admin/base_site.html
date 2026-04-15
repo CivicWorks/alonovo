@@ -1,0 +1,53 @@
+{% extends "admin/base.html" %}
+
+{% block extrahead %}
+{{ block.super }}
+<style>
+:root {
+    --primary: #1a5f2a;
+    --accent: #2d8a3e;
+    --secondary: #15803d;
+    --primary-fg: #fff;
+    --header-color: #fff;
+    --header-branding-color: #fff;
+    --header-bg: #1a5f2a;
+    --header-link-color: rgba(255, 255, 255, 0.85);
+    --breadcrumbs-fg: #fff;
+    --breadcrumbs-link-fg: #fff;
+    --breadcrumbs-bg: #2d8a3e;
+    --link-fg: #1a5f2a;
+    --link-hover-color: #15803d;
+    --link-selected-fg: #15803d;
+    --button-bg: #1a5f2a;
+    --button-hover-bg: #15803d;
+    --default-button-bg: #1a5f2a;
+    --default-button-hover-bg: #15803d;
+    --close-button-bg: #888;
+    --close-button-hover-bg: #666;
+    --delete-button-bg: #ef4444;
+    --object-tools-bg: #2d8a3e;
+    --object-tools-hover-bg: #15803d;
+    --body-bg: #f5f5f5;
+}
+[data-theme="dark"] {
+    --primary: #22c55e;
+    --accent: #2d8a3e;
+    --secondary: #86efac;
+    --header-bg: #1a3a24;
+    --breadcrumbs-bg: #1e4d2b;
+    --link-fg: #22c55e;
+    --link-hover-color: #86efac;
+    --link-selected-fg: #86efac;
+    --button-bg: #1a5f2a;
+    --button-hover-bg: #2d8a3e;
+    --default-button-bg: #1a5f2a;
+    --default-button-hover-bg: #2d8a3e;
+    --object-tools-bg: #1a5f2a;
+    --object-tools-hover-bg: #2d8a3e;
+}
+</style>
+{% endblock %}
+
+{% block branding %}
+<div id="site-name"><a href="{% url 'admin:index' %}">Alonovo Administration</a></div>
+{% endblock %}

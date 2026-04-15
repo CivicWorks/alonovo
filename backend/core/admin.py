@@ -63,6 +63,16 @@ class CompanyAdmin(admin.ModelAdmin):
     readonly_fields = ['created_at', 'updated_at']
     list_per_page = 50
     inlines = [CompanyValueSnapshotInline, CompanyBadgeInline, BrandMappingInline]
+    actions = ['recompute_snapshots']
+    fieldsets = (
+        (None, {
+            'fields': ('uri', 'ticker', 'name', 'sector', 'website'),
+        }),
+        ('Timestamps', {
+            'fields': ('created_at', 'updated_at'),
+            'classes': ('collapse',),
+        }),
+    )
 
     def get_queryset(self, request):
         qs = super().get_queryset(request)
@@ -79,6 +89,64 @@ class CompanyAdmin(admin.ModelAdmin):
     @admin.display(description='Badges', ordering='_badge_count')
     def badge_count(self, obj):
         return obj._badge_count
+
+    @admin.action(description="Recompute value snapshots for selected companies")
+    def recompute_snapshots(self, request, queryset):
+        """Re-run scoring rules against existing claims to update snapshots."""
+        total = 0
+        for company in queryset:
+            claims = Claim.objects.filter(subject=company.uri)
+            if not claims.exists():
+                continue
+
+            for value in Value.objects.all():
+                rule = ScoringRule.objects.filter(value=value).order_by('-version').first()
+                if not rule:
+                    continue
+
+                # Find claims relevant to this value by matching claim_type patterns
+                existing_snap = CompanyValueSnapshot.objects.filter(
+                    company=company, value=value
+                ).first()
+
+                if not existing_snap:
+                    continue
+
+                # Re-score using the claim URIs already associated with this snapshot
+                snap_claims = Claim.objects.filter(uri__in=existing_snap.claim_uris)
+                if not snap_claims.exists():
+                    continue
+
+                config = rule.config
+                if 'thresholds' in config and snap_claims.first().amt is not None:
+                    amt = float(snap_claims.first().amt)
+                    grade, score = 'F', -1.0
+                    thresholds = config['thresholds']
+                    # Detect direction: if first threshold has 'min', use normal; else inverse
+                    if thresholds and 'max' in thresholds[0]:
+                        for t in thresholds:
+                            if amt <= t['max']:
+                                grade, score = t['grade'], t['score']
+                                break
+                    else:
+                        for t in thresholds:
+                            if amt >= t.get('min', 0):
+                                grade, score = t['grade'], t['score']
+                                break
+                elif 'mapping' in config:
+                    label = snap_claims.first().label
+                    mapped = config['mapping'].get(label, {'grade': 'F', 'score': -1.0})
+                    grade, score = mapped['grade'], mapped['score']
+                else:
+                    continue
+
+                existing_snap.grade = grade
+                existing_snap.score = score
+                existing_snap.scoring_rule_version = rule.version
+                existing_snap.save()
+                total += 1
+
+        self.message_user(request, f"Recomputed {total} snapshot(s) for {queryset.count()} company/companies.")
 
 
 @admin.register(CompanyScore)

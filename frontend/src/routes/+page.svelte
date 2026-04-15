@@ -120,6 +120,10 @@
                 );
             }
 
+            // Hide empty companies (no data) unless user is searching
+            const hasData = c.value_snapshots && c.value_snapshots.length > 0;
+            if (!hasData && !search) return false;
+
             return matchSearch && matchSector && matchGrade && matchValue;
         });
 
@@ -229,7 +233,7 @@
                             {@const groups = getCompanyGroups(company)}
                             {@const overall = computeOverallGrade(company, values, activeWeights)}
                             {@const activeGroup = getFilteredGroup(groups)}
-                            <a href="{base}/company/{company.ticker}" class="company-card">
+                            <a href="{base}/company/{company.ticker || company.id}" class="company-card">
                                 <div class="card-header">
                                     <div>
                                         <h3 class="company-name">{company.name}</h3>
@@ -302,7 +306,7 @@
                         {@const groups = getCompanyGroups(company)}
                         {@const overall = computeOverallGrade(company, values, activeWeights)}
                         {@const activeGroup = getFilteredGroup(groups)}
-                        <a href="{base}/company/{company.ticker}" class="company-card">
+                        <a href="{base}/company/{company.ticker || company.id}" class="company-card">
                             <div class="card-header">
                                 <div>
                                     <h3 class="company-name">{company.name}</h3>
@@ -373,7 +377,7 @@
                         {@const groups = getCompanyGroups(company)}
                         {@const overall = computeOverallGrade(company, values, activeWeights)}
                         {@const activeGroup = getFilteredGroup(groups)}
-                        <a href="{base}/company/{company.ticker}" class="company-card">
+                        <a href="{base}/company/{company.ticker || company.id}" class="company-card">
                             <div class="card-header">
                                 <div>
                                     <h3 class="company-name">{company.name}</h3>
@@ -473,6 +477,6 @@
     <a href="https://www.eggtrack.com" target="_blank">EggTrack</a>,
     <a href="https://www.usaspending.gov" target="_blank">USASpending</a>, and more</p>
     <p><strong>Alonovo</strong> - Guiding capital toward ethical companies</p>
-    <p><a href="{base}/about">About</a></p>
+    <p><a href="{base}/about">About</a> &middot; <a href="{base}/viz">Visualizations</a></p>
     <p class="photo-credit">Photo by <a href="https://unsplash.com/@georgeb2?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">George Berberich</a> on <a href="https://unsplash.com/photos/green-leafed-tree-AXcjq7E01EE?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
 </footer>

@@ -39,11 +39,11 @@ class Claim(models.Model):
 
 
 class Company(models.Model):
-    uri = models.CharField(max_length=500, unique=True)
-    ticker = models.CharField(max_length=10, db_index=True, null=True, blank=True)
-    name = models.CharField(max_length=200)
-    sector = models.CharField(max_length=100, null=True, blank=True)
-    website = models.URLField(max_length=500, null=True, blank=True)
+    uri = models.CharField(max_length=500, unique=True, help_text="Canonical URI used as claim subject, e.g. company website")
+    ticker = models.CharField(max_length=10, db_index=True, null=True, blank=True, help_text="NYSE/NASDAQ ticker symbol")
+    name = models.CharField(max_length=200, help_text="Display name for the company")
+    sector = models.CharField(max_length=100, null=True, blank=True, help_text="Industry sector for filtering")
+    website = models.URLField(max_length=500, null=True, blank=True, help_text="Company homepage URL")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
