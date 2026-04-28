@@ -21,7 +21,7 @@ Go through every feature on the site and verify it works. Check both domains. Re
 ### Page Load
 - [ ] Page loads without white screen or errors
 - [ ] Header shows "Alonovo" title and tagline
-- [ ] Header stats show correct counts (Companies / Values / Sectors) — should be 335+ companies, 10 values
+- [ ] Header stats show correct counts (Companies / Values / Sectors) — should be 380+ companies, 17 values
 - [ ] Stats are displayed vertically on the left side of the header
 - [ ] Company cards grid loads below the filters
 - [ ] No console errors (open browser dev tools → Console tab)

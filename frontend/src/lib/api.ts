@@ -10,7 +10,7 @@ function siteBase(): string {
 }
 
 export async function fetchCompanies(): Promise<Company[]> {
-    const response = await fetch(`${apiBase()}/companies/`);
+    const response = await fetch(`${apiBase()}/companies/?include_empty=true`);
     if (!response.ok) {
         throw new Error('Failed to fetch companies');
     }

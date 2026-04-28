@@ -20,6 +20,19 @@ class CompanyViewSet(viewsets.ReadOnlyModelViewSet):
     lookup_field = 'ticker'
     pagination_class = None
 
+    def get_object(self):
+        lookup = self.kwargs[self.lookup_field]
+        qs = self.get_queryset()
+        # Try ticker first; fall back to id for numeric lookups
+        obj = qs.filter(ticker=lookup).first()
+        if obj is None and lookup.isdigit():
+            obj = qs.filter(id=int(lookup)).first()
+        if obj is None:
+            from rest_framework.exceptions import NotFound
+            raise NotFound()
+        self.check_object_permissions(self.request, obj)
+        return obj
+
     def get_queryset(self):
         qs = Company.objects.prefetch_related('scores', 'badges', 'value_snapshots', 'value_snapshots__value')
         sector = self.request.query_params.get('sector')
@@ -29,7 +42,8 @@ class CompanyViewSet(viewsets.ReadOnlyModelViewSet):
             qs = qs.filter(sector=sector)
         if value:
             qs = qs.filter(value_snapshots__value__slug=value).distinct()
-        if not include_empty:
+        # Only exclude empty companies on list view, not detail/retrieve
+        if not include_empty and self.action == 'list':
             qs = qs.filter(value_snapshots__isnull=False).distinct()
         return qs
 
@@ -89,8 +103,10 @@ def user_weights(request):
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def company_claims(request, ticker):
-    """Get all claims for a company by ticker."""
+    """Get all claims for a company by ticker or id."""
     company = Company.objects.filter(ticker=ticker).first()
+    if company is None and ticker.isdigit():
+        company = Company.objects.filter(id=int(ticker)).first()
     if not company:
         return Response([], status=404)
     claims = Claim.objects.filter(subject=company.uri).order_by('-effective_date')
@@ -103,6 +119,8 @@ def company_claims(request, ticker):
 def vote_for_company(request, ticker):
     """Vote/unvote for a company to prioritize data acquisition."""
     company = Company.objects.filter(ticker=ticker).first()
+    if company is None and ticker.isdigit():
+        company = Company.objects.filter(id=int(ticker)).first()
     if not company:
         return Response({'error': 'Company not found'}, status=404)
 

@@ -19,6 +19,9 @@
     let showLeaderboard = $state(false);
     let leaderboard: {ticker: string, name: string, sector: string, vote_count: number}[] = $state([]);
 
+    // Expanded card state
+    let expandedTicker: string | null = $state(null);
+
     async function handleVote(ticker: string | null) {
         if (!ticker) return;
         try {
@@ -27,6 +30,10 @@
         } catch (e) {
             // silently fail
         }
+    }
+
+    function toggleExpand(ticker: string) {
+        expandedTicker = expandedTicker === ticker ? null : ticker;
     }
 
     async function openLeaderboard() {
@@ -95,6 +102,23 @@
         if (sortDir === 'none') sortDir = 'desc';
         else if (sortDir === 'desc') sortDir = 'asc';
         else sortDir = 'none';
+    }
+
+    /** Get the highlighted score to display on the summary card (highest priority highlight) */
+    function getHighlightedSnapshot(c: Company): ValueSnapshot | null {
+        if (!c.value_snapshots || c.value_snapshots.length === 0) return null;
+        const highlighted = c.value_snapshots
+            .filter(s => s.highlight_on_card)
+            .sort((a, b) => a.highlight_priority - b.highlight_priority);
+        return highlighted[0] || null;
+    }
+
+    /** Build community attestations URL */
+    function getAttestationsUrl(c: Company): string {
+        if (c.website) {
+            return `https://live.linkedtrust.us/wall?subject=${encodeURIComponent(c.website)}`;
+        }
+        return `https://live.linkedtrust.us/?search=${encodeURIComponent(c.name)}`;
     }
 
     const filtered = $derived.by(() => {
@@ -229,31 +253,37 @@
                 <h2 class="section-heading">Featured Companies</h2>
                 <div class="company-grid">
                     {#each featuredList as company}
-                        {#if true}
-                            {@const groups = getCompanyGroups(company)}
-                            {@const overall = computeOverallGrade(company, values, activeWeights)}
-                            {@const activeGroup = getFilteredGroup(groups)}
-                            <a href="{base}/company/{company.ticker || company.id}" class="company-card">
-                                <div class="card-header">
-                                    <div>
-                                        <h3 class="company-name">{company.name}</h3>
-                                        {#if company.ticker}
-                                            <span class="company-ticker">{company.ticker}</span>
-                                        {/if}
-                                    </div>
-                                    <div class="grade-stack">
-                                        {#if activeGroup}
-                                            <div class="grade-badge {getGradeClass(activeGroup.grade)}">{activeGroup.grade}</div>
-                                            {#if overall}
-                                                <div class="grade-overall-sub">Overall: {overall}</div>
-                                            {/if}
-                                        {:else if overall}
-                                            <div class="grade-badge {getGradeClass(overall)}">{overall}</div>
-                                        {/if}
-                                    </div>
+                        {@const groups = getCompanyGroups(company)}
+                        {@const overall = computeOverallGrade(company, values, activeWeights)}
+                        {@const highlighted = getHighlightedSnapshot(company)}
+                        {@const isExpanded = expandedTicker === (company.ticker || company.id)}
+                        <div class="company-card" class:expanded={isExpanded} onclick={() => toggleExpand(company.ticker || company.id)} role="button" tabindex="0" onkeydown={(e) => e.key === 'Enter' && toggleExpand(company.ticker || company.id)}>
+                            <div class="card-header">
+                                <div>
+                                    <h3 class="company-name">{company.name}</h3>
+                                    {#if company.ticker}
+                                        <span class="company-ticker">{company.ticker}</span>
+                                    {/if}
                                 </div>
-                                <div class="card-body">
-                                    <div class="sector">{company.sector}</div>
+                                <div class="grade-stack">
+                                    {#if overall}
+                                        <div class="grade-badge {getGradeClass(overall)}">{overall}</div>
+                                    {/if}
+                                </div>
+                            </div>
+                            {#if highlighted}
+                                <div class="card-highlight">
+                                    <span class="highlight-label">{highlighted.value_name}:</span>
+                                    <span class="highlight-value">{highlighted.display_text}</span>
+                                </div>
+                            {/if}
+                            <div class="community-link">
+                                <a href={getAttestationsUrl(company)} target="_blank" rel="noreferrer" onclick={(e) => e.stopPropagation()}>
+                                    Community attestations &rarr;
+                                </a>
+                            </div>
+                            {#if isExpanded}
+                                <div class="card-expanded" onclick={(e) => e.stopPropagation()}>
                                     {#if groups.length > 0}
                                         <div class="highlights">
                                             {#each groups as group}
@@ -271,30 +301,11 @@
                                             {/each}
                                         </div>
                                     {/if}
-                                    {#if !overall && company.ticker}
-                                        <div class="no-data-notice">
-                                            {#if votedTickers.has(company.ticker)}
-                                                <span class="voted-msg">Thanks! Your vote has been recorded.</span>
-                                            {:else}
-                                                <span>No data yet</span>
-                                                <button class="vote-btn" onclick={(e) => { e.preventDefault(); e.stopPropagation(); handleVote(company.ticker); }}>
-                                                    Vote to prioritize
-                                                </button>
-                                            {/if}
-                                        </div>
-                                    {/if}
-                                    <div class="community-link">
-                                        <span class="community-link-text"
-                                           role="link"
-                                           tabindex="0"
-                                           onclick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(company.website ? `https://live.linkedtrust.us/wall?subject=${encodeURIComponent(company.website)}` : `https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`, '_blank'); }}
-                                           onkeydown={(e) => { if (e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); window.open(company.website ? `https://live.linkedtrust.us/wall?subject=${encodeURIComponent(company.website)}` : `https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`, '_blank'); } }}>
-                                            Community attestations &rarr;
-                                        </span>
-                                    </div>
                                 </div>
-                            </a>
-                        {/if}
+                            {:else}
+                                <div class="expand-hint">Click to {groups.length > 0 ? 'see more grades' : 'learn more'}</div>
+                            {/if}
+                        </div>
                     {/each}
                 </div>
 
@@ -302,31 +313,37 @@
             {/if}
             <div class="company-grid">
                 {#each restList as company}
-                    {#if true}
-                        {@const groups = getCompanyGroups(company)}
-                        {@const overall = computeOverallGrade(company, values, activeWeights)}
-                        {@const activeGroup = getFilteredGroup(groups)}
-                        <a href="{base}/company/{company.ticker || company.id}" class="company-card">
-                            <div class="card-header">
-                                <div>
-                                    <h3 class="company-name">{company.name}</h3>
-                                    {#if company.ticker}
-                                        <span class="company-ticker">{company.ticker}</span>
-                                    {/if}
-                                </div>
-                                <div class="grade-stack">
-                                    {#if activeGroup}
-                                        <div class="grade-badge {getGradeClass(activeGroup.grade)}">{activeGroup.grade}</div>
-                                        {#if overall}
-                                            <div class="grade-overall-sub">Overall: {overall}</div>
-                                        {/if}
-                                    {:else if overall}
-                                        <div class="grade-badge {getGradeClass(overall)}">{overall}</div>
-                                    {/if}
-                                </div>
+                    {@const groups = getCompanyGroups(company)}
+                    {@const overall = computeOverallGrade(company, values, activeWeights)}
+                    {@const highlighted = getHighlightedSnapshot(company)}
+                    {@const isExpanded = expandedTicker === (company.ticker || company.id)}
+                    <div class="company-card" class:expanded={isExpanded} onclick={() => toggleExpand(company.ticker || company.id)} role="button" tabindex="0" onkeydown={(e) => e.key === 'Enter' && toggleExpand(company.ticker || company.id)}>
+                        <div class="card-header">
+                            <div>
+                                <h3 class="company-name">{company.name}</h3>
+                                {#if company.ticker}
+                                    <span class="company-ticker">{company.ticker}</span>
+                                {/if}
                             </div>
-                            <div class="card-body">
-                                <div class="sector">{company.sector}</div>
+                            <div class="grade-stack">
+                                {#if overall}
+                                    <div class="grade-badge {getGradeClass(overall)}">{overall}</div>
+                                {/if}
+                            </div>
+                        </div>
+                        {#if highlighted}
+                            <div class="card-highlight">
+                                <span class="highlight-label">{highlighted.value_name}:</span>
+                                <span class="highlight-value">{highlighted.display_text}</span>
+                            </div>
+                        {/if}
+                        <div class="community-link">
+                            <a href={getAttestationsUrl(company)} target="_blank" rel="noreferrer" onclick={(e) => e.stopPropagation()}>
+                                Community attestations &rarr;
+                            </a>
+                        </div>
+                        {#if isExpanded}
+                            <div class="card-expanded" onclick={(e) => e.stopPropagation()}>
                                 {#if groups.length > 0}
                                     <div class="highlights">
                                         {#each groups as group}
@@ -344,60 +361,47 @@
                                         {/each}
                                     </div>
                                 {/if}
-                                {#if !overall && company.ticker}
-                                    <div class="no-data-notice">
-                                        {#if votedTickers.has(company.ticker)}
-                                            <span class="voted-msg">Thanks! Your vote has been recorded.</span>
-                                        {:else}
-                                            <span>No data yet</span>
-                                            <button class="vote-btn" onclick={(e) => { e.preventDefault(); e.stopPropagation(); handleVote(company.ticker); }}>
-                                                Vote to prioritize
-                                            </button>
-                                        {/if}
-                                    </div>
-                                {/if}
-                                <div class="community-link">
-                                    <span class="community-link-text"
-                                       role="link"
-                                       tabindex="0"
-                                       onclick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(company.website ? `https://live.linkedtrust.us/wall?subject=${encodeURIComponent(company.website)}` : `https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`, '_blank'); }}
-                                       onkeydown={(e) => { if (e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); window.open(company.website ? `https://live.linkedtrust.us/wall?subject=${encodeURIComponent(company.website)}` : `https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`, '_blank'); } }}>
-                                        Community attestations &rarr;
-                                    </span>
-                                </div>
                             </div>
-                        </a>
-                    {/if}
+                        {:else}
+                            <div class="expand-hint">Click to {groups.length > 0 ? 'see more grades' : 'learn more'}</div>
+                        {/if}
+                    </div>
                 {/each}
             </div>
         {:else}
             <div class="company-grid">
                 {#each filtered as company}
-                    {#if true}
-                        {@const groups = getCompanyGroups(company)}
-                        {@const overall = computeOverallGrade(company, values, activeWeights)}
-                        {@const activeGroup = getFilteredGroup(groups)}
-                        <a href="{base}/company/{company.ticker || company.id}" class="company-card">
-                            <div class="card-header">
-                                <div>
-                                    <h3 class="company-name">{company.name}</h3>
-                                    {#if company.ticker}
-                                        <span class="company-ticker">{company.ticker}</span>
-                                    {/if}
-                                </div>
-                                <div class="grade-stack">
-                                    {#if activeGroup}
-                                        <div class="grade-badge {getGradeClass(activeGroup.grade)}">{activeGroup.grade}</div>
-                                        {#if overall}
-                                            <div class="grade-overall-sub">Overall: {overall}</div>
-                                        {/if}
-                                    {:else if overall}
-                                        <div class="grade-badge {getGradeClass(overall)}">{overall}</div>
-                                    {/if}
-                                </div>
+                    {@const groups = getCompanyGroups(company)}
+                    {@const overall = computeOverallGrade(company, values, activeWeights)}
+                    {@const highlighted = getHighlightedSnapshot(company)}
+                    {@const isExpanded = expandedTicker === (company.ticker || company.id)}
+                    <div class="company-card" class:expanded={isExpanded} onclick={() => toggleExpand(company.ticker || company.id)} role="button" tabindex="0" onkeydown={(e) => e.key === 'Enter' && toggleExpand(company.ticker || company.id)}>
+                        <div class="card-header">
+                            <div>
+                                <h3 class="company-name">{company.name}</h3>
+                                {#if company.ticker}
+                                    <span class="company-ticker">{company.ticker}</span>
+                                {/if}
                             </div>
-                            <div class="card-body">
-                                <div class="sector">{company.sector}</div>
+                            <div class="grade-stack">
+                                {#if overall}
+                                    <div class="grade-badge {getGradeClass(overall)}">{overall}</div>
+                                {/if}
+                            </div>
+                        </div>
+                        {#if highlighted}
+                            <div class="card-highlight">
+                                <span class="highlight-label">{highlighted.value_name}:</span>
+                                <span class="highlight-value">{highlighted.display_text}</span>
+                            </div>
+                        {/if}
+                        <div class="community-link">
+                            <a href={getAttestationsUrl(company)} target="_blank" rel="noreferrer" onclick={(e) => e.stopPropagation()}>
+                                Community attestations &rarr;
+                            </a>
+                        </div>
+                        {#if isExpanded}
+                            <div class="card-expanded" onclick={(e) => e.stopPropagation()}>
                                 {#if groups.length > 0}
                                     <div class="highlights">
                                         {#each groups as group}
@@ -415,18 +419,11 @@
                                         {/each}
                                     </div>
                                 {/if}
-                                <div class="community-link">
-                                    <span class="community-link-text"
-                                       role="link"
-                                       tabindex="0"
-                                       onclick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(company.website ? `https://live.linkedtrust.us/wall?subject=${encodeURIComponent(company.website)}` : `https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`, '_blank'); }}
-                                       onkeydown={(e) => { if (e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); window.open(company.website ? `https://live.linkedtrust.us/wall?subject=${encodeURIComponent(company.website)}` : `https://live.linkedtrust.us/?search=${encodeURIComponent(company.name)}`, '_blank'); } }}>
-                                        Community attestations &rarr;
-                                    </span>
-                                </div>
                             </div>
-                        </a>
-                    {/if}
+                        {:else}
+                            <div class="expand-hint">Click to {groups.length > 0 ? 'see more grades' : 'learn more'}</div>
+                        {/if}
+                    </div>
                 {/each}
             </div>
         {/if}

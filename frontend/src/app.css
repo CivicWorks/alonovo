@@ -145,6 +145,11 @@ header h1 {
     box-shadow: 0 4px 16px rgba(0,0,0,0.12);
 }
 
+.company-card.expanded {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    border: 1px solid #dcfce7;
+}
+
 .card-header {
     display: flex;
     justify-content: space-between;
@@ -346,6 +351,41 @@ footer a {
     margin-top: 0.5rem;
 }
 
+/* Card highlight (1 highlighted score) */
+.card-highlight {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    margin: 0.5rem 0;
+    font-size: 0.85rem;
+}
+
+.highlight-label {
+    color: #15803d;
+    font-weight: 600;
+}
+
+.highlight-value {
+    color: #166534;
+    margin-left: 0.25rem;
+}
+
+/* Card expanded section */
+.card-expanded {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+/* Expand hint */
+.expand-hint {
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
 .highlight {
     display: flex;
     justify-content: space-between;
@@ -387,13 +427,15 @@ footer a {
     font-size: 0.75rem;
 }
 
-.community-link-text {
-    color: #1a5f2a;
-    cursor: pointer;
+.community-link a {
+    color: #15803d;
+    text-decoration: none;
+    font-weight: 500;
 }
 
-.community-link-text:hover {
+.community-link a:hover {
     text-decoration: underline;
+    color: #166534;
 }
 
 /* No Data / Vote */

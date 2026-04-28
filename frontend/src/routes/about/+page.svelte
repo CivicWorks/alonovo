@@ -2,6 +2,10 @@
     import { base } from '$app/paths';
 </script>
 
+<svelte:head>
+    <title>About — Alonovo</title>
+</svelte:head>
+
 <div class="about-page">
     <a href="{base}/" class="back-btn">&larr; Back to companies</a>
 

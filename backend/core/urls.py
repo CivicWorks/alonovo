@@ -11,16 +11,18 @@ router.register(r'values', ValueViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    # Override router's company detail route to use <path:ticker> to allow dots
+    path('companies/<path:ticker>/', CompanyViewSet.as_view({'get': 'retrieve'}), name='company-detail'),
     path('me/', current_user, name='current-user'),
     path('me/weights/', user_weights, name='user-weights'),
     path('sectors/', sectors_list, name='sectors-list'),
-    path('companies/<str:ticker>/claims/', company_claims, name='company-claims'),
-    path('companies/<str:ticker>/vote/', vote_for_company, name='company-vote'),
+    path('companies/<path:ticker>/claims/', company_claims, name='company-claims'),
+    path('companies/<path:ticker>/vote/', vote_for_company, name='company-vote'),
     path('votes/leaderboard/', vote_leaderboard, name='vote-leaderboard'),
     # Mobile app endpoints
     path('scan/', barcode_scan, name='barcode-scan'),
     path('receipt/analyze/', receipt_analyze, name='receipt-analyze'),
-    path('alternatives/<str:ticker>/', alternatives_for_company, name='alternatives'),
+    path('alternatives/<path:ticker>/', alternatives_for_company, name='alternatives'),
     path('brands/', brand_mappings_list, name='brand-mappings'),
     # Product endpoints
     path('products/', products_list, name='products-list'),
