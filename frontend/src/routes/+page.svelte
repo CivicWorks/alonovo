@@ -118,7 +118,7 @@
         if (c.website) {
             return `https://live.linkedtrust.us/wall?subject=${encodeURIComponent(c.website)}`;
         }
-        return `https://live.linkedtrust.us/?search=${encodeURIComponent(c.name)}`;
+        return `https://live.linkedtrust.us/search/${encodeURIComponent(c.name)}`;
     }
 
     const filtered = $derived.by(() => {
