@@ -183,7 +183,7 @@
     const hasActiveFilters = $derived(!!search || !!sectorFilter || !!gradeFilter || !!valueFilter);
 </script>
 
-<header style="--banner-bg: url('{base}/banner-tree.jpg')">
+<header class="page-header-banner" style="--banner-bg: url('{base}/banner-tree.jpg')">
     <div class="header-top">
         <div class="header-stats">
             {#if !loading && !error}

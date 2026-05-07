@@ -169,34 +169,45 @@
     .about-page {
         max-width: 720px;
         margin: 0 auto;
+        padding: 0 1rem;
     }
 
     .about-page h1 {
-        color: #1a5f2a;
-        font-size: 1.8rem;
+        color: var(--accent);
+        font-size: 1.875rem;
         margin-bottom: 1rem;
+        font-family: var(--font-display);
     }
 
     .about-page h2 {
-        color: #1a5f2a;
-        font-size: 1.3rem;
-        margin: 2rem 0 0.5rem;
+        color: var(--accent);
+        font-size: 1.25rem;
+        margin: 2rem 0 0.75rem;
+        font-family: var(--font-display);
     }
 
     .about-page h3 {
-        color: #1a5f2a;
-        font-size: 1.05rem;
-        margin: 1.25rem 0 0.4rem;
+        color: var(--text-secondary);
+        font-size: 1rem;
+        margin: 1.25rem 0 0.5rem;
     }
 
     .about-page p {
         line-height: 1.7;
-        color: #333;
+        color: var(--text-secondary);
         margin: 0.5rem 0;
     }
 
+    .about-page strong {
+        color: var(--text-primary);
+    }
+
     .about-page a {
-        color: #1a5f2a;
+        color: var(--accent);
+    }
+
+    .about-page a:hover {
+        text-decoration: underline;
     }
 
     .about-page ul {
@@ -209,7 +220,7 @@
     }
 
     section {
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
     }
 
     .source-grid {
@@ -226,25 +237,27 @@
     }
 
     .source-category {
-        background: #f8faf8;
-        border: 1px solid #e0e8e0;
-        border-radius: 8px;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 0.25rem;
         padding: 1rem 1.25rem;
     }
 
     .source-category h3 {
         margin: 0 0 0.5rem;
         font-size: 0.95rem;
+        color: var(--accent);
     }
 
     .source-category ul {
         padding-left: 1.2rem;
         line-height: 1.6;
-        font-size: 0.9rem;
+        font-size: 0.875rem;
     }
 
     .source-category li {
         margin: 0.25rem 0;
+        color: var(--text-secondary);
     }
 
     .methodology {
@@ -255,14 +268,27 @@
 
     .methodology li {
         margin: 0.75rem 0;
+        color: var(--text-secondary);
     }
 
     .methodology li strong {
-        color: #1a5f2a;
+        color: var(--accent);
+    }
+
+    .back-btn {
+        display: inline-block;
+        margin-bottom: 1.5rem;
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.875rem;
+    }
+
+    .back-btn:hover {
+        color: var(--accent);
     }
 
     .contact {
-        border-top: 1px solid #ddd;
+        border-top: 1px solid var(--border-color);
         padding-top: 1.5rem;
         margin-top: 2rem;
     }

@@ -57,47 +57,47 @@
     }
 
     .sign-in {
-        color: white;
-        opacity: 0.9;
+        color: var(--accent);
         text-decoration: none;
-        font-size: 0.9rem;
-        padding: 0.4rem 0.8rem;
-        border: 1px solid rgba(255,255,255,0.5);
-        border-radius: 6px;
-        transition: opacity 0.2s;
+        font-size: 0.875rem;
+        padding: 0.4rem 0.75rem;
+        border: 1px solid var(--border-color);
+        border-radius: 0.25rem;
+        transition: border-color 0.15s, background-color 0.15s;
     }
 
     .sign-in:hover {
-        opacity: 1;
-        background: rgba(255,255,255,0.1);
+        border-color: var(--accent);
+        background: rgba(45, 212, 191, 0.1);
     }
 
     .avatar {
         width: 36px;
         height: 36px;
         border-radius: 50%;
-        background: rgba(255,255,255,0.25);
-        color: white;
+        background: var(--color-surface-700);
+        color: var(--text-primary);
         display: flex;
         align-items: center;
         justify-content: center;
         font-weight: 600;
-        font-size: 0.9rem;
+        font-size: 0.875rem;
         cursor: pointer;
-        transition: background 0.2s;
+        transition: background-color 0.15s;
     }
 
     .avatar:hover {
-        background: rgba(255,255,255,0.4);
+        background: var(--color-surface-600);
     }
 
     .dropdown {
         position: absolute;
         top: 44px;
         right: 0;
-        background: white;
-        border-radius: 8px;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        background: var(--color-surface-800);
+        border: 1px solid var(--border-color);
+        border-radius: 0.25rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
         min-width: 180px;
         z-index: 100;
         overflow: hidden;
@@ -106,19 +106,19 @@
     .dropdown-header {
         padding: 0.75rem 1rem;
         font-size: 0.8rem;
-        color: #666;
-        border-bottom: 1px solid #eee;
+        color: var(--text-muted);
+        border-bottom: 1px solid var(--border-color);
     }
 
     .dropdown-item {
         display: block;
         padding: 0.6rem 1rem;
-        color: #333;
+        color: var(--text-secondary);
         text-decoration: none;
-        font-size: 0.9rem;
+        font-size: 0.875rem;
     }
 
     .dropdown-item:hover {
-        background: #f5f5f5;
+        background: var(--color-surface-700);
     }
 </style>

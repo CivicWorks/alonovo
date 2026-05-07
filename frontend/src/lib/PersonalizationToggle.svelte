@@ -29,26 +29,27 @@
 
     .toggle-label {
         font-size: 0.75rem;
-        color: rgba(255,255,255,0.4);
+        color: var(--text-muted);
         font-weight: 500;
     }
 
     .toggle-label.active {
-        color: #fde68a;
-        font-weight: 700;
+        color: var(--accent);
+        font-weight: 600;
     }
 
     .toggle-track {
         position: relative;
         width: 32px;
         height: 18px;
-        background: rgba(255,255,255,0.25);
+        background: var(--color-surface-700);
         border-radius: 9px;
         cursor: pointer;
+        transition: background-color 0.15s;
     }
 
     .toggle-track.active {
-        background: rgba(255,255,255,0.5);
+        background: var(--color-brand-600);
     }
 
     .toggle-thumb {
@@ -57,12 +58,13 @@
         left: 2px;
         width: 14px;
         height: 14px;
-        background: rgba(255,255,255,0.6);
+        background: var(--text-muted);
         border-radius: 50%;
+        transition: left 0.15s, background-color 0.15s;
     }
 
     .toggle-track.active .toggle-thumb {
         left: 16px;
-        background: white;
+        background: var(--text-primary);
     }
 </style>

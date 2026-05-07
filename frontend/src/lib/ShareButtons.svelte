@@ -73,7 +73,7 @@
 
     .share-label {
         font-size: 0.85rem;
-        color: #666;
+        color: var(--text-muted);
         font-weight: 500;
     }
 
@@ -83,16 +83,17 @@
         justify-content: center;
         width: 36px;
         height: 36px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        background: white;
-        color: #1a5f2a;
+        border: 1px solid var(--border-color);
+        border-radius: 0.25rem;
+        background: transparent;
+        color: var(--text-muted);
         cursor: pointer;
-        transition: background 0.2s, border-color 0.2s;
+        transition: border-color 0.15s, color 0.15s, background-color 0.15s;
     }
 
     .share-btn:hover {
-        background: #f0fdf4;
-        border-color: #1a5f2a;
+        border-color: var(--accent);
+        color: var(--accent);
+        background: rgba(45, 212, 191, 0.1);
     }
 </style>
