@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib import admin
+from django.shortcuts import render
 from rest_framework import viewsets, status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, AllowAny
@@ -18,7 +20,6 @@ def sectors_list(request):
 class CompanyViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = CompanySerializer
     lookup_field = 'ticker'
-    pagination_class = None
 
     def get_object(self):
         lookup = self.kwargs[self.lookup_field]

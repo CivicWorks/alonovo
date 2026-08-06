@@ -9,9 +9,7 @@ Go through every feature on the site and verify it works. Check both domains. Re
 ## Before You Start
 
 - Open the site in a fresh browser window (or incognito)
-- Have both domains ready:
-  - https://alonovo.cooperation.org
-  - https://alonovo.linkedtrust.us
+- Test domain: https://alonovo.cooperation.org (alonovo.linkedtrust.us is NOT configured on this VM)
 - Test on desktop first, then mobile (or use browser dev tools responsive mode)
 
 ---
@@ -138,10 +136,7 @@ Go through every feature on the site and verify it works. Check both domains. Re
 ## Cross-Domain
 
 - [ ] https://alonovo.cooperation.org loads and works
-- [ ] https://alonovo.linkedtrust.us loads and works
-- [ ] Both show the same data
-- [ ] Company detail pages work on both domains
-- [ ] Google login works on both domains (after redirect URLs are configured)
+- [ ] NOTE: alonovo.linkedtrust.us is NOT configured on this VM — ignore references to it
 
 ---
 

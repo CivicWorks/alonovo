@@ -1,0 +1,25 @@
+{% extends "admin/login.html" %}
+
+{% block extrastyle %}
+{{ block.super }}
+<style>
+:root {
+    --primary: #1a5f2a;
+    --accent: #2d8a3e;
+    --secondary: #15803d;
+}
+body {
+    background: #f0faf3;
+}
+.login .submit-row a {
+    background: #1a5f2a;
+}
+.login .submit-row a:hover {
+    background: #15803d;
+}
+</style>
+{% endblock %}
+
+{% block branding %}
+<div id="site-name"><a href="{% url 'admin:index' %}">Alonovo Administration</a></div>
+{% endblock %}

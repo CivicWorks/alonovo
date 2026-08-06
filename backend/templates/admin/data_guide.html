@@ -1,0 +1,258 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Data Guide – Alonovo Admin{% endblock %}
+
+{% block branding %}
+<div id="site-name"><a href="{% url 'admin:index' %}">Alonovo Administration</a></div>
+{% endblock %}
+
+{% block extrastyle %}
+{{ block.super }}
+<style>
+.guide-wrapper {
+    max-width: 860px;
+    margin: 24px auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.1);
+    padding: 32px 40px;
+}
+.guide-wrapper h1 {
+    font-size: 1.75rem;
+    color: #1a5f2a;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #2d8a3e;
+}
+.guide-wrapper h2 {
+    font-size: 1.25rem;
+    color: #1a5f2a;
+    margin-top: 32px;
+    margin-bottom: 12px;
+}
+.guide-wrapper h3 {
+    font-size: 1.05rem;
+    color: #2d8a3e;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+.guide-wrapper p, .guide-wrapper li {
+    color: #333;
+    line-height: 1.65;
+}
+.guide-wrapper table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.9rem;
+}
+.guide-wrapper th {
+    background: #1a5f2a;
+    color: #fff;
+    padding: 8px 12px;
+    text-align: left;
+}
+.guide-wrapper td {
+    padding: 7px 12px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.guide-wrapper tr:nth-child(even) td {
+    background: #f8f8f8;
+}
+.guide-wrapper code {
+    background: #f0f0f0;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.88em;
+}
+.guide-wrapper pre {
+    background: #1a1a2e;
+    color: #a8d8a8;
+    padding: 16px 20px;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-size: 0.85em;
+    line-height: 1.5;
+}
+.guide-wrapper pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+}
+.guide-wrapper .step {
+    background: #f0faf3;
+    border-left: 4px solid #2d8a3e;
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-radius: 0 4px 4px 0;
+}
+.guide-wrapper .step-title {
+    font-weight: 600;
+    color: #1a5f2a;
+    margin-bottom: 4px;
+}
+</style>
+{% endblock %}
+
+{% block breadcrumbs %}
+<div id="breadcrumbs">
+    <a href="{% url 'admin:index' %}">Home</a> › <a href="{% url 'admin:index' %}">Core</a> › Data Guide
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="guide-wrapper">
+    <h1>How to Add Data</h1>
+    <p>This guide explains the Alonovo data model and the correct order for adding new company data.</p>
+
+    <h2>Data Model Overview</h2>
+    <table>
+        <thead>
+            <tr><th>Model</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>Value</strong></td><td>A scoring criterion (e.g., "Corporate Lobbying", "Cage-Free Eggs")</td></tr>
+            <tr><td><strong>ScoringRule</strong></td><td>Defines how to grade a Value — thresholds for metrics, label→grade maps for categories</td></tr>
+            <tr><td><strong>Company</strong></td><td>A company with ticker, name, sector, website</td></tr>
+            <tr><td><strong>Claim</strong></td><td>An immutable source fact with provenance — the primary source of truth</td></tr>
+            <tr><td><strong>CompanyValueSnapshot</strong></td><td>Pre-computed grade per company per value (derived from Claims + ScoringRule)</td></tr>
+            <tr><td><strong>CompanyBadge</strong></td><td>Display badges shown on company cards</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Order of Operations</h2>
+    <p>When adding data for a new company or a new metric:</p>
+
+    <div class="step">
+        <div class="step-title">Step 1 — Ensure the Company exists</div>
+        <p>Create the company record in <strong>Companies</strong>. Give it a <code>uri</code> (company website URL), <code>ticker</code> (if public), <code>name</code>, and <code>sector</code>.</p>
+    </div>
+    <div class="step">
+        <div class="step-title">Step 2 — Ensure the Value exists</div>
+        <p>Check <strong>Values</strong> for the criterion you need. If it doesn't exist, create it:</p>
+        <ul>
+            <li><code>slug</code>: short machine name (e.g., <code>lobbying_spend</code>)</li>
+            <li><code>name</code>: human-readable (e.g., "Corporate Lobbying Spend")</li>
+            <li><code>value_type</code>: <code>metric</code> (numeric thresholds) | <code>label</code> (categorical/certification) | <code>categorical_grade</code> (severity scale)</li>
+            <li><code>is_fixed</code>: True if users cannot set weight to zero</li>
+            <li><code>is_disqualifying</code>: True if F on this value = F overall grade</li>
+        </ul>
+    </div>
+    <div class="step">
+        <div class="step-title">Step 3 — Ensure the ScoringRule exists</div>
+        <p>Under <strong>Values → Scoring Rules</strong>, create a rule for the value:</p>
+        <ul>
+            <li><code>version</code>: increment if updating</li>
+            <li><code>effective_date</code>: date this rule took effect</li>
+            <li><code>config</code>: JSON thresholds or label map</li>
+        </ul>
+    </div>
+    <div class="step">
+        <div class="step-title">Step 4 — Add Claims</div>
+        <p>Add source claims in <strong>Claims</strong>. Claims are <strong>immutable</strong> — once created they cannot be edited or deleted.</p>
+        <p>Required fields:</p>
+        <ul>
+            <li><code>uri</code>: unique identifier for this claim (URN or source URL)</li>
+            <li><code>subject</code>: the Company URI this claim is about</li>
+            <li><code>claim_type</code>: the type of data (see Claim Types below)</li>
+            <li><code>effective_date</code>: the date this data applies to</li>
+        </ul>
+        <p>Depending on claim type, also set:</p>
+        <ul>
+            <li><code>amt</code> + <code>unit</code>: for numeric metrics</li>
+            <li><code>label</code>: for categorical certifications</li>
+            <li><code>source_uri</code>: original data source URL</li>
+            <li><code>how_known</code>: how we learned this</li>
+            <li><code>statement</code>: human-readable summary</li>
+        </ul>
+    </div>
+    <div class="step">
+        <div class="step-title">Step 5 — Compute Snapshots</div>
+        <p>After claims are added, run the management command:</p>
+<pre><code>cd /opt/shared/repos/alonovo/backend
+source venv/bin/activate
+python manage.py compute_snapshots --ticker AAPL</code></pre>
+        <p>Or recompute via the admin action on the Company list: select companies → <strong>Recompute value snapshots</strong>.</p>
+    </div>
+    <div class="step">
+        <div class="step-title">Step 6 — Verify Badges</div>
+        <p>Check <strong>Company Badges</strong> to see if any badges were auto-generated. Add or edit badges manually if needed.</p>
+    </div>
+
+    <h2>Claim Types</h2>
+    <table>
+        <thead>
+            <tr><th>claim_type</th><th>Description</th><th>Example</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><code>LOBBYING_SPEND</code></td><td>US federal lobbying expenditures</td><td>$11.1M</td></tr>
+            <tr><td><code>FARM_WELFARE_TIER</code></td><td>BBFAW farm animal welfare rating</td><td>Tier 1–5</td></tr>
+            <tr><td><code>CAGE_FREE_PERCENT</code></td><td>Cage-free egg commitment percentage</td><td>100%</td></tr>
+            <tr><td><code>ICE_CONTRACT</code></td><td>ICE contract status</td><td><code>yes</code> / <code>no</code></td></tr>
+            <tr><td><code>ICE_DETENTION_OPERATOR</code></td><td>Operates immigration detention facilities</td><td><code>yes</code> / <code>no</code></td></tr>
+            <tr><td><code>ICE_COLLABORATOR</code></td><td>Works with ICE in any capacity</td><td><code>yes</code> / <code>no</code></td></tr>
+            <tr><td><code>ESG_SCORE</code></td><td>Environmental, Social, Governance score</td><td>Sustainalytics risk 35</td></tr>
+            <tr><td><code>CRUELTY_FREE_STATUS</code></td><td>PETA cruelty-free certification</td><td>Leaping Bunny</td></tr>
+            <tr><td><code>EXEC_ETHICS_SCORE</code></td><td>Executive ethics/pay ratio</td><td>CEO pay 218:1</td></tr>
+            <tr><td><code>STOOD_UP</code></td><td>Stood Up pledge compliance</td><td><code>yes</code> / <code>no</code></td></tr>
+            <tr><td><code>LGBTQ_EQUALITY</code></td><td>Human Rights Campaign Corporate Equality Index</td><td>100/100</td></tr>
+            <tr><td><code>FORCED_LABOR</code></td><td>KnowTheChain benchmark score</td><td>0–100</td></tr>
+            <tr><td><code>TAX_TRANSPARENCY</code></td><td>Effective vs statutory tax rate</td><td>21% vs 28%</td></tr>
+            <tr><td><code>GUN_SAFETY</code></td><td>Guns Down America business score</td><td>0–100</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Units</h2>
+    <table>
+        <thead>
+            <tr><th>unit</th><th>Meaning</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><code>USD</code></td><td>US dollars (raw amount)</td></tr>
+            <tr><td><code>million_usd</code></td><td>Millions of USD (<code>amt</code> = 11.1 means $11.1M)</td></tr>
+            <tr><td><code>percent</code></td><td>Percentage (0–100)</td></tr>
+            <tr><td><code>sustainalytics_risk</code></td><td>Sustainalytics ESG risk score (0–100, lower is better)</td></tr>
+            <tr><td><code>spglobal_score</code></td><td>S&P Global ESG score</td></tr>
+            <tr><td><code>severity_scale</code></td><td>Internal 1–5 severity (1=best, 5=worst)</td></tr>
+            <tr><td><code>index_score</code></td><td>Score on 0–100 index (higher is better)</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Example: Adding Lobbying Data for Apple</h2>
+    <ol style="line-height: 1.7;">
+        <li><strong>Company</strong>: Verify <code>AAPL</code> exists in Companies with <code>uri = https://www.apple.com</code></li>
+        <li><strong>Value</strong>: Confirm <code>corporate_lobbying</code> Value exists (type: <code>metric</code>)</li>
+        <li><strong>ScoringRule</strong>: Check the rule for <code>corporate_lobbying</code> — config should have thresholds mapping USD amounts to letter grades</li>
+        <li><strong>Claim</strong>: Add a claim:
+            <ul>
+                <li><code>uri</code>: <code>urn:opensecrets:2024:aapl:lobbying</code></li>
+                <li><code>subject</code>: <code>https://www.apple.com</code></li>
+                <li><code>claim_type</code>: <code>LOBBYING_SPEND</code></li>
+                <li><code>amt</code>: <code>11000000</code> (or <code>11.1</code> with <code>unit = million_usd</code>)</li>
+                <li><code>unit</code>: <code>USD</code></li>
+                <li><code>effective_date</code>: <code>2024-12-31</code></li>
+                <li><code>source_uri</code>: URL from OpenSecrets</li>
+                <li><code>how_known</code>: <code>reported</code></li>
+            </ul>
+        </li>
+        <li><strong>Snapshots</strong>: Run <code>python manage.py compute_snapshots --ticker AAPL</code></li>
+        <li><strong>Verify</strong>: Check Apple company page — lobbying card should show the new grade</li>
+    </ol>
+
+    <h2>Importing Data from CSV</h2>
+    <p>For bulk imports, use management commands in <code>backend/core/management/commands/</code>:</p>
+    <ul>
+        <li><code>import_initial_data.py</code> — lobbying, BBFAW, EggTrack, ICE</li>
+        <li><code>import_esg_data.py</code> — ESG scores from CSV</li>
+        <li><code>import_peta_data.py</code> — PETA cruelty-free data</li>
+    </ul>
+    <p><strong>Pattern for new imports:</strong></p>
+    <ol style="line-height: 1.7;">
+        <li>Write findings to <code>prompts/SOURCE_import_instructions.md</code> and get approval</li>
+        <li>Create a management command following existing patterns</li>
+        <li>Backup the database first</li>
+        <li>Test on 5–10 companies before full import</li>
+        <li>Use <code>Claim.objects.get_or_create()</code> with unique URI to avoid duplicates</li>
+    </ol>
+</div>
+{% endblock %}

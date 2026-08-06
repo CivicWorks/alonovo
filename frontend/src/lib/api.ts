@@ -10,12 +10,18 @@ function siteBase(): string {
 }
 
 export async function fetchCompanies(): Promise<Company[]> {
-    const response = await fetch(`${apiBase()}/companies/?include_empty=true`);
-    if (!response.ok) {
-        throw new Error('Failed to fetch companies');
+    const companies: Company[] = [];
+    let url = `${apiBase()}/companies/`;
+    while (url) {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('Failed to fetch companies');
+        }
+        const data = await response.json();
+        companies.push(...(data.results || data));
+        url = data.next || '';
     }
-    const data = await response.json();
-    return data.results || data;
+    return companies;
 }
 
 export async function fetchCompany(ticker: string): Promise<Company> {
@@ -27,12 +33,18 @@ export async function fetchCompany(ticker: string): Promise<Company> {
 }
 
 export async function fetchValues(): Promise<ValueDef[]> {
-    const response = await fetch(`${apiBase()}/values/`);
-    if (!response.ok) {
-        throw new Error('Failed to fetch values');
+    const values: ValueDef[] = [];
+    let url = `${apiBase()}/values/`;
+    while (url) {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('Failed to fetch values');
+        }
+        const data = await response.json();
+        values.push(...(data.results || data));
+        url = data.next || '';
     }
-    const data = await response.json();
-    return data.results || data;
+    return values;
 }
 
 export async function fetchCompanyClaims(ticker: string): Promise<ClaimData[]> {
@@ -44,12 +56,18 @@ export async function fetchCompanyClaims(ticker: string): Promise<ClaimData[]> {
 }
 
 export async function fetchCompaniesBySector(sector: string): Promise<Company[]> {
-    const response = await fetch(`${apiBase()}/companies/?sector=${encodeURIComponent(sector)}`);
-    if (!response.ok) {
-        throw new Error('Failed to fetch companies by sector');
+    const companies: Company[] = [];
+    let url = `${apiBase()}/companies/?sector=${encodeURIComponent(sector)}`;
+    while (url) {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('Failed to fetch companies by sector');
+        }
+        const data = await response.json();
+        companies.push(...(data.results || data));
+        url = data.next || '';
     }
-    const data = await response.json();
-    return data.results || data;
+    return companies;
 }
 
 export async function fetchSectors(): Promise<string[]> {
