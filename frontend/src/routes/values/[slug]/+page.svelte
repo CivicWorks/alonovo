@@ -185,6 +185,10 @@
 
 <style>
     .values-page { padding: 1rem 0 3rem; }
+    .values-page a { color: var(--accent); }
+    .detail-banner { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; }
+    .back-link { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+    .back-link:hover { color: white; }
     .values-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
     .values-header h2 { margin: 0.25rem 0; }
     .crumb { font-size: 0.85rem; }

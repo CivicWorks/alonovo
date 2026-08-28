@@ -265,6 +265,7 @@
     }
 
     .group-name {
+        text-decoration: none;
         font-weight: 700;
         font-size: 1rem;
         color: #15803d;
