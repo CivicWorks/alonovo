@@ -185,7 +185,7 @@
 
 <style>
     .values-page { padding: 1rem 0 3rem; }
-    .values-page a { color: var(--accent); }
+    .values-page a, .values-page :global(.subvalue-desc a) { color: var(--accent); }
     .detail-banner { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; }
     .back-link { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
     .back-link:hover { color: white; }
