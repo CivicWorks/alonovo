@@ -909,3 +909,23 @@ footer a {
     width: 100%;
   }
 }
+
+/* Highlight chips are links into the company's source section */
+a.highlight,
+a.highlight:hover {
+  text-decoration: none;
+  color: inherit;
+}
+a.highlight:hover .highlight-text {
+  text-decoration: underline;
+}
+
+.value-page-link {
+  align-self: center;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+.value-group {
+  scroll-margin-top: 1rem;
+}

@@ -150,3 +150,38 @@ export function computeOverallGrade(company: Company, values: ValueDef[], weight
     const avg = groups.reduce((sum, g) => sum + g.score, 0) / groups.length;
     return scoreToGrade(avg);
 }
+
+
+/** URL slug for a display group or value name, e.g. "Worker Rights" -> "worker-rights" */
+export function groupSlug(name: string): string {
+    return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+
+export interface FilterOption {
+    key: string;        // display_group name or value slug (what the filter matches on)
+    label: string;
+    order: number;
+    slug: string;       // URL slug for /values/<slug>
+    children: { key: string; label: string; slug: string }[];  // sub-values of a group
+}
+
+/** Build filter options from value definitions: one entry per display_group (with its sub-values) or per ungrouped value */
+export function buildFilterOptions(values: ValueDef[]): FilterOption[] {
+    const map = new Map<string, FilterOption>();
+    for (const v of values) {
+        const key = v.display_group || v.slug;
+        if (!map.has(key)) {
+            map.set(key, {
+                key,
+                label: v.display_group || v.name,
+                order: v.display_group_order,
+                slug: groupSlug(v.display_group || v.slug),
+                children: [],
+            });
+        }
+        if (v.display_group) {
+            map.get(key)!.children.push({ key: v.slug, label: v.name, slug: v.slug });
+        }
+    }
+    return [...map.values()].sort((a, b) => a.order - b.order || a.label.localeCompare(b.label));
+}

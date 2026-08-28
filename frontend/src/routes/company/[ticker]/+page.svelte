@@ -3,7 +3,7 @@
     import { onMount } from 'svelte';
     import { page } from '$app/stores';
     import { fetchCompany, fetchCompanyClaims, fetchValues } from '$lib/api';
-    import { getGradeClass, computeOverallGrade, groupValues } from '$lib/utils';
+    import { getGradeClass, computeOverallGrade, groupValues, groupSlug } from '$lib/utils';
     import type { Company, ClaimData, ValueDef, ValueGroup } from '$lib/types';
     import { loadUser, loadWeights, getWeights, isPersonalized } from '$lib/stores.svelte';
     import UserMenu from '$lib/UserMenu.svelte';
@@ -128,10 +128,10 @@
                     <section class="claims-section">
                         <h3>Value Ratings</h3>
                         {#each groups as group}
-                            <div class="value-group">
+                            <div class="value-group" id={groupSlug(group.groupName)}>
                                 {#if group.values.length > 1}
                                     <div class="group-header">
-                                        <div class="group-name">{group.groupName}</div>
+                                        <a class="group-name" href="{base}/values/{groupSlug(group.groupName)}">{group.groupName}</a>
                                         <div class="claim-grade {getGradeClass(group.grade)}">{group.grade}</div>
                                     </div>
                                 {/if}

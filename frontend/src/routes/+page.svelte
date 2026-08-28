@@ -2,7 +2,7 @@
     import { base } from '$app/paths';
     import { onMount } from 'svelte';
     import { fetchCompanies, fetchValues, fetchSectors, voteForCompany, fetchVoteLeaderboard } from '$lib/api';
-    import { getGradeClass, computeOverallGrade, groupValues } from '$lib/utils';
+    import { getGradeClass, computeOverallGrade, groupValues, buildFilterOptions, groupSlug } from '$lib/utils';
     import type { Company, ValueDef, ValueGroup } from '$lib/types';
     import UserMenu from '$lib/UserMenu.svelte';
     import PersonalizationToggle from '$lib/PersonalizationToggle.svelte';
@@ -65,20 +65,7 @@
 
     const activeWeights = $derived(isPersonalized() ? getWeights() : undefined);
 
-    /** Build filter options: groups + ungrouped values */
-    const filterOptions = $derived.by(() => {
-        const seen = new Set<string>();
-        const opts: { key: string; label: string; order: number }[] = [];
-        for (const v of values) {
-            const key = v.display_group || v.slug;
-            const label = v.display_group || v.name;
-            if (!seen.has(key)) {
-                seen.add(key);
-                opts.push({ key, label, order: v.display_group_order });
-            }
-        }
-        return opts.sort((a, b) => a.order - b.order);
-    });
+    const filterOptions = $derived(buildFilterOptions(values));
 
     function getCompanyGroups(c: Company): ValueGroup[] {
         return groupValues(values, c.value_snapshots || [], activeWeights);
@@ -224,9 +211,24 @@
             <select bind:value={valueFilter}>
                 <option value="">All Values</option>
                 {#each filterOptions as opt}
-                    <option value={opt.key}>{opt.label}</option>
+                    {#if opt.children.length > 0}
+                        <optgroup label={opt.label}>
+                            <option value={opt.key}>All {opt.label}</option>
+                            {#each opt.children as child}
+                                <option value={child.key}>&nbsp;&nbsp;{child.label}</option>
+                            {/each}
+                        </optgroup>
+                    {:else}
+                        <option value={opt.key}>{opt.label}</option>
+                    {/if}
                 {/each}
             </select>
+            {#if valueFilter}
+                {@const active = filterOptions.find(o => o.key === valueFilter || o.children.some(c => c.key === valueFilter))}
+                {#if active}
+                    <a class="value-page-link" href="{base}/values/{active.slug}">About {active.label} &rarr;</a>
+                {/if}
+            {/if}
             <select bind:value={gradeFilter}>
                 <option value="">All Grades</option>
                 <option value="A">A grades</option>
@@ -287,10 +289,10 @@
                                     {#if groups.length > 0}
                                         <div class="highlights">
                                             {#each groups as group}
-                                                <div class="highlight {getGradeClass(group.grade)}" class:highlight-active={isMatchingGroup(group)} class:highlight-dim={valueFilter && !isMatchingGroup(group)}>
+                                                <a href="{base}/company/{company.ticker || company.id}#{groupSlug(group.groupName)}" onclick={(e) => e.stopPropagation()} class="highlight {getGradeClass(group.grade)}" class:highlight-active={isMatchingGroup(group)} class:highlight-dim={valueFilter && !isMatchingGroup(group)} title="See {group.groupName} sources for {company.name}">
                                                     <span class="highlight-text">{group.groupName}</span>
                                                     <span class="highlight-grade">{group.grade}</span>
-                                                </div>
+                                                </a>
                                             {/each}
                                         </div>
                                     {/if}
@@ -347,10 +349,10 @@
                                 {#if groups.length > 0}
                                     <div class="highlights">
                                         {#each groups as group}
-                                            <div class="highlight {getGradeClass(group.grade)}" class:highlight-active={isMatchingGroup(group)} class:highlight-dim={valueFilter && !isMatchingGroup(group)}>
+                                            <a href="{base}/company/{company.ticker || company.id}#{groupSlug(group.groupName)}" onclick={(e) => e.stopPropagation()} class="highlight {getGradeClass(group.grade)}" class:highlight-active={isMatchingGroup(group)} class:highlight-dim={valueFilter && !isMatchingGroup(group)} title="See {group.groupName} sources for {company.name}">
                                                 <span class="highlight-text">{group.groupName}</span>
                                                 <span class="highlight-grade">{group.grade}</span>
-                                            </div>
+                                            </a>
                                         {/each}
                                     </div>
                                 {/if}
@@ -405,10 +407,10 @@
                                 {#if groups.length > 0}
                                     <div class="highlights">
                                         {#each groups as group}
-                                            <div class="highlight {getGradeClass(group.grade)}" class:highlight-active={isMatchingGroup(group)} class:highlight-dim={valueFilter && !isMatchingGroup(group)}>
+                                            <a href="{base}/company/{company.ticker || company.id}#{groupSlug(group.groupName)}" onclick={(e) => e.stopPropagation()} class="highlight {getGradeClass(group.grade)}" class:highlight-active={isMatchingGroup(group)} class:highlight-dim={valueFilter && !isMatchingGroup(group)} title="See {group.groupName} sources for {company.name}">
                                                 <span class="highlight-text">{group.groupName}</span>
                                                 <span class="highlight-grade">{group.grade}</span>
-                                            </div>
+                                            </a>
                                         {/each}
                                     </div>
                                 {/if}
