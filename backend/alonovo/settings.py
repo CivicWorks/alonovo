@@ -166,3 +166,7 @@ SESSION_COOKIE_PATH = '/'
 
 # Trust reverse proxy headers (nginx sets X-Forwarded-Proto)
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Secure cookies for HTTPS proxy
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
