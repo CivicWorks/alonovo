@@ -129,7 +129,7 @@
                         <h3>Value Ratings</h3>
                         {#each groups as group}
                             <div class="value-group" id={groupSlug(group.groupName)}>
-                                {#if group.values.length > 1}
+                                {#if group.values.some(v => v.display_group)}
                                     <div class="group-header">
                                         <a class="group-name" href="{base}/values/{groupSlug(group.groupName)}">{group.groupName}</a>
                                         <div class="claim-grade {getGradeClass(group.grade)}">{group.grade}</div>

@@ -11,13 +11,14 @@ router.register(r'values', ValueViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    # Sub-resources must come before the <path:ticker> detail route, which would otherwise swallow them
+    path('companies/<path:ticker>/claims/', company_claims, name='company-claims'),
+    path('companies/<path:ticker>/vote/', vote_for_company, name='company-vote'),
     # Override router's company detail route to use <path:ticker> to allow dots
     path('companies/<path:ticker>/', CompanyViewSet.as_view({'get': 'retrieve'}), name='company-detail'),
     path('me/', current_user, name='current-user'),
     path('me/weights/', user_weights, name='user-weights'),
     path('sectors/', sectors_list, name='sectors-list'),
-    path('companies/<path:ticker>/claims/', company_claims, name='company-claims'),
-    path('companies/<path:ticker>/vote/', vote_for_company, name='company-vote'),
     path('votes/leaderboard/', vote_leaderboard, name='vote-leaderboard'),
     # Mobile app endpoints
     path('scan/', barcode_scan, name='barcode-scan'),
