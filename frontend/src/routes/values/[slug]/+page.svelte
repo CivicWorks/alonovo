@@ -117,8 +117,8 @@
 
             <ShareButtons url={typeof window !== 'undefined' ? window.location.href : ''} title={`${target.child ? target.child.label : target.group.label} on Alonovo`} />
 
-            <section class="subvalues">
-                <h3>What is measured</h3>
+            <details class="subvalues">
+                <summary><h3>What is measured</h3></summary>
                 {#each groupValueDefs as v}
                     {@const n = rows.filter(r => snapFor(r.group, v.slug)).length}
                     <div class="subvalue" id={v.slug}>
@@ -134,7 +134,7 @@
                         <p class="subvalue-desc">{@html linkify(v.description)}</p>
                     </div>
                 {/each}
-            </section>
+            </details>
 
             <section class="graded">
                 <h3>Companies</h3>
@@ -200,7 +200,9 @@
     .grade-count.grade-C b { color: #facc15; }
     .grade-count.grade-D b { color: #fb923c; }
     .grade-count.grade-F b { color: #f87171; }
-    section { margin-top: 1.5rem; }
+    section, .subvalues { margin-top: 1.5rem; }
+    .subvalues > summary { cursor: pointer; }
+    .subvalues > summary h3 { display: inline; margin-left: 0.25rem; }
     h3 { margin-bottom: 0.75rem; }
     .subvalue { padding: 0.75rem 1rem; border: 1px solid var(--border-color); border-radius: 0.25rem; margin-bottom: 0.5rem; background: var(--bg-card); scroll-margin-top: 1rem; }
     .subvalue-head { display: flex; gap: 0.75rem; align-items: baseline; flex-wrap: wrap; }
