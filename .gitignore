@@ -11,3 +11,4 @@ build/
 *.iml
 .DS_Store
 backups/
+data/ips_executive_excess_2026.pdf
