@@ -85,3 +85,22 @@ export interface User {
     is_staff: boolean;
     is_superuser: boolean;
 }
+
+export interface Product {
+    id: number;
+    name: string;
+    brand_name: string;
+    category: string;
+    typical_price: string | null;
+    barcode: string;
+    company_name: string;
+    company_ticker: string;
+}
+
+export interface BrandMapping {
+    brand_name: string;
+    company_name: string;
+    company_ticker: string;
+    source: string;
+    confidence: number;
+}
