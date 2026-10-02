@@ -21,6 +21,7 @@
     let category = $state('');
 
     onMount(async () => {
+        document.body.classList.add('shop-light');
         const params = new URLSearchParams(window.location.search);
         query = params.get('q') || '';
         category = params.get('category') || '';
@@ -43,6 +44,8 @@
             loading = false;
         }
     });
+
+    $effect(() => () => document.body.classList.remove('shop-light'));
 
     // Keep the search in the URL so a result can be shared or bookmarked
     $effect(() => {
@@ -67,11 +70,17 @@
     }
 
     let needle = $derived(query.trim().toLowerCase());
+    let words = $derived(needle.split(/\s+/).filter(Boolean).map(w => w.replace(/s$/, '')));
+
+    function matches(...fields: string[]): boolean {
+        const text = fields.join(' ').toLowerCase().replace(/_/g, ' ');
+        return words.every(w => text.includes(w));
+    }
 
     let brandResults = $derived(
         needle && !category
             ? brands
-                .filter(b => b.brand_name.toLowerCase().includes(needle) || b.company_name.toLowerCase().includes(needle))
+                .filter(b => matches(b.brand_name, b.company_name))
                 .sort((a, b) => a.brand_name.localeCompare(b.brand_name))
             : []
     );
@@ -79,7 +88,7 @@
     let companyResults = $derived(
         needle && !category
             ? companies
-                .filter(c => c.name.toLowerCase().includes(needle))
+                .filter(c => matches(c.name))
                 .sort((a, b) => a.name.localeCompare(b.name))
             : []
     );
@@ -87,10 +96,7 @@
     let productResults = $derived(
         products
             .filter(p => !category || p.category === category)
-            .filter(p => !needle
-                || p.name.toLowerCase().includes(needle)
-                || p.brand_name.toLowerCase().includes(needle)
-                || p.company_name.toLowerCase().includes(needle))
+            .filter(p => !needle || matches(p.name, p.brand_name, p.company_name, p.category))
             .sort((a, b) => rank(gradeOf(b.company_ticker)) - rank(gradeOf(a.company_ticker)) || a.name.localeCompare(b.name))
     );
 
@@ -99,6 +105,7 @@
     // Better-graded products in the same category, best first, other companies only
     function alternatives(p: Product): Product[] {
         const mine = rank(gradeOf(p.company_ticker));
+        if (!mine) return [];
         const seen = new Set<string>();
         return products
             .filter(o => o.category === p.category && o.company_ticker !== p.company_ticker && rank(gradeOf(o.company_ticker)) > mine)
@@ -216,10 +223,10 @@
                                     {/if}
                                 </a>
                                 {#if alts.length}
-                                    <p class="alts">Better:
+                                    <p class="alts">Better graded in {categoryLabel(p.category)}:
                                         {#each alts as a, i}
                                             {@const ag = gradeOf(a.company_ticker)}
-                                            {#if i > 0}, {/if}<a href="{base}/company/{a.company_ticker}">{a.name}</a> <span class="alt-grade {getGradeClass(ag || '')}">{ag}</span>
+                                            <span class="alt"><a href="{base}/company/{a.company_ticker}">{a.name}</a> <span class="alt-grade {getGradeClass(ag || '')}">{ag}</span>{i < alts.length - 1 ? ',' : ''}</span>
                                         {/each}
                                     </p>
                                 {/if}
@@ -235,6 +242,20 @@
 </div>
 
 <style>
+    /* Light palette for shoppers, in line with shopping and rating sites */
+    :global(body.shop-light) {
+        --bg-primary: #faf8f5;
+        --bg-card: #ffffff;
+        --bg-input: #ffffff;
+        --border-color: #e2ddd6;
+        --text-primary: #1c1917;
+        --text-secondary: #44403c;
+        --text-muted: #78716c;
+        --accent: #0f766e;
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+    }
+    :global(body.shop-light a) { color: var(--accent); }
     .shop-page { max-width: 720px; margin: 0 auto; padding: 1rem 0 3rem; }
     .back-link { display: inline-block; margin-bottom: 1rem; text-decoration: none; color: var(--text-muted); }
     .back-link:hover { color: var(--accent); }
@@ -266,7 +287,7 @@
         cursor: pointer;
     }
     .chip:hover { border-color: var(--accent); }
-    .chip.active { background: var(--accent); border-color: var(--accent); color: var(--bg-primary); }
+    .chip.active { background: var(--accent); border-color: var(--accent); color: #ffffff; }
 
     .status { color: var(--text-muted); font-size: 0.85rem; min-height: 1.2em; margin: 1rem 0 0.25rem; }
     h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin: 1.25rem 0 0.4rem; }
@@ -292,7 +313,8 @@
     .ungraded { color: var(--text-muted); font-size: 0.85rem; flex-shrink: 0; }
 
     .alts { margin: -0.3rem 0 0.7rem 0.25rem; font-size: 0.85rem; color: var(--text-muted); }
-    .alts a { color: var(--text-secondary); }
+    .alts a { color: var(--accent); }
+    .alt + .alt { margin-left: 0.35em; }
     .alt-grade { font-size: 0.75rem; font-weight: 700; padding: 0 0.3rem; border-radius: 0.2rem; }
 
     .empty { color: var(--text-secondary); margin-top: 1rem; }
