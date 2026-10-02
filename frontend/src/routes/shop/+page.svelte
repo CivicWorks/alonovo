@@ -116,14 +116,15 @@
 </script>
 
 <svelte:head>
-    <title>Shop — Alonovo</title>
+    <title>Shopping for a Better World — Alonovo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
 </svelte:head>
 
 <div class="shop-page">
-    <a href="{base}/" class="back-link">&larr; All companies</a>
-
-    <h1>Who makes it?</h1>
-    <p class="subtitle">Search a brand, product or company to see the grade of the company behind it.</p>
+    <header class="masthead">
+        <h1>Shopping for a Better World</h1>
+        <a href="{base}/" class="home-link">Alonovo</a>
+    </header>
 
     <form class="search" role="search" onsubmit={(e) => e.preventDefault()}>
         <label for="shop-q" class="visually-hidden">Brand or product</label>
@@ -257,16 +258,41 @@
     }
     :global(body.shop-light a) { color: var(--accent); }
     .shop-page { max-width: 720px; margin: 0 auto; padding: 1rem 0 3rem; }
-    .back-link { display: inline-block; margin-bottom: 1rem; text-decoration: none; color: var(--text-muted); }
-    .back-link:hover { color: var(--accent); }
-    h1 { margin: 0 0 0.25rem; }
-    .subtitle { color: var(--text-secondary); margin: 0 0 1.25rem; }
+    /* Masthead after the 2000 edition cover: green band, white condensed caps */
+    .masthead {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        background: #2e8b4f;
+        margin: -1rem -1rem 0;
+        padding: 0.6rem 1rem;
+    }
+    .masthead h1 {
+        margin: 0;
+        font-family: "Oswald", "Arial Narrow", sans-serif;
+        font-weight: 700;
+        font-size: 1.35rem;
+        line-height: 1.1;
+        text-transform: uppercase;
+        letter-spacing: 0.01em;
+        color: #ffffff;
+    }
+    .masthead .home-link { color: #ffffff; font-size: 0.8rem; opacity: 0.9; flex-shrink: 0; }
 
+    .search {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        background: var(--bg-primary);
+        margin: 0 -1rem;
+        padding: 0.6rem 1rem 0;
+    }
     .search input {
         width: 100%;
         box-sizing: border-box;
-        font-size: 1.15rem;
-        padding: 0.85rem 1rem;
+        font-size: 1.05rem;
+        padding: 0.6rem 0.85rem;
         border-radius: 0.5rem;
         border: 1px solid var(--border-color);
         background: var(--bg-input);
@@ -275,7 +301,15 @@
     .search input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
     .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-    .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.9rem 0 0; }
+    .chips {
+        display: flex;
+        gap: 0.4rem;
+        margin: 0.6rem -1rem 0;
+        padding: 0 1rem 0.2rem;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+    .chips::-webkit-scrollbar { display: none; }
     .chip {
         font: inherit;
         font-size: 0.85rem;
@@ -285,6 +319,8 @@
         background: var(--bg-card);
         color: var(--text-secondary);
         cursor: pointer;
+        white-space: nowrap;
+        flex-shrink: 0;
     }
     .chip:hover { border-color: var(--accent); }
     .chip.active { background: var(--accent); border-color: var(--accent); color: #ffffff; }
