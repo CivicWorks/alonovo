@@ -34,6 +34,13 @@
                 if (c.ticker) grades[c.ticker] = computeOverallGrade(c, values);
             }
             gradeByTicker = grades;
+            const groupKey = new Map(values.map(v => [v.slug, v.display_group || v.slug]));
+            groupCount = new Set(groupKey.values()).size;
+            const gb: Record<string, number> = {};
+            for (const c of cs) {
+                if (c.ticker) gb[c.ticker] = new Set((c.value_snapshots || []).map(sn => groupKey.get(sn.value_slug)).filter(Boolean)).size;
+            }
+            groupsByTicker = gb;
             companies = cs.filter(c => c.ticker);
             brands = b;
             categories = cats;
@@ -70,48 +77,107 @@
     }
 
     let needle = $derived(query.trim().toLowerCase());
-    let words = $derived(needle.split(/\s+/).filter(Boolean).map(w => w.replace(/s$/, '')));
+    let words = $derived(needle.split(/\s+/).filter(Boolean));
 
-    function matches(...fields: string[]): boolean {
-        const text = fields.join(' ').toLowerCase().replace(/_/g, ' ');
-        return words.every(w => text.includes(w));
+    function tokens(text: string): string[] {
+        return text.toLowerCase().replace(/_/g, ' ').split(/[^a-z0-9'&]+/).filter(Boolean);
+    }
+
+    // How well one typed word matches a list of words: whole word (or plural) 3, word start 1
+    function wordScore(w: string, toks: string[]): number {
+        const stem = w.replace(/e?s$/, '');
+        let best = 0;
+        for (const t of toks) {
+            if (t === w || t === stem || t.replace(/e?s$/, '') === stem) return 3;
+            if (t.startsWith(w)) best = 1;
+        }
+        return best;
+    }
+
+    // Every typed word must match; the name counts most, then brand, then company and category
+    function score(name: string, brand: string, rest: string): number {
+        const n = tokens(name), b = tokens(brand), r = tokens(rest);
+        let total = 0;
+        for (const w of words) {
+            const s = Math.max(wordScore(w, n) * 3, wordScore(w, b) * 2, wordScore(w, r));
+            if (!s) return 0;
+            total += s;
+        }
+        if (name.toLowerCase() === needle || brand.toLowerCase() === needle) total += 20;
+        // Among equal matches, a name with fewer extra words is the closer match
+        return total + words.length / Math.max(n.length, 1);
+    }
+
+    function byScoreThenGrade<T>(items: T[], scoreOf: (x: T) => number, tickerOf: (x: T) => string, nameOf: (x: T) => string): T[] {
+        return items
+            .map(x => ({ x, s: scoreOf(x) }))
+            .filter(r => r.s > 0)
+            .sort((a, b) => b.s - a.s || rank(gradeOf(tickerOf(b.x))) - rank(gradeOf(tickerOf(a.x))) || nameOf(a.x).localeCompare(nameOf(b.x)))
+            .map(r => r.x);
     }
 
     let brandResults = $derived(
         needle && !category
-            ? brands
-                .filter(b => matches(b.brand_name, b.company_name))
-                .sort((a, b) => a.brand_name.localeCompare(b.brand_name))
+            ? byScoreThenGrade(brands, b => score(b.brand_name, b.brand_name, b.company_name), b => b.company_ticker, b => b.brand_name)
             : []
     );
 
     let companyResults = $derived(
         needle && !category
-            ? companies
-                .filter(c => matches(c.name))
-                .sort((a, b) => a.name.localeCompare(b.name))
+            ? byScoreThenGrade(companies, c => score(c.name, '', ''), c => c.ticker, c => c.name)
             : []
     );
 
     let productResults = $derived(
-        products
-            .filter(p => !category || p.category === category)
-            .filter(p => !needle || matches(p.name, p.brand_name, p.company_name, p.category))
-            .sort((a, b) => rank(gradeOf(b.company_ticker)) - rank(gradeOf(a.company_ticker)) || a.name.localeCompare(b.name))
+        needle
+            ? byScoreThenGrade(products.filter(p => !category || p.category === category),
+                p => score(p.name, p.brand_name, `${p.company_name} ${p.category}`), p => p.company_ticker, p => p.name)
+            : products
+                .filter(p => p.category === category)
+                .sort((a, b) => rank(gradeOf(b.company_ticker)) - rank(gradeOf(a.company_ticker)) || a.name.localeCompare(b.name))
     );
 
     let showProducts = $derived(Boolean(needle || category));
+    let total = $derived(companyResults.length + brandResults.length + productResults.length);
 
-    // Better-graded products in the same category, best first, other companies only
-    function alternatives(p: Product): Product[] {
-        const mine = rank(gradeOf(p.company_ticker));
-        if (!mine) return [];
-        const seen = new Set<string>();
-        return products
-            .filter(o => o.category === p.category && o.company_ticker !== p.company_ticker && rank(gradeOf(o.company_ticker)) > mine)
-            .sort((a, b) => rank(gradeOf(b.company_ticker)) - rank(gradeOf(a.company_ticker)))
-            .filter(o => !seen.has(o.company_ticker) && seen.add(o.company_ticker))
-            .slice(0, 2);
+    // Spelling suggestion when nothing matches: closest known word within one or two edits
+    let vocabulary = $derived(new Set(
+        [...products.flatMap(p => tokens(`${p.name} ${p.brand_name}`)), ...brands.flatMap(b => tokens(b.brand_name)), ...companies.flatMap(c => tokens(c.name))]
+            .filter(t => t.length > 2)
+    ));
+
+    function distance(a: string, b: string): number {
+        const d = Array.from({ length: a.length + 1 }, (_, i) => [i, ...Array(b.length).fill(0)]);
+        for (let j = 1; j <= b.length; j++) d[0][j] = j;
+        for (let i = 1; i <= a.length; i++)
+            for (let j = 1; j <= b.length; j++)
+                d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+        return d[a.length][b.length];
+    }
+
+    let suggestion = $derived.by(() => {
+        if (!needle || total > 0) return '';
+        const fixed = words.map(w => {
+            if (vocabulary.has(w)) return w;
+            const limit = w.length >= 7 ? 2 : 1;
+            let best = '', bestD = limit + 1;
+            for (const v of vocabulary) {
+                if (Math.abs(v.length - w.length) > limit) continue;
+                const dd = distance(w, v);
+                if (dd < bestD) { best = v; bestD = dd; }
+            }
+            return best || w;
+        }).join(' ');
+        return fixed !== needle ? fixed : '';
+    });
+
+    // How many of the issues Alonovo tracks this company's grade rests on
+    let groupCount = $state(0);
+    let groupsByTicker: Record<string, number> = $state({});
+
+    function coverage(ticker: string): string {
+        const n = groupsByTicker[ticker];
+        return n ? `graded on ${n} of ${groupCount} issues` : '';
     }
 </script>
 
@@ -128,7 +194,7 @@
 
     <form class="search" role="search" onsubmit={(e) => e.preventDefault()}>
         <label for="shop-q" class="visually-hidden">Brand or product</label>
-        <input id="shop-q" type="search" placeholder="Tide, Cheerios, Nike…" bind:value={query} autocomplete="off" />
+        <input id="shop-q" type="search" placeholder="Cheerios, Tide, peanut butter…" bind:value={query} autocomplete="off" />
     </form>
 
     {#if categories.length}
@@ -150,8 +216,7 @@
     {:else}
         <p class="status" aria-live="polite">
             {#if showProducts}
-                {@const n = companyResults.length + brandResults.length + productResults.length}
-                {n} {n === 1 ? 'result' : 'results'}
+                {total} {total === 1 ? 'result' : 'results'}
             {/if}
         </p>
 
@@ -165,7 +230,7 @@
                             <a class="row" href="{base}/company/{c.ticker}">
                                 <span class="main">
                                     <span class="name">{c.name}</span>
-                                    {#if c.sector}<span class="owner">{c.sector}</span>{/if}
+                                    <span class="owner">{c.sector}{coverage(c.ticker) ? `${c.sector ? ' · ' : ''}${coverage(c.ticker)}` : ''}</span>
                                 </span>
                                 {#if g}
                                     <span class="grade"><span class="grade-word">{GRADE_WORDS[g.charAt(0)]}</span><span class="grade-badge {getGradeClass(g)}">{g}</span></span>
@@ -189,7 +254,7 @@
                             <a class="row" href="{base}/company/{b.company_ticker}">
                                 <span class="main">
                                     <span class="name">{b.brand_name}</span>
-                                    <span class="owner">by {b.company_name}</span>
+                                    <span class="owner">by {b.company_name}{g && coverage(b.company_ticker) ? ` · ${coverage(b.company_ticker)}` : ''}</span>
                                 </span>
                                 {#if g}
                                     <span class="grade"><span class="grade-word">{GRADE_WORDS[g.charAt(0)]}</span><span class="grade-badge {getGradeClass(g)}">{g}</span></span>
@@ -210,12 +275,11 @@
                     <ul class="results">
                         {#each productResults as p}
                             {@const g = gradeOf(p.company_ticker)}
-                            {@const alts = alternatives(p)}
                             <li>
                                 <a class="row" href="{base}/company/{p.company_ticker}">
                                     <span class="main">
                                         <span class="name">{p.name}</span>
-                                        <span class="owner">{p.brand_name} &middot; {p.company_name}</span>
+                                        <span class="owner">{p.brand_name} &middot; {p.company_name}{g && coverage(p.company_ticker) ? ` · ${coverage(p.company_ticker)}` : ''}</span>
                                     </span>
                                     {#if g}
                                         <span class="grade"><span class="grade-word">{GRADE_WORDS[g.charAt(0)]}</span><span class="grade-badge {getGradeClass(g)}">{g}</span></span>
@@ -223,20 +287,15 @@
                                         <span class="ungraded">Not graded yet</span>
                                     {/if}
                                 </a>
-                                {#if alts.length}
-                                    <p class="alts">Better graded in {categoryLabel(p.category)}:
-                                        {#each alts as a, i}
-                                            {@const ag = gradeOf(a.company_ticker)}
-                                            <span class="alt"><a href="{base}/company/{a.company_ticker}">{a.name}</a> <span class="alt-grade {getGradeClass(ag || '')}">{ag}</span>{i < alts.length - 1 ? ',' : ''}</span>
-                                        {/each}
-                                    </p>
-                                {/if}
+
                             </li>
                         {/each}
                     </ul>
                 </section>
             {:else if !brandResults.length && !companyResults.length}
-                <p class="empty">No match for &ldquo;{query.trim()}&rdquo;. Alonovo covers {companies.length} companies, {brands.length} brands and {products.length} grocery and household products so far.</p>
+                <p class="empty">No match for &ldquo;{query.trim()}&rdquo;.
+                    {#if suggestion}Did you mean <button type="button" class="suggest" onclick={() => query = suggestion}>{suggestion}</button>?{/if}
+                </p>
             {/if}
         {/if}
     {/if}
@@ -313,7 +372,8 @@
     .chip {
         font: inherit;
         font-size: 0.85rem;
-        padding: 0.3rem 0.75rem;
+        min-height: 40px;
+        padding: 0.3rem 0.85rem;
         border-radius: 999px;
         border: 1px solid var(--border-color);
         background: var(--bg-card);
@@ -348,10 +408,7 @@
     .grade .grade-badge { font-size: 1.1rem; min-width: 44px; }
     .ungraded { color: var(--text-muted); font-size: 0.85rem; flex-shrink: 0; }
 
-    .alts { margin: -0.3rem 0 0.7rem 0.25rem; font-size: 0.85rem; color: var(--text-muted); }
-    .alts a { color: var(--accent); }
-    .alt + .alt { margin-left: 0.35em; }
-    .alt-grade { font-size: 0.75rem; font-weight: 700; padding: 0 0.3rem; border-radius: 0.2rem; }
+    .suggest { font: inherit; color: var(--accent); background: none; border: none; padding: 0; text-decoration: underline; cursor: pointer; }
 
     .empty { color: var(--text-secondary); margin-top: 1rem; }
     .error { color: #ef4444; }

@@ -1,6 +1,7 @@
 <script lang="ts">
     import { base } from '$app/paths';
     import { onMount } from 'svelte';
+    import { afterNavigate } from '$app/navigation';
     import { page } from '$app/stores';
     import { fetchCompany, fetchCompanyClaims, fetchValues } from '$lib/api';
     import { getGradeClass, computeOverallGrade, groupValues, groupSlug } from '$lib/utils';
@@ -15,6 +16,12 @@
     let values: ValueDef[] = $state([]);
     let loading = $state(true);
     let error = $state('');
+
+    // When the visitor came from the shop search, offer a way back to their results
+    let shopResultsHref = $state('');
+    afterNavigate(({ from }) => {
+        if (from?.url.pathname.endsWith('/shop')) shopResultsHref = from.url.pathname + from.url.search;
+    });
 
     onMount(async () => {
         try {
@@ -68,7 +75,11 @@
 </script>
 
 <header class="detail-banner">
-    <a href="{base}/" class="back-link">&larr; Alonovo</a>
+    {#if shopResultsHref}
+        <a href={shopResultsHref} class="back-link" onclick={(e) => { e.preventDefault(); history.back(); }}>&larr; Back to results</a>
+    {:else}
+        <a href="{base}/" class="back-link">&larr; Alonovo</a>
+    {/if}
     <div class="banner-right">
         <PersonalizationToggle />
         <UserMenu />
