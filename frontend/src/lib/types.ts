@@ -93,6 +93,8 @@ export interface Product {
     category: string;
     typical_price: string | null;
     barcode: string;
+    product_type: string | null;
+    image_url: string | null;
     company_name: string;
     company_ticker: string;
 }

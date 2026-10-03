@@ -8,6 +8,7 @@
     // Plain-word meaning of each letter, from the Alonovo grading table
     const GRADE_WORDS: Record<string, string> = { A: 'Very good', B: 'Good', C: 'Fair', D: 'Poor', F: 'Avoid' };
     const GRADE_RANK: Record<string, number> = { A: 5, B: 4, C: 3, D: 2, F: 1 };
+    const FINE_GRADES = ['F', 'D-', 'D', 'D+', 'C-', 'C', 'C+', 'B-', 'B', 'B+', 'A-', 'A', 'A+'];
 
     let products: Product[] = $state([]);
     let brands: BrandMapping[] = $state([]);
@@ -138,6 +139,30 @@
     );
 
     let showProducts = $derived(Boolean(needle || category));
+
+    // Position of a grade including its plus or minus; 0 when not graded
+    function fineRank(grade: string | null): number {
+        return grade ? FINE_GRADES.indexOf(grade) + 1 : 0;
+    }
+
+    // Same-type products from other companies with a better grade, for anything graded below A.
+    // For products not graded yet, only options graded B- or better.
+    function betterOptions(types: string[], ticker: string): Product[] {
+        const grade = gradeOf(ticker);
+        if (rank(grade) >= GRADE_RANK.A || !types.length) return [];
+        const floor = grade ? fineRank(grade) + 1 : fineRank('B-');
+        const seen = new Set<string>();
+        return products
+            .filter(o => o.product_type && types.includes(o.product_type) && o.company_ticker !== ticker && fineRank(gradeOf(o.company_ticker)) >= floor)
+            .sort((a, b) => fineRank(gradeOf(b.company_ticker)) - fineRank(gradeOf(a.company_ticker))
+                || (groupsByTicker[b.company_ticker] || 0) - (groupsByTicker[a.company_ticker] || 0))
+            .filter(o => !seen.has(o.company_ticker) && seen.add(o.company_ticker))
+            .slice(0, 2);
+    }
+
+    function brandTypes(b: BrandMapping): string[] {
+        return [...new Set(products.filter(p => p.brand_name === b.brand_name && p.product_type).map(p => p.product_type as string))];
+    }
     let total = $derived(companyResults.length + brandResults.length + productResults.length);
 
     // Spelling suggestion when nothing matches: closest known word within one or two edits
@@ -185,6 +210,24 @@
     <title>Shopping for a Better World — Alonovo</title>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
 </svelte:head>
+
+{#snippet better(options: Product[], grade: string | null)}
+    {#if options.length}
+        <ul class="better" aria-label={grade ? 'Better graded options' : 'Graded options'}>
+            {#each options as o}
+                {@const og = gradeOf(o.company_ticker)}
+                <li>
+                    <a href="{base}/company/{o.company_ticker}">
+                        <span class="better-label">{grade ? 'Better' : 'Try'}</span>
+                        <span class="better-name">{o.name}</span>
+                        <span class="better-owner">{o.company_name}</span>
+                        <span class="better-grade {getGradeClass(og || '')}">{og}</span>
+                    </a>
+                </li>
+            {/each}
+        </ul>
+    {/if}
+{/snippet}
 
 <div class="shop-page">
     <header class="masthead">
@@ -262,6 +305,7 @@
                                     <span class="ungraded">Not graded yet</span>
                                 {/if}
                             </a>
+                            {@render better(betterOptions(brandTypes(b), b.company_ticker), g)}
                         </li>
                     {/each}
                 </ul>
@@ -277,6 +321,7 @@
                             {@const g = gradeOf(p.company_ticker)}
                             <li>
                                 <a class="row" href="{base}/company/{p.company_ticker}">
+                                    <span class="thumb">{#if p.image_url}<img src={p.image_url} alt="" loading="lazy" />{/if}</span>
                                     <span class="main">
                                         <span class="name">{p.name}</span>
                                         <span class="owner">{p.brand_name} &middot; {p.company_name}{g && coverage(p.company_ticker) ? ` · ${coverage(p.company_ticker)}` : ''}</span>
@@ -287,7 +332,7 @@
                                         <span class="ungraded">Not graded yet</span>
                                     {/if}
                                 </a>
-
+                                {@render better(betterOptions(p.product_type ? [p.product_type] : [], p.company_ticker), g)}
                             </li>
                         {/each}
                     </ul>
@@ -389,13 +434,13 @@
     h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin: 1.25rem 0 0.4rem; }
 
     .results { list-style: none; margin: 0; padding: 0; }
-    .results li { border-top: 1px solid var(--border-color); }
+    .results > li { border-top: 1px solid var(--border-color); }
     .row {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 1rem;
-        padding: 0.7rem 0.25rem;
+        gap: 0.75rem;
+        padding: 0.6rem 0.25rem;
         text-decoration: none;
         color: inherit;
     }
@@ -403,10 +448,42 @@
     .main { display: flex; flex-direction: column; min-width: 0; }
     .name { font-weight: 600; }
     .owner { color: var(--text-muted); font-size: 0.85rem; }
-    .grade { display: flex; align-items: center; gap: 0.6rem; flex-shrink: 0; }
-    .grade-word { color: var(--text-secondary); font-size: 0.85rem; }
+    /* Letter on top, plain word underneath, so the product name keeps the width */
+    .grade { display: flex; flex-direction: column-reverse; align-items: center; gap: 0.1rem; flex-shrink: 0; min-width: 56px; }
+    .grade-word { color: var(--text-secondary); font-size: 0.72rem; white-space: nowrap; }
     .grade .grade-badge { font-size: 1.1rem; min-width: 44px; }
-    .ungraded { color: var(--text-muted); font-size: 0.85rem; flex-shrink: 0; }
+    .ungraded { color: var(--text-muted); font-size: 0.75rem; flex-shrink: 0; width: 56px; text-align: center; line-height: 1.2; }
+
+    .thumb {
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+        border-radius: 0.35rem;
+        background: #f1ede6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+    .thumb img { max-width: 100%; max-height: 100%; object-fit: contain; }
+    .main { flex: 1; }
+
+    .better { list-style: none; margin: -0.35rem 0 0.6rem; padding: 0 0.25rem; }
+    .row:has(.thumb) + .better { padding-left: calc(44px + 1rem); }
+    .better a {
+        display: flex;
+        align-items: baseline;
+        gap: 0.4rem;
+        padding: 0.2rem 0;
+        font-size: 0.85rem;
+        text-decoration: none;
+        color: var(--text-secondary);
+    }
+    .better a:hover .better-name { text-decoration: underline; }
+    .better-label { color: #2e8b4f; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; flex-shrink: 0; }
+    .better-name { color: var(--text-primary); font-weight: 600; }
+    .better-owner { color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+    .better-grade { margin-left: auto; font-size: 0.75rem; font-weight: 700; padding: 0 0.35rem; border-radius: 0.2rem; flex-shrink: 0; }
 
     .suggest { font: inherit; color: var(--accent); background: none; border: none; padding: 0; text-decoration: underline; cursor: pointer; }
 

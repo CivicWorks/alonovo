@@ -283,6 +283,11 @@ class Product(models.Model):
     typical_price = models.DecimalField(max_digits=8, decimal_places=2,
         null=True, blank=True, help_text="Typical retail price in USD")
     barcode = models.CharField(max_length=20, blank=True, db_index=True)
+    # Nullable so servers still running code without these fields can insert products
+    product_type = models.CharField(max_length=100, null=True, blank=True, db_index=True,
+        help_text="What the product is, for like-for-like swaps, e.g. potato chips, chicken breast")
+    image_url = models.URLField(max_length=500, null=True, blank=True,
+        help_text="Product photo, e.g. from Open Food Facts")
     source = models.CharField(max_length=100, blank=True,
         help_text="Where this product data came from")
     created_at = models.DateTimeField(auto_now_add=True)
