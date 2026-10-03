@@ -160,6 +160,10 @@
             .slice(0, 2);
     }
 
+    function brandImage(b: BrandMapping): string | null {
+        return products.find(p => p.brand_name === b.brand_name && p.image_url)?.image_url ?? null;
+    }
+
     function brandTypes(b: BrandMapping): string[] {
         return [...new Set(products.filter(p => p.brand_name === b.brand_name && p.product_type).map(p => p.product_type as string))];
     }
@@ -211,21 +215,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
 </svelte:head>
 
-{#snippet better(options: Product[], grade: string | null)}
+{#snippet gradeBlock(g: string | null)}
+    {#if g}
+        <span class="grade"><span class="grade-word">{GRADE_WORDS[g.charAt(0)]}</span><span class="grade-badge {getGradeClass(g)}">{g}</span></span>
+    {:else}
+        <span class="ungraded">Not graded yet</span>
+    {/if}
+{/snippet}
+
+<!-- One side of a side-by-side pair: what the shopper searched for, or the better option -->
+{#snippet card(ticker: string, image: string | null | undefined, name: string, sub: string, tag: string)}
+    {@const g = gradeOf(ticker)}
+    <a class="card" class:card-better={tag} href="{base}/company/{ticker}">
+        {#if tag}<span class="tag">{tag}</span>{/if}
+        <span class="card-top">
+            <span class="thumb">{#if image}<img src={image} alt="" loading="lazy" />{/if}</span>
+            {@render gradeBlock(g)}
+        </span>
+        <span class="name">{name}</span>
+        <span class="owner">{sub}{g && coverage(ticker) ? ` · ${coverage(ticker)}` : ''}</span>
+    </a>
+{/snippet}
+
+<!-- Row with the best better option beside it, or a plain row when there is none -->
+{#snippet result(ticker: string, image: string | null | undefined, name: string, sub: string, options: Product[], showThumb: boolean)}
+    {@const g = gradeOf(ticker)}
     {#if options.length}
-        <ul class="better" aria-label={grade ? 'Better graded options' : 'Graded options'}>
-            {#each options as o}
-                {@const og = gradeOf(o.company_ticker)}
-                <li>
-                    <a href="{base}/company/{o.company_ticker}">
-                        <span class="better-label">{grade ? 'Better' : 'Try'}</span>
-                        <span class="better-name">{o.name}</span>
-                        <span class="better-owner">{o.company_name}</span>
-                        <span class="better-grade {getGradeClass(og || '')}">{og}</span>
-                    </a>
-                </li>
-            {/each}
-        </ul>
+        {@const o = options[0]}
+        <div class="pair">
+            {@render card(ticker, image, name, sub, '')}
+            {@render card(o.company_ticker, o.image_url, o.name, o.company_name, g ? 'Better' : 'Try')}
+        </div>
+    {:else}
+        <a class="row" href="{base}/company/{ticker}">
+            {#if showThumb}<span class="thumb">{#if image}<img src={image} alt="" loading="lazy" />{/if}</span>{/if}
+            <span class="main">
+                <span class="name">{name}</span>
+                <span class="owner">{sub}{g && coverage(ticker) ? ` · ${coverage(ticker)}` : ''}</span>
+            </span>
+            {@render gradeBlock(g)}
+        </a>
     {/if}
 {/snippet}
 
@@ -292,20 +321,8 @@
                 <h2>Brands</h2>
                 <ul class="results">
                     {#each brandResults as b}
-                        {@const g = gradeOf(b.company_ticker)}
                         <li>
-                            <a class="row" href="{base}/company/{b.company_ticker}">
-                                <span class="main">
-                                    <span class="name">{b.brand_name}</span>
-                                    <span class="owner">by {b.company_name}{g && coverage(b.company_ticker) ? ` · ${coverage(b.company_ticker)}` : ''}</span>
-                                </span>
-                                {#if g}
-                                    <span class="grade"><span class="grade-word">{GRADE_WORDS[g.charAt(0)]}</span><span class="grade-badge {getGradeClass(g)}">{g}</span></span>
-                                {:else}
-                                    <span class="ungraded">Not graded yet</span>
-                                {/if}
-                            </a>
-                            {@render better(betterOptions(brandTypes(b), b.company_ticker), g)}
+                            {@render result(b.company_ticker, brandImage(b), b.brand_name, `by ${b.company_name}`, betterOptions(brandTypes(b), b.company_ticker), true)}
                         </li>
                     {/each}
                 </ul>
@@ -318,21 +335,8 @@
                     <h2>{category ? categoryLabel(category) : 'Products'}</h2>
                     <ul class="results">
                         {#each productResults as p}
-                            {@const g = gradeOf(p.company_ticker)}
                             <li>
-                                <a class="row" href="{base}/company/{p.company_ticker}">
-                                    <span class="thumb">{#if p.image_url}<img src={p.image_url} alt="" loading="lazy" />{/if}</span>
-                                    <span class="main">
-                                        <span class="name">{p.name}</span>
-                                        <span class="owner">{p.brand_name} &middot; {p.company_name}{g && coverage(p.company_ticker) ? ` · ${coverage(p.company_ticker)}` : ''}</span>
-                                    </span>
-                                    {#if g}
-                                        <span class="grade"><span class="grade-word">{GRADE_WORDS[g.charAt(0)]}</span><span class="grade-badge {getGradeClass(g)}">{g}</span></span>
-                                    {:else}
-                                        <span class="ungraded">Not graded yet</span>
-                                    {/if}
-                                </a>
-                                {@render better(betterOptions(p.product_type ? [p.product_type] : [], p.company_ticker), g)}
+                                {@render result(p.company_ticker, p.image_url, p.name, `${p.brand_name} · ${p.company_name}`, betterOptions(p.product_type ? [p.product_type] : [], p.company_ticker), true)}
                             </li>
                         {/each}
                     </ul>
@@ -468,22 +472,40 @@
     .thumb img { max-width: 100%; max-height: 100%; object-fit: contain; }
     .main { flex: 1; }
 
-    .better { list-style: none; margin: -0.35rem 0 0.6rem; padding: 0 0.25rem; }
-    .row:has(.thumb) + .better { padding-left: calc(44px + 1rem); }
-    .better a {
+    .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; padding: 0.6rem 0; }
+    .card {
+        position: relative;
         display: flex;
-        align-items: baseline;
-        gap: 0.4rem;
-        padding: 0.2rem 0;
-        font-size: 0.85rem;
+        flex-direction: column;
+        gap: 0.2rem;
+        padding: 0.55rem;
+        border: 1px solid var(--border-color);
+        border-radius: 0.5rem;
+        background: var(--bg-card);
         text-decoration: none;
-        color: var(--text-secondary);
+        color: inherit;
+        min-width: 0;
     }
-    .better a:hover .better-name { text-decoration: underline; }
-    .better-label { color: #2e8b4f; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; flex-shrink: 0; }
-    .better-name { color: var(--text-primary); font-weight: 600; }
-    .better-owner { color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
-    .better-grade { margin-left: auto; font-size: 0.75rem; font-weight: 700; padding: 0 0.35rem; border-radius: 0.2rem; flex-shrink: 0; }
+    .card:hover .name { color: var(--accent); }
+    .card-better { border-color: #2e8b4f; background: #f1f8f3; }
+    .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.4rem; margin-bottom: 0.15rem; }
+    .card .name { font-size: 0.92rem; line-height: 1.25; }
+    .card .owner { font-size: 0.78rem; line-height: 1.3; }
+    .card .grade { min-width: 0; }
+    .card .grade .grade-badge { font-size: 1rem; min-width: 40px; padding: 0.15rem 0.4rem; }
+    .tag {
+        position: absolute;
+        top: -0.55rem;
+        left: 0.5rem;
+        background: #2e8b4f;
+        color: #ffffff;
+        font-size: 0.68rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        padding: 0.05rem 0.4rem;
+        border-radius: 0.25rem;
+    }
 
     .suggest { font: inherit; color: var(--accent); background: none; border: none; padding: 0; text-decoration: underline; cursor: pointer; }
 
