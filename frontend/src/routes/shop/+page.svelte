@@ -169,6 +169,24 @@
     }
     let total = $derived(companyResults.length + brandResults.length + productResults.length);
 
+    // Landing page: the best-graded companies in each shopping category, one example product each.
+    // Companies graded on at least 2 issues come first; single-issue grades only fill empty slots,
+    // and every card shows how many issues its grade rests on.
+    const MIN_ISSUES_PREFERRED = 2;
+    const TOP_PER_CATEGORY = 3;
+    let topByCategory = $derived(categories.map(c => {
+        const seen = new Set<string>();
+        const picks = products
+            .filter(p => p.category === c.category && fineRank(gradeOf(p.company_ticker)) >= fineRank('B-'))
+            .sort((a, b) => Number((groupsByTicker[b.company_ticker] || 0) >= MIN_ISSUES_PREFERRED) - Number((groupsByTicker[a.company_ticker] || 0) >= MIN_ISSUES_PREFERRED)
+                || fineRank(gradeOf(b.company_ticker)) - fineRank(gradeOf(a.company_ticker))
+                || (groupsByTicker[b.company_ticker] || 0) - (groupsByTicker[a.company_ticker] || 0)
+                || Number(Boolean(b.image_url)) - Number(Boolean(a.image_url)))
+            .filter(p => !seen.has(p.company_ticker) && seen.add(p.company_ticker))
+            .slice(0, TOP_PER_CATEGORY);
+        return { category: c.category, picks };
+    }).filter(c => c.picks.length));
+
     // Spelling suggestion when nothing matches: closest known word within one or two edits
     let vocabulary = $derived(new Set(
         [...products.flatMap(p => tokens(`${p.name} ${p.brand_name}`)), ...brands.flatMap(b => tokens(b.brand_name)), ...companies.flatMap(c => tokens(c.name))]
@@ -346,6 +364,28 @@
                     {#if suggestion}Did you mean <button type="button" class="suggest" onclick={() => query = suggestion}>{suggestion}</button>?{/if}
                 </p>
             {/if}
+        {:else}
+            <section class="landing">
+                <h2>Top rated in each aisle</h2>
+                {#each topByCategory as c}
+                    <div class="aisle">
+                        <button type="button" class="aisle-name" onclick={() => category = c.category}>{categoryLabel(c.category)} &rsaquo;</button>
+                        <div class="aisle-picks">
+                            {#each c.picks as p}
+                                {@const g = gradeOf(p.company_ticker)}
+                                <a class="pick" href="{base}/company/{p.company_ticker}">
+                                    <span class="thumb">{#if p.image_url}<img src={p.image_url} alt="" loading="lazy" />{/if}</span>
+                                    <span class="pick-company">{p.company_name}</span>
+                                    <span class="pick-product">{p.name}</span>
+                                    <span class="pick-grade grade-badge {getGradeClass(g || '')}">{g}</span>
+                                    <span class="pick-cov">{groupsByTicker[p.company_ticker]} of {groupCount} issues</span>
+                                </a>
+                            {/each}
+                        </div>
+                    </div>
+                {/each}
+                <p class="landing-note">Companies graded B- or better; those graded on {MIN_ISSUES_PREFERRED} or more issues come first. Aisles with none are left out.</p>
+            </section>
         {/if}
     {/if}
 </div>
@@ -506,6 +546,29 @@
         padding: 0.05rem 0.4rem;
         border-radius: 0.25rem;
     }
+
+    .landing h2 { margin-top: 0.5rem; }
+    .aisle { padding: 0.5rem 0 0.75rem; border-top: 1px solid var(--border-color); }
+    .aisle-name { font: inherit; font-weight: 700; color: var(--accent); background: none; border: none; padding: 0.2rem 0; cursor: pointer; }
+    .aisle-picks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; margin-top: 0.35rem; }
+    .pick {
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
+        padding: 0.5rem;
+        border: 1px solid var(--border-color);
+        border-radius: 0.5rem;
+        background: var(--bg-card);
+        text-decoration: none;
+        color: inherit;
+        min-width: 0;
+    }
+    .pick:hover .pick-company { color: var(--accent); }
+    .pick-company { font-weight: 700; font-size: 0.85rem; line-height: 1.2; }
+    .pick-product { font-size: 0.75rem; color: var(--text-muted); line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .pick-grade { align-self: flex-start; font-size: 0.95rem; min-width: 36px; padding: 0.1rem 0.35rem; margin-top: 0.2rem; }
+    .pick-cov { font-size: 0.68rem; color: var(--text-muted); }
+    .landing-note { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem; }
 
     .suggest { font: inherit; color: var(--accent); background: none; border: none; padding: 0; text-decoration: underline; cursor: pointer; }
 
