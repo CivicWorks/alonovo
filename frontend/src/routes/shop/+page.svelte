@@ -117,26 +117,53 @@
             .map(r => r.x);
     }
 
-    let brandResults = $derived(
-        needle && !category
-            ? byScoreThenGrade(brands, b => score(b.brand_name, b.brand_name, b.company_name), b => b.company_ticker, b => b.brand_name)
-            : []
-    );
-
-    let companyResults = $derived(
-        needle && !category
-            ? byScoreThenGrade(companies, c => score(c.name, '', ''), c => c.ticker, c => c.name)
-            : []
-    );
+    // What the shopper typed decides what they see:
+    //   a kind of product or aisle ("cereal", "water") -> brands that make it, then the products
+    //   a brand or company name ("Tide", "PepsiCo")    -> that brand or company
+    //   anything else (a product)                      -> products only
+    let topicWords = $derived(new Set([...categories.map(c => c.category), ...products.map(p => p.product_type || '')].flatMap(tokens)));
+    let searchKind = $derived.by(() => {
+        if (!needle) return 'none';
+        if (words.every(w => wordScore(w, [...topicWords]) === 3)) return 'topic';
+        const same = (name: string) => tokens(name).join(' ') === tokens(needle).join(' ');
+        if (allBrands.some(b => same(b.brand_name)) || companies.some(c => same(c.name))) return 'maker';
+        return 'product';
+    });
 
     let productResults = $derived(
         needle
             ? byScoreThenGrade(products.filter(p => !category || p.category === category),
-                p => score(p.name, p.brand_name, `${p.company_name} ${p.category}`), p => p.company_ticker, p => p.name)
+                p => score(p.name, p.brand_name, `${p.company_name} ${p.category} ${p.product_type || ''}`), p => p.company_ticker, p => p.name)
             : products
                 .filter(p => p.category === category)
                 .sort((a, b) => rank(gradeOf(b.company_ticker)) - rank(gradeOf(a.company_ticker)) || a.name.localeCompare(b.name))
     );
+
+    // Brands from the brand list plus any brand that only appears on a product
+    let allBrands = $derived([...new Map([
+        ...products.map(p => [p.brand_name, { brand_name: p.brand_name, company_name: p.company_name, company_ticker: p.company_ticker, source: '', confidence: 1 } as BrandMapping] as const),
+        ...brands.map(b => [b.brand_name, b] as const),
+    ]).values()]);
+
+    let brandResults = $derived.by(() => {
+        if (!needle || category) return [];
+        if (searchKind === 'topic') {
+            const made = new Set(productResults.map(p => p.brand_name));
+            return allBrands.filter(b => made.has(b.brand_name))
+                .sort((x, y) => fineRank(gradeOf(y.company_ticker)) - fineRank(gradeOf(x.company_ticker)) || x.brand_name.localeCompare(y.brand_name));
+        }
+        if (searchKind === 'maker' || !productResults.length)
+            return byScoreThenGrade(allBrands, b => score(b.brand_name, b.brand_name, b.company_name), b => b.company_ticker, b => b.brand_name);
+        return [];
+    });
+
+    let companyResults = $derived(
+        needle && !category && (searchKind === 'maker' || (searchKind === 'product' && !productResults.length))
+            ? byScoreThenGrade(companies, c => score(c.name, '', ''), c => c.ticker, c => c.name)
+            : []
+    );
+
+    let shownProducts = $derived(searchKind === 'maker' ? [] : productResults);
 
     let showProducts = $derived(Boolean(needle || category));
 
@@ -167,8 +194,7 @@
     function brandTypes(b: BrandMapping): string[] {
         return [...new Set(products.filter(p => p.brand_name === b.brand_name && p.product_type).map(p => p.product_type as string))];
     }
-    // Products when any match; companies and brands only when no product does
-    let total = $derived(productResults.length || companyResults.length + brandResults.length);
+    let total = $derived(companyResults.length + brandResults.length + shownProducts.length);
 
     // Landing page: one row per shopping category, one example product per company.
     // A-graded companies first, then one graded B or C, then one graded D or F, so each aisle
@@ -346,7 +372,7 @@
             {/if}
         </p>
 
-        {#if companyResults.length && !productResults.length}
+        {#if companyResults.length}
             <section>
                 <h2>Companies</h2>
                 <ul class="results">
@@ -370,13 +396,13 @@
             </section>
         {/if}
 
-        {#if brandResults.length && !productResults.length}
+        {#if brandResults.length}
             <section>
                 <h2>Brands</h2>
                 <ul class="results">
                     {#each brandResults as b}
                         <li>
-                            {@render result(b.company_ticker, brandImage(b), '', b.brand_name, b.company_name, betterOptions(brandTypes(b), b.company_ticker))}
+                            {@render result(b.company_ticker, brandImage(b), '', b.brand_name, b.company_name, searchKind === 'topic' ? [] : betterOptions(brandTypes(b), b.company_ticker))}
                         </li>
                     {/each}
                 </ul>
@@ -384,11 +410,11 @@
         {/if}
 
         {#if showProducts}
-            {#if productResults.length}
+            {#if shownProducts.length}
                 <section>
                     <h2>{category ? categoryLabel(category) : 'Products'}</h2>
                     <ul class="results">
-                        {#each productResults as p}
+                        {#each shownProducts as p}
                             <li>
                                 {@render result(p.company_ticker, p.image_url, p.name, p.brand_name, p.company_name, betterOptions(p.product_type ? [p.product_type] : [], p.company_ticker))}
                             </li>
