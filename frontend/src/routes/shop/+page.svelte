@@ -68,6 +68,36 @@
         return gradeByTicker[ticker] ?? null;
     }
 
+    // A brand can have more than one owner (Cheerios: General Mills and Nestlé). Each brand is one
+    // card; its grade is the average of its owners' grades.
+    let ownersByBrand = $derived.by(() => {
+        const m = new Map<string, string[]>();
+        const add = (brand: string, ticker: string) => {
+            if (!ticker) return;
+            const list = m.get(brand) || [];
+            if (!list.includes(ticker)) list.push(ticker);
+            m.set(brand, list);
+        };
+        for (const p of products) add(p.brand_name, p.company_ticker);
+        for (const b of brands) add(b.brand_name, b.company_ticker);
+        return m;
+    });
+    let nameByTicker = $derived(new Map(companies.map(c => [c.ticker, c.name])));
+
+    function brandGrade(brand: string): string | null {
+        const ranks = (ownersByBrand.get(brand) || []).map(t => fineRank(gradeOf(t))).filter(r => r > 0);
+        if (!ranks.length) return null;
+        return FINE_GRADES[Math.round(ranks.reduce((a, b) => a + b, 0) / ranks.length) - 1];
+    }
+
+    function ownerLine(brand: string): string {
+        const owners = ownersByBrand.get(brand) || [];
+        const names = owners.map(t => nameByTicker.get(t) || t).join(' · ');
+        if (owners.length > 1) return names;
+        const cov = owners.length ? coverage(owners[0]) : '';
+        return cov ? `${names} · ${cov}` : names;
+    }
+
     function rank(grade: string | null): number {
         return grade ? GRADE_RANK[grade.charAt(0)] ?? 0 : 0;
     }
@@ -109,11 +139,11 @@
         return total + words.length / Math.max(n.length, 1);
     }
 
-    function byScoreThenGrade<T>(items: T[], scoreOf: (x: T) => number, tickerOf: (x: T) => string, nameOf: (x: T) => string): T[] {
+    function byScoreThenGrade<T>(items: T[], scoreOf: (x: T) => number, gradeOfItem: (x: T) => string | null, nameOf: (x: T) => string): T[] {
         return items
             .map(x => ({ x, s: scoreOf(x) }))
             .filter(r => r.s > 0)
-            .sort((a, b) => b.s - a.s || rank(gradeOf(tickerOf(b.x))) - rank(gradeOf(tickerOf(a.x))) || nameOf(a.x).localeCompare(nameOf(b.x)))
+            .sort((a, b) => b.s - a.s || fineRank(gradeOfItem(b.x)) - fineRank(gradeOfItem(a.x)) || nameOf(a.x).localeCompare(nameOf(b.x)))
             .map(r => r.x);
     }
 
@@ -133,10 +163,10 @@
     let productResults = $derived(
         needle
             ? byScoreThenGrade(products.filter(p => !category || p.category === category),
-                p => score(p.name, p.brand_name, `${p.company_name} ${p.category} ${p.product_type || ''}`), p => p.company_ticker, p => p.name)
+                p => score(p.name, p.brand_name, `${p.company_name} ${p.category} ${p.product_type || ''}`), p => brandGrade(p.brand_name), p => p.name)
             : products
                 .filter(p => p.category === category)
-                .sort((a, b) => rank(gradeOf(b.company_ticker)) - rank(gradeOf(a.company_ticker)) || a.name.localeCompare(b.name))
+                .sort((a, b) => fineRank(brandGrade(b.brand_name)) - fineRank(brandGrade(a.brand_name)) || a.name.localeCompare(b.name))
     );
 
     // Brands from the brand list plus any brand that only appears on a product
@@ -150,16 +180,16 @@
         if (searchKind === 'topic') {
             const made = new Set(productResults.map(p => p.brand_name));
             return allBrands.filter(b => made.has(b.brand_name))
-                .sort((x, y) => fineRank(gradeOf(y.company_ticker)) - fineRank(gradeOf(x.company_ticker)) || x.brand_name.localeCompare(y.brand_name));
+                .sort((x, y) => fineRank(brandGrade(y.brand_name)) - fineRank(brandGrade(x.brand_name)) || x.brand_name.localeCompare(y.brand_name));
         }
         if (searchKind === 'maker' || !productResults.length)
-            return byScoreThenGrade(allBrands, b => score(b.brand_name, b.brand_name, b.company_name), b => b.company_ticker, b => b.brand_name);
+            return byScoreThenGrade(allBrands, b => score(b.brand_name, b.brand_name, (ownersByBrand.get(b.brand_name) || []).map(t => nameByTicker.get(t) || '').join(' ')), b => brandGrade(b.brand_name), b => b.brand_name);
         return [];
     });
 
     let companyResults = $derived(
         needle && !category && (searchKind === 'maker' || (searchKind === 'product' && !productResults.length))
-            ? byScoreThenGrade(companies, c => score(c.name, '', ''), c => c.ticker, c => c.name)
+            ? byScoreThenGrade(companies, c => score(c.name, '', ''), c => gradeOf(c.ticker), c => c.name)
             : []
     );
 
@@ -174,14 +204,15 @@
 
     // Same-type products from other companies with a better grade, for anything graded below A.
     // For products not graded yet, only options graded B- or better.
-    function betterOptions(types: string[], ticker: string): Product[] {
-        const grade = gradeOf(ticker);
+    function betterOptions(types: string[], brand: string): Product[] {
+        const grade = brandGrade(brand);
+        const owners = ownersByBrand.get(brand) || [];
         if (rank(grade) >= GRADE_RANK.A || !types.length) return [];
         const floor = grade ? fineRank(grade) + 1 : fineRank('B-');
         const seen = new Set<string>();
         return products
-            .filter(o => o.product_type && types.includes(o.product_type) && o.company_ticker !== ticker && fineRank(gradeOf(o.company_ticker)) >= floor)
-            .sort((a, b) => fineRank(gradeOf(b.company_ticker)) - fineRank(gradeOf(a.company_ticker))
+            .filter(o => o.product_type && types.includes(o.product_type) && !owners.includes(o.company_ticker) && fineRank(brandGrade(o.brand_name)) >= floor)
+            .sort((a, b) => fineRank(brandGrade(b.brand_name)) - fineRank(brandGrade(a.brand_name))
                 || (groupsByTicker[b.company_ticker] || 0) - (groupsByTicker[a.company_ticker] || 0))
             .filter(o => !seen.has(o.company_ticker) && seen.add(o.company_ticker))
             .slice(0, 2);
@@ -206,16 +237,16 @@
     const MAX_A_PER_CATEGORY = 4;
 
     function bandOf(p: Product): string {
-        const l = (gradeOf(p.company_ticker) as string).charAt(0);
+        const l = (brandGrade(p.brand_name) as string).charAt(0);
         return l === 'A' ? 'A' : 'BC'.includes(l) ? 'BC' : 'DF';
     }
 
     function spreadPicks(items: Product[]): Product[] {
         const seen = new Set<string>();
         const ranked = items
-            .filter(p => gradeOf(p.company_ticker))
+            .filter(p => brandGrade(p.brand_name))
             .sort((a, b) => Number((groupsByTicker[b.company_ticker] || 0) >= MIN_ISSUES_PREFERRED) - Number((groupsByTicker[a.company_ticker] || 0) >= MIN_ISSUES_PREFERRED)
-                || fineRank(gradeOf(b.company_ticker)) - fineRank(gradeOf(a.company_ticker))
+                || fineRank(brandGrade(b.brand_name)) - fineRank(brandGrade(a.brand_name))
                 || (groupsByTicker[b.company_ticker] || 0) - (groupsByTicker[a.company_ticker] || 0)
                 || Number(Boolean(b.image_url)) - Number(Boolean(a.image_url)))
             .filter(p => !seen.has(p.company_ticker) && seen.add(p.company_ticker));
@@ -294,9 +325,9 @@
     {/if}
 {/snippet}
 
-<!-- Brand with its owner's grade right beside it -->
-{#snippet brandLine(brand: string, ticker: string)}
-    {@const g = gradeOf(ticker)}
+<!-- Brand with its grade right beside it -->
+{#snippet brandLine(brand: string)}
+    {@const g = brandGrade(brand)}
     <span class="brand-line">
         <span class="brand">{brand}</span>
         {#if g}
@@ -308,31 +339,32 @@
 {/snippet}
 
 <!-- One side of a side-by-side pair: what the shopper searched for, or the better option -->
-{#snippet card(ticker: string, image: string | null | undefined, name: string, brand: string, company: string, tag: string)}
+{#snippet card(ticker: string, image: string | null | undefined, name: string, brand: string, tag: string)}
     <a class="card" class:card-better={tag} href="{base}/company/{ticker}">
         {#if tag}<span class="tag">{tag}</span>{/if}
         <span class="thumb">{#if image}<img src={image} alt="" loading="lazy" />{/if}</span>
         {#if name}<span class="name">{name}</span>{/if}
-        {@render brandLine(brand, ticker)}
-        <span class="owner">{company}{coverage(ticker) ? ` · ${coverage(ticker)}` : ''}</span>
+        {@render brandLine(brand)}
+        <span class="owner">{ownerLine(brand)}</span>
     </a>
 {/snippet}
 
 <!-- Row with the best better option beside it, or a plain row when there is none -->
-{#snippet result(ticker: string, image: string | null | undefined, name: string, brand: string, company: string, options: Product[])}
+{#snippet result(ticker: string, image: string | null | undefined, name: string, brand: string, options: Product[])}
     {#if options.length}
         {@const o = options[0]}
         <div class="pair">
-            {@render card(ticker, image, name, brand, company, '')}
-            {@render card(o.company_ticker, o.image_url, o.name, o.brand_name, o.company_name, gradeOf(ticker) ? 'Better' : 'Try')}
+            {@render card(ticker, image, name, brand, '')}
+            {@render card(o.company_ticker, o.image_url, o.name, o.brand_name, brandGrade(brand) ? 'Better' : 'Try')}
         </div>
     {:else}
         <a class="row" href="{base}/company/{ticker}">
             <span class="thumb">{#if image}<img src={image} alt="" loading="lazy" />{/if}</span>
             <span class="main">
                 {#if name}<span class="name">{name}</span>{/if}
-                {@render brandLine(brand, ticker)}
-                <span class="owner">{company}{coverage(ticker) ? ` · ${coverage(ticker)}` : ''}</span>
+                {@render brandLine(brand)}
+                <span class="owner">{ownerLine(brand)}</span>
+                {#if brandGrade(brand) && rank(brandGrade(brand)) < GRADE_RANK.A}<span class="none-better">No better-graded swap in our list yet</span>{/if}
             </span>
         </a>
     {/if}
@@ -402,7 +434,7 @@
                 <ul class="results">
                     {#each brandResults as b}
                         <li>
-                            {@render result(b.company_ticker, brandImage(b), '', b.brand_name, b.company_name, searchKind === 'topic' ? [] : betterOptions(brandTypes(b), b.company_ticker))}
+                            {@render result(b.company_ticker, brandImage(b), '', b.brand_name, searchKind === 'topic' ? [] : betterOptions(brandTypes(b), b.brand_name))}
                         </li>
                     {/each}
                 </ul>
@@ -416,7 +448,7 @@
                     <ul class="results">
                         {#each shownProducts as p}
                             <li>
-                                {@render result(p.company_ticker, p.image_url, p.name, p.brand_name, p.company_name, betterOptions(p.product_type ? [p.product_type] : [], p.company_ticker))}
+                                {@render result(p.company_ticker, p.image_url, p.name, p.brand_name, betterOptions(p.product_type ? [p.product_type] : [], p.brand_name))}
                             </li>
                         {/each}
                     </ul>
@@ -435,10 +467,10 @@
                         {#if c.type}<span class="aisle-type">{categoryLabel(c.type)}</span>{/if}
                         <div class="aisle-picks">
                             {#each c.picks as p}
-                                {@const g = gradeOf(p.company_ticker)}
+                                {@const g = brandGrade(p.brand_name)}
                                 <a class="pick" href="{base}/company/{p.company_ticker}">
                                     <span class="thumb">{#if p.image_url}<img src={p.image_url} alt="" loading="lazy" />{/if}</span>
-                                    <span class="pick-company">{p.company_name}</span>
+                                    <span class="pick-company">{(ownersByBrand.get(p.brand_name) || []).map(t => nameByTicker.get(t) || t).join(' · ')}</span>
                                     <span class="pick-product">{p.name}</span>
                                     <span class="pick-grade grade-badge {getGradeClass(g || '')}">{g}</span>
                                     <span class="pick-cov">{groupsByTicker[p.company_ticker]} of {groupCount} issues</span>
@@ -562,6 +594,7 @@
     .grade .grade-badge { font-size: 1.1rem; min-width: 44px; }
     .ungraded { color: var(--text-muted); font-size: 0.75rem; flex-shrink: 0; width: 56px; text-align: center; line-height: 1.2; }
 
+    .none-better { font-size: 0.78rem; color: var(--text-muted); font-style: italic; }
     .brand-line { display: flex; align-items: center; gap: 0.35rem; flex-wrap: wrap; margin-top: 0.1rem; }
     .brand { font-size: 0.85rem; color: var(--text-secondary); }
     .brand-line .grade-badge { font-size: 0.9rem; min-width: 34px; padding: 0.05rem 0.35rem; }
