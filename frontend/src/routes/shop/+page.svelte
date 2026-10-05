@@ -173,24 +173,44 @@
     // A-graded companies first, then one graded B or C, then one graded D or F, so each aisle
     // shows the spread. Within each, companies graded on at least 2 issues come first, and every
     // card shows how many issues its grade rests on.
+    // The row compares one kind of product (water with water) when a kind has two or more
+    // graded companies; the kind covering the most grade bands, then the most companies, wins.
     const MIN_ISSUES_PREFERRED = 2;
     const MAX_A_PER_CATEGORY = 4;
-    let topByCategory = $derived(categories.map(c => {
+
+    function bandOf(p: Product): string {
+        const l = (gradeOf(p.company_ticker) as string).charAt(0);
+        return l === 'A' ? 'A' : 'BC'.includes(l) ? 'BC' : 'DF';
+    }
+
+    function spreadPicks(items: Product[]): Product[] {
         const seen = new Set<string>();
-        const ranked = products
-            .filter(p => p.category === c.category && gradeOf(p.company_ticker))
+        const ranked = items
+            .filter(p => gradeOf(p.company_ticker))
             .sort((a, b) => Number((groupsByTicker[b.company_ticker] || 0) >= MIN_ISSUES_PREFERRED) - Number((groupsByTicker[a.company_ticker] || 0) >= MIN_ISSUES_PREFERRED)
                 || fineRank(gradeOf(b.company_ticker)) - fineRank(gradeOf(a.company_ticker))
                 || (groupsByTicker[b.company_ticker] || 0) - (groupsByTicker[a.company_ticker] || 0)
                 || Number(Boolean(b.image_url)) - Number(Boolean(a.image_url)))
             .filter(p => !seen.has(p.company_ticker) && seen.add(p.company_ticker));
-        const letter = (p: Product) => (gradeOf(p.company_ticker) as string).charAt(0);
-        const picks = [
-            ...ranked.filter(p => letter(p) === 'A').slice(0, MAX_A_PER_CATEGORY),
-            ...ranked.filter(p => 'BC'.includes(letter(p))).slice(0, 1),
-            ...ranked.filter(p => 'DF'.includes(letter(p))).slice(0, 1),
+        return [
+            ...ranked.filter(p => bandOf(p) === 'A').slice(0, MAX_A_PER_CATEGORY),
+            ...ranked.filter(p => bandOf(p) === 'BC').slice(0, 1),
+            ...ranked.filter(p => bandOf(p) === 'DF').slice(0, 1),
         ];
-        return { category: c.category, picks };
+    }
+
+    let topByCategory = $derived(categories.map(c => {
+        const inAisle = products.filter(p => p.category === c.category);
+        const types = [...new Set(inAisle.map(p => p.product_type).filter(Boolean))] as string[];
+        const best = types
+            .map(t => ({ type: t, picks: spreadPicks(inAisle.filter(p => p.product_type === t)) }))
+            .filter(x => x.picks.length >= 2)
+            .sort((x, y) => new Set(y.picks.map(bandOf)).size - new Set(x.picks.map(bandOf)).size
+                || y.picks.length - x.picks.length
+                || x.type.localeCompare(y.type))[0];
+        return best
+            ? { category: c.category, type: best.type, picks: best.picks }
+            : { category: c.category, type: '', picks: spreadPicks(inAisle) };
     }).filter(c => c.picks.length));
 
     // Spelling suggestion when nothing matches: closest known word within one or two edits
@@ -376,6 +396,7 @@
                 {#each topByCategory as c}
                     <div class="aisle">
                         <button type="button" class="aisle-name" onclick={() => category = c.category}>{categoryLabel(c.category)} &rsaquo;</button>
+                        {#if c.type}<span class="aisle-type">{categoryLabel(c.type)}</span>{/if}
                         <div class="aisle-picks">
                             {#each c.picks as p}
                                 {@const g = gradeOf(p.company_ticker)}
@@ -390,7 +411,7 @@
                         </div>
                     </div>
                 {/each}
-                <p class="landing-note">Up to {MAX_A_PER_CATEGORY} companies graded A, then one graded B or C, then one graded D or F. Companies graded on {MIN_ISSUES_PREFERRED} or more issues come first.</p>
+                <p class="landing-note">Each row compares one kind of product where possible: up to {MAX_A_PER_CATEGORY} companies graded A, then one graded B or C, then one graded D or F. Companies graded on {MIN_ISSUES_PREFERRED} or more issues come first.</p>
             </section>
         {/if}
     {/if}
@@ -557,6 +578,7 @@
     .landing h2 { margin-top: 0.5rem; }
     .aisle { padding: 0.5rem 0 0.75rem; border-top: 1px solid var(--border-color); }
     .aisle-name { font: inherit; font-weight: 700; color: var(--accent); background: none; border: none; padding: 0.2rem 0; cursor: pointer; }
+    .aisle-type { color: var(--text-muted); font-size: 0.85rem; margin-left: 0.4rem; }
     .aisle-picks { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.5rem; margin-top: 0.35rem; }
     .pick {
         display: flex;
