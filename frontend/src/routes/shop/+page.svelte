@@ -169,21 +169,27 @@
     }
     let total = $derived(companyResults.length + brandResults.length + productResults.length);
 
-    // Landing page: the best-graded companies in each shopping category, one example product each.
-    // Companies graded on at least 2 issues come first; single-issue grades only fill empty slots,
-    // and every card shows how many issues its grade rests on.
+    // Landing page: one row per shopping category, one example product per company.
+    // A-graded companies first, then one graded B or C, then one graded D or F, so each aisle
+    // shows the spread. Within each, companies graded on at least 2 issues come first, and every
+    // card shows how many issues its grade rests on.
     const MIN_ISSUES_PREFERRED = 2;
-    const TOP_PER_CATEGORY = 3;
+    const MAX_A_PER_CATEGORY = 4;
     let topByCategory = $derived(categories.map(c => {
         const seen = new Set<string>();
-        const picks = products
-            .filter(p => p.category === c.category && fineRank(gradeOf(p.company_ticker)) >= fineRank('B-'))
+        const ranked = products
+            .filter(p => p.category === c.category && gradeOf(p.company_ticker))
             .sort((a, b) => Number((groupsByTicker[b.company_ticker] || 0) >= MIN_ISSUES_PREFERRED) - Number((groupsByTicker[a.company_ticker] || 0) >= MIN_ISSUES_PREFERRED)
                 || fineRank(gradeOf(b.company_ticker)) - fineRank(gradeOf(a.company_ticker))
                 || (groupsByTicker[b.company_ticker] || 0) - (groupsByTicker[a.company_ticker] || 0)
                 || Number(Boolean(b.image_url)) - Number(Boolean(a.image_url)))
-            .filter(p => !seen.has(p.company_ticker) && seen.add(p.company_ticker))
-            .slice(0, TOP_PER_CATEGORY);
+            .filter(p => !seen.has(p.company_ticker) && seen.add(p.company_ticker));
+        const letter = (p: Product) => (gradeOf(p.company_ticker) as string).charAt(0);
+        const picks = [
+            ...ranked.filter(p => letter(p) === 'A').slice(0, MAX_A_PER_CATEGORY),
+            ...ranked.filter(p => 'BC'.includes(letter(p))).slice(0, 1),
+            ...ranked.filter(p => 'DF'.includes(letter(p))).slice(0, 1),
+        ];
         return { category: c.category, picks };
     }).filter(c => c.picks.length));
 
@@ -366,7 +372,7 @@
             {/if}
         {:else}
             <section class="landing">
-                <h2>Top rated in each aisle</h2>
+                <h2>Each aisle, best grades first</h2>
                 {#each topByCategory as c}
                     <div class="aisle">
                         <button type="button" class="aisle-name" onclick={() => category = c.category}>{categoryLabel(c.category)} &rsaquo;</button>
@@ -384,7 +390,7 @@
                         </div>
                     </div>
                 {/each}
-                <p class="landing-note">Companies graded B- or better; those graded on {MIN_ISSUES_PREFERRED} or more issues come first. Aisles with none are left out.</p>
+                <p class="landing-note">Up to {MAX_A_PER_CATEGORY} companies graded A, then one graded B or C, then one graded D or F. Companies graded on {MIN_ISSUES_PREFERRED} or more issues come first.</p>
             </section>
         {/if}
     {/if}
@@ -551,7 +557,7 @@
     .landing h2 { margin-top: 0.5rem; }
     .aisle { padding: 0.5rem 0 0.75rem; border-top: 1px solid var(--border-color); }
     .aisle-name { font: inherit; font-weight: 700; color: var(--accent); background: none; border: none; padding: 0.2rem 0; cursor: pointer; }
-    .aisle-picks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; margin-top: 0.35rem; }
+    .aisle-picks { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.5rem; margin-top: 0.35rem; }
     .pick {
         display: flex;
         flex-direction: column;
@@ -571,11 +577,15 @@
     .pick-cov { font-size: 0.68rem; color: var(--text-muted); }
     .landing-note { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem; }
 
+    /* Phones: each aisle is one row that scrolls sideways */
+    @media (max-width: 599px) {
+        .aisle-picks { display: flex; overflow-x: auto; margin: 0.35rem -1rem 0; padding: 0 1rem 0.25rem; scroll-snap-type: x proximity; scroll-padding-inline: 1rem; }
+        .pick { flex: 0 0 140px; scroll-snap-align: start; }
+    }
+
     /* Wide screens: results and aisles side by side in two columns */
     @media (min-width: 900px) {
         .results { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2rem; }
-        .landing { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2rem; }
-        .landing h2, .landing-note { grid-column: 1 / -1; }
     }
 
     .suggest { font: inherit; color: var(--accent); background: none; border: none; padding: 0; text-decoration: underline; cursor: pointer; }
