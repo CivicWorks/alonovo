@@ -229,6 +229,9 @@ class BrandMapping(models.Model):
         help_text="Where this mapping came from: manual, wikipedia, open_food_facts")
     confidence = models.FloatField(default=1.0,
         help_text="0-1, how confident we are in this mapping")
+    # Nullable so servers still running code without this field can insert mappings
+    role = models.CharField(max_length=100, null=True, blank=True,
+        help_text="What this company does for the brand, e.g. manufacturer, marketer, owner outside North America")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -290,6 +293,9 @@ class Product(models.Model):
         help_text="Product photo, e.g. from Open Food Facts")
     source = models.CharField(max_length=100, blank=True,
         help_text="Where this product data came from")
+    attributes = models.JSONField(null=True, blank=True,
+        help_text="Every record found for this product, kept whole and keyed by source, "
+                  "e.g. {'usda_fdc': {...}, 'open_food_facts': {...}}")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
