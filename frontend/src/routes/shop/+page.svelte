@@ -405,7 +405,8 @@
         color: var(--text-primary);
     }
     :global(body.shop-light a) { color: var(--accent); }
-    .shop-page { max-width: 720px; margin: 0 auto; padding: 1rem 0 3rem; }
+    .shop-page { max-width: 1120px; margin: 0 auto; padding: 1rem 0 3rem; }
+    .search input { max-width: 720px; }
     /* Masthead after the 2000 edition cover: green band, white condensed caps */
     .masthead {
         display: flex;
@@ -569,6 +570,13 @@
     .pick-grade { align-self: flex-start; font-size: 0.95rem; min-width: 36px; padding: 0.1rem 0.35rem; margin-top: 0.2rem; }
     .pick-cov { font-size: 0.68rem; color: var(--text-muted); }
     .landing-note { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem; }
+
+    /* Wide screens: results and aisles side by side in two columns */
+    @media (min-width: 900px) {
+        .results { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2rem; }
+        .landing { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2rem; }
+        .landing h2, .landing-note { grid-column: 1 / -1; }
+    }
 
     .suggest { font: inherit; color: var(--accent); background: none; border: none; padding: 0; text-decoration: underline; cursor: pointer; }
 
