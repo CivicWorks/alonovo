@@ -1,0 +1,1892 @@
+{
+ "MMM": {
+  "name": "3M Company",
+  "qid": "Q159433",
+  "how": "ticker+name"
+ },
+ "ABT": {
+  "name": "Abbott Laboratories",
+  "qid": "Q306764",
+  "how": "ticker+name"
+ },
+ "ABBV": {
+  "name": "AbbVie Inc.",
+  "qid": "Q14662364",
+  "how": "ticker+name"
+ },
+ "ACN": {
+  "name": "Accenture",
+  "qid": "Q338825",
+  "how": "ticker+name"
+ },
+ "ATVI": {
+  "name": "Activision Blizzard",
+  "qid": "Q344341",
+  "how": "ticker+name"
+ },
+ "ADS.DE": {
+  "name": "Adidas",
+  "qid": "Q3895",
+  "how": "name search"
+ },
+ "ADBE": {
+  "name": "Adobe Inc.",
+  "qid": "Q11463",
+  "how": "ticker+name"
+ },
+ "AAP": {
+  "name": "Advance Auto Parts",
+  "qid": "Q4686051",
+  "how": "ticker+name"
+ },
+ "AES": {
+  "name": "AES Corp",
+  "qid": "Q291508",
+  "how": "ticker+name"
+ },
+ "AFL": {
+  "name": "Aflac",
+  "qid": "Q26311",
+  "how": "ticker+name"
+ },
+ "A": {
+  "name": "Agilent Technologies",
+  "qid": "Q393762",
+  "how": "ticker+name"
+ },
+ "APD": {
+  "name": "Air Products & Chemicals",
+  "qid": "Q407744",
+  "how": "ticker+name"
+ },
+ "AKAM": {
+  "name": "Akamai Technologies",
+  "qid": "Q415598",
+  "how": "ticker+name"
+ },
+ "ALB": {
+  "name": "Albemarle Corporation",
+  "qid": "Q127074",
+  "how": "ticker+name"
+ },
+ "ARE": {
+  "name": "Alexandria Real Estate Equities",
+  "qid": "Q48739877",
+  "how": "ticker+name"
+ },
+ "ALXN": {
+  "name": "Alexion Pharmaceuticals",
+  "qid": "Q204727",
+  "how": "ticker+name"
+ },
+ "ALGN": {
+  "name": "Align Technology",
+  "qid": "Q30272258",
+  "how": "ticker+name"
+ },
+ "ALLE": {
+  "name": "Allegion",
+  "qid": "Q16738121",
+  "how": "ticker+name"
+ },
+ "LNT": {
+  "name": "Alliant Energy",
+  "qid": "Q4732492",
+  "how": "ticker+name"
+ },
+ "ALL": {
+  "name": "Allstate Corp",
+  "qid": "Q2645636",
+  "how": "ticker+name"
+ },
+ "GOOGL": {
+  "name": "Alphabet (Google)",
+  "qid": "Q20800404",
+  "how": "ticker+name"
+ },
+ "MO": {
+  "name": "Altria Group Inc",
+  "qid": "Q445007",
+  "how": "ticker+name"
+ },
+ "AMZN": {
+  "name": "Amazon",
+  "qid": "Q3884",
+  "how": "ticker+name"
+ },
+ "AEE": {
+  "name": "Ameren Corp",
+  "qid": "Q462984",
+  "how": "ticker+name"
+ },
+ "AAL": {
+  "name": "American Airlines Group",
+  "qid": "Q32396",
+  "how": "ticker+name"
+ },
+ "AEP": {
+  "name": "American Electric Power",
+  "qid": "Q464092",
+  "how": "ticker+name"
+ },
+ "AXP": {
+  "name": "American Express",
+  "qid": "Q194360",
+  "how": "ticker+name"
+ },
+ "AIG": {
+  "name": "American International Group",
+  "qid": "Q212235",
+  "how": "ticker+name"
+ },
+ "AMT": {
+  "name": "American Tower Corp.",
+  "qid": "Q4745263",
+  "how": "ticker+name"
+ },
+ "AWK": {
+  "name": "American Water Works",
+  "qid": "Q467238",
+  "how": "ticker+name"
+ },
+ "ADI": {
+  "name": "Analog Devices",
+  "qid": "Q484930",
+  "how": "ticker+name"
+ },
+ "BUD": {
+  "name": "Anheuser-Busch InBev",
+  "qid": "Q128738",
+  "how": "ticker+name"
+ },
+ "ANSS": {
+  "name": "ANSYS, Inc.",
+  "qid": "Q295774",
+  "how": "name search"
+ },
+ "ANTM": {
+  "name": "Anthem",
+  "qid": "Q30247282",
+  "how": "name search"
+ },
+ "AOS": {
+  "name": "A.O. Smith Corp",
+  "qid": "Q4648219",
+  "how": "ticker+name"
+ },
+ "APA": {
+  "name": "APA Corporation",
+  "qid": "Q119991",
+  "how": "ticker+name"
+ },
+ "AAPL": {
+  "name": "Apple",
+  "qid": "Q312",
+  "how": "ticker+name"
+ },
+ "AMAT": {
+  "name": "Applied Materials Inc.",
+  "qid": "Q621610",
+  "how": "ticker+name"
+ },
+ "APTV": {
+  "name": "Aptiv PLC",
+  "qid": "Q643626",
+  "how": "ticker+name"
+ },
+ "ADM": {
+  "name": "Archer-Daniels-Midland Co",
+  "qid": "Q632694",
+  "how": "ticker+name"
+ },
+ "T": {
+  "name": "AT&T",
+  "qid": "Q35476",
+  "how": "ticker+name"
+ },
+ "ADSK": {
+  "name": "Autodesk Inc.",
+  "qid": "Q628051",
+  "how": "ticker+name"
+ },
+ "ADP": {
+  "name": "Automatic Data Processing",
+  "qid": "Q489080",
+  "how": "ticker+name"
+ },
+ "AZO": {
+  "name": "AutoZone Inc",
+  "qid": "Q4826087",
+  "how": "ticker+name"
+ },
+ "AVB": {
+  "name": "AvalonBay Communities",
+  "qid": "Q4827537",
+  "how": "ticker+name"
+ },
+ "AVY": {
+  "name": "Avery Dennison Corp",
+  "qid": "Q790650",
+  "how": "ticker+name"
+ },
+ "BLL": {
+  "name": "Ball Corp",
+  "qid": "Q4034815",
+  "how": "ticker+name"
+ },
+ "BAC": {
+  "name": "Bank of America",
+  "qid": "Q487907",
+  "how": "ticker+name"
+ },
+ "BDX": {
+  "name": "Becton Dickinson",
+  "qid": "Q813780",
+  "how": "ticker+name"
+ },
+ "BRK.B": {
+  "name": "Berkshire Hathaway",
+  "qid": "Q217583",
+  "how": "ticker+name"
+ },
+ "BBY": {
+  "name": "Best Buy Co. Inc.",
+  "qid": "Q533415",
+  "how": "ticker+name"
+ },
+ "BYND": {
+  "name": "Beyond Meat",
+  "qid": "Q18205509",
+  "how": "ticker+name"
+ },
+ "BGS": {
+  "name": "B&G Foods",
+  "qid": "Q54953653",
+  "how": "ticker+name"
+ },
+ "BA": {
+  "name": "Boeing Company",
+  "qid": "Q66",
+  "how": "ticker+name"
+ },
+ "SAM": {
+  "name": "Boston Beer Company",
+  "qid": "Q894558",
+  "how": "ticker+name"
+ },
+ "BXP": {
+  "name": "Boston Properties",
+  "qid": "Q4844439",
+  "how": "ticker+name"
+ },
+ "BSX": {
+  "name": "Boston Scientific",
+  "qid": "Q894585",
+  "how": "ticker+name"
+ },
+ "BF.B": {
+  "name": "Brown-Forman",
+  "qid": "Q392221",
+  "how": "ticker+name"
+ },
+ "CDNS": {
+  "name": "Cadence Design Systems",
+  "qid": "Q608776",
+  "how": "ticker+name"
+ },
+ "CAH": {
+  "name": "Cardinal Health Inc.",
+  "qid": "Q902397",
+  "how": "ticker+name"
+ },
+ "KMX": {
+  "name": "Carmax Inc",
+  "qid": "Q5037190",
+  "how": "ticker+name"
+ },
+ "CCL": {
+  "name": "Carnival Corporation",
+  "qid": "Q1044059",
+  "how": "ticker+name"
+ },
+ "CARR": {
+  "name": "Carrier Global",
+  "qid": "Q731912",
+  "how": "ticker+name"
+ },
+ "CVNA": {
+  "name": "Carvana",
+  "qid": "Q16247191",
+  "how": "ticker+name"
+ },
+ "CASY": {
+  "name": "Casey's",
+  "qid": "Q2940968",
+  "how": "ticker+name"
+ },
+ "CAT": {
+  "name": "Caterpillar Inc.",
+  "qid": "Q459965",
+  "how": "ticker+name"
+ },
+ "CBOE": {
+  "name": "Cboe Global Markets",
+  "qid": "Q30635731",
+  "how": "ticker+name"
+ },
+ "CELH": {
+  "name": "Celsius Holdings",
+  "qid": "Q125030348",
+  "how": "name search"
+ },
+ "CNP": {
+  "name": "CenterPoint Energy",
+  "qid": "Q1053560",
+  "how": "ticker+name"
+ },
+ "CERN": {
+  "name": "Cerner",
+  "qid": "Q1055390",
+  "how": "ticker+name"
+ },
+ "CF": {
+  "name": "CF Industries Holdings Inc",
+  "qid": "Q905806",
+  "how": "ticker+name"
+ },
+ "CVX": {
+  "name": "Chevron",
+  "qid": "Q319642",
+  "how": "ticker+name"
+ },
+ "CMG": {
+  "name": "Chipotle",
+  "qid": "Q465751",
+  "how": "ticker+name"
+ },
+ "CHD": {
+  "name": "Church & Dwight",
+  "qid": "Q5116536",
+  "how": "ticker+name"
+ },
+ "CI": {
+  "name": "Cigna",
+  "qid": "Q642271",
+  "how": "ticker+name"
+ },
+ "CSCO": {
+  "name": "Cisco Systems",
+  "qid": "Q173395",
+  "how": "ticker+name"
+ },
+ "C": {
+  "name": "Citigroup",
+  "qid": "Q219508",
+  "how": "ticker+name"
+ },
+ "CTXS": {
+  "name": "Citrix Systems",
+  "qid": "Q916196",
+  "how": "ticker+name"
+ },
+ "CLX": {
+  "name": "Clorox",
+  "qid": "Q910368",
+  "how": "ticker+name"
+ },
+ "CME": {
+  "name": "CME Group Inc.",
+  "qid": "Q1023876",
+  "how": "ticker+name"
+ },
+ "KO": {
+  "name": "Coca-Cola",
+  "qid": "Q3295867",
+  "how": "ticker+name"
+ },
+ "CTSH": {
+  "name": "Cognizant",
+  "qid": "Q1107035",
+  "how": "ticker+name"
+ },
+ "COHR": {
+  "name": "Coherent Corp.",
+  "qid": "Q1107088",
+  "how": "ticker+name"
+ },
+ "CL": {
+  "name": "Colgate-Palmolive",
+  "qid": "Q609466",
+  "how": "ticker+name"
+ },
+ "CMCSA": {
+  "name": "Comcast",
+  "qid": "Q1113804",
+  "how": "ticker+name"
+ },
+ "CAG": {
+  "name": "Conagra Brands",
+  "qid": "Q1123399",
+  "how": "ticker+name"
+ },
+ "COP": {
+  "name": "ConocoPhillips",
+  "qid": "Q214763",
+  "how": "ticker+name"
+ },
+ "STZ": {
+  "name": "Constellation Brands",
+  "qid": "Q1128160",
+  "how": "ticker+name"
+ },
+ "COO": {
+  "name": "Cooper Companies (The)",
+  "qid": "Q1129792",
+  "how": "ticker+name"
+ },
+ "CPRT": {
+  "name": "Copart",
+  "qid": "Q16951448",
+  "how": "ticker+name"
+ },
+ "CXW": {
+  "name": "CoreCivic",
+  "qid": "Q1135278",
+  "how": "ticker+name"
+ },
+ "GLW": {
+  "name": "Corning Inc.",
+  "qid": "Q5842736",
+  "how": "ticker+name"
+ },
+ "CPAY": {
+  "name": "Corpay",
+  "qid": "Q16838618",
+  "how": "ticker+name"
+ },
+ "COST": {
+  "name": "Costco",
+  "qid": "Q715583",
+  "how": "ticker+name"
+ },
+ "CCI": {
+  "name": "Crown Castle",
+  "qid": "Q5189320",
+  "how": "ticker+name"
+ },
+ "CSX": {
+  "name": "CSX Corp.",
+  "qid": "Q1024454",
+  "how": "ticker+name"
+ },
+ "CMI": {
+  "name": "Cummins Inc.",
+  "qid": "Q173476",
+  "how": "ticker+name"
+ },
+ "CVS": {
+  "name": "CVS Health",
+  "qid": "Q624375",
+  "how": "ticker+name"
+ },
+ "DHR": {
+  "name": "Danaher Corp.",
+  "qid": "Q1159256",
+  "how": "ticker+name"
+ },
+ "BN.PA": {
+  "name": "Danone",
+  "qid": "Q329426",
+  "how": "name search"
+ },
+ "DRI": {
+  "name": "Darden Restaurants",
+  "qid": "Q742196",
+  "how": "ticker+name"
+ },
+ "DECK": {
+  "name": "Deckers Brands",
+  "qid": "Q1181953",
+  "how": "ticker+name"
+ },
+ "DE": {
+  "name": "Deere & Co.",
+  "qid": "Q496302",
+  "how": "ticker+name"
+ },
+ "DELL": {
+  "name": "Dell",
+  "qid": "Q30873",
+  "how": "ticker+name"
+ },
+ "DVN": {
+  "name": "Devon Energy",
+  "qid": "Q1206980",
+  "how": "ticker+name"
+ },
+ "DEO": {
+  "name": "Diageo",
+  "qid": "Q161140",
+  "how": "ticker+name"
+ },
+ "DKS": {
+  "name": "Dick's Sporting Goods",
+  "qid": "Q5272601",
+  "how": "ticker+name"
+ },
+ "DLR": {
+  "name": "Digital Realty Trust Inc",
+  "qid": "Q5275969",
+  "how": "ticker+name"
+ },
+ "DISCA": {
+  "name": "Discovery, Inc. (Series A)",
+  "qid": "Q621592",
+  "how": "ticker+name"
+ },
+ "DISH": {
+  "name": "DISH Network",
+  "qid": "Q1199757",
+  "how": "ticker+name"
+ },
+ "DIS": {
+  "name": "Disney",
+  "qid": "Q7414",
+  "how": "ticker+name"
+ },
+ "DOLE": {
+  "name": "Dole",
+  "qid": "Q492747",
+  "how": "ticker+name"
+ },
+ "DG": {
+  "name": "Dollar General",
+  "qid": "Q145168",
+  "how": "ticker+name"
+ },
+ "DLTR": {
+  "name": "Dollar Tree",
+  "qid": "Q5289230",
+  "how": "ticker+name"
+ },
+ "DPZ": {
+  "name": "Domino's Pizza",
+  "qid": "Q839466",
+  "how": "ticker+name"
+ },
+ "DASH": {
+  "name": "DoorDash",
+  "qid": "Q20714323",
+  "how": "ticker+name"
+ },
+ "DOV": {
+  "name": "Dover Corporation",
+  "qid": "Q16974527",
+  "how": "ticker+name"
+ },
+ "DOW": {
+  "name": "Dow Inc.",
+  "qid": "Q62739842",
+  "how": "ticker+name"
+ },
+ "DTE": {
+  "name": "DTE Energy Co.",
+  "qid": "Q5206232",
+  "how": "ticker+name"
+ },
+ "DUK": {
+  "name": "Duke Energy",
+  "qid": "Q1264404",
+  "how": "ticker+name"
+ },
+ "DRE": {
+  "name": "Duke Realty Corp",
+  "qid": "Q48742298",
+  "how": "ticker+name"
+ },
+ "DXC": {
+  "name": "DXC Technology",
+  "qid": "Q28782856",
+  "how": "ticker+name"
+ },
+ "ETN": {
+  "name": "Eaton Corporation",
+  "qid": "Q48872",
+  "how": "ticker+name"
+ },
+ "ECL": {
+  "name": "Ecolab",
+  "qid": "Q1282031",
+  "how": "ticker+name"
+ },
+ "EW": {
+  "name": "Edwards Lifesciences",
+  "qid": "Q16966841",
+  "how": "ticker+name"
+ },
+ "EA": {
+  "name": "Electronic Arts",
+  "qid": "Q173941",
+  "how": "ticker+name"
+ },
+ "EMR": {
+  "name": "Emerson Electric Company",
+  "qid": "Q1335585",
+  "how": "ticker+name"
+ },
+ "ENR": {
+  "name": "Energizer Holdings",
+  "qid": "Q1200840",
+  "how": "ticker+name"
+ },
+ "ETR": {
+  "name": "Entergy Corp.",
+  "qid": "Q1344587",
+  "how": "ticker+name"
+ },
+ "EOG": {
+  "name": "EOG Resources",
+  "qid": "Q1275577",
+  "how": "ticker+name"
+ },
+ "EPAM": {
+  "name": "EPAM Systems",
+  "qid": "Q1275613",
+  "how": "ticker+name"
+ },
+ "EQIX": {
+  "name": "Equinix",
+  "qid": "Q851641",
+  "how": "ticker+name"
+ },
+ "ESS": {
+  "name": "Essex Property Trust, Inc.",
+  "qid": "Q27964091",
+  "how": "ticker+name"
+ },
+ "EL": {
+  "name": "Estée Lauder",
+  "qid": "Q1260606",
+  "how": "ticker+name"
+ },
+ "RE": {
+  "name": "Everest Re Group Ltd.",
+  "qid": "Q1381973",
+  "how": "ticker+name"
+ },
+ "EXPE": {
+  "name": "Expedia",
+  "qid": "Q8085893",
+  "how": "ticker+name"
+ },
+ "EXPD": {
+  "name": "Expeditors",
+  "qid": "Q1384324",
+  "how": "ticker+name"
+ },
+ "EXR": {
+  "name": "Extra Space Storage",
+  "qid": "Q5422162",
+  "how": "ticker+name"
+ },
+ "XOM": {
+  "name": "ExxonMobil",
+  "qid": "Q156238",
+  "how": "ticker+name"
+ },
+ "FFIV": {
+  "name": "F5 Networks",
+  "qid": "Q3029296",
+  "how": "ticker+name"
+ },
+ "FDS": {
+  "name": "FactSet",
+  "qid": "Q1885491",
+  "how": "ticker+name"
+ },
+ "FAST": {
+  "name": "Fastenal",
+  "qid": "Q3067119",
+  "how": "ticker+name"
+ },
+ "FRT": {
+  "name": "Federal Realty Investment Trust",
+  "qid": "Q27988152",
+  "how": "ticker+name"
+ },
+ "FDX": {
+  "name": "FedEx",
+  "qid": "Q459477",
+  "how": "ticker+name"
+ },
+ "FIS": {
+  "name": "Fidelity National Information Services",
+  "qid": "Q1411295",
+  "how": "ticker+name"
+ },
+ "FE": {
+  "name": "FirstEnergy Corp",
+  "qid": "Q1419248",
+  "how": "ticker+name"
+ },
+ "FSLR": {
+  "name": "First Solar",
+  "qid": "Q1138888",
+  "how": "ticker+name"
+ },
+ "FISV": {
+  "name": "Fiserv Inc",
+  "qid": "Q1420513",
+  "how": "ticker+name"
+ },
+ "FLO": {
+  "name": "Flowers Foods",
+  "qid": "Q5462295",
+  "how": "ticker+name"
+ },
+ "FLS": {
+  "name": "Flowserve Corporation",
+  "qid": "Q1430331",
+  "how": "ticker+name"
+ },
+ "FMC": {
+  "name": "FMC Corporation",
+  "qid": "Q899183",
+  "how": "ticker+name"
+ },
+ "F": {
+  "name": "Ford Motor Company",
+  "qid": "Q44294",
+  "how": "ticker+name"
+ },
+ "FTV": {
+  "name": "Fortive Corp",
+  "qid": "Q27919383",
+  "how": "ticker+name"
+ },
+ "FCX": {
+  "name": "Freeport-McMoRan Inc.",
+  "qid": "Q1453620",
+  "how": "ticker+name"
+ },
+ "GAP": {
+  "name": "Gap Inc.",
+  "qid": "Q420822",
+  "how": "ticker+name"
+ },
+ "GPS": {
+  "name": "Gap Inc.",
+  "qid": "Q420822",
+  "how": "name search"
+ },
+ "GRMN": {
+  "name": "Garmin Ltd.",
+  "qid": "Q30338591",
+  "how": "ticker+name"
+ },
+ "GD": {
+  "name": "General Dynamics",
+  "qid": "Q502940",
+  "how": "ticker+name"
+ },
+ "GIS": {
+  "name": "General Mills",
+  "qid": "Q629998",
+  "how": "ticker+name"
+ },
+ "GM": {
+  "name": "General Motors",
+  "qid": "Q81965",
+  "how": "ticker+name"
+ },
+ "GPC": {
+  "name": "Genuine Parts",
+  "qid": "Q5533818",
+  "how": "ticker+name"
+ },
+ "GEO": {
+  "name": "GEO Group",
+  "qid": "Q1502794",
+  "how": "ticker+name"
+ },
+ "GPN": {
+  "name": "Global Payments Inc.",
+  "qid": "Q5570544",
+  "how": "ticker+name"
+ },
+ "GS": {
+  "name": "Goldman Sachs",
+  "qid": "Q193326",
+  "how": "ticker+name"
+ },
+ "GRG.L": {
+  "name": "Greggs",
+  "qid": "Q3403981",
+  "how": "name search"
+ },
+ "HLN": {
+  "name": "Haleon",
+  "qid": "Q112860932",
+  "how": "ticker+name"
+ },
+ "HBI": {
+  "name": "Hanesbrands Inc",
+  "qid": "Q5647768",
+  "how": "ticker+name"
+ },
+ "HAS": {
+  "name": "Hasbro Inc.",
+  "qid": "Q501476",
+  "how": "ticker+name"
+ },
+ "HENKY": {
+  "name": "Henkel",
+  "qid": "Q1605280",
+  "how": "name search"
+ },
+ "HSIC": {
+  "name": "Henry Schein",
+  "qid": "Q905086",
+  "how": "ticker+name"
+ },
+ "HPE": {
+  "name": "Hewlett Packard Enterprise",
+  "qid": "Q19923099",
+  "how": "ticker+name"
+ },
+ "HLT": {
+  "name": "Hilton Worldwide Holdings Inc",
+  "qid": "Q1057464",
+  "how": "ticker+name"
+ },
+ "HOLX": {
+  "name": "Hologic",
+  "qid": "Q5884072",
+  "how": "ticker+name"
+ },
+ "HD": {
+  "name": "Home Depot",
+  "qid": "Q864407",
+  "how": "ticker+name"
+ },
+ "HON": {
+  "name": "Honeywell Int'l Inc.",
+  "qid": "Q898208",
+  "how": "ticker+name"
+ },
+ "HRL": {
+  "name": "Hormel Foods",
+  "qid": "Q1454852",
+  "how": "ticker+name"
+ },
+ "HST": {
+  "name": "Host Hotels & Resorts",
+  "qid": "Q1630559",
+  "how": "ticker+name"
+ },
+ "HPQ": {
+  "name": "HP Inc.",
+  "qid": "Q21404084",
+  "how": "ticker+name"
+ },
+ "ITW": {
+  "name": "Illinois Tool Works",
+  "qid": "Q1510378",
+  "how": "ticker+name"
+ },
+ "ILMN": {
+  "name": "Illumina Inc",
+  "qid": "Q2068984",
+  "how": "ticker+name"
+ },
+ "INTC": {
+  "name": "Intel Corp.",
+  "qid": "Q248",
+  "how": "ticker+name"
+ },
+ "ICE": {
+  "name": "Intercontinental Exchange",
+  "qid": "Q841458",
+  "how": "ticker+name"
+ },
+ "IPG": {
+  "name": "Interpublic Group",
+  "qid": "Q1501630",
+  "how": "ticker+name"
+ },
+ "INTU": {
+  "name": "Intuit Inc.",
+  "qid": "Q1318848",
+  "how": "ticker+name"
+ },
+ "ISRG": {
+  "name": "Intuitive Surgical Inc.",
+  "qid": "Q2743863",
+  "how": "ticker+name"
+ },
+ "IRM": {
+  "name": "Iron Mountain Incorporated",
+  "qid": "Q1673079",
+  "how": "ticker+name"
+ },
+ "JBL": {
+  "name": "Jabil",
+  "qid": "Q2171646",
+  "how": "ticker+name"
+ },
+ "JBHT": {
+  "name": "J. B. Hunt Transport Services",
+  "qid": "Q4041705",
+  "how": "ticker+name"
+ },
+ "SJM": {
+  "name": "J.M. Smucker",
+  "qid": "Q7742790",
+  "how": "ticker+name"
+ },
+ "JCI": {
+  "name": "Johnson Controls International",
+  "qid": "Q667865",
+  "how": "ticker+name"
+ },
+ "JNJ": {
+  "name": "Johnson & Johnson",
+  "qid": "Q333718",
+  "how": "ticker+name"
+ },
+ "JPM": {
+  "name": "JPMorgan Chase",
+  "qid": "Q192314",
+  "how": "ticker+name"
+ },
+ "JNPR": {
+  "name": "Juniper Networks",
+  "qid": "Q1049080",
+  "how": "ticker+name"
+ },
+ "K": {
+  "name": "Kellogg's",
+  "qid": "Q856897",
+  "how": "reviewed by hand (ticker K is Kellanova; Q130326112 is the brand)"
+ },
+ "KDP": {
+  "name": "Keurig Dr Pepper",
+  "qid": "Q3116111",
+  "how": "ticker+name"
+ },
+ "KMB": {
+  "name": "Kimberly-Clark",
+  "qid": "Q1741634",
+  "how": "ticker+name"
+ },
+ "KIM": {
+  "name": "Kimco Realty",
+  "qid": "Q6410043",
+  "how": "ticker+name"
+ },
+ "KMI": {
+  "name": "Kinder Morgan",
+  "qid": "Q931032",
+  "how": "ticker+name"
+ },
+ "KLAC": {
+  "name": "KLA Corporation",
+  "qid": "Q624649",
+  "how": "ticker+name"
+ },
+ "KHC": {
+  "name": "Kraft Heinz",
+  "qid": "Q19681433",
+  "how": "ticker+name"
+ },
+ "KR": {
+  "name": "Kroger",
+  "qid": "Q153417",
+  "how": "ticker+name"
+ },
+ "LHX": {
+  "name": "L3Harris",
+  "qid": "Q30291091",
+  "how": "ticker+name"
+ },
+ "LRCX": {
+  "name": "Lam Research",
+  "qid": "Q1342041",
+  "how": "ticker+name"
+ },
+ "LVS": {
+  "name": "Las Vegas Sands",
+  "qid": "Q1506045",
+  "how": "ticker+name"
+ },
+ "LEVI": {
+  "name": "Levi Strauss",
+  "qid": "Q127962",
+  "how": "ticker+name"
+ },
+ "LIN": {
+  "name": "Linde plc",
+  "qid": "Q682759",
+  "how": "ticker+name"
+ },
+ "LYV": {
+  "name": "Live Nation Entertainment",
+  "qid": "Q1061903",
+  "how": "ticker+name"
+ },
+ "LKQ": {
+  "name": "LKQ Corporation",
+  "qid": "Q20711490",
+  "how": "ticker+name"
+ },
+ "L": {
+  "name": "Loews Corp.",
+  "qid": "Q826526",
+  "how": "ticker+name"
+ },
+ "OR.PA": {
+  "name": "L'Oréal",
+  "qid": "Q156077",
+  "how": "name search"
+ },
+ "LOW": {
+  "name": "Lowe's Cos.",
+  "qid": "Q1373493",
+  "how": "ticker+name"
+ },
+ "LULU": {
+  "name": "Lululemon Athletica",
+  "qid": "Q6702957",
+  "how": "ticker+name"
+ },
+ "LITE": {
+  "name": "Lumentum",
+  "qid": "Q30272341",
+  "how": "ticker+name"
+ },
+ "MKS.L": {
+  "name": "Marks & Spencer",
+  "qid": "Q714491",
+  "how": "name search"
+ },
+ "MAR": {
+  "name": "Marriott",
+  "qid": "Q1141173",
+  "how": "ticker+name"
+ },
+ "MMC": {
+  "name": "Marsh & McLennan",
+  "qid": "Q1786345",
+  "how": "ticker+name"
+ },
+ "MLM": {
+  "name": "Martin Marietta Materials",
+  "qid": "Q6776123",
+  "how": "ticker+name"
+ },
+ "MAS": {
+  "name": "Masco Corp.",
+  "qid": "Q6782872",
+  "how": "ticker+name"
+ },
+ "MA": {
+  "name": "Mastercard Inc.",
+  "qid": "Q489921",
+  "how": "ticker+name"
+ },
+ "MKC": {
+  "name": "McCormick & Company",
+  "qid": "Q1915049",
+  "how": "ticker+name"
+ },
+ "MCD": {
+  "name": "McDonald's",
+  "qid": "Q38076",
+  "how": "ticker+name"
+ },
+ "MCK": {
+  "name": "McKesson Corp.",
+  "qid": "Q570473",
+  "how": "ticker+name"
+ },
+ "META": {
+  "name": "Meta Platforms",
+  "qid": "Q380",
+  "how": "ticker+name"
+ },
+ "MET": {
+  "name": "MetLife Inc.",
+  "qid": "Q607131",
+  "how": "ticker+name"
+ },
+ "MTD": {
+  "name": "Mettler Toledo",
+  "qid": "Q680186",
+  "how": "ticker+name"
+ },
+ "MGM": {
+  "name": "MGM Resorts",
+  "qid": "Q568532",
+  "how": "ticker+name"
+ },
+ "MCHP": {
+  "name": "Microchip Technology",
+  "qid": "Q1545076",
+  "how": "ticker+name"
+ },
+ "MU": {
+  "name": "Micron Technology",
+  "qid": "Q1197548",
+  "how": "ticker+name"
+ },
+ "MSFT": {
+  "name": "Microsoft",
+  "qid": "Q2283",
+  "how": "ticker+name"
+ },
+ "MHK": {
+  "name": "Mohawk Industries",
+  "qid": "Q6893780",
+  "how": "ticker+name"
+ },
+ "MDLZ": {
+  "name": "Mondelez International",
+  "qid": "Q12857502",
+  "how": "ticker+name"
+ },
+ "MPWR": {
+  "name": "Monolithic Power Systems",
+  "qid": "Q22058448",
+  "how": "ticker+name"
+ },
+ "MNST": {
+  "name": "Monster Beverage",
+  "qid": "Q1945295",
+  "how": "ticker+name"
+ },
+ "MCO": {
+  "name": "Moody's Corp",
+  "qid": "Q675585",
+  "how": "ticker+name"
+ },
+ "MS": {
+  "name": "Morgan Stanley",
+  "qid": "Q334204",
+  "how": "ticker+name"
+ },
+ "MSI": {
+  "name": "Motorola Solutions",
+  "qid": "Q634815",
+  "how": "ticker+name"
+ },
+ "MSCI": {
+  "name": "MSCI",
+  "qid": "Q768773",
+  "how": "ticker+name"
+ },
+ "NDAQ": {
+  "name": "Nasdaq, Inc.",
+  "qid": "Q1472929",
+  "how": "ticker+name"
+ },
+ "FIZZ": {
+  "name": "National Beverage Corp",
+  "qid": "Q15109910",
+  "how": "ticker+name"
+ },
+ "NESN.SW": {
+  "name": "Nestlé",
+  "qid": "Q160746",
+  "how": "name search"
+ },
+ "NTAP": {
+  "name": "NetApp",
+  "qid": "Q727883",
+  "how": "ticker+name"
+ },
+ "NFLX": {
+  "name": "Netflix Inc.",
+  "qid": "Q116452644",
+  "how": "ticker+name"
+ },
+ "NWL": {
+  "name": "Newell Brands",
+  "qid": "Q667599",
+  "how": "ticker+name"
+ },
+ "NWSA": {
+  "name": "News Corp (Class A)",
+  "qid": "Q14289857",
+  "how": "ticker+name"
+ },
+ "NKE": {
+  "name": "Nike, Inc.",
+  "qid": "Q483915",
+  "how": "ticker+name"
+ },
+ "NI": {
+  "name": "NiSource Inc.",
+  "qid": "Q1984481",
+  "how": "ticker+name"
+ },
+ "NOC": {
+  "name": "Northrop Grumman",
+  "qid": "Q329953",
+  "how": "ticker+name"
+ },
+ "NCLH": {
+  "name": "Norwegian Cruise Line Holdings",
+  "qid": "Q60767471",
+  "how": "ticker+name"
+ },
+ "NRG": {
+  "name": "NRG Energy",
+  "qid": "Q6955139",
+  "how": "ticker+name"
+ },
+ "NUE": {
+  "name": "Nucor Corp.",
+  "qid": "Q1645081",
+  "how": "ticker+name"
+ },
+ "NVDA": {
+  "name": "Nvidia Corporation",
+  "qid": "Q182477",
+  "how": "ticker+name"
+ },
+ "NXPI": {
+  "name": "NXP Semiconductors",
+  "qid": "Q1155668",
+  "how": "ticker+name"
+ },
+ "OTLY": {
+  "name": "Oatly",
+  "qid": "Q10605824",
+  "how": "ticker+name"
+ },
+ "OMC": {
+  "name": "Omnicom Group",
+  "qid": "Q1519267",
+  "how": "ticker+name"
+ },
+ "ORCL": {
+  "name": "Oracle Corp.",
+  "qid": "Q19900",
+  "how": "ticker+name"
+ },
+ "PCAR": {
+  "name": "Paccar",
+  "qid": "Q1477661",
+  "how": "ticker+name"
+ },
+ "PKG": {
+  "name": "Packaging Corporation of America",
+  "qid": "Q16983334",
+  "how": "ticker+name"
+ },
+ "PLTR": {
+  "name": "Palantir",
+  "qid": "Q2047336",
+  "how": "ticker+name"
+ },
+ "PAYX": {
+  "name": "Paychex Inc.",
+  "qid": "Q946080",
+  "how": "ticker+name"
+ },
+ "PYPL": {
+  "name": "PayPal",
+  "qid": "Q135683211",
+  "how": "ticker+name"
+ },
+ "PNR": {
+  "name": "Pentair plc",
+  "qid": "Q7165001",
+  "how": "ticker+name"
+ },
+ "PEP": {
+  "name": "PepsiCo",
+  "qid": "Q334800",
+  "how": "ticker+name"
+ },
+ "PFE": {
+  "name": "Pfizer Inc.",
+  "qid": "Q206921",
+  "how": "ticker+name"
+ },
+ "PM": {
+  "name": "Philip Morris International",
+  "qid": "Q1852556",
+  "how": "ticker+name"
+ },
+ "PSX": {
+  "name": "Phillips 66",
+  "qid": "Q1656230",
+  "how": "ticker+name"
+ },
+ "PPC": {
+  "name": "Pilgrim's Pride",
+  "qid": "Q3388421",
+  "how": "ticker+name"
+ },
+ "PXD": {
+  "name": "Pioneer Natural Resources",
+  "qid": "Q4046987",
+  "how": "ticker+name"
+ },
+ "POST": {
+  "name": "Post Holdings",
+  "qid": "Q27988145",
+  "how": "ticker+name"
+ },
+ "PPG": {
+  "name": "PPG Industries",
+  "qid": "Q48754",
+  "how": "ticker+name"
+ },
+ "PPL": {
+  "name": "PPL Corp.",
+  "qid": "Q2044512",
+  "how": "ticker+name"
+ },
+ "PFD.L": {
+  "name": "Premier Foods",
+  "qid": "Q7240301",
+  "how": "name search"
+ },
+ "PG": {
+  "name": "Procter & Gamble",
+  "qid": "Q212405",
+  "how": "ticker+name"
+ },
+ "PSA": {
+  "name": "Public Storage",
+  "qid": "Q1156045",
+  "how": "ticker+name"
+ },
+ "PVH": {
+  "name": "PVH Corp.",
+  "qid": "Q1132272",
+  "how": "ticker+name"
+ },
+ "QRVO": {
+  "name": "Qorvo",
+  "qid": "Q18169198",
+  "how": "ticker+name"
+ },
+ "QCOM": {
+  "name": "Qualcomm",
+  "qid": "Q544847",
+  "how": "ticker+name"
+ },
+ "PWR": {
+  "name": "Quanta Services Inc.",
+  "qid": "Q7268886",
+  "how": "ticker+name"
+ },
+ "DGX": {
+  "name": "Quest Diagnostics",
+  "qid": "Q7271456",
+  "how": "ticker+name"
+ },
+ "RL": {
+  "name": "Ralph Lauren Corporation",
+  "qid": "Q1641437",
+  "how": "ticker+name"
+ },
+ "O": {
+  "name": "Realty Income Corporation",
+  "qid": "Q7301386",
+  "how": "ticker+name"
+ },
+ "REG": {
+  "name": "Regency Centers Corporation",
+  "qid": "Q7308000",
+  "how": "ticker+name"
+ },
+ "RF": {
+  "name": "Regions Financial Corp.",
+  "qid": "Q917131",
+  "how": "ticker+name"
+ },
+ "REV": {
+  "name": "Revlon",
+  "qid": "Q1459595",
+  "how": "ticker+name"
+ },
+ "REYN": {
+  "name": "Reynolds Consumer Products",
+  "qid": "Q106301464",
+  "how": "ticker+name"
+ },
+ "RHI": {
+  "name": "Robert Half International",
+  "qid": "Q2157448",
+  "how": "ticker+name"
+ },
+ "ROK": {
+  "name": "Rockwell Automation",
+  "qid": "Q1529234",
+  "how": "ticker+name"
+ },
+ "RCL": {
+  "name": "Royal Caribbean Group",
+  "qid": "Q427881",
+  "how": "ticker+name"
+ },
+ "CRM": {
+  "name": "Salesforce.com",
+  "qid": "Q941127",
+  "how": "ticker+name"
+ },
+ "005930.KS": {
+  "name": "Samsung",
+  "qid": "Q20716",
+  "how": "name search"
+ },
+ "SNY": {
+  "name": "Sanofi",
+  "qid": "Q158205",
+  "how": "ticker+name"
+ },
+ "SBAC": {
+  "name": "SBA Communications",
+  "qid": "Q7388926",
+  "how": "ticker+name"
+ },
+ "STX": {
+  "name": "Seagate Technology",
+  "qid": "Q705392",
+  "how": "ticker+name"
+ },
+ "SEE": {
+  "name": "Sealed Air",
+  "qid": "Q7440621",
+  "how": "ticker+name"
+ },
+ "SPG": {
+  "name": "Simon Property Group Inc",
+  "qid": "Q2287759",
+  "how": "ticker+name"
+ },
+ "SWKS": {
+  "name": "Skyworks Solutions",
+  "qid": "Q7538146",
+  "how": "ticker+name"
+ },
+ "SLG": {
+  "name": "SL Green Realty",
+  "qid": "Q7391016",
+  "how": "ticker+name"
+ },
+ "SWBI": {
+  "name": "Smith & Wesson",
+  "qid": "Q463090",
+  "how": "name search"
+ },
+ "SNA": {
+  "name": "Snap-on",
+  "qid": "Q1631922",
+  "how": "ticker+name"
+ },
+ "SO": {
+  "name": "Southern Company",
+  "qid": "Q2304693",
+  "how": "ticker+name"
+ },
+ "LUV": {
+  "name": "Southwest Airlines",
+  "qid": "Q503308",
+  "how": "ticker+name"
+ },
+ "SPB": {
+  "name": "Spectrum Brands",
+  "qid": "Q771865",
+  "how": "ticker+name"
+ },
+ "SPGI": {
+  "name": "S&P Global Inc.",
+  "qid": "Q868587",
+  "how": "ticker+name"
+ },
+ "SFM": {
+  "name": "Sprouts Farmers Market",
+  "qid": "Q7581369",
+  "how": "ticker+name"
+ },
+ "SWK": {
+  "name": "Stanley Black & Decker",
+  "qid": "Q706094",
+  "how": "ticker+name"
+ },
+ "SBUX": {
+  "name": "Starbucks",
+  "qid": "Q37158",
+  "how": "ticker+name"
+ },
+ "STT": {
+  "name": "State Street Corporation",
+  "qid": "Q2037125",
+  "how": "ticker+name"
+ },
+ "SYK": {
+  "name": "Stryker Corp.",
+  "qid": "Q2357515",
+  "how": "ticker+name"
+ },
+ "RGR": {
+  "name": "Sturm Ruger",
+  "qid": "Q1508526",
+  "how": "ticker+name"
+ },
+ "SYF": {
+  "name": "Synchrony Financial",
+  "qid": "Q18387139",
+  "how": "ticker+name"
+ },
+ "SNPS": {
+  "name": "Synopsys Inc.",
+  "qid": "Q2303478",
+  "how": "ticker+name"
+ },
+ "SYY": {
+  "name": "Sysco Corp.",
+  "qid": "Q2376711",
+  "how": "ticker+name"
+ },
+ "TPR": {
+  "name": "Tapestry, Inc.",
+  "qid": "Q56273715",
+  "how": "ticker+name"
+ },
+ "TGT": {
+  "name": "Target",
+  "qid": "Q1046951",
+  "how": "ticker+name"
+ },
+ "TEL": {
+  "name": "TE Connectivity Ltd.",
+  "qid": "Q663452",
+  "how": "ticker+name"
+ },
+ "TSCO.L": {
+  "name": "Tesco",
+  "qid": "Q487494",
+  "how": "name search"
+ },
+ "TSLA": {
+  "name": "Tesla",
+  "qid": "Q478214",
+  "how": "ticker+name"
+ },
+ "TXN": {
+  "name": "Texas Instruments",
+  "qid": "Q193412",
+  "how": "ticker+name"
+ },
+ "TXT": {
+  "name": "Textron Inc.",
+  "qid": "Q2140315",
+  "how": "ticker+name"
+ },
+ "HSY": {
+  "name": "The Hershey Company",
+  "qid": "Q1056637",
+  "how": "ticker+name"
+ },
+ "MOS": {
+  "name": "The Mosaic Company",
+  "qid": "Q7752327",
+  "how": "ticker+name"
+ },
+ "TMO": {
+  "name": "Thermo Fisher Scientific",
+  "qid": "Q643674",
+  "how": "ticker+name"
+ },
+ "TJX": {
+  "name": "TJX Companies Inc.",
+  "qid": "Q1285819",
+  "how": "ticker+name"
+ },
+ "TSCO": {
+  "name": "Tractor Supply Company",
+  "qid": "Q15109925",
+  "how": "ticker+name"
+ },
+ "TROW": {
+  "name": "T. Rowe Price Group",
+  "qid": "Q3511946",
+  "how": "ticker+name"
+ },
+ "TSN": {
+  "name": "Tyson Foods",
+  "qid": "Q1325987",
+  "how": "ticker+name"
+ },
+ "UDR": {
+  "name": "UDR, Inc.",
+  "qid": "Q27988153",
+  "how": "ticker+name"
+ },
+ "ULTA": {
+  "name": "Ulta Beauty",
+  "qid": "Q7880076",
+  "how": "ticker+name"
+ },
+ "UAA": {
+  "name": "Under Armour (Class A)",
+  "qid": "Q2031485",
+  "how": "ticker+name"
+ },
+ "UL": {
+  "name": "Unilever",
+  "qid": "Q157062",
+  "how": "ticker+name"
+ },
+ "UAL": {
+  "name": "United Airlines Holdings",
+  "qid": "Q174769",
+  "how": "ticker+name"
+ },
+ "UNH": {
+  "name": "UnitedHealth Group",
+  "qid": "Q2103926",
+  "how": "ticker+name"
+ },
+ "URI": {
+  "name": "United Rentals, Inc.",
+  "qid": "Q7889101",
+  "how": "ticker+name"
+ },
+ "UHS": {
+  "name": "Universal Health Services",
+  "qid": "Q7893967",
+  "how": "ticker+name"
+ },
+ "VTR": {
+  "name": "Ventas Inc",
+  "qid": "Q19865761",
+  "how": "ticker+name"
+ },
+ "VZ": {
+  "name": "Verizon Communications",
+  "qid": "Q467752",
+  "how": "ticker+name"
+ },
+ "VRT": {
+  "name": "Vertiv",
+  "qid": "Q5370909",
+  "how": "ticker+name"
+ },
+ "VFC": {
+  "name": "VF Corporation",
+  "qid": "Q457960",
+  "how": "ticker+name"
+ },
+ "VTRS": {
+  "name": "Viatris",
+  "qid": "Q101983981",
+  "how": "ticker+name"
+ },
+ "V": {
+  "name": "Visa Inc.",
+  "qid": "Q328840",
+  "how": "ticker+name"
+ },
+ "VITL": {
+  "name": "Vital Farms",
+  "qid": "Q126870010",
+  "how": "ticker+name"
+ },
+ "VNO": {
+  "name": "Vornado Realty Trust",
+  "qid": "Q368181",
+  "how": "ticker+name"
+ },
+ "WAB": {
+  "name": "Wabtec",
+  "qid": "Q741707",
+  "how": "ticker+name"
+ },
+ "WBA": {
+  "name": "Walgreens Boots Alliance",
+  "qid": "Q18712620",
+  "how": "ticker+name"
+ },
+ "WMT": {
+  "name": "Walmart",
+  "qid": "Q483551",
+  "how": "name search"
+ },
+ "WM": {
+  "name": "Waste Management Inc.",
+  "qid": "Q2552219",
+  "how": "ticker+name"
+ },
+ "WAT": {
+  "name": "Waters Corporation",
+  "qid": "Q1322011",
+  "how": "ticker+name"
+ },
+ "WEC": {
+  "name": "WEC Energy Group",
+  "qid": "Q8027166",
+  "how": "ticker+name"
+ },
+ "WFC": {
+  "name": "Wells Fargo",
+  "qid": "Q744149",
+  "how": "ticker+name"
+ },
+ "WDC": {
+  "name": "Western Digital",
+  "qid": "Q738770",
+  "how": "ticker+name"
+ },
+ "WU": {
+  "name": "Western Union Co",
+  "qid": "Q861042",
+  "how": "ticker+name"
+ },
+ "WY": {
+  "name": "Weyerhaeuser",
+  "qid": "Q1780382",
+  "how": "ticker+name"
+ },
+ "WSM": {
+  "name": "Williams-Sonoma, Inc.",
+  "qid": "Q2581220",
+  "how": "ticker+name"
+ },
+ "WYNN": {
+  "name": "Wynn Resorts",
+  "qid": "Q2274089",
+  "how": "ticker+name"
+ },
+ "XYL": {
+  "name": "Xylem Inc.",
+  "qid": "Q3146975",
+  "how": "ticker+name"
+ },
+ "YUM": {
+  "name": "Yum! Brands",
+  "qid": "Q668737",
+  "how": "ticker+name"
+ },
+ "ZBH": {
+  "name": "Zimmer Biomet",
+  "qid": "Q203552",
+  "how": "ticker+name"
+ },
+ "ASO": {
+  "name": "Academy Sports",
+  "qid": "Q4671380",
+  "how": "reviewed by hand"
+ },
+ "ABC": {
+  "name": "AmerisourceBergen",
+  "qid": "Q470156",
+  "how": "reviewed by hand"
+ },
+ "CPB": {
+  "name": "Campbell Soup",
+  "qid": "Q1030544",
+  "how": "reviewed by hand"
+ },
+ "EQR": {
+  "name": "Equity Residential",
+  "qid": "Q187740",
+  "how": "reviewed by hand"
+ },
+ "FB": {
+  "name": "Facebook, Inc.",
+  "qid": "Q380",
+  "how": "reviewed by hand"
+ },
+ "BEN": {
+  "name": "Franklin Resources",
+  "qid": "Q744683",
+  "how": "reviewed by hand"
+ },
+ "GWW": {
+  "name": "Grainger (W.W.) Inc.",
+  "qid": "Q1627894",
+  "how": "reviewed by hand"
+ },
+ "HIG": {
+  "name": "Hartford Financial Svc.Gp.",
+  "qid": "Q444110",
+  "how": "reviewed by hand"
+ },
+ "IBM": {
+  "name": "International Business Machines",
+  "qid": "Q37156",
+  "how": "reviewed by hand"
+ },
+ "LH": {
+  "name": "Laboratory Corp. of America Holding",
+  "qid": "Q6466630",
+  "how": "reviewed by hand"
+ },
+ "LB": {
+  "name": "L Brands Inc.",
+  "qid": "Q931354",
+  "how": "reviewed by hand"
+ },
+ "LLY": {
+  "name": "Lilly (Eli) & Co.",
+  "qid": "Q632240",
+  "how": "reviewed by hand"
+ },
+ "MAA": {
+  "name": "Mid-America Apartments",
+  "qid": "Q27988239",
+  "how": "reviewed by hand"
+ },
+ "TAP": {
+  "name": "Molson Coors Beverage Company",
+  "qid": "Q3319685",
+  "how": "reviewed by hand"
+ },
+ "NOV": {
+  "name": "NOV Inc.",
+  "qid": "Q1817417",
+  "how": "reviewed by hand"
+ },
+ "ON": {
+  "name": "ON Semiconductor",
+  "qid": "Q1671509",
+  "how": "reviewed by hand"
+ },
+ "ORLY": {
+  "name": "O'Reilly Automotive",
+  "qid": "Q7071951",
+  "how": "reviewed by hand"
+ },
+ "RKT.L": {
+  "name": "Reckitt Benckiser",
+  "qid": "Q1190881",
+  "how": "reviewed by hand"
+ },
+ "ROST": {
+  "name": "Ross Stores",
+  "qid": "Q3442791",
+  "how": "reviewed by hand"
+ },
+ "UPS": {
+  "name": "UPS",
+  "qid": "Q155026",
+  "how": "reviewed by hand"
+ },
+ "WHR": {
+  "name": "Whirlpool Corp.",
+  "qid": "Q1471346",
+  "how": "reviewed by hand"
+ },
+ "THS": {
+  "name": "TreeHouse Foods",
+  "qid": "Q16958009",
+  "how": "reviewed by hand (English label vandalized; enwiki TreeHouse Foods)"
+ }
+}
