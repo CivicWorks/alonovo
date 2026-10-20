@@ -7930,3 +7930,5 @@
 {"owner": "Natchitoches Meat Pie Co Inc", "products": 5, "source_file": "usda_fdc", "wikidata_matches": ["Q6968581"]}
 {"owner": "Ardent Mills LLC", "products": 5, "source_file": "usda_fdc", "wikidata_matches": []}
 {"owner": "Flatout Inc.", "products": 5, "source_file": "usda_fdc", "wikidata_matches": ["Q10932056", "Q30703740", "Q1148043"]}
+{"owner": "Wal-Mart Stores, Inc.", "products": 8977, "source_file": "usda_fdc", "rules": 2, "wikidata_matches": ["Q483551", "Q49254226"], "ticker": "WMT", "company": "Walmart", "path": [{"qid": "Q483551", "name": ""}]}
+{"owner": "The Kroger Co.", "products": 5787, "source_file": "usda_fdc", "rules": 2, "wikidata_matches": ["Q153417", "Q27863267", "Q36936375", "Q58242017", "Q57910859"], "ticker": "KR", "company": "Kroger", "path": [{"qid": "Q153417", "name": "Kroger"}]}
