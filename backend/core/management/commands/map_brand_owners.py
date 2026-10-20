@@ -34,6 +34,23 @@ COMPANIES_FILE = os.path.join(DATA_DIR, 'company_wikidata.json')
 OUTPUT_FILE = os.path.join(DATA_DIR, 'brand_owner_companies.jsonl')
 SECONDS_BETWEEN_REQUESTS = 2
 MAX_LEVELS = 6
+# Bump when the matching rules change; --recheck redoes matches made under older rules
+RULES_VERSION = 2
+# An "owned by" statement below this share is a shareholder, not a parent
+MIN_OWNED_SHARE = 0.5
+# A food owner name that matches one of these is a namesake (The Daily Record, Child's Play), not the owner
+NOT_PRODUCT_MAKERS = {
+    'Q11032',      # newspaper
+    'Q35127',      # website
+    'Q196600',     # media franchise
+    'Q24856',      # film series
+    'Q11424',      # film
+    'Q2085381',    # publishing house
+    'Q100271038',  # tabletop role-playing game publisher
+    'Q1616075',    # television station
+    'Q2001305',    # television channel
+    'Q641347',     # local Internet registry
+}
 
 # Words that differ between a company's legal name and how it is listed elsewhere
 LEGAL_WORDS = {'inc', 'incorporated', 'llc', 'co', 'company', 'corp', 'corporation', 'ltd', 'limited', 'plc',
@@ -44,6 +61,14 @@ def norm(name):
     s = unicodedata.normalize('NFKD', name or '').encode('ascii', 'ignore').decode().lower()
     s = s.replace("'", '').replace('&', ' and ')
     return ' '.join(w for w in re.findall(r'[a-z0-9]+', s) if w not in LEGAL_WORDS)
+
+
+def share(qualifier):
+    """The proportion in a P1107 qualifier, e.g. 0.12 for a 12% stake."""
+    try:
+        return float(qualifier['datavalue']['value']['amount'])
+    except (KeyError, TypeError, ValueError):
+        return 1.0
 
 
 class Wikidata:
@@ -87,13 +112,18 @@ class Wikidata:
                 parents = []
                 for prop in ('P749', 'P127'):
                     for st in e.get('claims', {}).get(prop, []):
-                        if st.get('rank') == 'deprecated' or 'P582' in st.get('qualifiers', {}):
+                        qualifiers = st.get('qualifiers', {})
+                        if st.get('rank') == 'deprecated' or 'P582' in qualifiers:
+                            continue
+                        if prop == 'P127' and any(share(q) < MIN_OWNED_SHARE for q in qualifiers.get('P1107', [])):
                             continue
                         value = st['mainsnak'].get('datavalue', {}).get('value', {})
                         if isinstance(value, dict) and value.get('id'):
                             parents.append(value['id'])
-                self.entities[qid] = {'names': names, 'parents': parents}
-        return [self.entities.get(i, {'names': [], 'parents': []}) for i in ids]
+                kinds = [st['mainsnak'].get('datavalue', {}).get('value', {}).get('id')
+                         for st in e.get('claims', {}).get('P31', [])]
+                self.entities[qid] = {'names': names, 'parents': parents, 'kinds': kinds}
+        return [self.entities.get(i, {'names': [], 'parents': [], 'kinds': []}) for i in ids]
 
 
 class Command(BaseCommand):
@@ -104,6 +134,8 @@ class Command(BaseCommand):
         parser.add_argument('--min-products', type=int, default=5,
                             help='Only owners with at least this many products in the USDA file')
         parser.add_argument('--output', default=OUTPUT_FILE)
+        parser.add_argument('--recheck', action='store_true',
+                            help='Look up again every owner that matched or failed; the newest line for an owner counts')
 
     def handle(self, *args, **opts):
         companies = json.load(open(COMPANIES_FILE))
@@ -114,10 +146,16 @@ class Command(BaseCommand):
         counts.pop('', None)
         owners = [(o, c) for o, c in counts.most_common() if c >= opts['min_products']]
 
-        done = set()
+        latest = {}
         if os.path.exists(opts['output']):
             with open(opts['output']) as f:
-                done = {json.loads(line)['owner'] for line in f if line.strip()}
+                for line in f:
+                    if line.strip():
+                        row = json.loads(line)
+                        latest[row['owner']] = row
+        # Owners that failed are always tried again; with --recheck, so are owners that matched
+        done = {o for o, row in latest.items()
+                if 'error' not in row and not (opts['recheck'] and 'ticker' in row and row.get('rules') != RULES_VERSION)}
         todo = [(o, c) for o, c in owners if o not in done]
         self.stdout.write(f'{len(owners)} owners with {opts["min_products"]}+ products; {len(done)} already saved; {len(todo)} to do')
 
@@ -133,12 +171,13 @@ class Command(BaseCommand):
 
     def resolve(self, wd, graded, companies, owner, count):
         target = norm(owner)
-        row = {'owner': owner, 'products': count, 'source_file': 'usda_fdc'}
+        row = {'owner': owner, 'products': count, 'source_file': 'usda_fdc', 'rules': RULES_VERSION}
         try:
             # Search the name as written, without its legal suffix, and normalized
             bare = re.sub(r'[,.]?\s*\b(inc|incorporated|llc|co|company|corp|corporation|ltd|limited|plc)\b\.?\s*$', '', owner, flags=re.I).strip()
             candidates = list(dict.fromkeys(wd.search(owner) + wd.search(bare) + wd.search(target)))
-            exact = [q for q, e in zip(candidates, wd.load(candidates)) if any(norm(n) == target for n in e['names'])]
+            exact = [q for q, e in zip(candidates, wd.load(candidates))
+                     if any(norm(n) == target for n in e['names']) and not NOT_PRODUCT_MAKERS & set(e['kinds'])]
             paths = {}
             for start in exact:
                 path = self.climb(wd, graded, start)
