@@ -2,7 +2,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import (CompanyViewSet, ValueViewSet, current_user, user_weights,
                      sectors_list, company_claims, vote_for_company, vote_leaderboard,
-                     products_list, product_categories)
+                     products_list, product_categories, deals_list, deal_categories)
 from .views_mobile import barcode_scan, alternatives_for_company, brand_mappings_list, receipt_analyze
 
 router = DefaultRouter()
@@ -28,4 +28,6 @@ urlpatterns = [
     # Product endpoints
     path('products/', products_list, name='products-list'),
     path('products/categories/', product_categories, name='product-categories'),
+    path('deals/', deals_list, name='deals-list'),
+    path('deals/categories/', deal_categories, name='deal-categories'),
 ]

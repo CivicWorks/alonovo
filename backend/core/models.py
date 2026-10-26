@@ -340,3 +340,44 @@ class UnmatchedProduct(models.Model):
 
     def __str__(self):
         return f"{self.product_name} ({self.brand_name}) - seen {self.seen_count}x"
+
+
+class Deal(models.Model):
+    """A sale price on an item at a store, from a deal source (a store API, a deals feed, a printed ad).
+
+    The maker (company) and the store are rated separately; an affiliate link never changes the order.
+    A deal whose maker is not matched yet is still kept, with company empty.
+    """
+    title = models.CharField(max_length=500, help_text="Item as the source lists it")
+    brand_name = models.CharField(max_length=200, blank=True, db_index=True)
+    company = models.ForeignKey(Company, on_delete=models.SET_NULL, null=True, blank=True,
+        related_name='deals', help_text="Company that makes the item, when matched")
+    store_name = models.CharField(max_length=200, blank=True)
+    store = models.ForeignKey(Company, on_delete=models.SET_NULL, null=True, blank=True,
+        related_name='store_deals', help_text="Company that sells it, when matched")
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, blank=True,
+        related_name='deals', help_text="Our product with the same barcode, when there is one")
+    category = models.CharField(max_length=100, blank=True, db_index=True,
+        help_text="Deal category, e.g. electronics, fashion, home, toys, beauty")
+    price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    regular_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    currency = models.CharField(max_length=3, default='USD')
+    url = models.URLField(max_length=1000, help_text="Where the deal is")
+    affiliate_url = models.URLField(max_length=1000, blank=True,
+        help_text="Same deal through an affiliate program; never used for ranking")
+    image_url = models.URLField(max_length=1000, blank=True)
+    barcode = models.CharField(max_length=20, blank=True, db_index=True)
+    starts_at = models.DateTimeField(null=True, blank=True)
+    ends_at = models.DateTimeField(null=True, blank=True)
+    source = models.CharField(max_length=100, help_text="Deal source, e.g. bestbuy_api, slickdeals_rss")
+    source_id = models.CharField(max_length=200, help_text="The deal's id at the source")
+    attributes = models.JSONField(null=True, blank=True, help_text="The whole record from the source")
+    first_seen_at = models.DateTimeField(auto_now_add=True)
+    last_seen_at = models.DateTimeField(help_text="Last refresh that still found this deal")
+
+    class Meta:
+        unique_together = [['source', 'source_id']]
+        ordering = ['-last_seen_at']
+
+    def __str__(self):
+        return f"{self.title} at {self.store_name or '?'}"

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Claim, Company, CompanyScore, CompanyBadge, CompanyValueSnapshot, Value, ScoringRule, UserValueWeight, Product
+from .models import Claim, Deal, Company, CompanyScore, CompanyBadge, CompanyValueSnapshot, Value, ScoringRule, UserValueWeight, Product
 
 
 class CompanyScoreSerializer(serializers.ModelSerializer):
@@ -71,3 +71,15 @@ class ProductSerializer(serializers.ModelSerializer):
         model = Product
         fields = ['id', 'name', 'brand_name', 'category', 'typical_price',
                   'barcode', 'product_type', 'image_url', 'company_name', 'company_ticker']
+
+
+class DealSerializer(serializers.ModelSerializer):
+    company_name = serializers.CharField(source='company.name', read_only=True, default=None)
+    company_ticker = serializers.CharField(source='company.ticker', read_only=True, default=None)
+    store_ticker = serializers.CharField(source='store.ticker', read_only=True, default=None)
+
+    class Meta:
+        model = Deal
+        fields = ['id', 'title', 'brand_name', 'company_name', 'company_ticker', 'store_name', 'store_ticker',
+                  'category', 'price', 'regular_price', 'currency', 'url', 'affiliate_url', 'image_url',
+                  'starts_at', 'ends_at', 'source', 'last_seen_at']

@@ -6,7 +6,7 @@ records; nobody can add, change or delete through it. Only the models below are 
 from django.contrib import admin
 from django.utils.html import format_html
 
-from .models import BrandMapping, Company, Product
+from .models import BrandMapping, Company, Deal, Product
 
 
 class BrowseSite(admin.AdminSite):
@@ -98,4 +98,12 @@ class CompanyBrowse(ReadOnlyAdmin):
 class BrandMappingBrowse(ReadOnlyAdmin):
     list_display = ['brand_name', 'company', 'role', 'source']
     search_fields = ['brand_name', 'company__name']
+    list_select_related = ['company']
+
+
+@admin.register(Deal, site=browse_site)
+class DealBrowse(ReadOnlyAdmin):
+    list_display = ['title', 'brand_name', 'company', 'store_name', 'category', 'price', 'regular_price', 'source', 'last_seen_at']
+    list_filter = ['category', 'source', 'store_name']
+    search_fields = ['title', 'brand_name', 'company__name', 'store_name']
     list_select_related = ['company']

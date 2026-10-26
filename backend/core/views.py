@@ -1,12 +1,14 @@
+from django.core.paginator import Paginator
 from django.db import models
+from django.utils import timezone
 from django.contrib import admin
 from django.shortcuts import render
 from rest_framework import viewsets, status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
-from .models import Claim, Company, CompanyVote, Value, UserValueWeight, Product
-from .serializers import ClaimSerializer, CompanySerializer, ValueSerializer, UserValueWeightSerializer, ProductSerializer
+from .models import Claim, Company, CompanyVote, Deal, Value, UserValueWeight, Product
+from .serializers import ClaimSerializer, CompanySerializer, DealSerializer, ValueSerializer, UserValueWeightSerializer, ProductSerializer
 
 
 @api_view(['GET'])
@@ -199,4 +201,36 @@ def product_categories(request):
     from django.db.models import Count
     cats = Product.objects.values('category').annotate(
         count=Count('id')).order_by('-count')
+    return Response(list(cats))
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def deals_list(request):
+    """Live deals, newest refresh first.
+
+    Query params:
+      ?category=electronics  - one deal category
+      ?store=BBY             - store ticker
+      ?rated=1               - only deals whose maker is a graded company
+      ?page=2                - 50 deals a page
+    """
+    qs = Deal.objects.select_related('company', 'store').filter(
+        models.Q(ends_at__isnull=True) | models.Q(ends_at__gte=timezone.now()))
+    if request.query_params.get('category'):
+        qs = qs.filter(category=request.query_params['category'])
+    if request.query_params.get('store'):
+        qs = qs.filter(store__ticker=request.query_params['store'])
+    if request.query_params.get('rated'):
+        qs = qs.filter(company__isnull=False)
+    page = Paginator(qs, 50).get_page(request.query_params.get('page'))
+    return Response({'count': page.paginator.count, 'page': page.number, 'pages': page.paginator.num_pages,
+                     'results': DealSerializer(page.object_list, many=True).data})
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def deal_categories(request):
+    cats = Deal.objects.filter(models.Q(ends_at__isnull=True) | models.Q(ends_at__gte=timezone.now())) \
+        .exclude(category='').values('category').annotate(count=models.Count('id')).order_by('category')
     return Response(list(cats))
