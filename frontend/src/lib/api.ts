@@ -146,3 +146,45 @@ export async function fetchBrands(): Promise<BrandMapping[]> {
     }
     return response.json();
 }
+
+export interface Deal {
+    id: number;
+    title: string;
+    brand_name: string;
+    company_name: string | null;
+    company_ticker: string | null;
+    store_name: string;
+    store_ticker: string | null;
+    category: string;
+    price: string | null;
+    regular_price: string | null;
+    url: string;
+    affiliate_url: string;
+    image_url: string;
+    last_seen_at: string;
+}
+
+export async function fetchDealCategories(): Promise<{category: string, count: number}[]> {
+    const response = await fetch(`${apiBase()}/deals/categories/`);
+    if (!response.ok) {
+        throw new Error('Failed to fetch deal categories');
+    }
+    return response.json();
+}
+
+// Live deals in a category whose maker is a graded company, up to maxPages pages of 50
+export async function fetchDeals(category: string, maxPages = 4): Promise<Deal[]> {
+    const deals: Deal[] = [];
+    let page = 1, pages = 1;
+    while (page <= Math.min(pages, maxPages)) {
+        const response = await fetch(`${apiBase()}/deals/?rated=1&category=${encodeURIComponent(category)}&page=${page}`);
+        if (!response.ok) {
+            throw new Error('Failed to fetch deals');
+        }
+        const data = await response.json();
+        deals.push(...data.results);
+        pages = data.pages;
+        page += 1;
+    }
+    return deals;
+}

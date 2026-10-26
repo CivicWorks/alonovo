@@ -1,0 +1,18 @@
+{
+  "_note": "Store category name -> Alonovo deal category. Best Buy names are its top-level categories as listed on bestbuy.com; check them against the API's categoryPath once a key is set, and add any that come back unmapped.",
+  "bestbuy": {
+    "TV & Home Theater": "electronics",
+    "Computers & Tablets": "electronics",
+    "Cell Phones": "electronics",
+    "Audio": "electronics",
+    "Cameras, Camcorders & Drones": "electronics",
+    "Wearable Technology": "electronics",
+    "Smart Home, Security & Wi-Fi": "electronics",
+    "Car Electronics & GPS": "electronics",
+    "Video Games": "games and toys",
+    "Toys, Games & Collectibles": "games and toys",
+    "Appliances": "home and appliances",
+    "Home, Furniture & Office": "home and appliances",
+    "Health, Fitness & Beauty": "health and beauty"
+  }
+}

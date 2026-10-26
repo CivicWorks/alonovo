@@ -48,6 +48,8 @@ endpoint. Open Prices has discounted shelf prices where people have recorded the
 |---|---|
 | `python manage.py fill_product_images` | Product image and missing barcode from Open Food Facts and related databases |
 | `python manage.py fill_product_attributes --fdc-file <USDA branded foods zip>` | Attaches the matching USDA record to `Product.attributes['usda_fdc']`, by barcode or by brand and name |
+| `python manage.py refresh_deals` | Best Buy deals into Deal, saved as read; ends deals no longer listed. Needs `BESTBUY_API_KEY` (optional `BESTBUY_AFFILIATE_ID`). Daily, then every 2 hours Nov 26–30 |
+| `python manage.py map_brand_owners --fdc-file <USDA zip> [--recheck]` | USDA brand owner -> graded company through Wikidata, saved as it goes to `data/brand_owner_companies.jsonl` |
 
 ## Known gaps in the shop's data (2026-10-05)
 
