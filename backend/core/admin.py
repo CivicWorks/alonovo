@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 admin.site.site_header = 'Alonovo Administration'
+admin.site.site_title = 'Alonovo Administration'
 from .models import (Claim, Company, CompanyScore, CompanyBadge, CompanyVote, Value, ScoringRule,
                      CompanyValueSnapshot, UserValueWeight, BrandMapping, BarcodeCache,
                      Product, UnmatchedProduct)

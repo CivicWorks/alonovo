@@ -1,5 +1,7 @@
 {% extends "admin/base.html" %}
 
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title }}{% endblock %}
+
 {% block extrahead %}
 {{ block.super }}
 <style>
