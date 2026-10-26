@@ -55,3 +55,26 @@ endpoint. Open Prices has discounted shelf prices where people have recorded the
 - 238 of 345 have no barcode. Some barcodes point at a different item: Cap'n Crunch's is Crunch Berries; Cheerios Original's is an Australian listing.
 - `product_type` is one label per product ("cold cereal" for 18 cereals), so Cheerios and Cap'n Crunch count as the same thing.
 - Brands made by graded companies are missing, e.g. Cascadian Farm (General Mills), and makers we do not grade, e.g. Three Wishes.
+
+## Deals (Black Friday / Cyber Five), checked 2026-10-26
+
+Live prices only from a store's own API or affiliate feed; never scraped pages or copied deal sites.
+Show "price checked <time>", link to the store, expire deals automatically, disclose affiliate links.
+Affiliate links never change the order.
+
+| Source | Affiliate | Sale prices by API/feed | Use |
+|---|---|---|---|
+| Best Buy Developer API | Impact | Yes (`onSale`, sale and regular price) | Free key at developer.bestbuy.com; remove expired offers |
+| Walmart | Impact, 1–4% | Yes, through the affiliate API | Impact plus Walmart approval |
+| Target Partners | Impact, 1–8% | Product feed in Impact | Impact plus Target approval |
+| Home Depot | Impact | Product feed | Impact plus approval |
+| Lowe's | CJ | Depends on CJ program | CJ plus approval |
+| Amazon Associates / PA-API | Amazon | Yes, after 3 sales in 180 days | Prices only as the API serves them |
+| eBay Partner Network + Browse API | EPN, 1–4% | Yes | Free application |
+| Etsy | Awin (moving to Rakuten, unverified) | No confirmed price API | Indie sellers |
+| Nike (CJ), Adidas (Impact), lululemon (Awin/Partnerize) | Yes | Feeds after approval; sale items often excluded | Brand programs |
+| Slickdeals RSS | No | RSS exists | Terms forbid republishing offers; needs written agreement |
+| BFAds.net / BlackFriday.com ad scans | No | No licensed API | Do not copy scans; link only |
+
+Google AdSense can block advertisers and categories but cannot be limited to an allow list of chosen
+advertisers; showing ads only from good vendors needs direct sponsorships or our own ad server.
