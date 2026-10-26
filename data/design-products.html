@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alonovo Products Design</title>
+<style>
+  :root { --bg:#faf8f5; --card:#fff; --line:#e2ddd6; --text:#1c1917; --muted:#78716c; --now:#0f766e; --new:#b45309; --ext:#6d28d9; }
+  body { margin:0; background:var(--bg); color:var(--text); font:15px/1.45 system-ui, sans-serif; }
+  main { max-width:1100px; margin:0 auto; padding:16px; }
+  h1 { font-size:1.3rem; margin:.2rem 0 .2rem; }
+  h2 { font-size:.8rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin:1.6rem 0 .5rem; }
+  p { margin:.3rem 0; }
+  .muted { color:var(--muted); font-size:.85rem; }
+  .chain { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:10px; }
+  .box { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:10px 12px; }
+  .box h3 { margin:0 0 .3rem; font-size:1rem; }
+  .tag { font-size:.7rem; font-weight:700; text-transform:uppercase; padding:1px 6px; border-radius:4px; color:#fff; margin-left:4px; vertical-align:middle; }
+  .now { background:var(--now); } .new { background:var(--new); } .ext { background:var(--ext); }
+  ul { margin:.2rem 0; padding-left:1.1rem; }
+  li { margin:.1rem 0; }
+  code { font-size:.85em; background:#f1ede6; padding:0 3px; border-radius:3px; }
+  .add { color:var(--new); font-weight:600; }
+  table { width:100%; border-collapse:collapse; background:var(--card); font-size:.9rem; }
+  th, td { text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+  .wrap { overflow-x:auto; }
+  ol li { margin:.4rem 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>Alonovo products: data model and API</h1>
+<p class="muted">Draft 2026-10-26. <span class="tag now">now</span> = in the code today, <span class="tag new">proposed</span> = to add, <span class="tag ext">outside</span> = another system.</p>
+
+<h2>Who uses it</h2>
+<ul>
+  <li>A shopper searches "cheerios" and sees the product, its maker's grade, and a closer better option (Life, Purely O's).</li>
+  <li>A shopper scans a barcode in a store and gets the same answer.</li>
+  <li>A front end anywhere (shop page, mobile app, someone else's site) gets all of this from the API.</li>
+</ul>
+
+<h2>The chain</h2>
+<div class="chain">
+  <div class="box"><h3>USDA FoodData Central <span class="tag ext">outside</span></h3>
+    <p>455,458 US packaged foods, file of 2026-04-30. Barcode, description, brand, brand owner, category, ingredients, nutrition.</p>
+    <p class="muted">Public domain. New file about every six months.</p></div>
+  <div class="box"><h3>Owner → company map <span class="tag now">now</span></h3>
+    <p>Repo files, not a table:</p>
+    <ul><li><code>data/brand_owner_companies.jsonl</code>: USDA owner name → graded company, via Wikidata parent links</li>
+    <li><code>data/brand_owner_reviewed.jsonl</code>: 56 names checked by hand</li></ul>
+    <p class="muted">159 owner names → 54 companies → 85,022 products.</p></div>
+  <div class="box"><h3>Company <span class="tag now">now</span></h3>
+    <ul><li><code>ticker</code>, <code>name</code>, <code>sector</code>, <code>website</code></li>
+    <li>grade comes from its value snapshots</li></ul>
+    <p class="muted">378 with tickers. No change.</p></div>
+  <div class="box"><h3>Product <span class="tag now">now</span> + <span class="tag new">proposed</span></h3>
+    <ul><li><code>name</code>, <code>brand_name</code>, <code>company</code> (required)</li>
+    <li><code>barcode</code>, <code>image_url</code>, <code>typical_price</code></li>
+    <li><code>category</code> (shop aisle), <code>product_type</code></li>
+    <li><code>attributes</code>: whole USDA record</li>
+    <li><code>source</code></li>
+    <li class="add">+ <code>source_id</code>: USDA fdcId; one row per source record, so a new file updates rows</li></ul>
+    <p class="muted">345 hand-entered now. Adds 85,022.</p></div>
+  <div class="box"><h3>BrandMapping <span class="tag now">now</span></h3>
+    <ul><li><code>brand_name</code> → <code>company</code>, <code>role</code></li></ul>
+    <p class="muted">138 rows. Used by barcode scan to guess the company. No change.</p></div>
+</div>
+
+<h2>The rules</h2>
+<ul>
+  <li>Every product has a graded company. Products whose owner we cannot map stay in the USDA file, not the table.</li>
+  <li>Nothing from a source is dropped: the whole record sits in <code>attributes</code>.</li>
+  <li>The 345 hand-entered products merge onto their USDA row when the barcode matches; the rest stay as they are.</li>
+  <li>Every import is a command in the repo, saves as it goes, and can be rerun on the next USDA file.</li>
+</ul>
+
+<h2>API (backend, <code>/alonovo/api/</code>)</h2>
+<div class="wrap"><table>
+<tr><th>Endpoint</th><th></th><th>Returns</th></tr>
+<tr><td><code>GET products/?q=&amp;category=&amp;brand=</code></td><td><span class="tag now">now</span></td><td>Up to 100 products, no paging</td></tr>
+<tr><td><code>GET products/categories/</code></td><td><span class="tag now">now</span></td><td>Aisles with counts</td></tr>
+<tr><td><code>GET brands/</code></td><td><span class="tag now">now</span></td><td>Brand → company list</td></tr>
+<tr><td><code>POST scan/</code></td><td><span class="tag now">now</span></td><td>Barcode → Open Food Facts lookup → company guess → company alternatives</td></tr>
+<tr><td><code>GET alternatives/&lt;ticker&gt;/</code></td><td><span class="tag now">now</span></td><td>Better companies in the same sector</td></tr>
+<tr><td><code>GET products/?q=&amp;company=&amp;category=&amp;page=</code></td><td><span class="tag new">change</span></td><td>Paged results (50 a page, with total); also matches barcode; <code>company=</code> ticker filter</td></tr>
+<tr><td><code>GET products/&lt;id&gt;/</code></td><td><span class="tag new">new</span></td><td>One product with company, grade, nutrition, ingredients, whole record</td></tr>
+<tr><td><code>GET products/&lt;id&gt;/alternatives/</code></td><td><span class="tag new">new</span></td><td>Same kind of product from better-graded companies, closest first</td></tr>
+<tr><td><code>POST scan/</code></td><td><span class="tag new">change</span></td><td>Looks up our own products by barcode first, then Open Food Facts</td></tr>
+</table></div>
+
+<h2>One look: <code>GET products/&lt;id&gt;/alternatives/</code></h2>
+<p class="muted">Example shape only; values made up for the layout.</p>
+<pre style="background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px;overflow-x:auto;font-size:.8rem">{ "product": { "id": 1, "name": "Cheerios Cereal", "brand": "Cheerios", "company": "General Mills", "grade": "C-" },
+  "alternatives": [
+    { "id": 9001, "name": "Life Original Multigrain Cereal", "brand": "Quaker", "company": "PepsiCo", "grade": "C+",
+      "why": ["same USDA category: Cereal", "sugar 6 g vs 4 g per serving"] } ] }</pre>
+
+<h2>Questions</h2>
+<ol>
+  <li><b>Aisles.</b> USDA has its own categories ("Cereal", "Chips, Pretzels &amp; Snacks"…). (a) map them onto our 17 aisles, or (b) use USDA's categories as the aisles?</li>
+  <li><b>Names.</b> USDA descriptions are often upper case ("CAP'N CRUNCH CEREAL"). Keep as given, or show in title case?</li>
+  <li><b>Better option.</b> Same USDA category, a better grade, then closest sugar and first ingredient. Anything else that makes two products "the same thing"?</li>
+  <li><b>Makers we don't grade</b> (Three Wishes, local granola): leave out for now, or load with no grade?</li>
+</ol>
+</main>
+</body>
+</html>
