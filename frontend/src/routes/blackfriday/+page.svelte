@@ -41,6 +41,8 @@
     let makerCategory = $state('');
     let makerLabel = $state('');
     let makerBand = $state('');
+    let makersAll = $state(false);
+    const MAKERS_SHOWN = 12;
 
     onMount(async () => {
         document.body.classList.add('shop-light');
@@ -197,7 +199,7 @@
                 </div>
                 {#if shownMakers.length}
                     <ul class="cards">
-                        {#each shownMakers as m}
+                        {#each makersAll ? shownMakers : shownMakers.slice(0, MAKERS_SHOWN) as m}
                             <li>
                                 <a class="maker" href={tagged(m.url)} rel="noopener" target="_blank">
                                     <span class="photo">{#if m.image_url}<img src={m.image_url} alt="" loading="lazy" />{/if}</span>
@@ -209,6 +211,9 @@
                             </li>
                         {/each}
                     </ul>
+                    {#if !makersAll && shownMakers.length > MAKERS_SHOWN}
+                        <button type="button" class="more-btn" onclick={() => makersAll = true}>Show all {shownMakers.length}</button>
+                    {/if}
                 {:else}
                     <p class="status">Nothing matches all of those. <button type="button" class="linkish" onclick={() => { makerCategory = ''; makerLabel = ''; makerBand = ''; }}>Show everything</button></p>
                 {/if}
@@ -349,6 +354,7 @@
     .maker .name { font-weight: 600; font-size: 0.92rem; line-height: 1.25; }
     .tags { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.3rem; }
     .tag { font-size: 0.68rem; font-weight: 600; color: #9d174d; background: #fce7f3; border-radius: 999px; padding: 0.1rem 0.45rem; }
+    .more-btn { display: block; margin: 1rem auto 0; min-height: 44px; padding: 0 1.5rem; font: inherit; font-weight: 600; border-radius: 999px; border: 1px solid var(--accent); background: #fff; color: var(--accent); cursor: pointer; }
     .linkish { font: inherit; background: none; border: 0; padding: 0; color: var(--accent); text-decoration: underline; cursor: pointer; }
     @media (min-width: 640px) {
         .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
