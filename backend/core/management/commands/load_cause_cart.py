@@ -1,8 +1,10 @@
 """Load the Cause-Cart products read by crawl_cause_cart into Deal, source cause_cart.
 
-Each product becomes one Deal at store Cause-Cart: the seller as brand, the store's first category, its
-price and link, and the whole record in attributes along with the cause and impact pages that list it
-(attributes['labels'], e.g. Women-Owned). Products no longer in the file are ended. Rerun after every
+Each product becomes one Deal at store Cause-Cart: the seller as brand, the store's department, its price
+and link, and the whole record in attributes along with the cause and impact pages that list it
+(attributes['labels'], e.g. Women-Owned). The store lists some products at two addresses; the first one
+read is kept. A product shown under a cause or impact page takes the department of other products at the
+same address path. Products no longer in the file are ended. Rerun after every
 crawl; existing rows are updated in place.
 
 Usage:
@@ -10,6 +12,8 @@ Usage:
 """
 import json
 import os
+import re
+from urllib.parse import urlparse
 from decimal import Decimal, InvalidOperation
 
 from django.core.management.base import BaseCommand
@@ -37,23 +41,46 @@ def price(value):
         return None
 
 
+def section(url):
+    return urlparse(url).path.strip('/').split('/')[0]
+
+
 class Command(BaseCommand):
     help = 'Load data/cause_cart_products.jsonl into Deal (source cause_cart)'
 
     def handle(self, *args, **opts):
-        labels = {}
+        labels, listing_names = {}, set()
         for row in read_jsonl(LISTINGS_FILE):
-            if row.get('name'):
-                labels.setdefault(row['url'], set()).add(row['name'])
-        products = read_jsonl(OUTPUT_FILE)
+            name = re.sub(r'\s+-\s+page \d+$', '', row.get('name') or '')
+            if name:
+                labels.setdefault(row['url'], set()).add(name)
+                listing_names.add(name)
+
+        def is_listing(crumb):
+            return crumb in listing_names or crumb.upper().startswith('SHOP BY')
+
+        products, seen = [], set()
+        for p in read_jsonl(OUTPUT_FILE):
+            key = (p.get('seller'), p.get('sku') or p['url'])
+            if key not in seen:
+                seen.add(key)
+                products.append(p)
+        departments = {}
+        for p in products:
+            crumbs = p.get('categories') or []
+            if crumbs and not is_listing(crumbs[0]):
+                departments.setdefault(section(p['url']), crumbs[0])
         now = timezone.now()
         for p in products:
-            record = dict(p, labels=sorted(labels.get(p['url'], [])))
+            crumbs = p.get('categories') or []
+            causes = {c for c in crumbs if is_listing(c) and not c.upper().startswith('SHOP BY')}
+            department = crumbs[0] if crumbs and not is_listing(crumbs[0]) else departments.get(section(p['url']), '')
+            record = dict(p, labels=sorted(labels.get(p['url'], set()) | causes))
             Deal.objects.update_or_create(source=SOURCE, source_id=p['url'], defaults={
                 'title': p['name'][:500],
                 'brand_name': p.get('seller', '')[:200],
                 'store_name': STORE_NAME,
-                'category': (p.get('categories') or [''])[0][:100],
+                'category': department[:100],
                 'price': price(p.get('price')),
                 'regular_price': None,
                 'currency': p.get('currency') or 'USD',
