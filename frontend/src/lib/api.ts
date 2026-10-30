@@ -161,11 +161,12 @@ export interface Deal {
     url: string;
     affiliate_url: string;
     image_url: string;
+    labels: string[];
     last_seen_at: string;
 }
 
 export async function fetchDealCategories(): Promise<{category: string, count: number}[]> {
-    const response = await fetch(`${apiBase()}/deals/categories/`);
+    const response = await fetch(`${apiBase()}/deals/categories/?rated=1`);
     if (!response.ok) {
         throw new Error('Failed to fetch deal categories');
     }
@@ -173,6 +174,23 @@ export async function fetchDealCategories(): Promise<{category: string, count: n
 }
 
 // Live deals in a category whose maker is a graded company, up to maxPages pages of 50
+// Every item a deal source lists, e.g. 'cause_cart' for the Cause-Cart marketplace
+export async function fetchDealsFromSource(source: string, maxPages = 10): Promise<Deal[]> {
+    const deals: Deal[] = [];
+    let page = 1, pages = 1;
+    while (page <= Math.min(pages, maxPages)) {
+        const response = await fetch(`${apiBase()}/deals/?source=${encodeURIComponent(source)}&page=${page}`);
+        if (!response.ok) {
+            throw new Error('Failed to fetch deals');
+        }
+        const data = await response.json();
+        deals.push(...data.results);
+        pages = data.pages;
+        page += 1;
+    }
+    return deals;
+}
+
 export async function fetchDeals(category: string, maxPages = 4): Promise<Deal[]> {
     const deals: Deal[] = [];
     let page = 1, pages = 1;

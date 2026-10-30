@@ -213,6 +213,7 @@ def deals_list(request):
       ?category=electronics  - one deal category
       ?store=BBY             - store ticker
       ?rated=1               - only deals whose maker is a graded company
+      ?source=cause_cart     - one deal source
       ?page=2                - 50 deals a page
     """
     qs = Deal.objects.select_related('company', 'store').filter(
@@ -223,6 +224,8 @@ def deals_list(request):
         qs = qs.filter(store__ticker=request.query_params['store'])
     if request.query_params.get('rated'):
         qs = qs.filter(company__isnull=False)
+    if request.query_params.get('source'):
+        qs = qs.filter(source=request.query_params['source'])
     page = Paginator(qs, 50).get_page(request.query_params.get('page'))
     return Response({'count': page.paginator.count, 'page': page.number, 'pages': page.paginator.num_pages,
                      'results': DealSerializer(page.object_list, many=True).data})
@@ -231,6 +234,11 @@ def deals_list(request):
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def deal_categories(request):
-    cats = Deal.objects.filter(models.Q(ends_at__isnull=True) | models.Q(ends_at__gte=timezone.now())) \
-        .exclude(category='').values('category').annotate(count=models.Count('id')).order_by('category')
+    """Deal categories with counts; takes the same ?rated=1 and ?source= as the deals list."""
+    qs = Deal.objects.filter(models.Q(ends_at__isnull=True) | models.Q(ends_at__gte=timezone.now()))
+    if request.query_params.get('rated'):
+        qs = qs.filter(company__isnull=False)
+    if request.query_params.get('source'):
+        qs = qs.filter(source=request.query_params['source'])
+    cats = qs.exclude(category='').values('category').annotate(count=models.Count('id')).order_by('category')
     return Response(list(cats))
