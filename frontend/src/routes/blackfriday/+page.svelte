@@ -1,10 +1,11 @@
 <script lang="ts">
     import { base } from '$app/paths';
     import { onMount } from 'svelte';
-    import { fetchCompanies, fetchDealsFromSource, fetchValues } from '$lib/api';
+    import { fetchCompanies, fetchDealsFromSource, fetchProductCategories, fetchProductsByCategory, fetchValues } from '$lib/api';
     import type { Deal } from '$lib/api';
     import { computeOverallGrade, getGradeClass } from '$lib/utils';
-    import type { Company } from '$lib/types';
+    import type { Company, Product } from '$lib/types';
+    import { searchScore } from '$lib/search';
     import { BLACK_FRIDAY_CATEGORIES, BLACK_FRIDAY_SECTIONS } from '$lib/blackfriday';
 
     // Plain-word meaning of each letter, from the Alonovo grading table
@@ -21,6 +22,7 @@
         { label: 'Over $50', min: 50, max: Infinity },
     ];
     const PRODUCTS_SHOWN = 12;
+    const DB_SHOWN = 12;
 
     let rows: { company: Company; grade: string | null; issues: number }[] = $state([]);
     let groupCount = $state(0);
@@ -32,6 +34,9 @@
     let label = $state('');
     let band = $state('');
     let showAll = $state(false);
+    // Every product in the Alonovo database (the /shop catalog), searched alongside the featured ones
+    let dbProducts: Product[] = $state([]);
+    let dbAll = $state(false);
 
     onMount(async () => {
         document.body.classList.add('shop-light');
@@ -40,6 +45,10 @@
             const groupKey = new Map(values.map(v => [v.slug, v.display_group || v.slug]));
             groupCount = new Set(groupKey.values()).size;
             products = await fetchDealsFromSource(PRODUCTS_SOURCE).catch(() => []);
+            fetchProductCategories()
+                .then(cats => Promise.all(cats.map(c => fetchProductsByCategory(c.category))))
+                .then(ps => { dbProducts = ps.flat(); })
+                .catch(() => { dbProducts = []; });
             rows = cs.filter(c => c.ticker).map(c => ({
                 company: c,
                 grade: computeOverallGrade(c, values),
@@ -54,6 +63,9 @@
 
     $effect(() => () => document.body.classList.remove('shop-light'));
 
+    // A new search starts with the first few database results
+    $effect(() => { query; dbAll = false; });
+
     let gradeByTicker = $derived(Object.fromEntries(rows.map(r => [r.company.ticker, r.grade])));
 
     function rank(g: string | null): number {
@@ -64,10 +76,15 @@
         return p.company_ticker ? gradeByTicker[p.company_ticker] ?? null : null;
     }
 
-    let words = $derived(query.trim().toLowerCase().split(/\s+/).filter(Boolean));
-    function matches(...fields: (string | null | undefined)[]): boolean {
-        const text = fields.filter(Boolean).join(' ').toLowerCase();
-        return words.every(w => text.includes(w));
+    let needle = $derived(query.trim().toLowerCase());
+    let words = $derived(needle.split(/\s+/).filter(Boolean));
+    function score(name: string, brand?: string | null, ...rest: (string | null | undefined)[]): number {
+        return words.length ? searchScore(words, needle, name, brand || '', rest.filter(Boolean).join(' ')) : 1;
+    }
+    function bestFirst<T>(items: T[], scoreOf: (x: T) => number, gradeOfItem: (x: T) => string | null): T[] {
+        return items.map(x => ({ x, s: scoreOf(x) })).filter(r => r.s > 0)
+            .sort((a, b) => b.s - a.s || rank(gradeOfItem(b.x)) - rank(gradeOfItem(a.x)))
+            .map(r => r.x);
     }
 
     let current = $derived(BLACK_FRIDAY_CATEGORIES.find(c => c.name === category));
@@ -86,16 +103,26 @@
             return (!current || current.deals.includes(p.category))
                 && (!label || (p.labels || []).includes(label))
                 && (!b || (price >= b.min && price < b.max))
-                && matches(p.title, p.brand_name, p.category, ...(p.labels || []));
+                && score(p.title, p.brand_name, p.company_name, p.category, ...(p.labels || [])) > 0;
         })
-        .sort((a, b) => rank(gradeOf(b)) - rank(gradeOf(a))));
+        .sort((a, b) => score(b.title, b.brand_name, b.company_name, b.category, ...(b.labels || [])) - score(a.title, a.brand_name, a.company_name, a.category, ...(a.labels || []))
+            || rank(gradeOf(b)) - rank(gradeOf(a))));
 
-    let sections = $derived(BLACK_FRIDAY_SECTIONS
+    // While searching: matching products and companies from the whole Alonovo database
+    let dbProductResults = $derived(words.length
+        ? bestFirst(dbProducts, p => score(p.name, p.brand_name, p.company_name, p.category.replace(/_/g, ' '), p.product_type), p => gradeByTicker[p.company_ticker] ?? null)
+        : []);
+    let companyResults = $derived(words.length
+        ? bestFirst(rows, r => score(r.company.name, '', r.company.sector), r => r.grade)
+        : []);
+
+    // Hand-picked brands when browsing; while searching, companyResults covers every graded company
+    let sections = $derived(words.length ? [] : BLACK_FRIDAY_SECTIONS
         .filter(s => !current || current.sections.includes(s.title))
         .map(s => ({
             ...s,
             companies: rows
-                .filter(r => s.tickers.includes(r.company.ticker) && matches(r.company.name, s.title))
+                .filter(r => s.tickers.includes(r.company.ticker))
                 .sort((a, b) => rank(b.grade) - rank(a.grade) || b.issues - a.issues || a.company.name.localeCompare(b.company.name)),
         }))
         .filter(s => s.companies.length));
@@ -120,7 +147,7 @@
     }
 
     function clearAll() {
-        category = ''; label = ''; band = ''; query = '';
+        category = ''; label = ''; band = ''; query = ''; dbAll = false;
     }
 
     function search(e: Event) {
@@ -221,15 +248,63 @@
                 {#if !showAll && shownProducts.length > PRODUCTS_SHOWN}
                     <button type="button" class="more-btn" onclick={() => showAll = true}>Show all {shownProducts.length}</button>
                 {/if}
-            {:else}
+            {:else if !dbProductResults.length && !companyResults.length}
                 <p class="status">
                     {#if current && !current.deals.length}No {current.name.toLowerCase()} products from Cause-Cart yet.{:else}Nothing matches all of those.{/if}
                     <button type="button" class="linkish" onclick={clearAll}>Show everything</button>
-                    {#if query.trim()} or <a href="{base}/shop?q={encodeURIComponent(query.trim())}">look up “{query.trim()}” on Alonovo</a>{/if}
                 </p>
             {/if}
             <p class="fine">Prices as listed on Cause-Cart; checkout happens there. Links tell Cause-Cart you came from Alonovo.</p>
         </section>
+
+        {#if dbProductResults.length || companyResults.length}
+            <section id="alonovo-results" class="db-results">
+                <h2 class="section-title">“{query.trim()}” on Alonovo</h2>
+                {#if dbProductResults.length}
+                    <ul class="list">
+                        {#each dbAll ? dbProductResults : dbProductResults.slice(0, DB_SHOWN) as p}
+                            {@const g = gradeByTicker[p.company_ticker] ?? null}
+                            <li>
+                                <a class="row" href="{base}/company/{p.company_ticker}">
+                                    <span class="main">
+                                        <span class="name">{p.name}</span>
+                                        <span class="owner">{p.brand_name} · {p.company_name}{#if p.typical_price}{' · '}${Number(p.typical_price).toFixed(2)}{/if}</span>
+                                    </span>
+                                    {#if g}
+                                        <span class="grade"><span class="grade-badge {getGradeClass(g)}">{g}</span><span class="grade-word">{GRADE_WORDS[g.charAt(0)]}</span></span>
+                                    {:else}
+                                        <span class="grade"><span class="grade-word">Not graded yet</span></span>
+                                    {/if}
+                                </a>
+                            </li>
+                        {/each}
+                    </ul>
+                    {#if !dbAll && dbProductResults.length > DB_SHOWN}
+                        <button type="button" class="more-btn" onclick={() => dbAll = true}>Show all {dbProductResults.length}</button>
+                    {/if}
+                {/if}
+                {#if companyResults.length}
+                    <ul class="list">
+                        {#each companyResults as r}
+                            {@const g = r.grade}
+                            <li>
+                                <a class="row" href="{base}/company/{r.company.ticker}">
+                                    <span class="main">
+                                        <span class="name">{r.company.name}</span>
+                                        {#if r.issues}<span class="owner">graded on {r.issues} of {groupCount} issues</span>{/if}
+                                    </span>
+                                    {#if g}
+                                        <span class="grade"><span class="grade-badge {getGradeClass(g)}">{g}</span><span class="grade-word">{GRADE_WORDS[g.charAt(0)]}</span></span>
+                                    {:else}
+                                        <span class="grade"><span class="grade-word">Not graded yet</span></span>
+                                    {/if}
+                                </a>
+                            </li>
+                        {/each}
+                    </ul>
+                {/if}
+            </section>
+        {/if}
 
         {#if sections.length}
             <h2 id="big-buys" class="section-title">Big brands, best grade first</h2>
@@ -339,6 +414,8 @@
     .section-title { font-family: "Oswald", "Arial Narrow", sans-serif; font-size: 1.6rem; text-transform: none; letter-spacing: 0; color: var(--text-primary); margin: 2rem 0 0.2rem; scroll-margin-top: 1rem; }
     .section-sub { color: var(--text-secondary); margin: 0 0 0.75rem; }
     .products { scroll-margin-top: 1rem; }
+    .db-results { scroll-margin-top: 1rem; }
+    .db-results .list + .list { margin-top: 1rem; }
     .filters { display: grid; gap: 0.4rem; margin-bottom: 1rem; }
     .chips { display: flex; gap: 0.4rem; overflow-x: auto; padding-bottom: 0.2rem; scrollbar-width: none; }
     .chip { font: inherit; font-size: 0.85rem; min-height: 40px; padding: 0.3rem 0.85rem; border-radius: 999px; border: 1px solid var(--border-color); background: #fff; color: var(--text-secondary); cursor: pointer; white-space: nowrap; flex-shrink: 0; }
