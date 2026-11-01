@@ -20,12 +20,6 @@
         { label: '$25 to $50', min: 25, max: 50 },
         { label: 'Over $50', min: 50, max: Infinity },
     ];
-    // Shopping days, Thanksgiving week 2026
-    const DAYS = [
-        { day: 'Fri Nov 27', name: 'Black Friday' },
-        { day: 'Sat Nov 28', name: 'Small Business Saturday' },
-        { day: 'Mon Nov 30', name: 'Cyber Monday' },
-    ];
     const PRODUCTS_SHOWN = 12;
 
     let rows: { company: Company; grade: string | null; issues: number }[] = $state([]);
@@ -153,12 +147,11 @@
             <form class="search" role="search" onsubmit={search}>
                 <label for="bf-q" class="visually-hidden">What are you shopping for?</label>
                 <input id="bf-q" type="search" placeholder="What are you shopping for?" bind:value={query} autocomplete="off" />
-                <button type="submit">Search</button>
+                <button type="submit">
+                    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 2c-3.3 0-6 2.7-6 6 0 .6.1 1.2.3 1.8C4.9 10.6 4 12.2 4 14c0 2.8 2.2 5 5 5h2v3h2v-3h2c2.8 0 5-2.2 5-5 0-1.8-.9-3.4-2.3-4.2.2-.6.3-1.2.3-1.8 0-3.3-2.7-6-6-6z" fill="currentColor"/></svg>
+                    Search
+                </button>
             </form>
-            <ul class="days">
-                {#each DAYS as d}<li><strong>{d.day}</strong> {d.name}</li>{/each}
-            </ul>
-            <a class="cta" href="#products">Explore products</a>
         </div>
         {#if heroPhotos.length >= 3}
             <div class="mosaic" aria-hidden="true">
@@ -169,11 +162,11 @@
 
     <nav class="categories" aria-label="Categories">
         <button type="button" class="cat" class:active={!category} aria-pressed={!category} onclick={() => pick('')}>
-            <span class="cat-name">Everything</span><span class="cat-count">{products.length || ''}</span>
+            <span class="cat-name">Everything</span>{#if products.length}<span class="cat-count">{products.length}</span>{/if}
         </button>
         {#each BLACK_FRIDAY_CATEGORIES as c}
             <button type="button" class="cat" class:active={category === c.name} aria-pressed={category === c.name} onclick={() => pick(c.name)}>
-                <span class="cat-name">{c.name}</span><span class="cat-count">{categoryCounts[c.name] || (c.sections.length ? 'brands' : '')}</span>
+                <span class="cat-name">{c.name}</span>{#if categoryCounts[c.name]}<span class="cat-count">{categoryCounts[c.name]}</span>{/if}
             </button>
         {/each}
     </nav>
@@ -316,28 +309,31 @@
     h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin: 1.5rem 0 0.4rem; }
 
     /* Hero */
-    .hero { display: grid; gap: 1.25rem; margin: 0 -1rem; padding: 1.75rem 1rem 2rem; background: linear-gradient(160deg, #fff7e8 0%, #fdecef 55%, #e9f6f1 100%); }
+    .hero { display: grid; gap: 1.25rem; margin: 0 -1rem; padding: 1.75rem 1rem 4rem; background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath d='M0 70 C240 20 480 20 720 60 S1200 110 1440 50 V120 H0Z' fill='%23d6e9cf'/%3E%3Cpath d='M0 95 C300 60 600 75 900 95 S1300 110 1440 85 V120 H0Z' fill='%23c3dfba'/%3E%3C/svg%3E") bottom / 100% 90px no-repeat,
+        radial-gradient(circle at 85% 12%, rgba(255, 236, 179, 0.75) 0, rgba(255, 236, 179, 0) 32%),
+        linear-gradient(180deg, #eaf4f8 0%, #f3f8ee 60%, #eef6e8 100%); }
     .hero-title { font-family: "Oswald", "Arial Narrow", sans-serif; font-size: clamp(2.2rem, 7vw, 3.6rem); line-height: 1.02; text-transform: none; letter-spacing: 0; color: #1c1917; margin: 0; }
     .lead { color: var(--text-secondary); font-size: 1.1rem; margin: 0.75rem 0 1rem; max-width: 34rem; }
-    .search { display: flex; max-width: 640px; background: #fff; border: 2px solid var(--accent); border-radius: 999px; overflow: hidden; box-shadow: 0 4px 18px rgba(15, 118, 110, 0.12); }
-    .search input { flex: 1; min-width: 0; font: inherit; font-size: 1.1rem; padding: 0.85rem 1.1rem; border: 0; background: transparent; color: var(--text-primary); outline: none; }
-    .search button { font: inherit; font-weight: 600; padding: 0 1.4rem; border: 0; background: var(--accent); color: #fff; cursor: pointer; }
-    .days { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.9rem 0 1rem; padding: 0; }
-    .days li { background: #fff; border: 1px solid var(--border-color); border-radius: 999px; padding: 0.25rem 0.7rem; font-size: 0.8rem; color: var(--text-secondary); }
-    .days strong { color: var(--text-primary); }
+    .search { display: flex; max-width: 640px; background: #fff; border: 1px solid #b7cfb1; border-radius: 999px; padding: 0.3rem; box-shadow: 0 6px 20px rgba(47, 93, 58, 0.12); }
+    .search:focus-within { border-color: #2f5d3a; }
+    .search input { flex: 1; min-width: 0; font: inherit; font-size: 1.1rem; padding: 0.6rem 0.9rem; border: 0; background: transparent; color: var(--text-primary); outline: none; }
+    .search button { display: inline-flex; align-items: center; gap: 0.4rem; font: inherit; font-weight: 600; letter-spacing: 0.02em; padding: 0 1.3rem; border: 0; border-radius: 999px; background: linear-gradient(180deg, #4a7c4e 0%, #2f5d3a 100%); color: #fff; cursor: pointer; transition: background 0.2s; }
+    .search button:hover { background: linear-gradient(180deg, #3f6e43 0%, #244a2d 100%); }
+    .search button svg { color: #cfe6c4; }
     .cta { display: inline-flex; align-items: center; min-height: 48px; padding: 0 1.5rem; border-radius: 999px; background: var(--accent); color: #fff !important; text-decoration: none; font-weight: 600; font-size: 1rem; }
     .cta.secondary { background: #fff; color: var(--accent) !important; border: 1px solid var(--accent); }
     .mosaic { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
     .mosaic img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 0.75rem; background: #fff; }
 
     /* Categories */
-    .categories { display: flex; gap: 0.5rem; overflow-x: auto; margin: 1.25rem 0 0; padding-bottom: 0.25rem; scrollbar-width: none; }
-    .cat { flex: 1 0 auto; display: flex; flex-direction: column; align-items: flex-start; gap: 0.1rem; min-width: 104px; min-height: 64px; padding: 0.6rem 1rem; font: inherit; text-align: left; border-radius: 0.75rem; border: 1px solid var(--border-color); background: #fff; color: var(--text-primary); cursor: pointer; }
+    .categories { display: flex; gap: 0.4rem; overflow-x: auto; margin: 1.25rem 0 0; padding-bottom: 0.25rem; scrollbar-width: none; }
+    .cat { flex-shrink: 0; display: inline-flex; align-items: center; gap: 0.4rem; min-height: 40px; padding: 0.3rem 0.9rem; font: inherit; font-size: 0.9rem; border-radius: 999px; border: 1px solid var(--border-color); background: #fff; color: var(--text-primary); cursor: pointer; }
     .cat:hover { border-color: var(--accent); }
     .cat.active { background: var(--accent); border-color: var(--accent); color: #fff; }
-    .cat-name { font-weight: 600; }
-    .cat-count { font-size: 0.75rem; color: var(--text-muted); min-height: 1em; }
-    .cat.active .cat-count { color: #d1fae5; }
+    .cat-name { font-weight: 500; }
+    .cat-count { font-size: 0.7rem; line-height: 1; padding: 0.2rem 0.4rem; border-radius: 999px; background: #f1ede6; color: var(--text-muted); }
+    .cat.active .cat-count { background: rgba(255, 255, 255, 0.22); color: #fff; }
 
     /* Products */
     .section-title { font-family: "Oswald", "Arial Narrow", sans-serif; font-size: 1.6rem; text-transform: none; letter-spacing: 0; color: var(--text-primary); margin: 2rem 0 0.2rem; scroll-margin-top: 1rem; }
