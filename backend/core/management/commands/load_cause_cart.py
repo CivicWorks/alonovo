@@ -1,7 +1,7 @@
 """Load the Cause-Cart products read by crawl_cause_cart into Deal, source cause_cart.
 
 Each product becomes one Deal at store Cause-Cart: the seller as brand, the store's department, its price
-and link, and the whole record in attributes along with the cause and impact pages that list it
+and link, its referral link (affiliate_url), and the whole record in attributes along with the cause and impact pages that list it
 (attributes['labels'], e.g. Women-Owned). The store lists some products at two addresses; the first one
 read is kept. A product shown under a cause or impact page takes the department of other products at the
 same address path. Products no longer in the file are ended. Rerun after every
@@ -25,6 +25,8 @@ from core.models import Deal
 
 SOURCE = 'cause_cart'
 STORE_NAME = 'Cause-Cart'
+# Referral tag Cause-Cart uses to find orders that came from Alonovo (their referral plan, 2026-10-29)
+REFERRAL = 'utm_source=alonovo&utm_medium=referral'
 
 
 def read_jsonl(path):
@@ -85,6 +87,7 @@ class Command(BaseCommand):
                 'regular_price': None,
                 'currency': p.get('currency') or 'USD',
                 'url': p['url'],
+                'affiliate_url': p['url'] + ('&' if '?' in p['url'] else '?') + REFERRAL,
                 'image_url': p.get('image_url') or '',
                 'attributes': record,
                 'ends_at': None,

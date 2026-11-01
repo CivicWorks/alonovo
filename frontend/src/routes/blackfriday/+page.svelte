@@ -22,10 +22,13 @@
     let gradeByTicker: Record<string, string | null> = $state({});
     const DEALS_SHOWN = 12;
 
-    // Small makers from the Cause-Cart marketplace; links are tagged so Cause-Cart can count orders from here
+    // Small makers from the Cause-Cart marketplace. Their referral links (affiliate_url) let Cause-Cart count
+    // orders from here; the campaign tag says which page sent them.
     const MAKERS_SOURCE = 'cause_cart';
     const MAKERS_HOME = 'https://cause-cart.com/';
-    const CAMPAIGN = 'utm_source=alonovo&utm_medium=referral&utm_campaign=blackfriday2026';
+    const CAMPAIGN = 'utm_campaign=blackfriday2026';
+    // Partner picks sit above the list, like a search engine's sponsored results; they never change the list
+    const PICKS_SHOWN = 4;
     const PRICE_BANDS = [
         { label: 'Under $25', min: 0, max: 25 },
         { label: '$25 to $50', min: 25, max: 50 },
@@ -128,6 +131,16 @@
         return url + (url.includes('?') ? '&' : '?') + CAMPAIGN;
     }
 
+    function link(d: Deal): string {
+        return tagged(d.affiliate_url || d.url);
+    }
+
+    // One partner item per seller, from items that have a referral or affiliate link
+    let picks = $derived.by(() => {
+        const partner = makers.filter(m => m.affiliate_url && m.image_url);
+        return partner.filter((m, i) => partner.findIndex(o => o.brand_name === m.brand_name) === i).slice(0, PICKS_SHOWN);
+    });
+
     function search(e: Event) {
         e.preventDefault();
         if (query.trim()) window.location.href = `${base}/shop?q=${encodeURIComponent(query.trim())}`;
@@ -173,10 +186,31 @@
     {:else if error}
         <p class="error">{error}</p>
     {:else}
+        {#if picks.length}
+            <aside class="picks" aria-labelledby="picks-title">
+                <p class="picks-head"><span id="picks-title" class="picks-title">Partner picks</span> <span class="picks-note">Alonovo may earn from these. They never change the list below.</span></p>
+                <ul class="pick-list">
+                    {#each picks as m}
+                        <li>
+                            <a class="pick" href={link(m)} rel="sponsored noopener" target="_blank">
+                                <img src={m.image_url} alt="" loading="lazy" />
+                                <span class="main">
+                                    <span class="name">{m.title}</span>
+                                    <span class="owner">{m.brand_name} · {m.store_name}</span>
+                                    {#if m.labels?.length}<span class="tags">{#each m.labels.slice(0, 2) as l}<span class="tag">{l}</span>{/each}</span>{/if}
+                                </span>
+                                {#if m.price}<strong class="pick-price">${Number(m.price).toFixed(2)}</strong>{/if}
+                            </a>
+                        </li>
+                    {/each}
+                </ul>
+            </aside>
+        {/if}
+
         {#if makers.length}
             <section id="makers" class="makers">
                 <h2 class="section-title">Gifts from small makers</h2>
-                <p class="section-sub">Handmade, women-owned, Indigenous-owned and more, from sellers reviewed by <a href={tagged(MAKERS_HOME)} rel="noopener" target="_blank">Cause-Cart</a>.</p>
+                <p class="section-sub">Handmade, women-owned, Indigenous-owned and more, from sellers reviewed by <a href={tagged(MAKERS_HOME + '?utm_source=alonovo&utm_medium=referral')} rel="noopener" target="_blank">Cause-Cart</a>.</p>
                 <div class="filters">
                     <div class="chips" role="group" aria-label="What">
                         <button type="button" class="chip" class:active={!makerCategory} aria-pressed={!makerCategory} onclick={() => makerCategory = ''}>Everything</button>
@@ -201,7 +235,7 @@
                     <ul class="cards">
                         {#each makersAll ? shownMakers : shownMakers.slice(0, MAKERS_SHOWN) as m}
                             <li>
-                                <a class="maker" href={tagged(m.url)} rel="noopener" target="_blank">
+                                <a class="maker" href={link(m)} rel="sponsored noopener" target="_blank">
                                     <span class="photo">{#if m.image_url}<img src={m.image_url} alt="" loading="lazy" />{/if}</span>
                                     {#if m.labels?.length}<span class="tags">{#each m.labels.slice(0, 2) as l}<span class="tag">{l}</span>{/each}</span>{/if}
                                     <span class="name">{m.title}</span>
@@ -354,6 +388,20 @@
     .maker .name { font-weight: 600; font-size: 0.92rem; line-height: 1.25; }
     .tags { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.3rem; }
     .tag { font-size: 0.68rem; font-weight: 600; color: #9d174d; background: #fce7f3; border-radius: 999px; padding: 0.1rem 0.45rem; }
+    .picks { margin: 1.25rem 0 0; padding: 0.75rem; border: 1px solid #f0d9a8; background: #fffaf0; border-radius: 0.75rem; }
+    .picks-head { margin: 0 0 0.5rem; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.6rem; }
+    .picks-title { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #92400e; }
+    .picks-note { font-size: 0.75rem; color: var(--text-muted); }
+    .pick-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+    .pick { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; color: inherit; }
+    .pick img { width: 56px; height: 56px; object-fit: cover; border-radius: 0.4rem; flex-shrink: 0; background: #fff; }
+    .pick .main { flex: 1; }
+    .pick .tags { margin-top: 0.15rem; }
+    .pick:hover .name { color: var(--accent); }
+    .pick-price { flex-shrink: 0; }
+    @media (min-width: 900px) {
+        .pick-list { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 1.5rem; }
+    }
     .more-btn { display: block; margin: 1rem auto 0; min-height: 44px; padding: 0 1.5rem; font: inherit; font-weight: 600; border-radius: 999px; border: 1px solid var(--accent); background: #fff; color: var(--accent); cursor: pointer; }
     .linkish { font: inherit; background: none; border: 0; padding: 0; color: var(--accent); text-decoration: underline; cursor: pointer; }
     @media (min-width: 640px) {
