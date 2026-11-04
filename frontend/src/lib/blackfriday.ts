@@ -9,3 +9,13 @@ export const BLACK_FRIDAY_SECTIONS = [
     { title: 'Cars', tickers: ['TSLA', 'F', 'GM'] },
     { title: 'Where to buy', tickers: ['AMZN', 'WMT', 'TGT', 'COST', 'BBY', 'TJX', 'ROST', 'DKS', 'ASO'] },
 ];
+
+// Shopper-facing categories on the Black Friday page. `deals` are deal categories as the store
+// lists them (Cause-Cart today); `sections` are titles from BLACK_FRIDAY_SECTIONS above.
+export const BLACK_FRIDAY_CATEGORIES = [
+    { name: 'Home', deals: ['Home Décor'], sections: ['Home and appliances'] },
+    { name: 'Fashion', deals: ['Apparel', 'Jewelry', 'Accessories'], sections: ['Clothes, shoes and fashion'] },
+    { name: 'Beauty', deals: ['Beauty'], sections: ['Beauty'] },
+    { name: 'Electronics', deals: [], sections: ['Phones, laptops and TVs'] },
+    { name: 'Food', deals: ['Grocery & Gourmet Food'], sections: [] },
+];
