@@ -138,6 +138,9 @@ class Command(BaseCommand):
                 'value_type': 'label',
                 'is_fixed': False,
                 'is_disqualifying': False,
+                # Same group as forced_labor, exec_pay_ratio, employee_ownership, leadership_diversity
+                'display_group': 'Worker Rights',
+                'display_group_order': 1,
                 'card_display_template': '{label}',
                 'card_icon': 'briefcase',
             }

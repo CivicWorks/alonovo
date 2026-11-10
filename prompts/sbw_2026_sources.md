@@ -152,6 +152,8 @@ claim per list. That needs a decision.
 
 1. BBFAW 2025: **approved**. Command: `import_bbfaw_2025_data`.
 2. Fortune lists: **one shared value**, `workplace_recognition`, holding Women 2026 and Parents 2025.
+   It sits in the **Worker Rights** display group, so it is averaged with the other worker values instead of
+   counting as a whole group of its own in the overall grade.
    Command: `import_workplace_lists_data`. Millennials 2024 is left out (2 years old, overlaps the other two).
 3. Newsweek (III-b, IX): the pages didn't open for the team lead either. Parked.
 4. **Dropped:** II Fortune Diversity (discontinued), IV Catalyst (no company scores), VI Chronicle (data too old).
